@@ -17,7 +17,8 @@
         "laravelcollective/html": "^5.4.0",
         "snowfire/beautymail": "dev-master",
         "tcg/voyager": "1.2.*",
-        "greggilbert/recaptcha": "dev-master"
+        "greggilbert/recaptcha": "dev-master",
+        "gloudemans/shoppingcart": "^2.5"
     },
     "require-dev":{
         "barryvdh/laravel-debugbar": "^3.2.4",

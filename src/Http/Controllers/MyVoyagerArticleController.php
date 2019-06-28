@@ -1,10 +1,10 @@
 <?php
 
-namespace Javck\Easyweb2\Controllers;
+namespace Javck\Easyweb2\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 use App\Http\Requests;
 use App\Article;
 use App\Tag;

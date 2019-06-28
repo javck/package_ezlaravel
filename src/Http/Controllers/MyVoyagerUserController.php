@@ -5,7 +5,7 @@ namespace Javck\Easyweb2\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 
 class MyVoyagerUserController extends MyVoyagerBaseController
 {

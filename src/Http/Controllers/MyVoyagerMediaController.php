@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Session;
 
 use TCG\Voyager\Facades\Voyager;
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 
 class MyVoyagerMediaController extends MyVoyagerBaseController
 {

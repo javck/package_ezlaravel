@@ -12,7 +12,7 @@ use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 use App\Consolidation;
 
 class MyVoyagerOrderController extends MyVoyagerBaseController

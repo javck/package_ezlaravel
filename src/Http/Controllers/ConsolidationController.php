@@ -14,7 +14,7 @@ use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use Auth;
 use App;
 use App\User;
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 
 class ConsolidationController extends MyVoyagerBaseController
 {

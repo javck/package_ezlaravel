@@ -1,0 +1,54 @@
+{
+    "name": "javck/easyweb2",
+    "description": "Easyweb for Laravel Voyager",
+    "type": "liberary",
+    "keywords": ["easyweb"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zack lin",
+            "email": "javck.zack@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1.3",
+        "fideloper/proxy": "^4.0",
+        "laravelcollective/html": "^5.4.0",
+        "snowfire/beautymail": "dev-master",
+        "tcg/voyager": "1.2.*",
+        "greggilbert/recaptcha": "dev-master"
+    },
+    "require-dev":{
+        "barryvdh/laravel-debugbar": "^3.2.4",
+        "laravel/framework": "~5.7.0|~5.8.0",
+        "laravel/tinker": "^1.0"
+    },
+    "autoload": {  
+        "psr-4": {
+            "Javck\\Easyweb2\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Javck\\Easyweb2\\Easyweb2ServiceProvider",
+                "Collective\\Html\\HtmlServiceProvider",
+                "Snowfire\\Beautymail\\BeautymailServiceProvider",
+                "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider",
+                "Greggilbert\\Recaptcha\\RecaptchaServiceProvider",
+                "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"
+            ],
+            "aliases": {
+                "Easyweb2": "Javck\\Easyweb2\\Facades\\Easyweb2",
+                "Form" : "Collective\\Html\\FormFacade",
+                "Html" : "Collective\\Html\\HtmlFacade",
+                "Input" : "Illuminate\\Support\\Facades\\Input",
+                "Collection" : "Illuminate\\Database\\Eloquent\\Collection",
+                "Debugbar" : "Barryvdh\\Debugbar\\Facade",
+                "Recaptcha" : "Greggilbert\\Recaptcha\\Facades\\Recaptcha",
+                "NoCaptcha" : "Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha"
+            }
+        }
+    }
+}

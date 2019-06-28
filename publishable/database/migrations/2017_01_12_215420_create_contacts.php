@@ -22,11 +22,12 @@ class CreateContacts extends Migration
             $table->string('message',500)->nullable();
             $table->string('service',40)->nullable();
             $table->string('email',100)->nullable();
-            $table->string('std_name',20)->nullable();
-            $table->string('std_grade',20)->nullable();
-            $table->string('applyCourse',20)->nullable();
-            $table->boolean('isLearned')->nullable();
-            $table->boolean('isHandled')->default(false);
+            $table->string('status',20)->default('unHandled');
+            $table->string('tag',50)->nullable();
+            $table->integer('handler_id')->unsigned()->index()->nullable();
+            $table->foreign('handler_id')->references('id')->on('users');            
+            $table->integer('creator_id')->unsigned()->index()->nullable();
+            $table->foreign('creator_id')->references('id')->on('users');
             $table->string('source',20)->nullable();
             $table->boolean('enabled')->default(true);
             $table->timestamps();

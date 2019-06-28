@@ -18,6 +18,7 @@
         "snowfire/beautymail": "dev-master",
         "tcg/voyager": "1.2.*",
         "greggilbert/recaptcha": "dev-master",
+        "anhskohbo/no-captcha": "^3.0.4",
         "gloudemans/shoppingcart": "^2.5"
     },
     "require-dev":{

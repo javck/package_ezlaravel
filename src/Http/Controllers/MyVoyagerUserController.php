@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Controllers;
+namespace Javck\Easyweb2\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

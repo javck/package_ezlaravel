@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Controllers;
+namespace Javck\Easyweb2\Http\Controllers;
 
 use App\Http\Model\BI;
 use Illuminate\Http\Request;

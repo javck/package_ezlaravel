@@ -1,4 +1,4 @@
-<?php namespace App\Http\Model\Excel;
+<?php namespace Javck\Easyweb2\Excel;
 
 class OrderListExport extends \Maatwebsite\Excel\Files\NewExcelFile {
 

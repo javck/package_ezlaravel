@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Middleware;
+namespace Javck\Easyweb2\Http\Middleware;
 
 use Closure;
 use Auth;

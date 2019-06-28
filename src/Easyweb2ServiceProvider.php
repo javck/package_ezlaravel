@@ -4,21 +4,23 @@ namespace Javck\Easyweb2;
 
 use Illuminate\Support\ServiceProvider;
 use Javck\Easyweb2\Easyweb2;
-use Javck\Easyweb2\Middleware\AdminOnly;
-use Javck\Easyweb2\Middleware\CheckForMaintenanceMode;
-use Javck\Easyweb2\Middleware\ForceSSL;
-use Javck\Easyweb2\Middleware\RoleCheck;
-use Javck\Easyweb2\Middleware\VerifyEnabled;
+use Javck\Easyweb2\Http\Middleware\AdminOnly;
+use Javck\Easyweb2\Http\Middleware\CheckForMaintenanceMode;
+use Javck\Easyweb2\Http\Middleware\ForceSSL;
+use Javck\Easyweb2\Http\Middleware\RoleCheck;
+use Javck\Easyweb2\Http\Middleware\VerifyEnabled;
 use Javck\Easyweb2\FormFields\ConstantFormField;
 use Javck\Easyweb2\FormFields\TagFormField;
-use Javck\Easyweb2\Controllers\MyVoyagerBaseController;
-use TCG\Voyager\Http\Controllers\VoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
+use Javck\Easyweb2\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Facades\Voyager;
 
 class Easyweb2ServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $publishablePath = dirname(__DIR__) .'/publishable';
+
         //榜定自定義表單輸入項
         Voyager::addFormField(ConstantFormField::class);
         Voyager::addFormField(TagFormField::class);
@@ -27,13 +29,13 @@ class Easyweb2ServiceProvider extends ServiceProvider
         $this->app->bind(VoyagerBaseController::class, MyVoyagerBaseController::class);
 
         //Route
-        include __DIR__ . '/routes.php';
+        include dirname(__DIR__) . '/routes/easyweb2.php';
 
         //Language
-        $this->loadTranslationsFrom(__DIR__ . '/lang', 'easyweb2');
+        $this->loadTranslationsFrom(dirname(__DIR__) . '/resources/lang', 'easyweb2');
 
         //View
-        $this->loadViewsFrom(__DIR__ . '/views', 'easyweb2');
+        $this->loadViewsFrom(dirname(__DIR__) . '/resources/views', 'easyweb2');
 
         //Middleware
         $this->addMiddlewareAlias('javck.adminOnly', AdminOnly::class);
@@ -44,19 +46,17 @@ class Easyweb2ServiceProvider extends ServiceProvider
 
         //Files & Assets
         $this->publishes([
-            __DIR__.'/views' => resource_path('views'),
-            __DIR__.'/lang' => resource_path('lang'),
-            __DIR__.'/database' => database_path('/'),
-            __DIR__.'/Excel' => app_path('/'),
-            __DIR__.'/Exceptions' => app_path('/'),
-            __DIR__.'/Model/app' => app_path('/'),
-            __DIR__.'/Policies' => app_path('/'),
-            __DIR__.'/public' => public_path('/'),
-            __DIR__.'/BI.php' => app_path('Http/Model/BI.php'),
-            __DIR__.'/Controllers/Auth/VoyagerAuthController.php' => app_path('Http/Controllers/Auth/VoyagerAuthController.php'),
-            __DIR__.'/webpack.mix.js' => base_path('webpack.mix.js'),
-            __DIR__.'/config' => config_path('/'),
-            __DIR__.'/storage' => storage_path('app/public/')
+            $publishablePath . '/views' => resource_path('views'),
+            $publishablePath . '/lang' => resource_path('lang'),
+            $publishablePath . '/database' => database_path('/'),
+            $publishablePath . '/Exceptions' => app_path('/'),
+            $publishablePath . '/Models/app' => app_path('/'),
+            $publishablePath . '/public' => public_path('/'),
+            $publishablePath . '/BI.php' => app_path('Http/Model/BI.php'),
+            $publishablePath . '/Http/Controllers/Auth/VoyagerAuthController.php' => app_path('Http/Controllers/Auth/VoyagerAuthController.php'),
+            $publishablePath . '/webpack.mix.js' => base_path('webpackCanvas.mix.js'),
+            $publishablePath . '/config' => config_path('/'),
+            $publishablePath . '/storage' => storage_path('app/public/')
         ]);
     }
 

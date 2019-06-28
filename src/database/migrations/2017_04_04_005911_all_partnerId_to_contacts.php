@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AllPartnerIdToContacts extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->integer('partner_id')->unsigned()->index()->nullable(); //引薦單位
+            $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->dropForeign(['partner_id']);
+        });
+    }
+}

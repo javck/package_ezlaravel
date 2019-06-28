@@ -34,8 +34,6 @@ class AddColumnsUsersTable extends Migration
             $table->string('socialLinks' , 1000)->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            //2019/02/26因導入Voyager而新增
-            $table->string('avatar',191)->default('user/default.png');
         });
     }
 

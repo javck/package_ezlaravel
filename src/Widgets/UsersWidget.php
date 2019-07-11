@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Model\Widgets;
+namespace Javck\Easyweb2\Widgets;
 
 use App\User;
 use TCG\Voyager\Facades\Voyager;

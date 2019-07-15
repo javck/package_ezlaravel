@@ -1,4 +1,4 @@
-@extends('layouts.edit-add-master')
+@extends('easyweb2::layouts.edit-add-master')
 
 
 @section('panel_l_1_title')
@@ -6,7 +6,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['username','password','name','email','enabled'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['username','password','name','email','enabled'] ])
 
     <!--  語系Locale -->
     @php
@@ -32,7 +32,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['nickname','title','birthday','organization','mobile','tel','post_id','address','desc','socialLinks'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['nickname','title','birthday','organization','mobile','tel','post_id','address','desc','socialLinks'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -40,7 +40,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name','email','password','default_role','additional_roles','username','nickname','avatar','birthday','user_belongsto_role_relationship','user_belongstomany_role_relationship','post_id','address','desc','title','organization','enabled','tel','mobile'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name','email','password','default_role','additional_roles','username','nickname','avatar','birthday','user_belongsto_role_relationship','user_belongstomany_role_relationship','post_id','address','desc','title','organization','enabled','tel','mobile'] ])
 @stop
 
 @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'super')
@@ -79,7 +79,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['avatar'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['avatar'] ])
 @stop
 
 @section('panel_r_3_all')

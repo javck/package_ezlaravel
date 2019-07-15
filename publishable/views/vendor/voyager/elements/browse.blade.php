@@ -10,7 +10,7 @@
 @endphp
 
 @section('search_filter')
-    @include('includes._filterField', ['fields' => $fields])
+    @include('easyweb2::includes._filterField', ['fields' => $fields])
 @stop
 
 @section('javascript')

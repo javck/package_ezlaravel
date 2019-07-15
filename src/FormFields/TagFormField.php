@@ -20,7 +20,7 @@ class TagFormField extends AbstractHandler
         if (isset($options->default)) {
             $default = $options->default;
         }
-        return view('formFields.tagFormField', [
+        return view('easyweb2::formFields.tagFormField', [
             'row' => $row,
             'default' => $default,
             'options' => $_options,

@@ -21,7 +21,7 @@ class ConstantFormField extends AbstractHandler
         if (isset($options->default)) {
             $default = $options->default;
         }
-        return view('formFields.constantFormField', [
+        return view('easyweb2::formFields.constantFormField', [
             'row' => $row,
             'default' => $default,
             'options' => $_options,

@@ -12,12 +12,10 @@
     "contacts.update" : "更新聯絡單",
     "medias.new" : "建立新多媒體",
     "medias.update" : "更新多媒體",
-    "resumes.new" : "建立新履歷",
-    "resumes.update" : "更新履歷",
-    "quizzes.new" : "建立新題庫",
-    "quizzes.update" : "更新題庫",
     "elements.new" : "建立新網頁元素",
     "elements.update" : "更新網頁元素",
-    "classrooms.new" : "建立新教室",
-    "classrooms.update" : "更新教室"
+    "consolidations.new" : "建立新集運單",
+    "consolidations.update" : "更新集運單",
+    "orders.new" : "建立新訂單",
+    "orders.update" : "編輯訂單"
 } 

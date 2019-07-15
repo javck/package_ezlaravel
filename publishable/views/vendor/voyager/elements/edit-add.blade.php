@@ -1,4 +1,4 @@
-@extends('layouts.edit-add-master')
+@extends('easyweb2::layouts.edit-add-master')
 
 @section('panel_top')
     @if(isset($dataTypeContent))
@@ -15,7 +15,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','subtitle','mode','page','position'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','subtitle','mode','page','position'] ])
 @stop
 
 @section('panel_l_2_title')
@@ -23,7 +23,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['url','url_txt','video','content','pic','alt'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['url','url_txt','video','content','pic','alt'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -31,7 +31,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title','subtitle','mode','sort','enabled','video','content','pic','alt','page','lang','position','title_pos','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay','url','url_txt'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title','subtitle','mode','sort','enabled','video','content','pic','alt','page','lang','position','title_pos','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay','url','url_txt'] ])
 @stop
 
 @section('panel_r_1_title')
@@ -39,7 +39,7 @@
 @stop
 
 @section('panel_r_1_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['lang','sort','enabled'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['lang','sort','enabled'] ])
 @stop
 
 @section('panel_r_2_title')
@@ -47,7 +47,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title_pos','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title_pos','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay'] ])
 @stop
 
 @section('panel_r_3_all')

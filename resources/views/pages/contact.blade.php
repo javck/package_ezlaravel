@@ -23,7 +23,7 @@
 
 						<div class="contact-form-result"></div>
 
-						{{ Form::open(['action'=>'ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
+						{{ Form::open(['action'=>'Javck\Easyweb2\ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
 							<input type="hidden" name="fun" value="contact">
 							<input type="hidden" name="mode" value="contact">
 							<div class="form-process"></div>
@@ -133,7 +133,7 @@
 							<div class="fbox-icon">
 								<a href="#"><i class="icon-phone3"></i></a>
 							</div>
-							<h3>{{ trans('page.welcomeCall') }}<span class="subtitle">{{$phone}}</span></h3>
+							<h3>{{ trans('page.welcomeCall') }}<span class="subtitle">{{setting('site.phone')}}</span></h3>
 						</div>
 					</div>
 
@@ -142,7 +142,7 @@
 							<div class="fbox-icon">
 								<a href="#"><i class="icon-mobile"></i></a>
 							</div>
-							<h3>{{ trans('page.consulter') }}<span class="subtitle">{{$mobile}}</span></h3>
+							<h3>{{ trans('page.consulter') }}<span class="subtitle">{{setting('site.mobile')}}</span></h3>
 						</div>
 					</div>
 
@@ -151,7 +151,7 @@
 							<div class="fbox-icon">
 								<a href="#"><i class="icon-line-mail"></i></a>
 							</div>
-							<h3>{{ trans('page.serviceMail')}}<a href="mailto:{{$service_mail}}"><span class="subtitle">{{$service_mail}}</span></a></h3>
+							<h3>{{ trans('page.serviceMail')}}<a href="mailto:{{setting('site.service_mail')}}"><span class="subtitle">{{setting('site.service_mail')}}</span></a></h3>
 						</div>
 					</div>
 
@@ -160,7 +160,7 @@
 							<div class="fbox-icon">
 								<a href="#"><i class="icon-line2-users"></i></a>
 							</div>
-							<h3>{{ trans('page.fans') }}<a href="https://www.facebook.com/goblinLab" target="_blank"><span class="subtitle">{{$fb_id}}</span></a></h3>
+							<h3>{{ trans('page.fans') }}<a href="https://www.facebook.com/{{setting('site.fb_id')}}" target="_blank"><span class="subtitle">{{setting('site.fb_id')}}</span></a></h3>
 						</div>
 					</div>
 

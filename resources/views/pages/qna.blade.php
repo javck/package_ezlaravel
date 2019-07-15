@@ -41,7 +41,7 @@
 	</div>
 	<div class="clear"></div>
 	<!-- Call To Action  -->
-	@include('partials.action')
+	@include('easyweb2::partials.action')
 @stop
 
 @section('js')

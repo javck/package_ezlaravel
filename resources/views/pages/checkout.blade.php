@@ -8,7 +8,7 @@
 @stop
 
 @section('body')
-    @include('includes._checkout')
+    @include('easyweb2::includes._checkout')
 @stop
 
 @section('js')

@@ -105,6 +105,6 @@
 				</ul>
 			</div>
 		</div>
-		@include('partials.sidebar-widgets.sidebar-widgets')
+		@include('easyweb2::partials.sidebar-widgets.sidebar-widgets')
 	</div>
 </aside>

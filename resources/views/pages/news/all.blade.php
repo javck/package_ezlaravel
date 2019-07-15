@@ -5,5 +5,5 @@
 @stop
 @section('page_title'){{ trans('page.newsAll') }} @stop
 @section('body')
-	@include('partials.articles')
+	@include('easyweb2::partials.articles')
 @stop

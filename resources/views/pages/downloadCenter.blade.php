@@ -19,5 +19,5 @@
 			</div>
 		</div>
 	</div>
-	@include('partials.articles')
+	@include('easyweb2::partials.articles')
 @stop

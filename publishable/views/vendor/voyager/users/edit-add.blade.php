@@ -57,7 +57,7 @@
             $row = $dataTypeRows->where('field', 'user_belongsto_role_relationship')->first();
             $options = $row->details;
             @endphp
-            @include('formFields.user_relationship')
+            @include('easyweb2::formFields.user_relationship')
         </div>
         <div class="form-group">
             <label for="additional_roles">{{ __('voyager::profile.roles_additional') }}</label>
@@ -65,7 +65,7 @@
             $row = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
             $options = $row->details;
             @endphp
-            @include('formFields.user_relationship')
+            @include('easyweb2::formFields.user_relationship')
         </div>
     @stop
 @else

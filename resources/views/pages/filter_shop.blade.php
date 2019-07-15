@@ -55,7 +55,7 @@
 
 			</div><!-- #shop end -->
 			<br/><br/>
-			@include('includes._partners')
+			@include('easyweb2::includes._partners')
 		</div><!-- .postcontent end -->
 
 		<!-- Sidebar

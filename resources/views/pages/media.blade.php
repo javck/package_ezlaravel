@@ -30,7 +30,7 @@
 					<h3>多媒體展示</h3>
 				</div>
 
-				@include('partials.medias')
+				@include('easyweb2::partials.medias')
 
 
 			</div>
@@ -39,5 +39,5 @@
 	</div>
 </section><!-- #content end -->
 	<!-- Call To Action  -->
-	@include('partials.action')
+	@include('easyweb2::partials.action')
 @stop

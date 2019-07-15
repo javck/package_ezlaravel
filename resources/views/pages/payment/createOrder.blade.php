@@ -8,7 +8,7 @@
 @stop
 
 @section('pri_nav')
-    {{ menu('frontend', 'partials.priNav') }}
+    {{ menu('frontend', 'menu.classic') }}
 @stop
 
 @section('body')
@@ -157,8 +157,8 @@
 
             </div>
             <div class="accordion clearfix">
-                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>歐付寶</div>
-                <div class="acc_content clearfix">透過第三方金流：歐付寶來進行支付，支援信用卡/7-11付款/銀行轉帳</div>
+                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>綠界金流</div>
+                <div class="acc_content clearfix">透過第三方金流：綠界金流來進行支付，支援信用卡/網路ATM/ATM櫃員機/超商條碼</div>
 
                 {{-- <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>線上刷卡</div>
                 <div class="acc_content clearfix">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</div>

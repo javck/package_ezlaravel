@@ -83,7 +83,7 @@
 
 		<!-- Footer
 		============================================= -->
-		@include('includes/_simpleFooter')
+		@include('easyweb2::includes._simpleFooter')
 
 	</div><!-- #wrapper end -->
 

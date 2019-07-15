@@ -1,4 +1,4 @@
-@extends('easyweb2::layouts.edit-add-master')
+@extends('layouts.edit-add-master')
 
 @section('panel_top')
     @if(isset($dataTypeContent))

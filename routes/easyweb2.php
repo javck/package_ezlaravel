@@ -46,6 +46,13 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode']
         Route::get('createCheckout', 'ShopController@createCheckout');
         Route::post('submitCheckout', 'ShopController@submitCheckout');
     });
+
+    Route::group(['prefix' => 'payment'],function(){
+        Route::get('create_allpay/{id}','SiteController@createAllPayOrderPage');
+        Route::get('request','SiteController@paymentRequest')->name('payment.request');
+        Route::post('submitCheckout','SiteController@createPaymentOrder');
+        Route::post('done/{order_id}','SiteController@paymentReturn');
+    });
 });
 
 

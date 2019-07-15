@@ -1,4 +1,4 @@
-@extends('easyweb2::layouts.edit-add-master')
+@extends('layouts.edit-add-master')
 
 
 @section('panel_l_1_title')

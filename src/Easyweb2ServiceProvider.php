@@ -58,6 +58,8 @@ class Easyweb2ServiceProvider extends ServiceProvider
             $publishablePath . '/config' => config_path('/'),
             $publishablePath . '/storage' => storage_path('app/public/')
         ]);
+
+         Voyager::addAction(\Javck\Easyweb2\Actions\PayAction::class);
     }
 
     public function register()

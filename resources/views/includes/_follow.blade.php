@@ -3,13 +3,13 @@
 </div>
 
 {{--更多icon可參考http://www.socicon.com/how.php--}}
-@empty(!$fb_page)
-    <a href="{{$fb_page}}" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+@empty(!setting('site.fb_id'))
+    <a href="https://www.facebook.com/{{setting('site.fb_id')}}" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
         <span class="socicon-facebook"></span>
     </a>
 @endempty
 
-@empty(!$android_page)
+{{-- @empty(!$android_page)
     <a href="{{$android_page}}" class="social-icon si-android" data-toggle="tooltip" data-placement="top" title="Android">
         <span class="socicon-android"></span>
     </a>
@@ -55,4 +55,4 @@
         <a href="{{$instagram_page}}" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Line">
             <span class="socicon-instagram"></span>
         </a>
-    @endempty
+    @endempty --}}

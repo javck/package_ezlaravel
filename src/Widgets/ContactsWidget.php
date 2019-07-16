@@ -34,7 +34,7 @@ class ContactsWidget extends BaseDimmer
                 'text' => '更多資訊',
                 'link' => route('voyager.contacts.index'),
             ],
-            'image' => url('storage/images/widgets/contacts.jpg'),
+            'image' => url('storage/widgets/contacts.jpg'),
         ]));
     }
 

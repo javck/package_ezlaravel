@@ -33,7 +33,7 @@ class UsersWidget extends BaseDimmer
                 'text' => '更多資訊',
                 'link' => route('voyager.users.index') . '?key=enabled&filter=true&s='
             ],
-            'image' => url('storage/images/widgets/users.jpg'),
+            'image' => url('storage/widgets/users.jpg'),
         ]));
     }
 

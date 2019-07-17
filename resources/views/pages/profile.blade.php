@@ -1,7 +1,11 @@
 @extends('layouts.site2')
 @section('seo')
-	<meta name="keywords" content="{{ $keywords }}">
-    <meta name="description" content="{{ $description }}">
+	@isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
 @stop
 @section('page_title') {{trans('menu.myProfile')}} @stop
 

@@ -282,9 +282,9 @@
                                                     @endif
                                                 @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
                                                     
-                                                    {!! app('easyweb2')->getConstDropDownVal($row->details->key,$data->{$row->field}) !!}
+                                                    {!! app('easyweb2')->getConstDropDownVal($row->details->key,$data->getOriginal($row->field)) !!}
                                                 @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
-                                                    {!! app('easyweb2')->getTagDropDownVal($data->{$row->field}) !!}
+                                                    {!! app('easyweb2')->getTagDropDownVal($data->getOriginal($row->field)) !!}
                                                 @elseif($row->type == 'media_picker')
                                                     @php
                                                         if (is_array($data->{$row->field})) {

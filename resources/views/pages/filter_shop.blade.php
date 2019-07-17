@@ -1,7 +1,18 @@
 @extends('layouts.site')
 
-@section('title','商店')
+@section('seo')
+	@isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
+@stop
+@section('page_title','商店')
 
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
 
 @section('body')
 	<div class="container clearfix">

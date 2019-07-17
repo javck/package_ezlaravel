@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('page_title')
-	Register
+	註冊
 @stop
 
 @section('section')

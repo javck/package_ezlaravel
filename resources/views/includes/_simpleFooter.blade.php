@@ -8,7 +8,7 @@
             <div class="col_half">
                 {{setting('site.frontend_footer')}}<br>
                 <div class="copyright-links">
-                    {{ menu('frontend_footer','partials.menu_footer') }}
+                    {{ menu('frontend_footer','menu.menu_footer') }}
                 </div>
             </div>
 

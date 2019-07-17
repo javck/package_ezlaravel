@@ -18,7 +18,7 @@ class RoleCheck
     {
         if(Auth::guard($guard)->check() && !isset(Auth::user()->role)){
             if($request->route()->getName() != 'voyager.logout'){
-                return redirect('/404-page');
+                abort(404);
             }
         }
         return $next($request);

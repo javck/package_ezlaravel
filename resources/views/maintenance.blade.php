@@ -1,5 +1,8 @@
 @extends('layouts.site')
 
+@section('page_title')維修中@stop
+
+
 @section('body')
 	<div class="container clearfix">
 

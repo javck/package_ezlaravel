@@ -1,8 +1,17 @@
 @extends('layouts.site')
 @section('seo')
-    <meta name="description" content="{{ $description }}">
+    @isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
 @stop
 @section('page_title')關於我們@stop
+
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
 
 @section('page_top')
 	<section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/{{$page_top->pic}}'); background-size: cover; background-position: center center;" data-stellar-background-ratio="0.4">

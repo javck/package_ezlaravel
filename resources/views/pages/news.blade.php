@@ -1,9 +1,18 @@
 @extends('layouts.site')
 @section('seo')
-	<meta name="keywords" content="">
-    <meta name="description" content="">
+	@isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
 @stop
 @section('page_title')最新消息 @stop
+
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
+
 @section('body')
 	{{--<div class="content-wrap">--}}
 		{{--<div class="container clearfix">--}}

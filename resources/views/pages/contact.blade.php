@@ -1,9 +1,17 @@
 @extends('layouts.site')
 @section('seo')
-	<meta name="keywords" content="{{ $keywords }}">
-    <meta name="description" content="{{ $description }}">
+	@isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
 @stop
 @section('page_title'){{ trans('page.contactUs') }}@stop
+
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
 
 @section('body')
 	<section id="content">
@@ -23,7 +31,7 @@
 
 						<div class="contact-form-result"></div>
 
-						{{ Form::open(['action'=>'Javck\Easyweb2\ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
+						{{ Form::open(['action'=>'\Javck\Easyweb2\Http\ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
 							<input type="hidden" name="fun" value="contact">
 							<input type="hidden" name="mode" value="contact">
 							<div class="form-process"></div>

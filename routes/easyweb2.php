@@ -31,7 +31,7 @@ Route::get('/myip',function(){
 
 //前台====================================
 Route::group(['middleware' => ['javck.checkForMaintenanceMode']
-    ,'namespace' => 'Javck\Easyweb2\Controllers',], function () {
+    ,'namespace' => 'Javck\Easyweb2\Http\Controllers',], function () {
     Route::post('/submitContact', 'ContactController@save');
 
     Route::prefix('articles')->group(function () {
@@ -54,6 +54,12 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode']
         Route::post('done/{order_id}','SiteController@paymentReturn');
     });
 });
+Route::group(['middleware' => ['javck.checkForMaintenanceMode'],'prefix' => 'payment'], function () {
+    Route::get('create_allpay/{id}','SiteController@createAllPayOrderPage');
+    Route::get('request','SiteController@paymentRequest')->name('payment.request');
+    Route::post('submitCheckout','SiteController@createPaymentOrder');
+    Route::post('done/{order_id}','SiteController@paymentReturn');
+});
 
 
 Route::get('/404-page', function () {
@@ -62,7 +68,7 @@ Route::get('/404-page', function () {
 
 //後台====================================
 //Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled']],function () {
-Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
+Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Http\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
     Voyager::routes();
     Route::prefix('elements')->group(function () {
         Route::get('del/{id}', 'MyVoyagerElementController@destroy');

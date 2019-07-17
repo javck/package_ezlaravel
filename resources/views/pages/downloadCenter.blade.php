@@ -1,7 +1,11 @@
 @extends('layouts.site_noHeader')
 @section('seo')
-	<meta name="keywords" content="">
-    <meta name="description" content="">
+	@isset($keywords)
+	    <meta name="keywords" content="{{ $keywords }}">
+	@endisset
+	@isset($description)
+	    <meta name="description" content="{{ $description }}">
+	@endisset
 @stop
 @section('page_title')下載中心 @stop
 @section('body')

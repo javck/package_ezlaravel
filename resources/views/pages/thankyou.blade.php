@@ -8,6 +8,10 @@
 	@endisset
 @stop
 @section('page_title')填寫表單成功@stop
+
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
 	
 @section('body')
 	<div class="container clearfix">

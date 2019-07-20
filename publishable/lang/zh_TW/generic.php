@@ -107,5 +107,5 @@ return [
     'avatar' => '頭像',
     'btn_setting' => '按鈕設定',
     'media' => '多媒體',
-
+    'notify'    => '通知'
 ];

@@ -31,7 +31,7 @@
 
 						<div class="contact-form-result"></div>
 
-						{{ Form::open(['action'=>'\Javck\Easyweb2\Http\ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
+						{{ Form::open(['action'=>'\Javck\Easyweb2\Http\Controllers\ContactController@save','role'=>'form','class'=>'nobottommargin']) }}
 							<input type="hidden" name="fun" value="contact">
 							<input type="hidden" name="mode" value="contact">
 							<div class="form-process"></div>

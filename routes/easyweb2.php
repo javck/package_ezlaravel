@@ -31,7 +31,7 @@ Route::get('/myip',function(){
 
 //前台====================================
 Route::group(['middleware' => ['javck.checkForMaintenanceMode']
-    ,'namespace' => 'Javck\Easyweb2\Http\Controllers',], function () {
+    ,'namespace' => '\Javck\Easyweb2\Http\Controllers',], function () {
     Route::post('/submitContact', 'ContactController@save');
 
     Route::prefix('articles')->group(function () {
@@ -68,7 +68,7 @@ Route::get('/404-page', function () {
 
 //後台====================================
 //Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled']],function () {
-Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Http\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
+Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
     Voyager::routes();
     Route::prefix('elements')->group(function () {
         Route::get('del/{id}', 'MyVoyagerElementController@destroy');
@@ -91,3 +91,22 @@ Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],funct
     Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
     Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
 });
+
+//API=======================================
+Route::group(['namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => 'api'],function () {
+    //For Demo
+    Route::get('items/show','ApiController@showSingleItem');
+    Route::get('items/{item}','ApiController@queryItem');
+    Route::get('page/loadTopCart','ApiController@loadTopCart');
+    Route::get('shop/addCart','ShopController@addCart');
+    Route::get('shop/updateCart','ShopController@updateCart');
+    Route::get('shop/removeCart','ShopController@removeCart');
+    Route::get('shop/clearCart','ShopController@clearCart');
+    //Official
+    Route::post('areas/queryByCounty','ApiController@queryAreas');
+    Route::post('elements/queryPositions','ApiController@queryPositions');
+    Route::post('elements/queryElementModes','ApiController@queryElementModes');
+});
+
+
+

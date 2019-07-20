@@ -83,7 +83,7 @@ class MyVoyagerBaseController extends VoyagerBaseController
                 }
 
                 if ($row->type == 'tag dropdown' || $row->type == 'constant dropdown') {
-                    $content = null;
+                    $content = $data->{$row->field};
                 }
             }
 

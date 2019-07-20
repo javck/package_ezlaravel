@@ -29,20 +29,18 @@
                 <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse:separate !important;">
                   <tr>
                     <td class="mini-block">
-                      <span class="header-sm">路線</span><br />
-                      {{ $contact->deliver }} <br />
-                      <span class="header-sm">貨物類型</span><br />
-                      {{ $contact->getCargoTypeName()}} <br />
-                      <span class="header-sm">目的城市</span><br />
-                      {{ $contact->destination}} <br />
-                      <span class="header-sm">貨物重量</span><br />
-                      {{ $contact->weight}}公斤 <br />
-                      <span class="header-sm">貨物長度</span><br />
-                      {{ $contact->length}}公分 <br />
-                      <span class="header-sm">貨物寬度</span><br />
-                      {{ $contact->width}}公分 <br />
-                      <span class="header-sm">貨物高度</span><br />
-                      {{ $contact->height}}公分
+                      <span class="header-sm">所需服務</span><br />
+                      {{ $contact->getServiceName() }} <br />
+                      <br />
+                      <span class="header-sm">表單來源</span><br />
+                      {{ $contact->getSourceName() }} <br />
+                      <br />
+                      <span class="header-sm">主旨</span><br />
+                      {{ $contact->subject }} <br />
+                      <br />
+                      <span class="header-sm">訊息</span> <br />
+                      {{ $contact->message }}
+                    </td>
                   </tr>
                 </table>
               </td>

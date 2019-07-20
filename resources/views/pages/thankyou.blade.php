@@ -7,19 +7,15 @@
 	    <meta name="description" content="{{ $description }}">
 	@endisset
 @stop
-@section('page_title')感謝@stop
-
-@section('pri_nav')
-    {{ menu('frontend','menu.classic') }}
-@stop
+@section('page_title')填寫表單成功@stop
 	
 @section('body')
 	<div class="container clearfix">
 
 		<div class="heading-block center nobottomborder">
-			<h1>感謝您的支持</h1>
+			<h1>感謝您填寫表單與指教</h1>
 			<i class="icon-checkmark" style="font-size: 96px;color: green;"></i>
-			<span>我們將儘快處理您的訂單，並發送相關資訊給您參考！</span>
+			<span>我們將儘快與您聯絡，並提供您所需要的協助！</span>
 		</div>
 
 		<div class="col_one_third topmargin">
@@ -37,8 +33,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-time"></i></a>
 				</div>
-				<h3>最新活動資訊</h3>
-				<p>所有商品與活動的最新資訊，都透過電子報讓您知道</p>
+				<h3>最新產業資訊</h3>
+				<p>所有產業的最新資訊，都透過電子報讓您知道</p>
 			</div>
 		</div>
 
@@ -47,8 +43,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-email3"></i></a>
 				</div>
-				<h3>最新文章通知</h3>
-				<p>喜歡我們的網站文章嗎?隨時通知您文章的最新動態</p>
+				<h3>最新消息通知</h3>
+				<p>關注我們的最新消息嗎?隨時通知您最新動態</p>
 			</div>
 		</div>
 

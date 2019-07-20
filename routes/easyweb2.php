@@ -31,7 +31,7 @@ Route::get('/myip',function(){
 
 //前台====================================
 Route::group(['middleware' => ['javck.checkForMaintenanceMode']
-    ,'namespace' => '\Javck\Easyweb2\Http\Controllers',], function () {
+    ,'namespace' => '\Javck\Easyweb2\Http\Controllers'], function () {
     Route::post('/submitContact', 'ContactController@save');
 
     Route::prefix('articles')->group(function () {
@@ -47,14 +47,8 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode']
         Route::post('submitCheckout', 'ShopController@submitCheckout');
     });
 
-    Route::group(['prefix' => 'payment'],function(){
-        Route::get('create_allpay/{id}','SiteController@createAllPayOrderPage');
-        Route::get('request','SiteController@paymentRequest')->name('payment.request');
-        Route::post('submitCheckout','SiteController@createPaymentOrder');
-        Route::post('done/{order_id}','SiteController@paymentReturn');
-    });
 });
-Route::group(['middleware' => ['javck.checkForMaintenanceMode'],'prefix' => 'payment'], function () {
+Route::group(['middleware' => ['javck.checkForMaintenanceMode'],'prefix' => 'payment','namespace' => '\App\Http\Controllers'], function () {
     Route::get('create_allpay/{id}','SiteController@createAllPayOrderPage');
     Route::get('request','SiteController@paymentRequest')->name('payment.request');
     Route::post('submitCheckout','SiteController@createPaymentOrder');
@@ -64,6 +58,10 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode'],'prefix' => 'pay
 
 Route::get('/404-page', function () {
     return view('404-page');
+});
+
+Route::get('/thank', function () {
+    return view('pages.thankyou');
 });
 
 //後台====================================
@@ -91,22 +89,3 @@ Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],funct
     Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
     Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
 });
-
-//API=======================================
-Route::group(['namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => 'api'],function () {
-    //For Demo
-    Route::get('items/show','ApiController@showSingleItem');
-    Route::get('items/{item}','ApiController@queryItem');
-    Route::get('page/loadTopCart','ApiController@loadTopCart');
-    Route::get('shop/addCart','ShopController@addCart');
-    Route::get('shop/updateCart','ShopController@updateCart');
-    Route::get('shop/removeCart','ShopController@removeCart');
-    Route::get('shop/clearCart','ShopController@clearCart');
-    //Official
-    Route::post('areas/queryByCounty','ApiController@queryAreas');
-    Route::post('elements/queryPositions','ApiController@queryPositions');
-    Route::post('elements/queryElementModes','ApiController@queryElementModes');
-});
-
-
-

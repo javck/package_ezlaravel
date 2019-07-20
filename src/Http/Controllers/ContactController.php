@@ -7,6 +7,7 @@ use App\Contact;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class ContactController extends Controller
 {
@@ -48,20 +49,23 @@ class ContactController extends Controller
         $inputs = $request->all();
         $contact = Contact::create($inputs);
         if (isset($contact)) {
-            //發送Email通知給管理員
+            
             if (setting('admin.isSendNotify') == true) {
                 if (App::environment() == 'production') {
-                    $beautyMail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-                    $beautyMail->send('emails.reminder', ['title' => '有新的聯絡單', 'contact' => $contact, 'mode' => 'contact'], function ($m) {
-                        $m->from(setting('site.service_mail'), setting('site.title'));
-                        $m->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
+                    $url = url('/admin/contacts/' . $contact->id);
+                    //發送Email通知給管理員
+                    Mail::send('emails.notifyContact', ['title' => '您有新的聯絡單' , 'content' => $content , 'action' => ['title' => '前往' , 'url' => $url]], function($message) use($subject)
+                    {
+                        $message->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
                     });
+
                     if (isset($contact->email)) {
                         //發送Email通知給用戶
-                        $beautyMail->send('emails.notify', ['title' => trans('label.receivedContact'), 'content' => trans('label.notifyContent')], function ($m) use ($contact) {
-                            $m->from(setting('site.service_mail'), Constant::site_name);
-                            $m->to($contact->email, $contact->name)->subject(trans('label.receivedContact'));
+                        Mail::send('emails.simple', ['title' => trans('label.receivedContact') , 'content' => trans('label.notifyContent') , 'action' => ['title' => '前往官網' , 'url' => url('/')]], function($message) use($contact)
+                        {
+                            $message->to($contact->email, $contact->name)->subject(trans('label.receivedContact'));
                         });
+
                     }
 
                 }

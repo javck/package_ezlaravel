@@ -34,7 +34,6 @@
             "providers": [
                 "Javck\\Easyweb2\\Easyweb2ServiceProvider",
                 "Collective\\Html\\HtmlServiceProvider",
-                "Snowfire\\Beautymail\\BeautymailServiceProvider",
                 "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider",
                 "Greggilbert\\Recaptcha\\RecaptchaServiceProvider",
                 "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"

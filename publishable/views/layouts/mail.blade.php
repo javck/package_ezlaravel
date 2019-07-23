@@ -269,12 +269,16 @@
         <table cellspacing="0" cellpadding="0" width="600" class="w320">
           <tr>
             <td class="header-lg">
-              {{ $title }}
+              @if (isset($title))
+                {{ $title }}
+              @endif
             </td>
           </tr>
           <tr>
             <td class="free-text">
-              {!! $content !!}
+              @if (isset($content))
+                {!! $content !!}
+              @endif
             </td>
           </tr>
           @if (isset($action))

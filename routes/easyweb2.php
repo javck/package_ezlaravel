@@ -30,7 +30,7 @@ Route::get('/myip',function(){
 //});
 
 //前台====================================
-Route::group(['middleware' => ['javck.checkForMaintenanceMode']
+Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     ,'namespace' => '\Javck\Easyweb2\Http\Controllers'], function () {
     Route::post('/submitContact', 'ContactController@save');
 

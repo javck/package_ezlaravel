@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
         //表示沒有存取的權限，轉到404錯誤頁
         if ($exception->getCode() == 0) {
             if(env('APP_ENV') == 'production'){
-                abort(404);
+                //abort(404);
             }
         }
         return parent::render($request, $exception);

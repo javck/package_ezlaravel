@@ -75,7 +75,7 @@ class SiteController extends Controller
     {
         $services = $services = json_decode(setting('constant.services'), true);
         $item_row1_right = Element::where('page', 'all')->where('position', 'contact_info')->where('enabled', 1)->first();
-        $sources = $services = json_decode(setting('constant.sources'), true);
+        $sources = json_decode(setting('constant.sources'), true);
         $pageView = 'contactPageView';
         return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources', 'pageView'));
     }

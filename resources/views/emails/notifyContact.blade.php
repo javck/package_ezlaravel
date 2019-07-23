@@ -1,6 +1,7 @@
 @extends('layouts.mail')
 
 @section('content_top')
+<tr>
   <td class="w320">
     <table cellpadding="0" cellspacing="0" width="100%">
       <tr>
@@ -44,5 +45,11 @@
                   </tr>
                 </table>
               </td>
-
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
 @stop

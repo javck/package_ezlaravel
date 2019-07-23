@@ -37,14 +37,10 @@ class ContactController extends Controller
             'source' => 'max:20',
         ];
         if ($request->has('fun') && $request->all()['fun'] == 'contact') {
-            $rules['g-recaptcha-response'] = 'required|recaptcha';
+            $rules['g-recaptcha-response'] = 'required|captcha';
         }
-        $validator = Validator::make($request->all(), $rules);
-        //dd($validator->errors()->getMessages());
 
-        if ($validator->fails()) {
-            return array('alert' => "fail", 'message' => $validator->errors()->all()[0]);
-        }
+        $validatedData = $request->validate($rules);
 
         $inputs = $request->all();
         $contact = Contact::create($inputs);
@@ -54,7 +50,7 @@ class ContactController extends Controller
                 if (App::environment() == 'production') {
                     $url = url('/admin/contacts/' . $contact->id);
                     //發送Email通知給管理員
-                    Mail::send('emails.notifyContact', ['title' => '您有新的聯絡單' , 'content' => $content , 'action' => ['title' => '前往' , 'url' => $url]], function($message) use($subject)
+                    Mail::send('emails.notifyContact', ['title' => '您有新的聯絡單' , 'content' => $content , 'action' => ['title' => '前往' , 'url' => $url]], function($message) 
                     {
                         $message->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
                     });
@@ -70,9 +66,9 @@ class ContactController extends Controller
 
                 }
             }
-            return array('alert' => "success", 'message' => trans('messages.contactSuccess'));
+            return redirect('thank');
         } else {
-            return array('alert' => "fail", 'message' => $validator->errors()->all()[0]);
+            return abort(404);
         }
 
     }

@@ -15,15 +15,15 @@ class CreatePartners extends Migration
         Schema::create('partners', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name',40);
-            $table->string('tel',40)->nullable();
-            $table->string('secret',40);
-            $table->string('email',100)->nullable();
-            $table->string('website',100)->nullable();
-            $table->string('address',100)->nullable();
-            $table->double('discount')->default(1);
-            $table->integer('sort')->default(0);
-            $table->boolean('enabled')->default(true);
+            $table->string('name',40); //姓名
+            $table->string('tel',40)->nullable(); //電話
+            $table->string('secret',40); //口令
+            $table->string('email',100)->nullable(); //電子郵箱
+            $table->string('website',100)->nullable(); //網址
+            $table->string('address',100)->nullable(); //地址
+            $table->double('discount')->default(1); //折價
+            $table->integer('sort')->default(0); //排序
+            $table->boolean('enabled')->default(true); //是否啟用
             $table->timestamps();
         });
     }

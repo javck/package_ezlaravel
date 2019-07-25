@@ -15,12 +15,13 @@ class Serials extends Migration
         Schema::create('serials', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index()->nullable();
+            $table->integer('user_id')->unsigned()->index()->nullable(); //使用人
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('serial', 10);
-            $table->string('mode',20);
-            $table->boolean('isSent')->default(false);
-            $table->boolean('isUsed')->default(false);
+            $table->string('serial', 10); //序號
+            $table->string('mode',20); //模式
+            $table->boolean('isSent')->default(false); //是否寄出
+            $table->boolean('isUsed')->default(false); //是否用過
+            $table->string('type', 255)->default('once'); //類型
             $table->timestamps();
         });
     }

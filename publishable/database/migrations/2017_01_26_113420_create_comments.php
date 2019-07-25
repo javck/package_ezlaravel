@@ -17,15 +17,15 @@ class CreateComments extends Migration
             $table->increments('id');
             $table->integer('article_id')->unsigned()->index()->nullable();
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-            $table->string('name',40)->nullable();
-            $table->string('email',100)->nullable();
-            $table->string('website',255)->nullable();
-            $table->integer('user_id')->unsigned()->index()->nullable();
+            $table->string('name',40)->nullable(); //姓名
+            $table->string('email',100)->nullable(); //電子郵箱
+            $table->string('website',255)->nullable(); //網址
+            $table->integer('user_id')->unsigned()->index()->nullable(); //使用者
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('content',800);
-            $table->integer('reply_to')->nullable();
-            $table->integer('sort')->default(0);
-            $table->boolean('enabled')->default(true);
+            $table->string('content',800); //內容
+            $table->integer('reply_to')->nullable(); //回覆給
+            $table->integer('sort')->default(0); //排序
+            $table->boolean('enabled')->default(true); //是否啟用
             $table->timestamps();
         });
     }

@@ -33,6 +33,10 @@ class CreateCgysTable extends Migration
      */
     public function down()
     {
+        Schema::table('cgys', function(Blueprint $table)
+        { 
+            $table->dropForeign(['parent_id']);
+        });
         Schema::dropIfExists('cgys');
     }
 }

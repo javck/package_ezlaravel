@@ -15,9 +15,10 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cgy_id');  //商品分類
-            $table->string('title',50);
-            $table->string('pics')->nullable();
+            $table->integer('cgy_id')->unsigned()->index();//商品分類    
+            $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
+            $table->string('title',50); //標題
+            $table->string('pics')->nullable(); //圖片
             $table->integer('price_og')->default(0); //初始售價
             $table->integer('price_new')->nullable(); //更新售價
             $table->string('badge',30)->nullable(); //小標
@@ -28,7 +29,7 @@ class CreateItemsTable extends Migration
             $table->string('sku',100)->nullable(); //sku編號
             $table->string('options',500)->nullable(); //可供選項
             $table->integer('sort')->default(0); //排序
-            $table->boolean('enabled')->default(true);
+            $table->boolean('enabled')->default(true); //是否啟用
             $table->timestamps();
         });
     }
@@ -40,6 +41,10 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
+        Schema::table('items', function(Blueprint $table)
+        { 
+            $table->dropForeign(['cgy_id']);
+        });
         Schema::dropIfExists('items');
     }
 }

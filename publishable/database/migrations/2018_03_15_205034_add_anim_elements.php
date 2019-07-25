@@ -14,8 +14,8 @@ class AddAnimElements extends Migration
     public function up()
     {
         Schema::table('elements', function (Blueprint $table) {
-            $table->string('animation',20)->nullable();
-            $table->integer('animationDelay')->nullable();
+            $table->string('animation',20)->nullable(); //動畫
+            $table->integer('animationDelay')->nullable(); //動畫延遲
         });
     }
 

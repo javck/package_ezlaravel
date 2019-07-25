@@ -15,21 +15,22 @@ class CreateContacts extends Migration
         Schema::create('contacts', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name',20);
-            $table->string('mobile',20);
-            $table->string('subject',100);
-            $table->string('mode',20)->nullable();
-            $table->string('message',500)->nullable();
-            $table->string('service',40)->nullable();
-            $table->string('email',100)->nullable();
-            $table->string('status',20)->default('unHandled');
-            $table->string('tag',50)->nullable();
-            $table->integer('handler_id')->unsigned()->index()->nullable();
+            $table->integer('partner_id')->unsigned()->index()->nullable(); //合作廠商
+            $table->foreign('partner_id')->references('id')->on('partners');           
+            $table->string('name',20); //姓名
+            $table->string('mobile',20)->nullable(); //手機號碼
+            $table->string('subject',100); //主旨
+            $table->string('mode',20)->nullable(); //模式
+            $table->string('message',500)->nullable(); //訊息
+            $table->string('service',40)->nullable(); //所需服務
+            $table->string('email',100)->nullable(); //電子郵箱
+            $table->string('status',20)->default('unHandled'); //聯絡單狀態
+            $table->string('tag',100)->nullable(); //標籤
+            $table->integer('handler_id')->unsigned()->index()->nullable(); //處理者
             $table->foreign('handler_id')->references('id')->on('users');            
-            $table->integer('creator_id')->unsigned()->index()->nullable();
+            $table->integer('creator_id')->unsigned()->index()->nullable(); //建立者
             $table->foreign('creator_id')->references('id')->on('users');
-            $table->string('source',20)->nullable();
-            $table->boolean('enabled')->default(true);
+            $table->string('source',20)->nullable(); //流量來源
             $table->timestamps();
         });
     }
@@ -41,6 +42,12 @@ class CreateContacts extends Migration
      */
     public function down()
     {
+        Schema::table('contacts', function(Blueprint $table)
+        { 
+            $table->dropForeign(['partner_id']);
+            $table->dropForeign(['handler_id']);
+            $table->dropForeign(['creator_id']);
+        });
         Schema::drop('contacts');
     }
 }

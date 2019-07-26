@@ -39,22 +39,43 @@ class MyVoyagerElementController extends MyVoyagerBaseController
                 ]);
         }
     }
+    //暫停使用，使用TCG自帶
+    // public function destroy(Request $request, $id)
+    // {
+    //     $result = true;
+    //     if($id != 0){
+    //         $element = Element::find($id);
+    //         if (isset($element)) {
+    //             $element->delete();
+    //         }else{
+    //             $result = false;
+    //         }
+    //     }else{
+    //         //代表為Mass Delete
+    //         $str_ids = $request->all()['ids'];
 
-    public function destroy(Request $request, $id)
-    {
-        $element = Element::find($id);
-        if (isset($element)) {
-            $element->delete();
-            return redirect('admin/elements')->with([
-                'message' => '元素刪除成功',
-                'alert-type' => 'success',
-            ]);
-        }else{
-            return redirect('admin/elements')->with([
-                    'message' => '元素刪除失敗，找不到該筆資料',
-                    'alert-type' => 'error',
-                ]);
-        }
-    }
+    //         $ids = explode(',',$str_ids);
+    //         foreach ($ids as $value) {
+    //             $element = Element::find($value);
+    //             if (isset($element)) {
+    //                 $element->delete();
+    //             }else{
+    //                 $result = false;
+    //             }
+    //         }
+    //     }
+
+    //     if ($result) {
+    //         return redirect('admin/elements')->with([
+    //             'message' => '元素刪除成功',
+    //             'alert-type' => 'success',
+    //         ]);
+    //     }else{
+    //         return redirect('admin/elements')->with([
+    //             'message' => '元素刪除失敗，找不到該筆資料',
+    //             'alert-type' => 'error',
+    //         ]);
+    //     }
+    // }
 
 }

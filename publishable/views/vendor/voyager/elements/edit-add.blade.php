@@ -59,15 +59,16 @@
 
         //清除元件
         function clear(){
-            $("#title_pos select").val('none').change();
+            $("#title_pos select").val(null).trigger('change');
             $("#url_txt").val(null);
             $("#url").val(null);
             $("#icon").val(null);
             $("#pic").val(null);
             $("#alt").val(null);
             $("#video").val(null);
-            $("#q_mode").val(null);
-            $("#i_mode").val(null);
+            $("#q_mode select").val(null).trigger('change');
+            $("#i_mode select").val(null).trigger('change');
+            $("#animation select").val(null).trigger('change');
             $("#price").val(null);
             $("#priceUnit").val(null);
             $("#price2").val(null);
@@ -156,6 +157,9 @@
         }
 
         $(document).ready(function(){
+            @if(!isset($record))
+                clear();
+            @endif
             hide();
             reset();
             $("#mode").change(function(){

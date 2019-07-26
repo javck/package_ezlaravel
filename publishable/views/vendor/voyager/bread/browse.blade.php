@@ -503,7 +503,7 @@
                     ids.push($(this).val());
                 }
             });
-            $('.selected_ids').val(ids);
+            $('#bulk_delete_input').val(ids);
         });
     </script>
     @stop

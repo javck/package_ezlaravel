@@ -40,21 +40,43 @@ class MyVoyagerMediaController extends MyVoyagerBaseController
         }
     }
 
-    public function destroy(Request $request, $id)
-    {
-        $media = Media::find($id);
-        if (isset($media)) {
-            $media->delete();
-            return redirect('admin/medias')->with([
-                'message' => '多媒體刪除成功',
-                'alert-type' => 'success',
-            ]);
-        }else{
-            return redirect('admin/medias')->with([
-                    'message' => '多媒體刪除失敗，找不到該筆資料',
-                    'alert-type' => 'error',
-                ]);
-        }
-    }
+    //暫停使用，使用TCG自帶
+    // public function destroy(Request $request, $id)
+    // {
+    //     $result = true;
+    //     if($id != 0){
+    //         $media = Media::find($id);
+    //         if (isset($media)) {
+    //             $media->delete();
+    //         }else{
+    //             $result = false;
+    //         }
+    //     }else{
+    //         //代表為Mass Delete
+    //         $str_ids = $request->all()['ids'];
+
+    //         $ids = explode(',',$str_ids);
+    //         foreach ($ids as $value) {
+    //             $media = Media::find($value);
+    //             if (isset($media)) {
+    //                 $media->delete();
+    //             }else{
+    //                 $result = false;
+    //             }
+    //         }
+    //     }
+
+    //     if ($result) {
+    //         return redirect('admin/medias')->with([
+    //             'message' => '多媒體刪除成功',
+    //             'alert-type' => 'success',
+    //         ]);
+    //     }else{
+    //         return redirect('admin/medias')->with([
+    //             'message' => '多媒體刪除失敗，找不到該筆資料',
+    //             'alert-type' => 'error',
+    //         ]);
+    //     }
+    // }
 
 }

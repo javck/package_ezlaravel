@@ -10,14 +10,14 @@ class Element extends Model
 {
     protected $fillable = ['i_mode','q_mode','video','title_pos','icon','lang','position','pic','alt','url','url_txt','mode','page','title','subtitle' ,'content','sort','enabled','price','isBestPrice','priceUnit','animation','animationDelay'];
 
-    public function setAnimationAttribute($value){
-        if (isset($value) && $value != -1){
-            $this->attributes['animation'] = json_decode(setting('constant.animStyles'),true)[$value];
-        }else{
-            $this->attributes['animation'] = null;
-        }
+    // public function setAnimationAttribute($value){
+    //     if (isset($value) && $value != -1){
+    //         $this->attributes['animation'] = json_decode(setting('constant.animStyles'),true)[$value];
+    //     }else{
+    //         $this->attributes['animation'] = null;
+    //     }
 
-    }
+    // }
 
 //    public function getAnimationAttribute($value){
 //        return array_search($value, Constant::$animStyles);

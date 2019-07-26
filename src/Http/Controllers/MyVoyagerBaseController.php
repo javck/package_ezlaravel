@@ -232,7 +232,7 @@ class MyVoyagerBaseController extends VoyagerBaseController
                     }else{
                         $queryKey = $key;
                     }
-                    $query->where($queryKey,$value);
+                    $query->where($queryKey,'like','%'.$value.'%');
                     Session::put($key, $value);
                 }
             }

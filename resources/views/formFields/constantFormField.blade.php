@@ -13,7 +13,7 @@
     @if(isset($options))
         @foreach($options as $key => $option)
             @if(isset($row->details->isMultiple) && $row->details->isMultiple == "true")
-                @if($dataTypeContent->{$row->field} != null)
+                @if($dataTypeContent->{$row->field} != null && is_array($dataTypeContent->{$row->field}))
                     <option value="{{ $key }}" @if(in_array($key,$dataTypeContent->{$row->field}))selected="selected" @endif>{{ $option }}</option>
                 @else
                     <option value="{{ $key }}">{{ $option }}</option>

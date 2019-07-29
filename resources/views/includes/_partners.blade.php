@@ -6,7 +6,7 @@
 
     <ul class="clients-grid grid-6 nobottommargin clearfix">
         @foreach($items_partner as $item)
-            <li><a href="{{$item->url}}"><img src="{{asset('images/'.$item->pic)}}" alt="{{$item->alt}}"></a></li>
+            <li><a href="{{$item->url}}"><img src="{{ Voyager::image($item->pic) }}" alt="{{$item->alt}}"></a></li>
         @endforeach
     </ul>
 </div>

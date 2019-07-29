@@ -1,4 +1,4 @@
-<nav id="primary-menu">
+<nav id="primary-menu" class="{{ setting('canvas.pri_menu_class') }}">
 	<ul>
 	    @foreach($items as $menu_item)
 	        <li class=""><a class="{{ Request::is($menu_item->link())? 'current' : ''}}" href="{{ $menu_item->link() }}">{{ $menu_item->title }}</a>

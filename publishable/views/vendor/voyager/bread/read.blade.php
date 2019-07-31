@@ -71,6 +71,7 @@
                             @elseif($row->type == "image")
                                 <img class="img-responsive"
                                      src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+
                             @elseif($row->type == 'multiple_images')
                                 @if(json_decode($dataTypeContent->{$row->field}))
                                     @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
@@ -137,6 +138,7 @@
                                         {{ __('voyager::generic.download') }}
                                     </a>
                                 @endif
+                            <!-- 自定義內容開始
                             @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
                                 {!! app('easyweb2')->getConstDropDownVal($row->details->key,$dataTypeContent->{$row->field}) !!}
                             @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
@@ -145,6 +147,19 @@
                                 @else
                                     {!! $dataTypeContent->{$row->field} !!}
                                  @endif
+                            @elseif($row->type == "media_picker")
+                                @isset ($dataTypeContent->{$row->field})
+                                    @if(json_decode($dataTypeContent->{$row->field}))
+                                        @foreach(json_decode($dataTypeContent->{$row->field}) as $path)
+                                            <img class="img-responsive"
+                                         src="{{ filter_var($path, FILTER_VALIDATE_URL) ? $path : Voyager::image($path) }}">
+                                        @endforeach
+                                    @else
+                                        <img class="img-responsive"
+                                         src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                                    @endif
+                                @endisset
+                            自定義內容結束 -->
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
                                 <p>{{ $dataTypeContent->{$row->field} }}</p>

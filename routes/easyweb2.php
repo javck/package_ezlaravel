@@ -64,6 +64,15 @@ Route::get('/thank', function () {
     return view('pages.thankyou');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
+    Auth::routes();
+    Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
+    Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
+    Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
+    Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
+    Route::post('admin/logout', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.logout']);
+});
+
 //後台====================================
 //Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled']],function () {
 Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
@@ -83,9 +92,4 @@ Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controlle
     Route::get('reset/{model}','MyVoyagerBaseController@reset');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
-    Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
-    Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
-    Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
-    Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
-});
+

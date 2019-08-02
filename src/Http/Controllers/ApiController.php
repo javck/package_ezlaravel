@@ -20,7 +20,7 @@ class ApiController extends Controller
 
         $item = Item::findOrFail($request->all()['item_id']);
         $path = $request->path();
-        return view('partials.single-item',compact('item','path'));
+        return view('easyweb2::partials.singleItem',compact('item','path'));
     }
 
 

@@ -236,7 +236,9 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $data['comments'] = $comments;
 
         if (isset($data['article'])) {
-            return view('articles/show',$data);
+            return view('easyweb2::pages.article_show',$data);
+        }else{
+            return abort(404);
         }
     }
 

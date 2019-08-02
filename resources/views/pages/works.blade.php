@@ -1,4 +1,4 @@
-@extends('layouts.site_noHeader')
+@extends('layouts.site')
 @section('seo')
 	@isset($keywords)
 	    <meta name="keywords" content="{{ $keywords }}">
@@ -8,6 +8,10 @@
 	@endisset
 @stop
 @section('page_title'){{ trans('menu.worksPage') }}@stop
+
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
 
 @section('body')
 <section id="content">

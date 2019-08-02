@@ -9,6 +9,10 @@
 @stop
 @section('page_title'){{ trans('menu.mediasPage') }}@stop
 
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
+
 @section('body')
 <section id="content">
 

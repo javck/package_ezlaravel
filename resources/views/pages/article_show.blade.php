@@ -7,6 +7,10 @@
 
 @section('page_title'){{ trans('page.article') }} @stop
 
+@section('pri_nav')
+    {{ menu('frontend','menu.classic') }}
+@stop
+
 @section('css')
 <link rel="stylesheet" href="{{asset('css/prism.css')}}" type="text/css" />
 @stop

@@ -263,4 +263,6 @@ return [
     'back_medias' => '返回多媒體列表',
     'delete_medias' => '刪除多媒體',
     'copy_medias' => '複製多媒體',
+    'delete_items' => '刪除商品',
+    'back_items' => '返回商品列表'
 ];

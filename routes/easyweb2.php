@@ -92,4 +92,20 @@ Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controlle
     Route::get('reset/{model}','MyVoyagerBaseController@reset');
 });
 
+//API======================================
+Route::group(['middleware' => 'api','prefix' => 'api'],function(){
+    Route::group(['namespace' => '\Javck\Easyweb2\Http\Controllers'],function () {
+        Route::get('items/show','ApiController@showSingleItem');
+        Route::get('items/{item}','ApiController@queryItem');
+        Route::get('page/loadTopCart','ApiController@loadTopCart');
+        Route::get('shop/addCart','ShopController@addCart');
+        Route::get('shop/updateCart','ShopController@updateCart');
+        Route::get('shop/removeCart','ShopController@removeCart');
+        Route::get('shop/clearCart','ShopController@clearCart');
+        //Official
+        Route::post('areas/queryByCounty','ApiController@queryAreas');
+        Route::post('elements/queryPositions','ApiController@queryPositions');
+        Route::post('elements/queryElementModes','ApiController@queryElementModes');
+    });    
+});
 

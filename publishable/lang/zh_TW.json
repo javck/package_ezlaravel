@@ -17,5 +17,7 @@
     "consolidations.new" : "建立新集運單",
     "consolidations.update" : "更新集運單",
     "orders.new" : "建立新訂單",
-    "orders.update" : "編輯訂單"
+    "orders.update" : "編輯訂單",
+    "items.new" : "建立新商品",
+    "items.update" : "更新商品"
 } 

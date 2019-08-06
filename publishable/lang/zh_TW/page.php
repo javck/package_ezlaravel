@@ -124,7 +124,7 @@ return [
     'shippingCost' => '運費',
     'freeShipping' => '免運',
     'withShipTotal' => '含運合計',
-    'submitOrder' => '提交訂單',
+    'submitOrder' => '立刻付款',
     'empty' => '沒有任何商品',
     'shopCgies' => '商品分類',
     'reset' => '重置',

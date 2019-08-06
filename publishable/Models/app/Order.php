@@ -8,7 +8,7 @@ use App\Item;
 
 class Order extends Model
 {
-    protected $fillable= ['owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress','message','couponCode','subtotal','shipCost','status'];
+    protected $guarded = [];
 
     public function owner(){
         return $this->belongsTo('App\User');

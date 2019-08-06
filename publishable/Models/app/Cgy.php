@@ -8,7 +8,7 @@ class Cgy extends Model
 {
     protected  $table = "cgys";
 
-    protected $fillable = ['parent_id','title','pic','desc','enabled','sort'];
+    protected $guarded = [];
 
     public function parent(){
         return $this->belongsTo(Cgy::class);

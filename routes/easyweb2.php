@@ -48,12 +48,6 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     });
 
 });
-Route::group(['middleware' => ['javck.checkForMaintenanceMode'],'prefix' => 'payment','namespace' => '\App\Http\Controllers'], function () {
-    Route::get('create_allpay/{id}','SiteController@createAllPayOrderPage');
-    Route::get('request','SiteController@paymentRequest')->name('payment.request');
-    Route::post('submitCheckout','SiteController@createPaymentOrder');
-    Route::post('done/{order_id}','SiteController@paymentReturn');
-});
 
 
 Route::get('/404-page', function () {

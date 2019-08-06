@@ -9,7 +9,7 @@ use App\Partner;
 
 class Contact extends Model
 {
-    protected $fillable = ['enabled','isHandled','mode','applyCourse','name','email','std_name','std_grade','mobile','subject','message','service','isLearned','source','partner_id','std_grade'];
+    protected $guarded = [];
 
     public function getServiceName()
     {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partner extends Model
 {
-    protected $fillable = ['name','tel','secret','email','website','address','discount','sort','enabled'];
+    protected $guarded = [];
 
     public function getEnabled(){
         if ($this->enabled == '1') {

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $fillable = ['link','title', 'mode' , 'type' ,'sort','enabled'];
+    protected $guarded = [];
 
     public function getEnabled(){
         if ($this->enabled == '1') {

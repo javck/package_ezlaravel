@@ -116,7 +116,7 @@ class SiteController extends Controller
     //金流相關函式================================================================
 
     //建立金流單視圖
-    public function createAllPayOrderPage(Request $request, $order_id)
+    public function createPaymentOrderPage(Request $request, $order_id)
     {
         $order = Order::findOrFail($order_id);
         if($order->getOriginal('status') != 'created'){
@@ -188,7 +188,7 @@ class SiteController extends Controller
     {
         $order = Order::findOrFail($request->all()['order_id']);
         $user = User::findOrFail($order->owner_id);
-        $content = '親愛的客戶您好，' . setting('site.name') . '通知您訂單編號' . $order->id . '需要付款，連結為' . url('payment/create_allpay/' . $order->id);
+        $content = '親愛的客戶您好，' . setting('site.name') . '通知您訂單編號' . $order->id . '需要付款，連結為: ' . url('payment/createOrder/' . $order->id);
         //發送簡訊通知
         if (setting('admin.isSendSMS') == 'true') {
             app('smsking')->sendSMS($content, $user->mobile);

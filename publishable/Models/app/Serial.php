@@ -8,7 +8,7 @@ class Serial extends Model
 {
 	protected $table = 'serials';
 
-    protected $fillable = ['user_id','serial','mode','isSent','isUsed'];
+    protected $guarded = [];
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id', 'id');

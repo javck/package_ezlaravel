@@ -9,15 +9,7 @@ use Auth;
 
 class User extends \TCG\Voyager\Models\User
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    // protected $fillable = [
-    //             'points','socialLinks','title','username', 'name' , 'en_name' ,'birthday' , 'mobile' , 'organization' , 'email', 'password','groups','enabled' , 'community_name' , 'tel' , 'fb_id' , 'first_name' , 'last_name' , 'pic' , 'post_id' , 'address' , 'desc','partner_id','enabled','settings',
-    //         ];
-
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -29,7 +21,9 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     protected $casts = [
-        'birthday' => 'datetime', 'settings' => 'array'
+        'birthday' => 'datetime',
+        'email_verified_at' => 'datetime',
+        'settings' => 'array'
     ];
 
     public function getEnabled(){
@@ -48,7 +42,7 @@ class User extends \TCG\Voyager\Models\User
         if (isset($value) && $value != null) {
             return $value;
         } else {
-            return 'avator.png';
+            return 'users/avator.png';
         }   
     }
 

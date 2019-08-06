@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model implements Buyable
 {
-    protected $fillable = ['cgy_id','title','pics','price_og','price_new','badge','star','stock','desc','chars','sku','options','enabled','sort'];
+    protected $guarded = [];
 
 
     //透過分類Id來尋找屬於該分類的商品

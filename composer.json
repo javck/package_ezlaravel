@@ -18,8 +18,7 @@
         "laravelcollective/html": "^5.4.0",
         "tcg/voyager": "1.2.*",
         "greggilbert/recaptcha": "dev-master",
-        "anhskohbo/no-captcha": "^3.0.4",
-        "gloudemans/shoppingcart": "^2.6.0"
+        "anhskohbo/no-captcha": "^3.0.4"
     },
     "require-dev":{
         "laravel/tinker": "^1.0"
@@ -34,7 +33,6 @@
             "providers": [
                 "Javck\\Easyweb2\\Easyweb2ServiceProvider",
                 "Collective\\Html\\HtmlServiceProvider",
-                "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider",
                 "Greggilbert\\Recaptcha\\RecaptchaServiceProvider",
                 "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"
             ],

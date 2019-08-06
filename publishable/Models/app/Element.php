@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Element extends Model
 {
-    protected $fillable = ['i_mode','q_mode','video','title_pos','icon','lang','position','pic','alt','url','url_txt','mode','page','title','subtitle' ,'content','sort','enabled','price','isBestPrice','priceUnit','animation','animationDelay'];
+    protected $guarded = [];
 
     // public function setAnimationAttribute($value){
     //     if (isset($value) && $value != -1){

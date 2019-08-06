@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $fillable = ['title_link','title','cgy','lang','pics','l_link','l_icon','l_type','r_link','r_icon','r_type','tags','subtitle','sort','enabled'];
+    protected $guarded = [];
 
     public function getEnabled(){
         if ($this->enabled == '1') {

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['reply_to','enabled','article_id','email','website','name','user_id','content','sort'];
+    protected $guarded = [];
 
     public function user()
     {

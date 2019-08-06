@@ -33,7 +33,7 @@ class ShopController extends Controller
 
     //顯示購物車
     public function showCart(Request $request){
-        return view('pages.cart');
+        return view('easyweb2::pages.cart');
     }
 
     //更新購物車
@@ -77,7 +77,7 @@ class ShopController extends Controller
         $subtotal = Cart::total(0,'','');
         $shipCost = BI::calculShipFee(Cart::content());
 
-        return view('pages.checkout',compact('items','subtotal','shipCost'));
+        return view('easyweb2::pages.checkout',compact('items','subtotal','shipCost'));
     }
 
 
@@ -124,6 +124,6 @@ class ShopController extends Controller
             }
         }
         Cart::destroy();
-        return view('pages.thankyou');
+        return view('easyweb2::pages.thankyou');
     }
 }

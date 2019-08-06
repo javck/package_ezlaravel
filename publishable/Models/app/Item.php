@@ -35,7 +35,7 @@ class Item extends Model implements Buyable
     //取得第一張圖
     public function getFirstPic(){
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = explode(',',$this->pics);
+            $pics = json_decode($this->pics,true);
             return $pics[0];
         }else{
             return null;
@@ -46,7 +46,7 @@ class Item extends Model implements Buyable
     public function getPicsCount()
     {
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = explode(',',$this->pics);
+            $pics = json_decode($this->pics,true);
             return count($pics);
         }else{
             return 0;
@@ -57,7 +57,7 @@ class Item extends Model implements Buyable
     public function getPicByIndex($index)
     {
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = explode(',',$this->pics);
+            $pics = json_decode($this->pics,true);
             return $pics[$index];
         }else{
             return null;
@@ -67,7 +67,7 @@ class Item extends Model implements Buyable
     //回傳商品圖片路徑陣列
     public function getPicArray(){
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = explode(',',$this->pics);
+            $pics = json_decode($this->pics,true);
             return $pics;
         }else{
             return null;

@@ -10,7 +10,7 @@
 @section('page_title') {{ trans('page.qna') }} @stop
 
 @section('pri_nav')
-    {{ menu('frontend','menu.classic') }}
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
 @stop
 
 @section('body')
@@ -20,7 +20,7 @@
 	<div class="container clearfix">
 		<div class="postcontent nobottommargin clearfix">
 
-			<ul id="portfolio-filter" class="portfolio-filter clearfix">
+			<ul id="portfolio-filter" class="portfolio-filter clearfix customjs">
 				<!-- 標籤列 -->
 				<li class="activeFilter"><a href="#" data-filter="all">全部</a></li>
 				@if (isset($tags))
@@ -33,29 +33,22 @@
 			<div class="clear"></div>
 			<!-- 說明內容 -->
 			<div id="faqs" class="faqs">
-				@if (isset($items_row1))
-					@foreach ($items_row1 as $element)
+				@if (isset($items))
+					@foreach ($items as $element)
 						<div class="toggle faq faq-{{ $element->q_mode }}">
 							<div class="togglet"><i class="toggle-closed {{ $element->icon }}"></i><i class="toggle-open {{ $element->icon }}"></i>{{ $element->title }}</div>
 							<div class="togglec">{!! $element->content !!}</div>
 						</div>
 					@endforeach
 				@endif	
-				
 			</div>
-
-
 		</div><!-- .postcontent end -->
 	</div>
-	<div class="clear"></div>
-	<!-- Call To Action  -->
-	@include('easyweb2::partials.action')
 @stop
 
 @section('js')
 	<script>
-
-		$(document).ready(function($){
+		jQuery(document).ready(function($){
 			var $faqItems = $('#faqs .faq');
 			if( window.location.hash != '' ) {
 				var getFaqFilterHash = window.location.hash;
@@ -73,7 +66,7 @@
 				}
 			}
 
-			$('#portfolio-filter a').click(function(){
+			$('#portfolio-filter a').on( 'click', function(){
 				$('#portfolio-filter li').removeClass('activeFilter');
 				$(this).parent('li').addClass('activeFilter');
 				var faqSelector = $(this).attr('data-filter');

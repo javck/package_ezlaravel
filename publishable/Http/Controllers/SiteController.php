@@ -107,7 +107,7 @@ class SiteController extends Controller
     {
         Carbon::setLocale('zh-tw'); //設定Carbon的本地化
         //$top = Element::where('page','news')->where('position','top')->where('enabled',1)->first();
-        $cgy_news = Cgy::where('title','news')->where('enabled',true)->first();
+        $cgy_news = Cgy::where('title','最新消息')->where('enabled',true)->first();
         $articles = Article::where('cgy_id',$cgy_news->id)->where('status','published')->orderBy('sort','asc')->orderBy('created_at','desc')->simplePaginate(5);
         $articleQty = Article::where('cgy_id',$cgy_news->id)->where('status','published')->count();
         return view('easyweb2::pages.news',compact('articles','articleQty'));

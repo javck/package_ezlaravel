@@ -57,6 +57,7 @@ class Easyweb2ServiceProvider extends ServiceProvider
             $publishablePath . '/Http/Controllers/SiteController.php' => app_path('Http/Controllers/SiteController.php'),
             $publishablePath . '/webpack.mix.js' => base_path('webpackCanvas.mix.js'),
             $publishablePath . '/config' => config_path('/'),
+            $publishablePath . '/assets/js' => public_path('js'),
             $publishablePath . '/storage' => storage_path('app/public/')
         ]);
 

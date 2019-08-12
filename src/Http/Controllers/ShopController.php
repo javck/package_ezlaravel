@@ -26,14 +26,27 @@ class ShopController extends Controller
     public function addCart(Request $request){
         $inputs = $request->all();
         $item = Item::findOrFail($inputs['id']);
-        $cart = Cart::add($item , $inputs['qty']);
+
+        //$cart = Cart::add($item , $inputs['qty']);
+        Cart::add([
+            'id' => $item->id,
+            'name' => $item->title,
+            'price' => $item->price,
+            'quantity' => $inputs['qty'],
+            'attributes' => []
+        ]);
+        $carts = Cart::getContent();
         //dd($inputs['lastPage']);
-        return Response::json($cart,201);
+        return Response::json($carts,201);
     }
 
     //顯示購物車
     public function showCart(Request $request){
         return view('easyweb2::pages.cart');
+    }
+
+    public function getCart(Request $request){
+        return Cart::getContent();
     }
 
     //更新購物車
@@ -43,7 +56,7 @@ class ShopController extends Controller
         $newCart = array();
         foreach ($cart as $el){
             $cartItem = explode('=',$el);
-            Cart::update($cartItem[0],['qty'=>$cartItem[1]]);
+            Cart::update($cartItem[0],['quantity'=> ['value' => $cartItem[1], 'relative' => false]]);
             $newCart[] = ['rowId' =>$cartItem[0] , 'qty' => $cartItem[1]];
         }
         return Response::json($newCart);
@@ -52,13 +65,14 @@ class ShopController extends Controller
     //移除某購物車商品
     public function removeCart(Request $request){
         $inputs = $request->all();
-        $newCart = Cart::remove($inputs['rowId']);
+        Cart::remove($inputs['rowId']);
+        $newCart = Cart::getContent();
         return Response::json($newCart,204);
     }
 
     //清空購物車
     public function clearCart(Request $request){
-        Cart::destroy();
+        Cart::clear();
         return Response::json(null,204);
     }
 
@@ -66,17 +80,16 @@ class ShopController extends Controller
     public function createCheckout(Request $request){
         $items = "";
         $i = 0;
-        $len = count(Cart::content());
-        foreach (Cart::content() as $cartItem){
-            $items = $items . $cartItem->model->id . '=' . $cartItem->qty;
+        $len = Cart::getTotalQuantity();
+        foreach (Cart::getContent() as $cartItem){
+            $items = $items . $cartItem->id . '=' . $cartItem->quantity;
             if ($i != $len-1){
                 $items = $items . ',';
             }
             $i = $i + 1;
         }
-        $subtotal = Cart::total(0,'','');
-        $shipCost = BI::calculShipFee(Cart::content());
-
+        $subtotal = Cart::getSubTotal();
+        $shipCost = BI::calculShipCost(Cart::getContent());
         return view('easyweb2::pages.checkout',compact('items','subtotal','shipCost'));
     }
 
@@ -113,17 +126,22 @@ class ShopController extends Controller
         $order = Order::create($inputs);
         $pre_ary_items = explode(',' ,$inputs['items']);
         foreach ($pre_ary_items as $value){
-            $ary_item = explode('=',$value);
-            Order_Item::create(['order_id' => $order->id , 'item_id' => $ary_item[0] , 'qty' => $ary_item[1]]);
-            if (BI::IS_MINUS_STOCK){
-                $item = Item::findOrFail($ary_item[0]);
-                $item->stock -= $ary_item[1];
-                if($item->stock < 0){
-                    $item->stock = 0;
+            if(strlen(trim($value)) > 0){
+                $ary_item = explode('=',$value);
+                Order_Item::create(['order_id' => $order->id , 'item_id' => $ary_item[0] , 'qty' => $ary_item[1]]);
+                if ( setting('admin.isMinusStock') ){
+                    $item = Item::findOrFail($ary_item[0]);
+                    $item->stock -= $ary_item[1];
+                    if($item->stock < 0){
+                        $item->stock = 0;
+                    }
+                    $item->save();
                 }
             }
         }
-        Cart::destroy();
-        return view('easyweb2::pages.thankyou');
+        Cart::clear();
+        $title = trans('page.thank_buy_title');
+        $desc = trans('page.thank_buy_desc');
+        return view('easyweb2::pages.thankyou',compact('title','desc'));
     }
 }

@@ -1,4 +1,5 @@
 @extends('layouts.site')
+
 @section('seo')
 	@isset($keywords)
 	    <meta name="keywords" content="{{ $keywords }}">
@@ -7,10 +8,11 @@
 	    <meta name="description" content="{{ $description }}">
 	@endisset
 @stop
+
 @section('page_title') {{trans('menu.myProfile')}} @stop
 
 @section('pri_nav')
-    {{ menu('frontend','menu.classic') }}
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
 @stop
 
 @section('body')

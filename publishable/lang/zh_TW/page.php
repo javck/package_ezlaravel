@@ -116,7 +116,7 @@ return [
     'useCoupon' => '使用優惠碼',
     'updateCart' => '更新購物車',
     'clearCart' => '清空購物車',
-    'checkout' => '立刻付款',
+    'checkout' => '提交訂單',
     'calShip' => '運費計算',
     'updateTotal' => '更新總計',
     'cartTotal' => '購物車合計',
@@ -132,4 +132,8 @@ return [
     'itemName' => '商品名稱',
     'priceAsc' => '價格由低到高',
     'priceDesc' => '價格由高到低',
+    'pay_atm' => '銀行轉帳',
+    'pay_third' => '第三方支付',
+    'thank_buy_title' => '感謝您的下單購買',
+    'thank_buy_desc' => '我們將盡快處理您的訂單，如有任何疑問請透過表單與我們聯絡',
 ];

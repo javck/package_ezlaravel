@@ -1,9 +1,19 @@
-@extends('layouts.site_noHeader')
+@extends('layouts.site')
+
 @section('seo')
-	<meta name="keywords" content="{{ $keywords }}">
-    <meta name="description" content="{{ $description }}">
+    @isset($keywords)
+        <meta name="keywords" content="{{ $keywords }}">
+    @endisset
+    @isset($description)
+        <meta name="description" content="{{ $description }}">
+    @endisset
 @stop
+
 @section('page_title')搜尋結果@stop
+
+@section('pri_nav')
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
+@stop
 
 @section('body')
 	<div class="container clearfix">

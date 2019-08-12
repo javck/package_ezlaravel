@@ -13,7 +13,7 @@
                 </div>
                 <div class="fbox-desc">
                     <h3>{{ $item->title }}<span class="subtitle">{{ $item->subtitle }}</span></h3>
-                    <p>{{ $item->content }}</p>
+                    {!! $item->content !!}
                 </div>
             </div>
         </div>

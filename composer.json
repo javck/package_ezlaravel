@@ -18,6 +18,7 @@
         "laravelcollective/html": "^5.4.0",
         "tcg/voyager": "1.2.*",
         "greggilbert/recaptcha": "dev-master",
+        "darryldecode/cart": "~4.0",
         "anhskohbo/no-captcha": "^3.0.4"
     },
     "require-dev":{

@@ -1,4 +1,4 @@
-@extends('layouts.site_noHeader')
+@extends('layouts.site')
 @section('seo')
 	@isset($keywords)
 	    <meta name="keywords" content="{{ $keywords }}">
@@ -8,6 +8,11 @@
 	@endisset
 @stop
 @section('page_title')下載中心 @stop
+
+@section('pri_nav')
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
+@stop
+
 @section('body')
 	<div class="content-wrap">
 		<div class="container clearfix">

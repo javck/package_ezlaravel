@@ -10,7 +10,7 @@
 @section('page_title')關於我們@stop
 
 @section('pri_nav')
-    {{ menu('frontend','menu.classic') }}
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
 @stop
 
 @section('page_top')

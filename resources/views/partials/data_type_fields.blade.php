@@ -12,7 +12,7 @@
         @else
             <div class="form-group @if($row->type == 'hidden') hidden @endif @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                 {{ $row->slugify }}
-                <label for="name">{{ $row->display_name }}</label>
+                <label for="name" @if($row->required == 1) class="text-danger" @endif>{{ $row->display_name }}</label>
                 
                 @if(isset($row->details->caption))
                     {!! $row->details->caption !!}

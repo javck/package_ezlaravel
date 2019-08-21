@@ -28,6 +28,11 @@ class Tag extends Model
         return $this->belongsToMany('App\Item')->withTimestamps();
     }
 
+    public function enabledItems()
+    {
+        return $this->items()->where('enabled',true)->orderBy('sort','asc')->get();
+    }
+
     public function getTypesListAttribute(){
         return explode(',',$this->type);
     }

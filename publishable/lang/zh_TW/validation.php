@@ -151,6 +151,11 @@ return [
         'mode'          => '模式',
         'mediums'       => '文章媒體',
         'subject'       => '主旨',
+        'receiver'      => '收件人',
+        'receiverEmail' => '收件人電子郵箱',
+        'receiverAddress'   => '收件地址',
+        'receiverMobile'    => '收件人手機號碼',
+        'message'       => '訊息'
     ],
 
 ];

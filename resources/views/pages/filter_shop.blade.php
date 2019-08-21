@@ -29,10 +29,10 @@
 					<div class="product sf-{{$item->cgy_id}} clearfix">
 						<div class="product-image">
 							@if ($item->getPicByIndex(0) != null)
-								<a href="#"><img src="{{url('images/'.$item->getPicByIndex(0))}}" alt="{{$item->title}}"></a>
+								<a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax"><img src="{{Voyager::image($item->getPicByIndex(0))}}" alt="{{$item->title}}"></a>
 							@endif
 							@if ($item->getPicByIndex(1) != null)
-								<a href="#"><img src="{{url('images/'.$item->getPicByIndex(1))}}" alt="{{$item->title}}"></a>
+								<a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax"><img src="{{Voyager::image($item->getPicByIndex(1))}}" alt="{{$item->title}}"></a>
 							@endif
 	
 							
@@ -65,8 +65,6 @@
 				@endforeach
 
 			</div><!-- #shop end -->
-			<br/><br/>
-			@include('easyweb2::includes._partners')
 		</div><!-- .postcontent end -->
 
 		<!-- Sidebar
@@ -108,7 +106,7 @@
 @stop
 
 @section('js')
-
+	<script src="{{asset('js/shop.js')}}"></script>
 	<script>
 		jQuery(document).ready( function($){
 
@@ -168,36 +166,6 @@
 
 			//處理商品排序作業結束=======================================
 
-			//處理商品加入購物車作業
-	        $('.add-to-cart').click(function(event){
-	        	console.log('add to cart');
-	            event.preventDefault();
-	            var item_id = $(this).attr('href');
-	            //console.log("{{url('/api/shop/addCart?id=')}}" + item_id + "&qty=1");
-	            $.ajax({
-
-	                type: "get",
-	                url: "{{url('/api/shop/addCart?id=')}}" + item_id + "&qty=1",
-	                success: function (data) {
-	                    $('#top-cart').load("{{url('/api/page/loadTopCart')}}",function(){
-				        	$.getScript("{{asset('js/functions.js')}}");
-				        });
-	                },
-	                error: function (data) {
-	                    console.log('Error:', data);
-	                }
-	            });
-	        });
-
-	        jQuery('[data-lightbox="ajax"]').on('mfpClose', function(e) {
-	            //console.log('lightbox close');
-	            
-	            $('#top-cart').load("{{url('/api/page/loadTopCart')}}",function(){
-				    $.getScript("{{asset('js/functions.js')}}");
-				});
-	        });
-
-	        //處理商品加入購物車作業=======================================
 
 		});
 	</script>

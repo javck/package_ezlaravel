@@ -45,6 +45,7 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
         Route::get('showCart', 'ShopController@showCart');
         Route::get('createCheckout', 'ShopController@createCheckout');
         Route::post('submitCheckout', 'ShopController@submitCheckout');
+        Route::get('/cgy/{cgy}','ShopController@renderShopPage');
     });
 
 });

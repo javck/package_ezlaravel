@@ -188,21 +188,37 @@ class SiteController extends Controller
     {
         $order = Order::findOrFail($request->all()['order_id']);
         $user = User::findOrFail($order->owner_id);
-        $content = '親愛的客戶您好，' . setting('site.name') . '通知您訂單編號' . $order->id . '需要付款，連結為: ' . url('payment/createOrder/' . $order->id);
+        $url = url('payment/create_allpay/' . $order->id);
+        $content = '親愛的客戶您好，' . setting('site.title') . '通知您訂單編號' . $order->id . '需要付款，連結為: ' . $url . ' ，如已完成付款請無須理會。';
+        $content_sms = str_replace(" ", "+", $content);
         //發送簡訊通知
         if (setting('admin.isSendSMS') == 'true') {
-            app('smsking')->sendSMS($content, $user->mobile);
+            $resultCode = (int)app('smsking')->sendSMS($content_sms, $user->mobile);
+            if($resultCode < 0){
+                $errorMsg = app('smsking')->smgTransStatusCode($resultCode);
+                return redirect()->back()
+                ->with([
+                    'message'    => '簡訊發送失敗!原因為：'. $errorMsg,
+                    'alert-type' => 'error',
+                ]);
+            }
         }
         //發送Email通知
         if (isset($user->email)) {
             //發送Email通知給用戶
-            $subject = setting('site.name') . '訂單付款通知';
-            $beautyMail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-            $beautyMail->send('emails.notify', ['title' => $subject, 'content' => $content], function ($m) use ($user, $subject) {
-                $m->from(setting('site.service_mail'), setting('site.name'));
-                $m->to($user->email, $user->name)->subject($subject);
+            $subject = setting('site.title') . '訂單付款通知';
+
+            Mail::send('emails.simple', ['title' => $subject , 'content' => $content , 'action' => ['title' => '前往付款' , 'url' => $url]], function($message) use($user, $subject)
+            {
+                $message->to($user->email, $user->name)->subject($subject);
             });
         }
+        return redirect()
+        ->back()
+        ->with([
+            'message'    => '請求付款簡訊發送成功!',
+            'alert-type' => 'success',
+        ]);
     }
 
 

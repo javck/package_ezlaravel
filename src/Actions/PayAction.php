@@ -3,6 +3,8 @@
 namespace Javck\Easyweb2\Actions;
 
 use TCG\Voyager\Actions\AbstractAction;
+use App\Order;
+use Auth;
 
 class PayAction extends AbstractAction
 {
@@ -35,6 +37,14 @@ class PayAction extends AbstractAction
 
     public function shouldActionDisplayOnDataType()
     {
-        return $this->dataType->slug == 'orders';
+        if($this->dataType->slug == 'orders'){
+            $order = Order::findOrFail($this->data->id);
+            if($order->status == 'created'){
+                if( Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'super' ){
+                    return true;
+                }
+            }
+        }
+        return false;   
     }
 }

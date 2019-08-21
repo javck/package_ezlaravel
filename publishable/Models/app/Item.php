@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model implements Buyable
+class Item extends Model
 {
     protected $guarded = [];
 
@@ -35,10 +34,10 @@ class Item extends Model implements Buyable
     //取得第一張圖
     public function getFirstPic(){
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = json_decode($this->pics,true);
+            $pics = explode(',',$this->pics);
             return $pics[0];
         }else{
-            return null;
+            return setting('site.item_default_pic');
         }
     }
 
@@ -46,7 +45,7 @@ class Item extends Model implements Buyable
     public function getPicsCount()
     {
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = json_decode($this->pics,true);
+            $pics = explode(',',$this->pics);
             return count($pics);
         }else{
             return 0;
@@ -57,20 +56,20 @@ class Item extends Model implements Buyable
     public function getPicByIndex($index)
     {
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = json_decode($this->pics,true);
+            $pics = explode(',',$this->pics);
             return $pics[$index];
         }else{
-            return null;
+            return setting('site.item_default_pic');
         }
     }
 
     //回傳商品圖片路徑陣列
     public function getPicArray(){
         if (isset($this->pics) && strlen($this->pics) > 0) {
-            $pics = json_decode($this->pics,true);
+            $pics = explode(',',$this->pics);
             return $pics;
         }else{
-            return null;
+            return [setting('site.item_default_pic')];
         }
     }
 
@@ -109,18 +108,18 @@ class Item extends Model implements Buyable
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
-    public function getBuyableIdentifier($options = null)
-    {
-        return $this->id;
-    }
+    // public function getBuyableIdentifier($options = null)
+    // {
+    //     return $this->id;
+    // }
 
-    public function getBuyableDescription($options = null)
-    {
-        return $this->title;
-    }
+    // public function getBuyableDescription($options = null)
+    // {
+    //     return $this->title;
+    // }
 
-    public function getBuyablePrice($options = null)
-    {
-        return isset($this->price_new) ? $this->price_new : $this->price_og;
-    }
+    // public function getBuyablePrice($options = null)
+    // {
+    //     return isset($this->price_new) ? $this->price_new : $this->price_og;
+    // }
 }

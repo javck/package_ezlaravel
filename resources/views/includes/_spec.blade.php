@@ -2,7 +2,7 @@
 
     <div class="heading-block center" data-animate="@if(isset($item_spec_pageTop->animation)){{$item_spec_pageTop->animation}}@endif" data-delay="@if(isset($item_spec_pageTop->animationDelay)){{$item_spec_pageTop->animationDelay}}@endif">
         <h2>{{ $item_spec_pageTop->title }}<span>{{ $item_spec_pageTop->subtitle }}</span></h2>
-        <span>{{ $item_spec_pageTop->content }}</span>
+        <span>{!! $item_spec_pageTop->content !!}</span>
     </div>
 
     @foreach($items_spec as $item )

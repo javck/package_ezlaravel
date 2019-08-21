@@ -144,4 +144,13 @@ class ShopController extends Controller
         $desc = trans('page.thank_buy_desc');
         return view('easyweb2::pages.thankyou',compact('title','desc'));
     }
+
+    public function renderShopPage(Cgy $cgy)
+    {
+        //選擇所有預設的商品
+        $cgies = Cgy::where('parent_id',$cgy->parent_id)->where('enabled',true)->orderBy('sort','asc')->get();
+        $cgy_ids = Cgy::where('parent_id',$cgy->parent_id)->where('enabled',true)->orderBy('sort','asc')->pluck('id');
+        $items = Item::whereIn('cgy_id',$cgy_ids)->get();
+        return view('easyweb2::pages.filter_shop',compact('cgies','items'));
+    }
 }

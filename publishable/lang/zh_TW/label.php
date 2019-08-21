@@ -264,5 +264,8 @@ return [
     'delete_medias' => '刪除多媒體',
     'copy_medias' => '複製多媒體',
     'delete_items' => '刪除商品',
-    'back_items' => '返回商品列表'
+    'back_items' => '返回商品列表',
+    'login_username' => '登入你的帳號',
+    'facebook_login'=> '使用Facebook登入',
+    'google_login' => '使用Google登入'
 ];

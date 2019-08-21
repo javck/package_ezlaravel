@@ -69,6 +69,8 @@
 			</div>
 		</header><!-- #header end -->
 
+		<div class="clear"></div>
+
 		@yield('page_top')
 
 

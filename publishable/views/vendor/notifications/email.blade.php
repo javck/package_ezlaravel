@@ -6,7 +6,7 @@
 @if ($level == 'error')
 # Whoops!
 @else
-# Hello!
+# 您好!
 @endif
 @endif
 
@@ -45,14 +45,13 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-Regards,<br>{{ config('app.name') }}
+{{ setting('site.title') }},<br>感謝您
 @endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @component('mail::subcopy')
-If you’re having trouble clicking the "{{ $actionText }}" button, copy and paste the URL below
-into your web browser: [{{ $actionUrl }}]({{ $actionUrl }})
+假如您找不到或無法點擊 "{{ $actionText }}" 按鈕, 複製並貼上以下網址到瀏覽器並前往: [{{ $actionUrl }}]({{ $actionUrl }})
 @endcomponent
 @endisset
 @endcomponent

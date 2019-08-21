@@ -19,5 +19,18 @@
     "orders.new" : "建立新訂單",
     "orders.update" : "編輯訂單",
     "items.new" : "建立新商品",
-    "items.update" : "更新商品"
+    "items.update" : "更新商品",
+    "Reset Password Notification" : "重設密碼通知",
+    "Reset Password" : "重設密碼",
+    "Confirm Password" : "確認密碼",
+    "You are receiving this email because we received a password reset request for your account." : "您會收到這個信件是因為我們收到一個針對您的帳號要求密碼變更的請求",
+    "This password reset link will expire in :count minutes." : "這個密碼重設連結將會在 :count 後失效",
+    "If you did not request a password reset, no further action is required." : "假如您並沒有提出密碼變更的請求，請無需做任何動作",
+    "Click here to reset password." : "點此來重設密碼",
+    "Send password reset url" : "寄出密碼重設連結",
+    "Verify your email" : "驗證您的Email信箱",
+    "Verify url is sended to your email address" : "剛已將驗證連結寄到您註冊的Email郵箱",
+    "Checked if you got the verify url" : "在接著繼續下去之前，請先確認電子郵箱是否收到驗證連結.",
+    "If you did not received" : "如果您沒收到信件",
+    "Click to send again" : "點這裡來重新寄送"
 } 

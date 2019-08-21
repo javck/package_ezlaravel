@@ -115,7 +115,7 @@
                 <label for="receiver"><small>*</small>{{trans('label.receiver')}}:</label>
                 <input type="text" id="receiver" name="receiver" value="@if(Auth::user()) {{Auth::user()->name}} @else {{old('receiver')}} @endif" class="sm-form-control" />
                 @if ($errors->has('receiver'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('receiver') }}</strong>
                     </span>
                 @endif
@@ -125,7 +125,7 @@
                 <label for="receiverTitle">{{trans('label.title')}}:</label>
                 <input type="text" id="receiverTitle" name="receiverTitle" value="{{ old('receiverTitle') }}" class="sm-form-control" />
                 @if ($errors->has('receiverTitle'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('receiverTitle') }}</strong>
                     </span>
                 @endif
@@ -137,7 +137,7 @@
                 <label for="receiverEmail"><small>*</small>{{trans('label.receiverEmail')}}:</label>
                 <input type="email" id="receiverEmail" name="receiverEmail" value="@if(Auth::user()) {{Auth::user()->email}} @else {{old('receiverEmail')}} @endif" class="sm-form-control" />
                 @if ($errors->has('receiverEmail'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('receiverEmail') }}</strong>
                     </span>
                 @endif
@@ -147,7 +147,7 @@
                 <label for="receiverAddress"><small>*</small>{{trans('label.receiverAddress')}}:</label>
                 <input type="text" id="receiverAddress" name="receiverAddress" value="@if(Auth::user()) {{Auth::user()->address}} @else {{old('receiverAddress')}} @endif" class="sm-form-control" />
                 @if ($errors->has('receiverAddress'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('receiverAddress') }}</strong>
                     </span>
                 @endif
@@ -157,7 +157,7 @@
                 <label for="receiverMobile"><small>*</small>{{trans('label.receiverMobile')}}:</label>
                 <input type="text" id="receiverMobile" name="receiverMobile" value="@if(Auth::user()) {{Auth::user()->mobile}} @else {{old('receiverMobile')}} @endif" class="sm-form-control" />
                 @if ($errors->has('receiverMobile'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('receiverMobile') }}</strong>
                     </span>
                 @endif
@@ -167,7 +167,7 @@
                 <label for="message">{{trans('label.message')}}</label>
                 <textarea class="sm-form-control" id="message" name="message" rows="6" cols="30">{{old('message')}}</textarea>
                 @if ($errors->has('message'))
-                    <span class="help-block">
+                    <span class="help-block text-warning">
                         <strong>{{ $errors->first('message') }}</strong>
                     </span>
                 @endif
@@ -273,17 +273,11 @@
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script>
     $(document).ready(function(){
-        var url = document.URL;
-        if (url.slice(-1) == '#'){
-            url = url.substr(0,url.length-1);
-        }
+        var url = window.location.origin;
         $('#btn_submitOrder').click(function(e){
             e.preventDefault();
             $('#billing-form').submit();
         });
-
-
-
     });
 
 </script>

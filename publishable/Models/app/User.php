@@ -9,6 +9,8 @@ use Auth;
 
 class User extends \TCG\Voyager\Models\User
 {
+    use Notifiable;
+    
     protected $guarded = [];
 
     /**

@@ -11,9 +11,13 @@
                 <div class="fslider" data-pagi="false">
                     <div class="flexslider">
                         <div class="slider-wrap">
-                            @foreach($item->getPicArray() as $pic)
-                            <div class="slide"><a href="{{asset('images/'.$pic)}}" title="{{$item->title}}"><img src="{{asset('images/'.$pic)}}" alt="{{$item->title}}"></a></div>
-                            @endforeach
+                            @if($item->getPicArray() != null)
+                                @foreach($item->getPicArray() as $pic)
+                                <div class="slide">
+                                    <a href="{{ Voyager::image($pic) }}" title="{{$item->title}}"><img src="{{ Voyager::image($pic) }}" alt="{{ $item->title }}"></a>
+                                </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -60,13 +64,17 @@
             <div class="line"></div>
             <p>{!! $item->desc !!}</p>
             <ul class="iconlist">
-                @foreach($item->getCharsArray() as $char)
-                    <li><i class="icon-caret-right"></i> {{$char}}</li>
-                @endforeach
+                @if ($item->getCharsArray() != null)
+                    @foreach($item->getCharsArray() as $char)
+                        <li><i class="icon-caret-right"></i> {{$char}}</li>
+                    @endforeach
+                @endif
             </ul>
             <div class="panel panel-default product-meta nobottommargin">
                 <div class="panel-body">
-                    <span itemprop="productID" class="sku_wrapper">{{trans('page.sku')}}: <span class="sku">{{$item->sku}}</span></span>
+                    @if (isset($item->sku))
+                        <span itemprop="productID" class="sku_wrapper">{{trans('page.sku')}}: <span class="sku">{{$item->sku}}</span></span>
+                    @endif
                     <span class="posted_in">{{trans('page.itemCgy')}}: <a href="#" rel="tag">{{$item->cgy->title}}</a>.</span>
                     <span class="tagged_as">{{trans('page.tag')}}:
                         @foreach($item->tags as $tag)
@@ -87,10 +95,7 @@
 
 <script>
     $(document).ready(function(){
-        var url = document.URL;
-        if (url.slice(-1) == '#'){
-            url = url.substr(0,url.length-1);
-        }
+        var url = window.location.origin;
         $('#btn-minus').click(function(){
             //console.log('minus');
             var qty = $('#qty').val();
@@ -113,18 +118,17 @@
         $('#add-to-cart').click(function(event){
             //event.preventDefault();
             var item_id = $('#id').val();
-            console.log('item_id:' + item_id);
+            //console.log('item_id:' + item_id);
             var qty = $('#qty').val();
-            console.log(url + 'api/shop/addCart?id=' + item_id + "&qty=" + qty );
+            //console.log(url + '/api/shop/addCart?id=' + item_id + "&qty=" + qty );
             $.ajax({
-
                 type: "get",
-                url: url + 'api/shop/addCart?id=' + item_id + "&qty=" + qty,
+                url: url + '/api/shop/addCart?id=' + item_id + "&qty=" + qty,
                 success: function (data) {
                     //console.log(data);
                     //$('#modal').close();
                     $.magnificPopup.close();
-                    //location.reload();
+                    location.reload();
                 },
                 error: function (data) {
                     console.log('Error:', data);

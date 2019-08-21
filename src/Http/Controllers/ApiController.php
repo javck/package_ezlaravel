@@ -32,6 +32,10 @@ class ApiController extends Controller
         return Response::json($data);
     }
 
+    public function loadTopCart(Request $request){
+        return view('easyweb2::includes._topCart');
+    }
+
     //查詢該城市所有的區域
     //Parameter 1 : county 城市key
     public function queryAreas(ApiRequest $request){

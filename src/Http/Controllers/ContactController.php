@@ -4,9 +4,8 @@ namespace Javck\Easyweb2\Http\Controllers;
 
 use App;
 use App\Contact;
-use Illuminate\Http\Request;
-use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Mail;
 
 class ContactController extends Controller
@@ -45,20 +44,18 @@ class ContactController extends Controller
         $inputs = $request->all();
         $contact = Contact::create($inputs);
         if (isset($contact)) {
-            
-            if (setting('admin.isSendNotify') == true) {
+
+            if (setting('easyweb2::admin.isSendNotify') == true) {
                 if (App::environment() == 'production') {
                     $url = url('/admin/contacts/' . $contact->id);
                     //發送Email通知給管理員
-                    Mail::send('emails.notifyContact', ['title' => '您有新的聯絡單' , 'content' => $content , 'action' => ['title' => '前往' , 'url' => $url]], function($message) 
-                    {
+                    Mail::send('easyweb2::emails.notifyContact', ['title' => '您有新的聯絡單', 'contact' => $contact, 'action' => ['title' => '前往', 'url' => $url]], function ($message) {
                         $message->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
                     });
 
                     if (isset($contact->email)) {
                         //發送Email通知給用戶
-                        Mail::send('emails.simple', ['title' => trans('label.receivedContact') , 'content' => trans('label.notifyContent') , 'action' => ['title' => '前往官網' , 'url' => url('/')]], function($message) use($contact)
-                        {
+                        Mail::send('emails.simple', ['title' => trans('label.receivedContact'), 'content' => trans('label.notifyContent'), 'action' => ['title' => '前往官網', 'url' => url('/')]], function ($message) use ($contact) {
                             $message->to($contact->email, $contact->name)->subject(trans('label.receivedContact'));
                         });
 
@@ -72,7 +69,6 @@ class ContactController extends Controller
         }
 
     }
-
 
     //服務已完成，將該聯絡資訊標註為已完成
     public function serviceDone(Request $request, $id)

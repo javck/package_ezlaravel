@@ -56,8 +56,9 @@ Route::get('/404-page', function () {
 });
 
 Route::get('/thank', function () {
-    return view('pages.thankyou');
+    return view('easyweb2::pages.thankyou');
 });
+
 
 Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
     Auth::routes();
@@ -101,6 +102,6 @@ Route::group(['middleware' => 'api','prefix' => 'api'],function(){
         Route::post('areas/queryByCounty','ApiController@queryAreas');
         Route::post('elements/queryPositions','ApiController@queryPositions');
         Route::post('elements/queryElementModes','ApiController@queryElementModes');
-    });    
+    });
 });
 

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateComments extends Migration
 {
@@ -12,17 +12,16 @@ class CreateComments extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function(Blueprint $table)
-        {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('article_id')->unsigned()->index()->nullable();
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-            $table->string('name',40)->nullable(); //姓名
-            $table->string('email',100)->nullable(); //電子郵箱
-            $table->string('website',255)->nullable(); //網址
-            $table->integer('user_id')->unsigned()->index()->nullable(); //使用者
+            $table->string('name', 40)->nullable(); //姓名
+            $table->string('email', 100)->nullable(); //電子郵箱
+            $table->string('website', 255)->nullable(); //網址
+            $table->unsignedBigInteger('user_id')->index()->nullable(); //使用者
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('content',800); //內容
+            $table->string('content', 800); //內容
             $table->integer('reply_to')->nullable(); //回覆給
             $table->integer('sort')->default(0); //排序
             $table->boolean('enabled')->default(true); //是否啟用
@@ -37,8 +36,7 @@ class CreateComments extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function(Blueprint $table)
-        { 
+        Schema::table('comments', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['article_id']);
         });

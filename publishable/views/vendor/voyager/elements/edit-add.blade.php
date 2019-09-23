@@ -15,7 +15,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','subtitle','mode','page','position'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','title_color','isShowTitle','subtitle','mode','page','position'] ])
 @stop
 
 @section('panel_l_2_title')
@@ -31,7 +31,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title','subtitle','mode','sort','enabled','video','content','pic','alt','page','lang','position','title_pos','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay','url','url_txt'] ])
+    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title','subtitle','mode','sort','enabled','video','content','pic','alt','page','lang','position','title_pos','title_color','q_mode','i_mode','price','priceUnit','isBestPrice','icon','animation','animationDelay','url','url_txt','isShowTitle'] ])
 @stop
 
 @section('panel_r_1_title')

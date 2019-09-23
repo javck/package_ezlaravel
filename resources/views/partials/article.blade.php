@@ -123,7 +123,7 @@
 								<div class="si-share noborder clearfix">
 									<span>{{ trans('page.shareArticle') }}</span>
 									<div>
-										<a href="http://www.facebook.com/share.php?u={{Request::fullUrl()}}" class="social-icon si-borderless si-facebook">
+										<a href="http://www.facebook.com/share.php?u={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-facebook">
 											<i class="icon-facebook"></i>
 											<i class="icon-facebook"></i>
 										</a>
@@ -135,7 +135,7 @@
 											<i class="icon-pinterest"></i>
 											<i class="icon-pinterest"></i> --}}
 										</a>
-										<a href="https://plus.google.com/share?url={{Request::fullUrl()}}" class="social-icon si-borderless si-gplus">
+										<a href="https://plus.google.com/share?url={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-gplus">
 											<i class="icon-gplus"></i>
 											<i class="icon-gplus"></i>
 										</a>

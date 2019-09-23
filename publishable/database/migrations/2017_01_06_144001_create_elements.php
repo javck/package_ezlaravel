@@ -30,10 +30,12 @@ class CreateElements extends Migration
             $table->string('video', 255)->nullable(); //影片網址
             $table->string('alt', 100)->nullable(); //替代文字
             $table->string('title_pos', 20)->nullable(); //標題位置
+            $table->string('title_color', 30)->nullable(); //標題顏色
             $table->string('q_mode', 40)->nullable(); //作為Q&A問題標籤使用
             $table->string('i_mode', 40)->nullable(); //作為資訊切換標籤使用
             $table->integer('sort')->default(0); //排序
             $table->boolean('enabled')->default(true); //是否啟用
+            $table->boolean('isShowTitle')->default(true); //是否顯示標題
             $table->timestamps();
         });
     }

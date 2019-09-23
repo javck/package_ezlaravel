@@ -1,4 +1,4 @@
-@if(isset($items_slider))
+@if(isset($items))
 
     <section id="slider" class="{{ setting('canvas.slider_class') }}" data-loop="{{ setting('canvas.slider_data_loop') }}">
 
@@ -6,20 +6,21 @@
 
             <div class="swiper-container swiper-parent">
                 <div class="swiper-wrapper">
-                    @foreach($items_slider as $slider)
-                        <div class="swiper-slide dark" style="background-image: url('{{$slider->getPicUrl()}}');">
+                    @foreach($items as $item)
+                        <div class="swiper-slide dark" style="background-image: url('{{$item->getPicUrl()}}');">
+                            <a href="{{ $item->url }}">
                             <div class="container clearfix">
-                                <div class="slider-caption 
-                                    @if($slider->title_pos == 'center')
+                                <div class="slider-caption
+                                    @if($item->title_pos == 'center')
                                         slider-caption-center
-                                    @endif 
+                                    @endif
                                     dark">
-                                    <h2 data-caption-animate="fadeInUp">{{$slider->title}}</h2>
+                                    <h2 data-caption-animate="fadeInUp" style="color:{{$item->title_color}}">{{$item->title}}</h2>
                                     <p data-caption-animate="fadeInUp"
-                                       data-caption-delay="200">{{$slider->subtitle}}</p>
+                                       data-caption-delay="200" style="color:{{$item->title_color}}">{{$item->subtitle}}</p>
                                 </div>
                             </div>
-
+                            </a>
                         </div>
                     @endforeach
                 </div>

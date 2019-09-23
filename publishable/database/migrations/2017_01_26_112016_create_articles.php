@@ -33,6 +33,7 @@ class CreateArticles extends Migration
             $table->string('meta_keywords', 255)->nullable();
             $table->string('seo_title', 255)->nullable();
             $table->string('slug', 255)->nullable();
+            $table->string('cover', 255)->nullable(); //封面圖片
             $table->string('images', 1000)->nullable(); //圖片
             $table->timestamps();
         });

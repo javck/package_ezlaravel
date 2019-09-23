@@ -22,6 +22,7 @@ class CreateCgysTable extends Migration
             $table->string('desc',500)->nullable(); //分類描述
             $table->boolean('enabled')->default(true);//是否啟動
             $table->integer('sort'); //排序
+            $table->string('type',30)->nullable(); //類型
             $table->timestamps();
         });
     }

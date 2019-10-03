@@ -20,53 +20,59 @@ class Element extends Model
     // }
 
 //    public function getAnimationAttribute($value){
-//        return array_search($value, Constant::$animStyles);
-//    }
+    //        return array_search($value, Constant::$animStyles);
+    //    }
 
-    public function getEnabled(){
+    public function getEnabled()
+    {
         if ($this->enabled == '1') {
             return '是';
-        }else{
+        } else {
             return '否';
         }
     }
 
-    public function getPageName(){
-    	return json_decode(setting('constant.pages'),true)[$this->page];
+    public function getPageName()
+    {
+        return json_decode(setting('constant.pages'), true)[$this->page];
     }
 
-    public function getModeName(){
-    	return json_decode(setting('constant.element_modes'),true)[$this->mode];
+    public function getModeName()
+    {
+        return json_decode(setting('constant.element_modes'), true)[$this->mode];
     }
 
-    public function getLangName(){
-        return json_decode(setting('constant.lang'),true)[$this->lang];
+    public function getLangName()
+    {
+        return json_decode(setting('constant.lang'), true)[$this->lang];
     }
 
-    public function getPartContent(){
-        if (strlen($this->content)>=30) {
-            return mb_substr($this->content,0,25,"UTF-8") . "...";
-        }else{
+    public function getPartContent()
+    {
+        if (strlen($this->content) >= 30) {
+            return mb_substr($this->content, 0, 25, "UTF-8") . "...";
+        } else {
             return $this->content;
         }
     }
 
-    public function getPicUrl(){
-        if(strpos($this->pic, 'http') !== false || strpos($this->pic, 'https') !== false){
+    public function getPicUrl()
+    {
+        if (strpos($this->pic, 'http') !== false || strpos($this->pic, 'https') !== false) {
             return $this->pic;
-        }else{
-            if(isset($this->pic)){
+        } else {
+            if (isset($this->pic)) {
                 return \TCG\Voyager\Facades\Voyager::image($this->pic);
-            }else{
+            } else {
                 return null;
             }
         }
     }
 
-
-    public function getPicName(){
+    public function getPicName()
+    {
         $info = pathinfo($this->pic);
-        $file_name =  basename($this->pic,'.'.$info['extension']);
+        $file_name = basename($this->pic, '.' . $info['extension']);
         return $file_name;
     }
 
@@ -74,7 +80,7 @@ class Element extends Model
     {
         if (isset($value)) {
             return $value;
-        }else{
+        } else {
             return '#';
         }
     }
@@ -85,14 +91,14 @@ class Element extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      * @param page 頁面
      */
-    public function scopePage( $query , $page )
+    public function scopePage($query, $page)
     {
         if ($page != 'none') {
             return $query->where('page', $page);
-        }else{
+        } else {
             return $query;
         }
-        
+
     }
 
     /**
@@ -102,14 +108,14 @@ class Element extends Model
      * @param mode 類型
      */
     //限制查詢模式為某個模式的工作。
-    public function scopeMode( $query , $mode )
+    public function scopeMode($query, $mode)
     {
         if ($mode != 'none') {
             return $query->where('mode', $mode);
-        }else{
+        } else {
             return $query;
         }
-        
+
     }
 
     /**
@@ -118,13 +124,19 @@ class Element extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      * @param position 位置
      */
-    public function scopePosition( $query , $position )
+    public function scopePosition($query, $position)
     {
         if ($position != 'none') {
             return $query->where('position', $position);
-        }else{
+        } else {
             return $query;
         }
-        
+
+    }
+
+    //查詢為啟用，並把sort欄位由小到大排序
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', true)->orderBy('sort', 'asc');
     }
 }

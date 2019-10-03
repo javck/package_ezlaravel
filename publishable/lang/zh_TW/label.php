@@ -267,5 +267,6 @@ return [
     'back_items' => '返回商品列表',
     'login_username' => '登入你的帳號',
     'facebook_login'=> '使用Facebook登入',
-    'google_login' => '使用Google登入'
+    'google_login' => '使用Google登入',
+    'want_register' => '我要註冊'
 ];

@@ -4,6 +4,8 @@
 	    	@if ($menu_item->link() == '#modal-login')
 	    		@if (!Auth::check())
 					<li class="menu-item-emphasis"><a href="#modal-login" data-lightbox="inline"><div>{{ $menu_item->title }}</div></a></li>
+				@else
+					<li class=""><a href="{{url('/admin')}}"><div>歡迎,{{ Auth::user()->name }}</div></a></li>
 	    		@endif
 	   			
 	    		@php

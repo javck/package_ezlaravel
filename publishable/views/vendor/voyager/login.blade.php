@@ -92,15 +92,17 @@
                                 __('voyager::login.loggingin') }}...</span>
                             <span class="signin">{{ __('voyager::generic.login') }}</span>
                         </button>
-
                     </form>
 
                     <div style="clear:both"></div>
                     <br>
-                    <div>   
-                        <a href="{{ url('/register') }}">註冊</a>&nbsp;&nbsp;
-                        <a href="{{ url('/password/reset') }}">忘記密碼</a>
-                    </div>
+                    <div>
+                            
+                            <a href="{{ url('/register') }}">註冊</a>&nbsp;&nbsp;
+
+                            <a href="{{ url('/password/reset') }}">忘記密碼</a>
+                        
+                        </div>
 
                     @if(!$errors->isEmpty())
                     <div class="alert alert-red">

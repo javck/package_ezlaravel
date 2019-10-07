@@ -16,7 +16,7 @@
         "laravel/framework": "~5.7.0|~5.8.0",
         "fideloper/proxy": "^4.0",
         "laravelcollective/html": "^5.4.0",
-        "tcg/voyager": "1.2.*",
+        "tcg/voyager": "1.2.7",
         "greggilbert/recaptcha": "dev-master",
         "darryldecode/cart": "~4.0",
         "anhskohbo/no-captcha": "^3.0.4"

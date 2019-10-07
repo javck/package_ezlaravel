@@ -1,6 +1,6 @@
 @extends('voyager::master')
 {{-- 自定義載入Lib區域 開始 --}}
-<?php use Illuminate\Support\Facades\DB; ?>
+<?php use App\Order; ?>
 {{-- 自定義載入Lib區域 結束 --}}
 @section('page_title', __('voyager::generic.viewing').' '.$dataType->getTranslatedAttribute('display_name_plural'))
 
@@ -130,6 +130,9 @@
                                             @endif
                                         </th>
                                         @endforeach
+                                        {{-- 自定義訂單明細標頭區域 開始 --}}
+                                        <th>{{ __('voyager::generic.order_detail') }}</th>
+                                        {{-- 自定義訂單明細標頭區域 結束 --}}
                                         <th class="actions text-right">{{ __('voyager::generic.actions') }}</th>
                                     </tr>
                                 </thead>
@@ -291,6 +294,14 @@
                                                 @endif
                                             </td>
                                         @endforeach
+                                        {{-- 自定義訂單內容區域 開始 --}}
+                                        @php
+                                        	$order = Order::findOrFail($data->id);
+                                        @endphp
+                                        <td>
+                                        	{{ $order->orderDetail }}
+                                        </td>
+                                        {{-- 自定義訂單內容區域 結束 --}}
                                         <td class="no-sort no-click" id="bread-actions">
                                             @foreach($actions as $action)
                                                 @if (!method_exists($action, 'massAction'))

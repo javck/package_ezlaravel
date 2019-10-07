@@ -8,7 +8,9 @@ use App\Item;
 
 class Order extends Model
 {
-    protected $guarded = [];
+    protected $fillable= ['owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress','message','couponCode','subtotal','shipCost','status'];
+
+    public $additional_attributes = ['orderDetail'];
 
     public function owner(){
         return $this->belongsTo('App\User');
@@ -31,5 +33,17 @@ class Order extends Model
 
     public function getStatusName(){
         return json_decode(setting('constant.order_statuses'),true)[$this->status];
+    }
+
+    //顯示商品明細
+    public function getOrderDetailAttribute(){
+        $str_detail = "";
+        foreach ($this->items as $item) {
+            if(strlen($str_detail) != 0){
+                $str_detail = $str_detail . ',';
+            }
+            $str_detail = $str_detail . $item->title . 'x' . $item->pivot->qty;
+        }
+        return $str_detail;
     }
 }

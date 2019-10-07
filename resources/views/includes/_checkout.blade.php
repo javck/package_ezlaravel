@@ -8,7 +8,7 @@
         </div>
     </div>
     @endif
-    @if (setting('admin.isUseCoupon') == true)
+    @if (setting('admin.isUseCoupon') == 'true')
         <div class="col_half">
             <div class="card">
                 <div class="card-body">
@@ -270,7 +270,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script>
     $(document).ready(function(){
         var url = window.location.origin;

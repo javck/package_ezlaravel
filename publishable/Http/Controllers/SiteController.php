@@ -9,6 +9,7 @@ use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Mail;
 
 class SiteController extends Controller
 {
@@ -208,7 +209,7 @@ class SiteController extends Controller
             //發送Email通知給用戶
             $subject = setting('site.title') . '訂單付款通知';
 
-            Mail::send('emails.simple', ['title' => $subject , 'content' => $content , 'action' => ['title' => '前往付款' , 'url' => $url]], function($message) use($user, $subject)
+            Mail::send('easyweb2::emails.simple', ['title' => $subject , 'content' => $content , 'action' => ['title' => '前往付款' , 'url' => $url]], function($message) use($user, $subject)
             {
                 $message->to($user->email, $user->name)->subject($subject);
             });

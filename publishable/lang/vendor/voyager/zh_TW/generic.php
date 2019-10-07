@@ -12,5 +12,6 @@ return [
     'canvas_desc' 			=> 'Canvas實用資訊，含CSS與工具',
     'order'					=> '順序',
     'home'					=> '返回首頁',
+    'order_detail'          => '訂單明細',
 ];
 

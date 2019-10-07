@@ -6,7 +6,7 @@
 	<div class="row ecommerce-categories clearfix" style="padding: 20px 0 0;">
 		@foreach ($items as $item)
 			<div class="col-lg-4">
-				<a href="{{ url('/cgys/'.$item->id) }}" style="background: url({{ Voyager::image($item->pic) }}) no-repeat center center; background-size: cover;">
+				<a href="{{ url('/shop/cgy/'.$item->id) }}" style="background: url({{ Voyager::image($item->pic) }}) no-repeat center center; background-size: cover;">
 				<div class="vertical-middle dark center">
 					<div class="heading-block nomargin noborder">
 						<h3 class="capitalize font-secondary nott t500">{{ $item->title }}<span>{{ $item->desc }}</span></h3>

@@ -12,7 +12,7 @@ use Javck\Easyweb2\Http\Middleware\VerifyEnabled;
 use Javck\Easyweb2\FormFields\ConstantFormField;
 use Javck\Easyweb2\FormFields\TagFormField;
 use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
-use Javck\Easyweb2\Http\Controllers\VoyagerBaseController;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Facades\Voyager;
 
 class Easyweb2ServiceProvider extends ServiceProvider

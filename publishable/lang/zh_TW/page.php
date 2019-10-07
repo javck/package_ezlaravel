@@ -136,4 +136,8 @@ return [
     'pay_third' => '第三方支付',
     'thank_buy_title' => '感謝您的下單購買',
     'thank_buy_desc' => '我們將盡快處理您的訂單，如有任何疑問請透過表單與我們聯絡',
+    'order_detail_below' => '以下為訂單內容',
+    'cart_empty' => '購物車是空的',
+    'have_stock' => '剩餘存貨',
+    'check_item' => '確認商品',
 ];

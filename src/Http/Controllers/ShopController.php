@@ -13,6 +13,7 @@ use Response;
 use Auth;
 use App\Http\Model\BI;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class ShopController extends Controller
 {
@@ -26,13 +27,14 @@ class ShopController extends Controller
     public function addCart(Request $request){
         $inputs = $request->all();
         $item = Item::findOrFail($inputs['id']);
+        $quantity = isset($inputs['qty']) ? $inputs['qty'] : 1;
 
         //$cart = Cart::add($item , $inputs['qty']);
         Cart::add([
             'id' => $item->id,
             'name' => $item->title,
             'price' => $item->price,
-            'quantity' => $inputs['qty'],
+            'quantity' => $quantity,
             'attributes' => []
         ]);
         $carts = Cart::getContent();
@@ -139,6 +141,17 @@ class ShopController extends Controller
                 }
             }
         }
+
+        //通知管理員
+        if(setting('admin.isSendNotify') == 'true'){
+            $subject = setting('site.title') . '訂單通知';
+            $url = url('/admin/orders/' . $order->id);
+            Mail::send('easyweb2::emails.upsell', ['title' => $subject , 'order' => $order , 'action' => ['title' => '確認訂單' , 'url' => $url]], function($message) use($user, $subject)
+            {
+                $message->to(setting('admin.admin_mail'), '管理員')->subject($subject);
+            });
+        }
+
         Cart::clear();
         $title = trans('page.thank_buy_title');
         $desc = trans('page.thank_buy_desc');
@@ -151,6 +164,7 @@ class ShopController extends Controller
         $cgies = Cgy::where('parent_id',$cgy->parent_id)->where('enabled',true)->orderBy('sort','asc')->get();
         $cgy_ids = Cgy::where('parent_id',$cgy->parent_id)->where('enabled',true)->orderBy('sort','asc')->pluck('id');
         $items = Item::whereIn('cgy_id',$cgy_ids)->get();
-        return view('easyweb2::pages.filter_shop',compact('cgies','items'));
+        $activeCgy_id = $cgy->id;
+        return view('easyweb2::pages.filter_shop',compact('cgies','items','activeCgy_id'));
     }
 }

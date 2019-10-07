@@ -41,13 +41,14 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     });
 
     Route::prefix('shop')->group(function () {
+        Route::group(['middleware' => ['auth']], function () {
+            Route::get('createCheckout', 'ShopController@createCheckout');
+            Route::post('submitCheckout', 'ShopController@submitCheckout');
+        });
         Route::match(['get', 'post'], 'addCart', 'ShopController@addCart');
-        Route::get('showCart', 'ShopController@showCart');
-        Route::get('createCheckout', 'ShopController@createCheckout');
-        Route::post('submitCheckout', 'ShopController@submitCheckout');
         Route::get('/cgy/{cgy}','ShopController@renderShopPage');
+        Route::get('showCart','ShopController@showCart');
     });
-
 });
 
 
@@ -93,15 +94,21 @@ Route::group(['middleware' => 'api','prefix' => 'api'],function(){
     Route::group(['namespace' => '\Javck\Easyweb2\Http\Controllers'],function () {
         Route::get('items/show','ApiController@showSingleItem');
         Route::get('items/{item}','ApiController@queryItem');
+        //Official
+        Route::post('areas/queryByCounty','ApiController@queryAreas');
+        Route::post('elements/queryPositions','ApiController@queryPositions');
+        Route::post('elements/queryElementModes','ApiController@queryElementModes');
+    });
+});
+
+Route::group(['middleware' => 'web','prefix' => 'api'],function(){
+    Route::group(['namespace' => '\Javck\Easyweb2\Http\Controllers'],function () {
         Route::get('page/loadTopCart','ApiController@loadTopCart');
         Route::get('shop/addCart','ShopController@addCart');
         Route::get('shop/updateCart','ShopController@updateCart');
         Route::get('shop/removeCart','ShopController@removeCart');
         Route::get('shop/clearCart','ShopController@clearCart');
-        //Official
-        Route::post('areas/queryByCounty','ApiController@queryAreas');
-        Route::post('elements/queryPositions','ApiController@queryPositions');
-        Route::post('elements/queryElementModes','ApiController@queryElementModes');
+        Route::get('shop/getCart','ShopController@getCart');
     });
 });
 

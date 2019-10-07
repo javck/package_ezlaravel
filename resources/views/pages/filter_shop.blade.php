@@ -35,8 +35,6 @@
 								<a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax"><img src="{{Voyager::image($item->getPicByIndex(1))}}" alt="{{$item->title}}"></a>
 							@endif
 	
-							
-							{{-- <a href="#"><img src="images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a> --}}
 							<div class="product-overlay">
 								<a href="{{$item->id}}" class="add-to-cart"><i class="icon-shopping-cart"></i><span>{{__('page.addCart')}}</span></a>
 								<a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> {{__('page.quickView')}}</span></a>
@@ -76,9 +74,9 @@
 
 					<h4>{{__('page.shopCgies')}}</h4>
 					<ul class="custom-filter" data-container="#shop" data-active-class="active-filter">
-						<li class="widget-filter-reset active-filter"><a href="#" data-filter="*">{{__('page.reset')}}</a></li>
+						<li class="widget-filter-reset"><a href="#" data-filter="*">{{__('page.reset')}}</a></li>
 						@foreach ($cgies as $cgy)
-							<li><a href="#" data-filter=".sf-{{$cgy->id}}">{{$cgy->title}}</a></li>
+							<li id="cgy_{{$cgy->id}}"><a href="#" data-filter=".sf-{{$cgy->id}}">{{$cgy->title}}</a></li>
 						@endforeach
 					</ul>
 
@@ -108,6 +106,16 @@
 @section('js')
 	<script src="{{asset('js/shop.js')}}"></script>
 	<script>
+
+		function select_cgy(cgy_id){
+			$('.shop-sorting').find('li').removeClass( 'active-filter' );
+			var id = 'cgy_' + cgy_id;
+			$('#' + id).addClass( 'active-filter' );
+			var sortByValue = $('#' + id).find('a').attr('data-sort-by');
+			$('#shop').isotope({ filter: '.sf-' + cgy_id });
+			return false;
+		}
+
 		jQuery(document).ready( function($){
 
 			//處理商品排序作業
@@ -156,6 +164,13 @@
 
 			});
 
+			
+			select_cgy({{$activeCgy_id}});
+			//處理商品排序作業結束=======================================
+
+
+
+			//商品分類點擊=======================================
 			$('.shop-sorting li').click( function() {
 				$('.shop-sorting').find('li').removeClass( 'active-filter' );
 				$(this).addClass( 'active-filter' );
@@ -164,7 +179,9 @@
 				return false;
 			});
 
-			//處理商品排序作業結束=======================================
+
+
+			
 
 
 		});

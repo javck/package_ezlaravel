@@ -25,7 +25,9 @@
 								<a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax"><i class="icon-line-search"></i><span>{{trans('page.quickView')}}</span></a>
 							</div>
 						</div>
+						@if(isset($item->badge))
 						<div class="sale-flash">{{ $item->badge }}</div>
+						@endif
 						<div class="product-desc">
 							<div class="product-title mb-1"><h3><a href="{{url('api/items/show?item_id='.$item->id)}}" class="item-quick-view" data-lightbox="ajax">{{$item->title}}</a></h3>
 							</div>

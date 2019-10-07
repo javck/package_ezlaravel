@@ -268,5 +268,12 @@ return [
     'login_username' => '登入你的帳號',
     'facebook_login'=> '使用Facebook登入',
     'google_login' => '使用Google登入',
-    'want_register' => '我要註冊'
+    'want_register' => '我要註冊',
+    'select_category' => '選擇分類',
+    'sort_by' => '排序依',
+    'price_low_to_high' => '價格從低到高',
+    'price_high_to_low' => '價格從高到低',
+    'hit' => '主打',
+    'welcome' => '歡迎',
+    'back_orders' => '返回訂單列表',
 ];

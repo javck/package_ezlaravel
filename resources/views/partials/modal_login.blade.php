@@ -16,12 +16,13 @@
 
 				<div class="col_full nobottommargin">
 					<button class="button button-rounded nomargin" id="submit" name="submit" value="login">{{ __('label.login') }}</button>
+					<a href="{{ route('register') }}" class="fright">{{ __('label.register') }}</a><br>
 					<a href="{{ route('password.request') }}" class="fright">{{ __('label.forgetPwd') }}?</a>
 				</div>
 			</form>
-			<div class="line line-sm"></div>
+			{{-- <div class="line line-sm"></div>
 			<a href="#" class="button button-rounded btn-block t400 center capitalize si-facebook si-colored noleftmargin norightmargin">{{ __('label.facebook_login') }}</a>
-			<a href="#" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a>
+			<a href="#" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a> --}}
 		</div>
 	</div>
 </div>

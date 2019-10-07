@@ -14,6 +14,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
 use App\Consolidation;
+use Session;
 
 class MyVoyagerOrderController extends MyVoyagerBaseController
 {
@@ -49,9 +50,24 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
         $getter = $dataType->server_side ? 'paginate' : 'get';
 
         $search = (object) ['value' => $request->get('s'), 'key' => $request->get('key'), 'filter' => $request->get('filter')];
-        $searchable = $dataType->server_side ? array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray()) : '';
+
+        $searchNames = [];
+        $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray());
+        if ($dataType->server_side) {
+            $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+            foreach ($searchable as $key => $value) {
+                if($dataRow->where('field', $value)->first() == null){
+                    continue;
+                }
+                $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
+                $searchNames[$value] = $displayName ?: ucwords(str_replace('_', ' ', $value));
+            }
+        }
+
         $orderBy = $request->get('order_by', $dataType->order_column);
         $sortOrder = $request->get('sort_order', null);
+        $usesSoftDeletes = false;
+        $showSoftDeleted = false;
         $orderColumn = [];
         if ($orderBy) {
             $index = $dataType->browseRows->where('field', $orderBy)->keys()->first() + 1;
@@ -67,22 +83,86 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
         // Next Get or Paginate the actual content from the MODEL that corresponds to the slug DataType
         if (strlen($dataType->model_name) != 0) {
             $model = app($dataType->model_name);
-            $query = $model::select('*');
+
+            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+                $query = $model->{$dataType->scope}();
+            } else {
+                $query = $model::select('*');
+            }
 
             //確認登入者身分，如果非管理者只能看到自己的訂單
             if(!auth()->user()->hasRole('admin') && !auth()->user()->hasRole('super')){
                 $query->where('owner_id',auth()->user()->id);
             }
 
+            // Use withTrashed() if model uses SoftDeletes and if toggle is selected
+            if ($model && in_array(SoftDeletes::class, class_uses($model)) && app('VoyagerAuth')->user()->can('delete', app($dataType->model_name))) {
+                $usesSoftDeletes = true;
+
+                if ($request->get('showSoftDeleted')) {
+                    $showSoftDeleted = true;
+                    $query = $query->withTrashed();
+                }
+            }
+
             // If a column has a relationship associated with it, we do not want to show that field
             $this->removeRelationshipField($dataType, 'browse');
 
-            if ($search->filter && $search->key) {
+            //先加入各Browse自定義過濾================================
+            $inputs = $request->all();
+            $querys = array();
+            if(Session::has('model')){
+                if(Session::get('model') == $dataType->name){
+                    if(Session::has('querys')){
+                        $querys = Session::get('querys');
+                    }
+                }else{
+                    if(Session::has('querys')){
+                        $old_querys = Session::get('querys');
+                        Session::forget('querys');
+                        foreach ($old_querys as $key =>$value) {
+                            Session::forget($key);
+                        }
+                    }
+                    Session::put('model',$dataType->name);
+                }
+            }else{
+                Session::put('model',$dataType->name);
+            }
+            
+            //$inputs = array_merge($inputs,$querys);
+            foreach ($inputs as $key => $value) {
+                if($value != 'none'){
+                    $querys[$key] = $value;
+                }else{
+                    if(Session::has($key)){
+                        Session::forget($key);
+                        unset($querys[$key]);
+                    }
+                }
+            }
+
+            foreach ($querys as $key => $value) {
+                if( !in_array($key,['key','filter','s','page','order_by','sort_order','showSoftDeleted']) ){
+                    if(substr( $key, 0, 6 ) === "query_"){
+                        $queryKey = str_replace("query_","",$key);
+                    }else{
+                        $queryKey = $key;
+                    }
+                    $query->where($queryKey,'like','%'.$value.'%');
+                    Session::put($key, $value);
+                }
+            }
+            //dd($querys);
+            Session::put('querys', $querys);
+
+            if ($search->key && $search->filter) {
                 $theRow = Voyager::model('DataRow')->where('data_type_id', $dataType->id)->where('field', $search->key)->first();
+                //加入更強大的搜尋功能
                 if ($theRow->type == 'checkbox') {
                     $query->where($search->key, $search->filter === 'true');
                 } else {
-                    if ($search->value) {
+                    if ($search->value && $search->value != '') {
                         $search_filter = ($search->filter == 'equals') ? '=' : 'LIKE';
                         $search_value = ($search->filter == 'equals') ? $search->value : '%' . $search->value . '%';
 
@@ -114,7 +194,6 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
                     } else {
                     }
                 }
-
             }
 
             if ($orderBy && in_array($orderBy, $dataType->fields())) {
@@ -146,7 +225,19 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
         $isServerSide = isset($dataType->server_side) && $dataType->server_side;
 
         // Check if a default search key is set
-        $defaultSearchKey = isset($dataType->default_search_key) ? $dataType->default_search_key : null;
+        $defaultSearchKey = $dataType->default_search_key ?? null;
+
+        // Actions
+        $actions = [];
+        if (!empty($dataTypeContent->first())) {
+            foreach (Voyager::actions() as $action) {
+                $action = new $action($dataType, $dataTypeContent->first());
+
+                if ($action->shouldActionDisplayOnDataType()) {
+                    $actions[] = $action;
+                }
+            }
+        }
 
         $view = 'voyager::bread.browse';
 
@@ -155,6 +246,7 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
         }
 
         return Voyager::view($view, compact(
+            'actions',
             'dataType',
             'dataTypeContent',
             'isModelTranslatable',
@@ -162,9 +254,12 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
             'orderBy',
             'orderColumn',
             'sortOrder',
+            'searchNames',
             'searchable',
             'isServerSide',
-            'defaultSearchKey'
+            'defaultSearchKey',
+            'usesSoftDeletes',
+            'showSoftDeleted'
         ));
     }
 
@@ -340,87 +435,6 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
     //     return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
     // }
 
-    /**
-     * POST BRE(A)D - Store data.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
-    {
-        //dd($request->all());
-        $ids = explode(',',$request->all()['ids']);
-        $owner_id = null;
-        $consolidations = array();
-
-        $slug = $this->getSlug($request);
-
-        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-
-        // Check permission
-        $this->authorize('add', app($dataType->model_name));
-
-        // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->addRows);
-
-        if ($val->fails()) {
-            return response()->json(['errors' => $val->messages()]);
-        }
-
-        //檢查集運單是否屬於同一個用戶，如果不是就丟回錯誤
-        foreach ($ids as $id) {
-            $_consolidation = Consolidation::findOrFail($id);
-            if(isset($owner_id)){
-                if($owner_id != $_consolidation->user_id){
-                    return back()->with([
-                    'message'    => '集運單不屬於同一個使用者',
-                    'alert-type' => 'error',
-                ]);
-                }
-            }else{
-                $owner_id = $_consolidation->user_id;
-            }
-            if($_consolidation->order_id != null){
-                return back()->with([
-                    'message'    => '集運單已屬於某訂單',
-                    'alert-type' => 'error',
-                ]);
-            }
-
-            $consolidations[] = $_consolidation;
-        }
-
-        if (!$request->has('_validate')) {
-            $newModel = new $dataType->model_name();
-            $newModel->owner_id = $owner_id;
-            $newModel->status = 'created';
-            //計算Total
-            $newModel->shipCost = BI::calculShipCost($consolidations);
-            $newModel->subtotal = BI::calculOrderSubTotal($consolidations);
-
-            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, $newModel);
-
-            
-            foreach ($consolidations as $item) {
-                $item->order_id = $data->id;
-                $item->save();
-            }
-
-            event(new BreadDataAdded($dataType, $data));
-
-            if ($request->ajax()) {
-                return response()->json(['success' => true, 'data' => $data]);
-            }
-
-            return redirect()
-                ->route("voyager.{$dataType->slug}.index")
-                ->with([
-                    'message' => __('voyager::generic.successfully_added_new') . " {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
-    }
 
     //***************************************
     //                _____
@@ -476,68 +490,6 @@ class MyVoyagerOrderController extends MyVoyagerBaseController
 
     //     return redirect()->route("voyager.{$dataType->slug}.index")->with($data);
     // }
-
-    /**
-     * Remove translations, images and files related to a BREAD item.
-     *
-     * @param \Illuminate\Database\Eloquent\Model $dataType
-     * @param \Illuminate\Database\Eloquent\Model $data
-     *
-     * @return void
-     */
-    protected function cleanup($dataType, $data)
-    {
-        // Delete Translations, if present
-        if (is_bread_translatable($data)) {
-            $data->deleteAttributeTranslations($data->getTranslatableAttributes());
-        }
-
-        // Delete Images
-        $this->deleteBreadImages($data, $dataType->deleteRows->where('type', 'image'));
-
-        // Delete Files
-        foreach ($dataType->deleteRows->where('type', 'file') as $row) {
-            if (isset($data->{$row->field})) {
-                foreach (json_decode($data->{$row->field}) as $file) {
-                    $this->deleteFileIfExists($file->download_link);
-                }
-            }
-        }
-    }
-
-    /**
-     * Delete all images related to a BREAD item.
-     *
-     * @param \Illuminate\Database\Eloquent\Model $data
-     * @param \Illuminate\Database\Eloquent\Model $rows
-     *
-     * @return void
-     */
-    public function deleteBreadImages($data, $rows)
-    {
-        foreach ($rows as $row) {
-            if ($data->{$row->field} != config('voyager.user.default_avatar')) {
-                $this->deleteFileIfExists($data->{$row->field});
-            }
-
-            if (isset($row->details->thumbnails)) {
-                foreach ($row->details->thumbnails as $thumbnail) {
-                    $ext = explode('.', $data->{$row->field});
-                    $extension = '.' . $ext[count($ext) - 1];
-
-                    $path = str_replace($extension, '', $data->{$row->field});
-
-                    $thumb_name = $thumbnail->name;
-
-                    $this->deleteFileIfExists($path . '-' . $thumb_name . $extension);
-                }
-            }
-        }
-
-        if ($rows->count() > 0) {
-            event(new BreadImagesDeleted($data, $rows));
-        }
-    }
 
     /**
      * Order BREAD items.

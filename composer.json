@@ -19,7 +19,8 @@
         "tcg/voyager": "1.2.7",
         "greggilbert/recaptcha": "dev-master",
         "darryldecode/cart": "~4.0",
-        "anhskohbo/no-captcha": "^3.0.4"
+        "anhskohbo/no-captcha": "^3.0.4",
+        "jenssegers/agent": "^2.6"
     },
     "require-dev":{
         "laravel/tinker": "^1.0"

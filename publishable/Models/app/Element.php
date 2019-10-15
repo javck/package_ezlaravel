@@ -84,6 +84,19 @@ class Element extends Model
             return '#';
         }
     }
+    /**
+     *  根據裝置(手機或電腦)來決定要返回哪一個圖片資源，如果為手機版的圖則在.之前加上m，例如：1.jpg對應1m.jpg
+     */
+    public function getPicByAgent(){
+        $agent = new Agent();
+        if($agent->isMobile()){
+            $newPath = Voyager::image(str_replace('.','m.',$this->pic));
+            if(app('easyweb2')->chkResourceExist($newPath)){
+                return $newPath;
+            }
+        }
+        return Voyager::image($this->pic);
+    }
 
     /**
      * 限制查詢只包括某頁面的元素。

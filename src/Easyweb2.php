@@ -278,6 +278,26 @@ class Easyweb2
 		 return $letters[(mt_rand(0, count($letters) - 1))];
 	}
 
+	/**
+	 * 檢查所傳入的網址資源是否存在
+	 *
+	 * @return boolean
+	 */
+	public function chkResourceExist($url)
+	{
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_NOBODY, true);
+		curl_exec($ch);
+		$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+
+		if($statusCode == '200'){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	//簡訊王相關API=================================================================
 	/*
 	*	簡訊王寄出簡訊

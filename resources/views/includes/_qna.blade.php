@@ -6,7 +6,7 @@
 
     <div class="postcontent nobottommargin clearfix">
 
-        <ul id="portfolio-filter" class="portfolio-filter clearfix">
+        <ul id="portfolio-filter" class="portfolio-filter customjs clearfix"">
             <li class="activeFilter"><a href="#" data-filter="all">{{trans('page.all')}}</a></li>
             @if (isset($tags))
                 @foreach ($tags as $key => $value)

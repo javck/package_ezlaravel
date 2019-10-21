@@ -56,6 +56,7 @@ class Easyweb2ServiceProvider extends ServiceProvider
             $publishablePath . '/Http/Controllers/Auth/VoyagerAuthController.php' => app_path('Http/Controllers/Auth/VoyagerAuthController.php'),
             $publishablePath . '/Http/Controllers/SiteController.php' => app_path('Http/Controllers/SiteController.php'),
             $publishablePath . '/webpack.mix.js' => base_path('webpackCanvas.mix.js'),
+            $publishablePath . '.env.sample' => base_path('.env.sample'),
             $publishablePath . '/config' => config_path('/'),
             $publishablePath . '/assets/js' => public_path('js'),
             $publishablePath . '/storage' => storage_path('app/public/')

@@ -33,6 +33,7 @@ Route::get('/myip',function(){
 Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     ,'namespace' => '\Javck\Easyweb2\Http\Controllers'], function () {
     Route::post('/submitContact', 'ContactController@save');
+    Route::get('/search', 'SiteController@renderSearchPage');
 
     Route::prefix('articles')->group(function () {
         Route::post('{id}/comment', 'MyVoyagerArticleController@comment');

@@ -4,7 +4,7 @@
 
 		<div class="col_half nobottommargin">
 
-			<p class="nobottommargin"><strong>{{trans('label.tel')}}:</strong><a href="{{$phone_url}}"> {{$phone}}</a> | <strong>{{trans('label.email')}}:</strong> <a href="mailto:{{$service_mail}}">{{$service_mail}}</a></p>
+			<p class="nobottommargin"><strong>{{trans('label.tel')}}:</strong><a href="tel:{{ setting('site.phone') }}"> {{ setting('site.phone') }}</a> | <strong>{{trans('label.email')}}:</strong> <a href="mailto:{{ setting('site.service_mail') }}">{{ setting('site.service_mail') }}</a></p>
 
 		</div>
 
@@ -14,14 +14,6 @@
             ============================================= -->
 			<div class="top-links">
 				<ul>
-					<!--  幣別 -->
-				{{--<li><a href="#">USD</a>--}}
-				{{--<ul>--}}
-				{{--<li><a href="#">EUR</a></li>--}}
-				{{--<li><a href="#">AUD</a></li>--}}
-				{{--<li><a href="#">GBP</a></li>--}}
-				{{--</ul>--}}
-				{{--</li>--}}
 				<!-- 語系 -->
 					{{--<li><a href="#">EN</a>--}}
 					{{--<ul>--}}
@@ -52,11 +44,11 @@
 								</form>
 							</div>
 						</li>
-						<li><a href="{{url('/backend/login')}}"> {{trans('menu.backendLogin')}}</a></li>
+						<li><a href="{{url('/admin/login')}}"> {{trans('menu.backendLogin')}}</a></li>
 
 					@else
 						@if(Auth::user() != null and Auth::user()->isAdmin)
-							<li><a href="{{ url('/backend')}}">{{trans('menu.backend')}}</a></li>
+							<li><a href="{{ url('/admin')}}">{{trans('menu.backend')}}</a></li>
 						@endif
 						<a href="{{url('/logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{trans('label.logout')}}({{Auth::user()->name}})</a>
 					@endif
@@ -64,7 +56,7 @@
 						{{ csrf_field() }}
 					</form>
 					@if(Auth::user() != null and Auth::user()->isAdmin)
-						<li><a href="{{ url('/backend')}}">{{trans('menu.backend')}}</a></li>
+						<li><a href="{{ url('/admin')}}">{{trans('menu.backend')}}</a></li>
 					@endif
 				</ul>
 			</div><!-- .top-links end -->

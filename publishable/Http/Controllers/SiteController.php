@@ -114,6 +114,12 @@ class SiteController extends Controller
         return view('easyweb2::pages.news',compact('articles','articleQty'));
     }
 
+    //搜尋頁面
+    public function renderSearchPage(Request $request)
+    {
+        return view("search");
+    }
+
     //金流相關函式================================================================
 
     //建立金流單視圖

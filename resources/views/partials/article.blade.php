@@ -89,7 +89,7 @@
 								@php
 									$paths = json_decode($article->attachment_paths,true);
 								@endphp
-								@if (count($paths) > 0 && $paths[0] != null )
+								@if ( is_array($paths) && count($paths) > 0 && $paths[0] != null )
 									<div class="si-share noborder clearfix">
 										<div>
 											@for ($i = 0; $i < count($paths); $i++)
@@ -127,7 +127,7 @@
 											<i class="icon-facebook"></i>
 											<i class="icon-facebook"></i>
 										</a>
-										<a href="http://twitter.com/home/?status={{trans('label.site_name')}} {{Request::fullUrl()}}" class="social-icon si-borderless si-twitter">
+										<a href="https://twitter.com/intent/tweet?text={{ setting('site.title') }}&url={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-twitter">
 											<i class="icon-twitter"></i>
 											<i class="icon-twitter"></i>
 										</a>
@@ -185,7 +185,7 @@
 								</div>
 								<div class="panel-body">
 									<div class="author-image">
-										<img src="{{url('images/'.$article->user->pic)}}" alt="{{$article->user->name}}" class="img-circle">
+										<img src="{{ Voyager::image($article->user->pic) }}" alt="{{$article->user->name}}" class="img-circle">
 									</div>
 									{{ $article->user->getPureDesc() }}
 								</div>
@@ -206,11 +206,11 @@
 							@endif
 								<div class="mpost clearfix">
 									<div class="entry-image">
-										<img src="{{url('images/'.$relatedArticles[$i]->getMediasAry()[0])}}" alt="{{$relatedArticles[$i]->title}}">
+										<img src="{{ Voyager::image($relatedArticles[$i]->getImagesAry()[0]) }}" alt="{{$relatedArticles[$i]->title}}">
 									</div>
 									<div class="entry-c">
 										<div class="entry-title">
-											<h4><a href="{{url('news/'.$relatedArticles[$i]->id)}}">{{$relatedArticles[$i]->title}}</a></h4>
+											<h4><a href="{{url('articles/'.$relatedArticles[$i]->id)}}">{{$relatedArticles[$i]->title}}</a></h4>
 										</div>
 										<ul class="entry-meta clearfix">
 											<li><i class="icon-calendar3"></i> {{ $relatedArticles[$i]->created_at->diffForHumans() }}</li>
@@ -248,7 +248,7 @@
 												<div class="comment-author vcard">
 
 													<span class="comment-avatar clearfix">
-													<img alt='' src='{{url('images/'.$comments[$i]->pic)}}' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
+													<img alt='' src='{{ Voyager::image($comments[$i]->pic) }}' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
 
 												</div>
 
@@ -280,7 +280,7 @@
 														<div class="comment-author vcard">
 
 															<span class="comment-avatar clearfix">
-															<img alt='' src='{{url('images/'.$reply->pic)}}' class='avatar avatar-40 photo' height='40' width='40' /></span>
+															<img alt='' src='{{ Voyager::image($reply->pic) }}' class='avatar avatar-40 photo' height='40' width='40' /></span>
 
 														</div>
 

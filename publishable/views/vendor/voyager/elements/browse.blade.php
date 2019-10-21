@@ -92,8 +92,9 @@
         }
         $(document).ready(function() 
         {
-            //refreshQueryModes();
-            //refreshQueryPositions();
+            $("#query_page").select2();
+            $("#query_mode").select2();
+            $("#query_position").select2();
 
             $("#query_page").change(function(){
                 refreshQueryModes();

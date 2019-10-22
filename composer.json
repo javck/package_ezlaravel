@@ -20,7 +20,8 @@
         "greggilbert/recaptcha": "dev-master",
         "darryldecode/cart": "~4.0",
         "anhskohbo/no-captcha": "^3.0.4",
-        "jenssegers/agent": "^2.6"
+        "jenssegers/agent": "^2.6",
+        "laravel/socialite": "^4.2"
     },
     "require-dev":{
         "laravel/tinker": "^1.0"

@@ -50,6 +50,10 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
         Route::get('/cgy/{cgy}','ShopController@renderShopPage');
         Route::get('showCart','ShopController@showCart');
     });
+
+    Route::get('/thank', function () {
+        return view('easyweb2::pages.thankyou');
+    });
 });
 
 
@@ -57,15 +61,14 @@ Route::get('/404-page', function () {
     return view('404-page');
 });
 
-Route::get('/thank', function () {
-    return view('easyweb2::pages.thankyou');
-});
 
 
 Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
     Auth::routes();
     Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
     Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
+    Route::get('login/{provider}', 'Auth\VoyagerAuthController@redirectToProvider');
+    Route::get('login/{provider}/callback', 'Auth\VoyagerAuthController@handleProviderCallback');
     Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
     Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
     Route::post('admin/logout', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.logout']);

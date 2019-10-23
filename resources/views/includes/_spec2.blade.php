@@ -11,7 +11,7 @@
                         <div class="heading-block nobottomborder" style="margin-bottom: 15px;">
                             <h4>{{ $item->title }}</h4>
                         </div>
-                        <p>{{ $item->content }}</p>
+                        <p>{!! $item->content !!}</p>
                     </div>
                 @endforeach
             </div>

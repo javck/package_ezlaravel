@@ -245,7 +245,7 @@ class MyVoyagerBaseController extends VoyagerBaseController
                     }else{
                         $queryKey = $key;
                     }
-                    $query->where($queryKey,'like','%'.$value.'%');
+                    $query->where($queryKey,$value);
                     Session::put($key, $value);
                 }
             }

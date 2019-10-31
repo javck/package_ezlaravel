@@ -2,7 +2,7 @@
 
     <div class="heading-block center" data-animate="@if(isset($item_top->animation)){{$item_top->animation}}@endif" data-delay="@if(isset($item_top->animationDelay)){{$item_top->animationDelay}}@endif">
         <h2>{{ $item_top->title }}<span>{{ $item_top->subtitle }}</span></h2>
-        <span>{{ $item_top->content }}</span>
+        <span>{!! $item_top->content !!}</span>
     </div>
 
     @foreach($items as $item )
@@ -13,7 +13,7 @@
                 </div>
                 <div class="fbox-desc">
                     <h3>{{ $item->title }}<span class="subtitle">{{ $item->subtitle }}</span></h3>
-                    <p>{{ $item->content }}</p>
+                    <p>{!! $item->content !!}</p>
                 </div>
             </div>
         </div>

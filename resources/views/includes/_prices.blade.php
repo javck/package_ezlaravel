@@ -1,17 +1,17 @@
-@isset ($item_prices_pageTop)
-    <div class="heading-block center" data-animate="@if(isset($item_prices_pageTop->animation)){{$item_prices_pageTop->animation}}@endif" data-delay="@if(isset($item_prices_pageTop->animationDelay)){{$item_prices_pageTop->animationDelay}}@endif">
-        <h2>{{$item_prices_pageTop->title}}</h2>
-        <span>{{$item_prices_pageTop->subtitle}}</span>
+@isset ($item_top)
+    <div class="heading-block center" data-animate="@if(isset($item_price_top->animation)){{$item_price_top->animation}}@endif" data-delay="@if(isset($item_price_top->animationDelay)){{$item_price_top->animationDelay}}@endif">
+        <h2>{{$item_price_top->title}}</h2>
+        <span>{{$item_price_top->subtitle}}</span>
     </div>
 @endisset
 
 
-<div class="container clearfix">
+<div class="container clearfix center">
 
-    <div class="pricing bottommargin clearfix">
+    <div class="row pricing bottommargin clearfix">
 
-        @foreach($items_prices as $item)
-            <div class="col-lg-{{12/$loop->count}} col-md-6" data-animate="@if(isset($item->animation)){{$item->animation}}@endif" data-delay="@if(isset($item->animationDelay)){{$item->animationDelay}}@endif">
+        @foreach($items as $item)
+            <div class="col-lg-{{12/$loop->count}} col-md-4" data-animate="@if(isset($item->animation)){{$item->animation}}@endif" data-delay="@if(isset($item->animationDelay)){{$item->animationDelay}}@endif">
 
                 <div class="pricing-box @if($item->isBestPrice) best-price @endif">
                     <div class="pricing-title">

@@ -46,12 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        //表示沒有存取的權限，轉到404錯誤頁
-        if ($exception->getCode() == 0) {
-            if(env('APP_ENV') == 'production'){
-                //abort(404);
+        if ($this->isHttpException($exception)) {
+            if ($exception->getStatusCode() == 404) {
+                return response()->view('404-page', [], 404);
             }
         }
+
         return parent::render($request, $exception);
     }
 }

@@ -104,5 +104,6 @@
 		//$('#top-cart').load("{{url('api/page/loadTopCart')}}");
 	</script> --}}
 	@yield('js')
+	{!! setting('site.javascript_embedded') !!}
 </body>
 </html>

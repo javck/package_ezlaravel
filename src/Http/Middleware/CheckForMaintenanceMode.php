@@ -19,7 +19,7 @@ class CheckForMaintenanceMode
         {
             
             //return redirect(url('maintenance-page'));
-            return response()->view('maintenance');
+            return response()->view('easyweb2::maintenance');
         }
 
         return $next($request);

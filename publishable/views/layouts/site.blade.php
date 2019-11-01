@@ -32,8 +32,16 @@
 		
 		<title> @yield('page_title') | {{ setting('site.title') }} </title>
 
+		@if(env('APP_ENV') == 'production')
+			{!! setting('site.gtm_head') !!}
+		@endif
+
 	</head>
 	<body class="stretched">
+
+		@if(env('APP_ENV') == 'production')
+            {!! setting('site.gtm_body') !!}
+        @endif
 
 	<!-- Document Wrapper
 	============================================= -->

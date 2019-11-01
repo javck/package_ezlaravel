@@ -19,7 +19,7 @@ class VoyagerAuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
     protected $loginPath = '/admin/login';
     protected $redirectAfterLogout = '/';
     protected $redirectToRegister = '/register';

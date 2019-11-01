@@ -75,10 +75,9 @@ class SiteController extends Controller
     public function renderContactUsPage()
     {
         $services = $services = json_decode(setting('constant.services'), true);
-        $item_row1_right = Element::where('page', 'all')->where('position', 'contact_info')->where('enabled', 1)->first();
+        $item_row1_right = Element::where('page', 'contact')->where('position', 'contact_info')->where('enabled', 1)->first();
         $sources = json_decode(setting('constant.sources'), true);
-        $pageView = 'contactPageView';
-        return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources', 'pageView'));
+        return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources'));
     }
 
     //關於我們
@@ -87,8 +86,7 @@ class SiteController extends Controller
         $item_top = Element::where('page', 'vision')->where('position', 'top')->where('enabled', 1)->first();
         $items_slider = Element::where('page', 'vision')->where('position', 'slider')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $item_content = Element::where('page', 'vision')->where('position', 'content')->where('enabled', 1)->first();
-        $pageView = 'VisionPageView';
-        return view('easyweb2::pages.about.vision', compact('item_content', 'item_top', 'items_slider', 'pageView'));
+        return view('easyweb2::pages.about.vision', compact('item_content', 'item_top', 'items_slider'));
     }
 
     //商店頁面

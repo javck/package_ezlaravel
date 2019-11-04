@@ -1,5 +1,6 @@
 @extends('layouts.site_noHeader')
 @section('seo')
+	@parent
 	@isset($keywords)
 	    <meta name="keywords" content="{{ $keywords }}">
 	@endisset

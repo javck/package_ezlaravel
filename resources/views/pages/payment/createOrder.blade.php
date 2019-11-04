@@ -1,6 +1,12 @@
 @extends('layouts.site')
 @section('seo')
-
+    @parent
+    @isset($keywords)
+        <meta name="keywords" content="{{ $keywords }}">
+    @endisset
+    @isset($description)
+        <meta name="description" content="{{ $description }}">
+    @endisset
 @stop
 @section('page_title')提交訂單@stop
 

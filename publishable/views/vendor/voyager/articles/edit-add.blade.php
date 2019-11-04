@@ -1,5 +1,13 @@
 @extends('layouts.edit-add-master')
 
+@section('panel_top')
+    @if(isset($dataTypeContent))
+        <a class="btn btn-info btn-rounded" href="{{ url('/admin/articles/copy/' . $dataTypeContent->id ) }}">{{ trans('label.copy_'.$dataType->slug) }} </a>
+        <a class="btn btn-danger btn-rounded" href="{{ url('/admin/articles/del/' . $dataTypeContent->id ) }}">{{ trans('label.delete_'.$dataType->slug) }} </a>
+    @endif
+    <a class="btn btn-success btn-rounded" href="{{ url('/admin/'.$dataType->slug) }}">{{ trans('label.back_'.$dataType->slug) }} </a>
+@stop
+
 
 @section('panel_l_1_title')
     <i class="voyager-character"></i> {{ __('generic.basic_field') }}

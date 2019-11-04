@@ -3,7 +3,7 @@
 <div class="container clearfix">
 	<!-- Posts
 	============================================= -->
-	<div id="posts" class="post-grid grid-container post-masonry clearfix"  data-layout="fitRows">
+	<div id="posts" class="{{ setting('canvas.posts_class') }}"  data-layout="fitRows">
 	@isset($articles)
 			@foreach ($articles as $article)
 				@isset($article)

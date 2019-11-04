@@ -67,7 +67,8 @@
 					<div id="logo">
 						<a href="{{url('/')}}" class="standard-logo" data-dark-logo="{{ Voyager::image(setting('site.logo'),'storage/images/logo.png')
  }}"><img src="{{Voyager::image(setting('site.logo'),'storage/images/logo.png')}}" alt="{{ setting('site.title') }}"/></a>
-						<a href="{{url('/')}}" class="retina-logo" data-dark-logo="{{ asset('storage/images/logo@2x.png') }}"><img src="{{Voyager::image(setting('site.logo@2x'),'storage/images/logo@2x.png')}}" alt="{{ setting('site.title') }}"/></a>
+						<a href="{{url('/')}}" class="retina-logo" data-dark-logo="{{ Voyager::image(setting('site.logo-dark@2x'),'storage/images/logo@2x.png')
+                    	}}"><img src="{{Voyager::image(setting('site.logo@2x'),'storage/images/logo@2x.png')}}" alt="{{ setting('site.title') }}"/></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation

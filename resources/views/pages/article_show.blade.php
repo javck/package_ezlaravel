@@ -1,6 +1,7 @@
 @extends('layouts.site')
 
 @section('seo')
+	@parent
 	<meta name="keywords" content="">
     <meta name="description" content="">
 @stop

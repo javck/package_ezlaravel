@@ -276,4 +276,7 @@ return [
     'hit' => '主打',
     'welcome' => '歡迎',
     'back_orders' => '返回訂單列表',
+    'copy_articles' => '複製文章',
+    'delete_articles' => '刪除文章',
+    'back_articles' => '返回文章列表'
 ];

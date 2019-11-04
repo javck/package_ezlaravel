@@ -72,7 +72,7 @@
 										<iframe src="{{ $article->mediums }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 									</div>
 							@endif
-							
+
 
 							<!-- Entry Content
 							============================================= -->
@@ -89,7 +89,7 @@
 								@php
 									$paths = json_decode($article->attachment_paths,true);
 								@endphp
-								@if ( is_array($paths) && count($paths) > 0 && $paths[0] != null )
+								@if (is_array($paths) && count($paths) > 0 && $paths[0] != null )
 									<div class="si-share noborder clearfix">
 										<div>
 											@for ($i = 0; $i < count($paths); $i++)
@@ -123,11 +123,11 @@
 								<div class="si-share noborder clearfix">
 									<span>{{ trans('page.shareArticle') }}</span>
 									<div>
-										<a href="http://www.facebook.com/share.php?u={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-facebook">
+										<a href="http://www.facebook.com/share.php?u={{Request::fullUrl()}}" class="social-icon si-borderless si-facebook">
 											<i class="icon-facebook"></i>
 											<i class="icon-facebook"></i>
 										</a>
-										<a href="https://twitter.com/intent/tweet?text={{ setting('site.title') }}&url={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-twitter">
+										<a href="http://twitter.com/home/?status={{trans('label.site_name')}} {{Request::fullUrl()}}" class="social-icon si-borderless si-twitter">
 											<i class="icon-twitter"></i>
 											<i class="icon-twitter"></i>
 										</a>
@@ -135,7 +135,7 @@
 											<i class="icon-pinterest"></i>
 											<i class="icon-pinterest"></i> --}}
 										</a>
-										<a href="https://plus.google.com/share?url={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-gplus">
+										<a href="https://plus.google.com/share?url={{Request::fullUrl()}}" class="social-icon si-borderless si-gplus">
 											<i class="icon-gplus"></i>
 											<i class="icon-gplus"></i>
 										</a>
@@ -162,7 +162,7 @@
 									&nbsp;
 								@endif
 							</div>
-							
+
 							<div class="col_half col_last tright nobottommargin">
 								@if (isset($nextArticle))
 									<a href="{{url('articles/'.$nextArticle->id)}}">{{ $nextArticle->title }} &rArr;</a>
@@ -170,8 +170,8 @@
 									&nbsp;
 								@endif
 							</div>
-							
-							
+
+
 
 						</div><!-- .post-navigation end -->
 
@@ -185,7 +185,7 @@
 								</div>
 								<div class="panel-body">
 									<div class="author-image">
-										<img src="{{ Voyager::image($article->user->pic) }}" alt="{{$article->user->name}}" class="img-circle">
+										<img src="{{url('images/'.$article->user->pic)}}" alt="{{$article->user->name}}" class="img-circle">
 									</div>
 									{{ $article->user->getPureDesc() }}
 								</div>
@@ -199,18 +199,18 @@
 						<h4>{{ trans('page.relatedArticle') }}</h4>
 
 						<div class="related-posts clearfix">
-						
+
 						@for ($i = 0; $i < count($relatedArticles); $i++)
 							@if ($i % 2 == 0)
 							<div class="col_half nobottommargin {{$i == 2 ?'col_last' :''}}">
 							@endif
 								<div class="mpost clearfix">
 									<div class="entry-image">
-										<img src="{{ Voyager::image($relatedArticles[$i]->getImagesAry()[0]) }}" alt="{{$relatedArticles[$i]->title}}">
+										<img src="{{url('images/'.$relatedArticles[$i]->getMediasAry()[0])}}" alt="{{$relatedArticles[$i]->title}}">
 									</div>
 									<div class="entry-c">
 										<div class="entry-title">
-											<h4><a href="{{url('articles/'.$relatedArticles[$i]->id)}}">{{$relatedArticles[$i]->title}}</a></h4>
+											<h4><a href="{{url('news/'.$relatedArticles[$i]->id)}}">{{$relatedArticles[$i]->title}}</a></h4>
 										</div>
 										<ul class="entry-meta clearfix">
 											<li><i class="icon-calendar3"></i> {{ $relatedArticles[$i]->created_at->diffForHumans() }}</li>
@@ -225,7 +225,7 @@
 						@endfor
 						</div>
 						@endif
-						
+
 
 						<!-- Comments
 						============================================= -->
@@ -248,7 +248,7 @@
 												<div class="comment-author vcard">
 
 													<span class="comment-avatar clearfix">
-													<img alt='' src='{{ Voyager::image($comments[$i]->pic) }}' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
+													<img alt='' src='{{url('images/'.$comments[$i]->pic)}}' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
 
 												</div>
 
@@ -280,7 +280,7 @@
 														<div class="comment-author vcard">
 
 															<span class="comment-avatar clearfix">
-															<img alt='' src='{{ Voyager::image($reply->pic) }}' class='avatar avatar-40 photo' height='40' width='40' /></span>
+															<img alt='' src='{{url('images/'.$reply->pic)}}' class='avatar avatar-40 photo' height='40' width='40' /></span>
 
 														</div>
 
@@ -358,7 +358,7 @@
 
 							</div><!-- #comments end -->
 						@endif
-						
+
 
 					</div>
 

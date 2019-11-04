@@ -126,6 +126,43 @@ class MyVoyagerBaseController extends VoyagerBaseController
     }
 
     //***************************************
+    //                _____
+    //               |  __ \
+    //               | |  | |
+    //               | |  | |
+    //               | |__| |
+    //               |_____/
+    //
+    //         Delete an item
+    //
+    //****************************************
+
+    public function del($slug,$id)
+    {
+        $result = true;
+        $model = DB::table($slug)->find($id);
+
+        if( isset($model) ){
+            DB::table($slug)->where('id',$id)->delete();
+        }else{
+            $result = false;
+        }
+
+        if ($result) {
+            return redirect('admin/' . $slug)->with([
+                'message' => __('label.delete_' . $slug) . '成功',
+                'alert-type' => 'success',
+            ]);
+        }else{
+            return redirect('admin/' . $slug)->with([
+                'message' => __('label.delete_' . $slug) . '失敗，找不到該筆資料',
+                'alert-type' => 'error',
+            ]);
+        }
+    }
+
+
+    //***************************************
     //               ____
     //              |  _ \
     //              | |_) |
@@ -151,20 +188,7 @@ class MyVoyagerBaseController extends VoyagerBaseController
         $getter = $dataType->server_side ? 'paginate' : 'get';
 
         $search = (object) ['value' => $request->get('s'), 'key' => $request->get('key'), 'filter' => $request->get('filter')];
-
-        $searchNames = [];
-        $searchable = array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray());
-        if ($dataType->server_side) {
-            $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
-            foreach ($searchable as $key => $value) {
-                if($dataRow->where('field', $value)->first() == null){
-                    continue;
-                }
-                $displayName = $dataRow->where('field', $value)->first()->getTranslatedAttribute('display_name');
-                $searchNames[$value] = $displayName ?: ucwords(str_replace('_', ' ', $value));
-            }
-        }
-
+        $searchable = $dataType->server_side ? array_keys(SchemaManager::describeTable(app($dataType->model_name)->getTable())->toArray()) : '';
         $orderBy = $request->get('order_by', $dataType->order_column);
         $sortOrder = $request->get('sort_order', null);
         $usesSoftDeletes = false;
@@ -225,7 +249,7 @@ class MyVoyagerBaseController extends VoyagerBaseController
             }else{
                 Session::put('model',$dataType->name);
             }
-            
+
             //$inputs = array_merge($inputs,$querys);
             foreach ($inputs as $key => $value) {
                 if($value != 'none'){
@@ -292,6 +316,8 @@ class MyVoyagerBaseController extends VoyagerBaseController
                 }
             }
 
+            //=========================================================================
+
             if ($orderBy && in_array($orderBy, $dataType->fields())) {
                 $querySortOrder = (!empty($sortOrder)) ? $sortOrder : 'desc';
                 $dataTypeContent = call_user_func([
@@ -323,18 +349,6 @@ class MyVoyagerBaseController extends VoyagerBaseController
         // Check if a default search key is set
         $defaultSearchKey = $dataType->default_search_key ?? null;
 
-        // Actions
-        $actions = [];
-        if (!empty($dataTypeContent->first())) {
-            foreach (Voyager::actions() as $action) {
-                $action = new $action($dataType, $dataTypeContent->first());
-
-                if ($action->shouldActionDisplayOnDataType()) {
-                    $actions[] = $action;
-                }
-            }
-        }
-
         $view = 'voyager::bread.browse';
 
         if (view()->exists("voyager::$slug.browse")) {
@@ -342,7 +356,6 @@ class MyVoyagerBaseController extends VoyagerBaseController
         }
 
         return Voyager::view($view, compact(
-            'actions',
             'dataType',
             'dataTypeContent',
             'isModelTranslatable',
@@ -350,7 +363,6 @@ class MyVoyagerBaseController extends VoyagerBaseController
             'orderBy',
             'orderColumn',
             'sortOrder',
-            'searchNames',
             'searchable',
             'isServerSide',
             'defaultSearchKey',

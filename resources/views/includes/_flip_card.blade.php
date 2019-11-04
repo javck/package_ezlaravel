@@ -14,7 +14,7 @@
                     <div class="flip-card-inner">
                         <div class="card nobg noborder text-center">
                             <div class="card-body">
-                                <i class="icon-bullhorn2 h1"></i>
+                                <i class="{{ $item->icon }} h1"></i>
                                 <h3 class="card-title">{{ $item->title }}</h3>
                             </div>
                         </div>

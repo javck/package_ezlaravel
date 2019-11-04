@@ -15,9 +15,13 @@
                                         slider-caption-center
                                     @endif
                                     dark">
-                                    <h2 data-caption-animate="fadeInUp" style="color:{{$item->title_color}}">{{$item->title}}</h2>
-                                    <p data-caption-animate="fadeInUp"
+                                    @if( $item->isShowTitle)
+                                        <h2 data-caption-animate="fadeInUp" style="color:{{$item->title_color}}">{{$item->title}}</h2>
+                                    @endif
+                                    @if( isset($item->subtitle) ) 
+                                        <p data-caption-animate="fadeInUp"
                                        data-caption-delay="200" style="color:{{$item->title_color}}">{{$item->subtitle}}</p>
+                                    @endif
                                 </div>
                             </div>
                             </a>

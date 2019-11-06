@@ -55,9 +55,11 @@
                                     登入
                                 </button>
 
-                                <a href="{{ url('login/facebook') }}" class="button button-rounded btn-block t400 center capitalize si-facebook si-colored noleftmargin norightmargin">{{ __('label.facebook_login') }}</a>
-                                
-                                <a href="{{ url('login/google') }}" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a>
+                                @if(setting('admin.useSocialite')!= null && setting('admin.useSocialite') == true)
+                                    <a href="{{ url('login/facebook') }}" class="button button-rounded btn-block t400 center capitalize si-facebook si-colored noleftmargin norightmargin">{{ __('label.facebook_login') }}</a>
+                                    <a href="{{ url('login/google') }}" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a>
+                                @endif
+
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     忘記密碼?

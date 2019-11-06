@@ -16,7 +16,7 @@ class MyVoyagerContactController extends MyVoyagerBaseController
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => 'save']);
         //$this->middleware('adminOnly'); 改用voyager內建permission
     }
 

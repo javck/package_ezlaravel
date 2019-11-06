@@ -6,9 +6,12 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Http\Controllers\Controller;
+use App\User;
 use Voyager;
 use Socialite;
 use DB;
+use Exception;
+use Log;
 
 class VoyagerAuthController extends Controller
 {
@@ -19,10 +22,11 @@ class VoyagerAuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectToFront = '/';
     protected $loginPath = '/admin/login';
     protected $redirectAfterLogout = '/';
     protected $redirectToRegister = '/register';
+    protected $redirectToSuppleRegister = '/suppleregister';
     protected $redirectToBackend = '/admin';
 
     public function login()
@@ -83,18 +87,25 @@ class VoyagerAuthController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        try{
+            $user = Socialite::driver($provider)->user();
+            //Log::debug(print_r($user, true));
+            $authUser = $this->findOrCreateUser($user, $provider);
+            Auth::login($authUser);
 
-        $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
-        if ($authUser->mobile == null || $authUser->email == null) {
-            return redirect( $this->redirectToRegister );
-        }else{
-            if ( $authUser->hasPermission('browse_admin') ) {
-                return redirect( $this->redirectToBackend );
-            }else{
-                return redirect( $this->redirectTo );
+            //Log::debug(print_r($authUser, true));
+            if($authUser->mobile == null || $authUser->email == null){
+                //暫不開放
+                //return redirect($this->redirectToSuppleRegister . '?action=update&provider_id=' . $user->id);
             }
+            if ($authUser->hasPermission('browse_admin')) {
+                return redirect($this->redirectToBackend);
+            } else {
+                return redirect($this->redirectToFront);
+            }
+        }catch(Exception $e){
+            report($e);
+            return false;
         }
     }
 
@@ -111,9 +122,12 @@ class VoyagerAuthController extends Controller
         if (!$authUser) {
             //可能已經用其他管道註冊過
             $authUser = User::where('email', $user->email)->first();
-            $authUser->provider = $provider;
-            $authUser->provider_id = $user->id;
-            $authUser->save();
+            if(isset($authUser)){
+                $authUser->provider = strtolower($provider);
+                $authUser->provider_id = $user->id;
+                $authUser->save();
+            }
+
         }
 
         if ($authUser) {
@@ -122,15 +136,16 @@ class VoyagerAuthController extends Controller
             $data = [
                 'name'     => $user->name,
                 'email'    => $user->email,
-                'pic'      => $user->getAvatar(),
+                'pic'      => $user->avatar,
                 'provider' => $provider,
                 'provider_id' => $user->id,
             ];
-            if ($provider == 'facebook') {
+            if (strtolower($provider) == 'facebook') {
                 $data['fb_id'] = $user->id;
             }
             return User::create($data);
         }
+    }
 
     /*
      * Preempts $redirectTo member variable (from RedirectsUsers trait)
@@ -158,7 +173,7 @@ class VoyagerAuthController extends Controller
         }else{
             $roles = DB::table('user_roles')->where('user_id', $user->id)->get();
             if( $roles == null || count($roles) == 0 ){
-                return redirect( $this->redirectTo );
+                return redirect( $this->redirectToFront );
             }
         }
     }

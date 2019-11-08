@@ -95,8 +95,7 @@ class VoyagerAuthController extends Controller
 
             //Log::debug(print_r($authUser, true));
             if($authUser->mobile == null || $authUser->email == null){
-                //暫不開放
-                //return redirect($this->redirectToSuppleRegister . '?action=update&provider_id=' . $user->id);
+                return redirect($this->redirectToSuppleRegister . '?provider_id=' . $user->id);
             }
             if ($authUser->hasPermission('browse_admin')) {
                 return redirect($this->redirectToBackend);

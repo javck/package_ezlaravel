@@ -46,5 +46,10 @@
 		'inputEmail'								=>  '請輸入Email',
 		'subscription'								=>  '訂閱電子報',
 		'404error'									=>  '404錯誤',
+		'congretulation'                            =>  '恭喜',
+        'activate_title'                            =>  '回函(帳戶激活)',
+        'activate_success'                          =>  '您的帳號已經激活成功，可以使用囉!!',
+        'activate_done'                             =>  '您的帳號先前已經完成激活',
+        'activate_fail'                             =>  '這個激活連結無法使用',
 	];
  ?>

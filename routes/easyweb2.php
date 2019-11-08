@@ -75,6 +75,9 @@ Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],funct
     Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
     Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
     Route::post('admin/logout', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.logout']);
+    Route::get('suppleregister','Auth\RegisterController@supplementRegistrationForm');
+    Route::post('suppleregister','Auth\RegisterController@supplementRegistration');
+    Route::get('activate','Auth\RegisterController@registerActivate');
 });
 
 //後台====================================

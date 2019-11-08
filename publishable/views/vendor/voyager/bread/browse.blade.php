@@ -113,6 +113,24 @@
                                             </th>
                                         @endif
                                         @foreach($dataType->browseRows as $row)
+                                            @php
+                                                $display_options = isset($row->details->display) ? $row->details->display : NULL;
+                                                $visibles = isset($row->details->visibleRoles) ? explode(',',$row->details->visibleRoles) : NULL;
+                                                $inVisibles = isset($row->details->inVisibleRoles) ? explode(',',$row->details->inVisibleRoles) : NULL;
+                                            @endphp
+                                            @if(isset($visibles))
+                                                @if(!in_array(auth()->user()->role->name, $visibles))
+                                                    @php
+                                                        continue ;
+                                                    @endphp
+                                                @endif
+                                            @elseif(isset($inVisibles))
+                                                @if(in_array(auth()->user()->role->name, $inVisibles))
+                                                    @php
+                                                        continue ;
+                                                    @endphp
+                                                @endif
+                                            @endif
                                         <th>
                                             @if ($isServerSide)
                                                 <a href="{{ $row->sortByUrl($orderBy, $sortOrder) }}">
@@ -147,6 +165,24 @@
                                                 $data->{$row->field} = $data->{$row->field.'_browse'};
                                             }
                                             @endphp
+                                            @php
+                                                $display_options = isset($row->details->display) ? $row->details->display : NULL;
+                                                $visibles = isset($row->details->visibleRoles) ? explode(',',$row->details->visibleRoles) : NULL;
+                                                $inVisibles = isset($row->details->inVisibleRoles) ? explode(',',$row->details->inVisibleRoles) : NULL;
+                                            @endphp
+                                            @if(isset($visibles))
+                                                @if(!in_array(auth()->user()->role->name, $visibles))
+                                                    @php
+                                                        continue ;
+                                                    @endphp
+                                                @endif
+                                            @elseif(isset($inVisibles))
+                                                @if(in_array(auth()->user()->role->name, $inVisibles))
+                                                    @php
+                                                        continue ;
+                                                    @endphp
+                                                @endif
+                                            @endif
                                             <td>
                                                 @if (isset($row->details->view))
                                                     @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $data->{$row->field}, 'action' => 'browse'])

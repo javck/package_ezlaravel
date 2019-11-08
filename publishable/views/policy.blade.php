@@ -2,7 +2,7 @@
 
 @section('seo')
     @parent
-	<meta name="keywords" content="學苑政策">
+	<meta name="keywords" content="政策宣告">
     <meta name="description" content="{{ setting('site.description') }}">
 @stop
 @section('page_title'){{ trans('page.policy') }}@stop
@@ -15,7 +15,7 @@
 <div class="clear"></div>
     <div class="container clearfix">
     	<h1 class="text-center">隱私權政策</h1>
-		<p>&emsp;&emsp;非常歡迎您光臨「哥布林程式教育學苑」（以下簡稱本網站），為了讓您能夠安心使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
+		<p>&emsp;&emsp;非常歡迎您光臨「{{ setting('site.title') }}」（以下簡稱本網站），為了讓您能夠安心使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
 
 		  <h3>一、隱私權保護政策的適用範圍</h3>
 

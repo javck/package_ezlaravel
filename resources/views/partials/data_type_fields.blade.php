@@ -6,7 +6,25 @@
     @if(in_array($row->field, $fields) == $isInclude)
         @php
             $display_options = isset($row->details->display) ? $row->details->display : NULL;
+            $visibles = isset($row->details->visibleRoles) ? explode(',',$row->details->visibleRoles) : NULL;
+            $inVisibles = isset($row->details->inVisibleRoles) ? explode(',',$row->details->inVisibleRoles) : NULL;
         @endphp
+        @if(isset($visibles))
+            @if(!in_array(auth()->user()->role->name, $visibles))
+                @php
+                    continue ;
+                @endphp
+            @endif
+        @elseif(isset($inVisibles))
+            @if(in_array(auth()->user()->role->name, $inVisibles))
+                @php
+                    continue ;
+                @endphp
+            @endif
+        @endif
+        @if (isset($row->details->legend) && isset($row->details->legend->text))
+            <legend class="text-{{isset($row->details->legend->align) ? $row->details->legend->align : 'center'}}" style="background-color: {{isset($row->details->legend->bgcolor) ? $row->details->legend->bgcolor : '#f0f0f0'}};padding: 5px;">{{$row->details->legend->text}}</legend>
+        @endif
         @if (isset($row->details->formfields_custom))
             @include('voyager::formfields.custom.' . $row->details->formfields_custom)
         @else

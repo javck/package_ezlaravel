@@ -1,5 +1,16 @@
 @extends('layouts.site')
 
+@section('seo')
+    @parent
+    <meta name="keywords" content="">
+    <meta name="description" content="{{ setting('site.description') }}">
+@stop
+
+@section('page_title'){{ 登入 }}@stop
+
+@section('pri_nav')
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
+@stop
 @section('body')
 <div class="container">
     <div class="row">

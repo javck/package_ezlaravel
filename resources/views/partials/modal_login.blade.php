@@ -20,10 +20,10 @@
 					<a href="{{ route('password.request') }}" class="fright">{{ __('label.forgetPwd') }}?</a>
 				</div>
 			</form>
-            {{-- <div class="line line-sm"></div>
+            <div class="line line-sm"></div>
             @if( setting('admin.useSocialite')!= null && setting('admin.useSocialite') == true)
                 <a href="{{ url('login/facebook') }}" class="button button-rounded btn-block t400 center capitalize si-facebook si-colored noleftmargin norightmargin">{{ __('label.facebook_login') }}</a>
-                <a href="{{ url('login/google') }}" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a> --}}
+                <a href="{{ url('login/google') }}" class="button button-rounded btn-block t400 center capitalize si-gplus si-colored nomargin">{{ __('label.google_login') }}</a>
             @endif
         </div>
 	</div>

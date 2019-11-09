@@ -1,7 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.site')
 
-@section('content')
-<div class="container">
+@section('seo')
+    @parent
+    <meta name="keywords" content="">
+    <meta name="description" content="{{ setting('site.description') }}">
+@stop
+
+@section('page_title') 密碼重設 @stop
+
+@section('pri_nav')
+    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
+@stop
+
+@section('body')
+<div class="container clearfix topmargin">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

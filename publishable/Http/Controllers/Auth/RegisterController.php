@@ -40,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest',['except'=>['supplementRegistrationForm','supplementRegistration','registerActivate'] ]);
+        $this->middleware('guest',['except'=>['supplementRegistrationForm','supplementRegistration'] ]);
     }
 
     /**
@@ -128,48 +128,48 @@ class RegisterController extends Controller
         return redirect($this->redirectTo);
     }
 
-    //寄發帳戶激活連結
-    private function sendActivateLink(User $user)
-    {
-        if($user != null){
-            $serial = '';
-            for ($i=0; $i<60; $i++){
-                $serial = $serial . app('easyweb2')->rdmLetter();
-            }
-            $user->activate = $serial;
-            $user->save();
-            //寄出驗證Email
-            Mail::send('emails.activate', ['user' => $user, 'activate' => $serial], function ($message) use ($user) {
-                $message->to($user->email, $user->name)->subject(trans('messages.activate_title'));
-            });
-        }else{
-            Log::error('寄發帳戶激活連結失敗');
-        }
-    }
+    //寄發帳戶激活連結，停用中，改用Laravel內建功能
+    // private function sendActivateLink(User $user)
+    // {
+    //     if($user != null){
+    //         $serial = '';
+    //         for ($i=0; $i<60; $i++){
+    //             $serial = $serial . app('easyweb2')->rdmLetter();
+    //         }
+    //         $user->activate = $serial;
+    //         $user->save();
+    //         //寄出驗證Email
+    //         Mail::send('emails.activate', ['user' => $user, 'activate' => $serial], function ($message) use ($user) {
+    //             $message->to($user->email, $user->name)->subject(trans('messages.activate_title'));
+    //         });
+    //     }else{
+    //         Log::error('寄發帳戶激活連結失敗');
+    //     }
+    // }
 
-    //帳號激活，用於啟用帳號激活功能情況下...
-    protected function registerActivate(Request $request)
-    {
-        $inputs = $request->only(['id','activate']);
-        $user = User::find($inputs['id']);
-        $data = array();
-        if($user != null && $user->activate == $inputs['activate']){
-            if($user->enabled == true){
-                $data['icon'] = 'icon-exclamation-triangle';
-                $data['title'] = __('messages.Whoops!');
-                $data['content'] = __('messages.activate_done');
-            }else{
-                $user->enabled = true;
-                $user->save();
-                $data['icon'] = 'icon-checkmark';
-                $data['title'] = __('messages.congretulation');
-                $data['content'] = __('messages.activate_success');
-            }
-        }else{
-            $data['icon'] = 'icon-exclamation-triangle';
-            $data['title'] = __('messages.Whoops!');
-            $data['content'] = __('messages.activate_fail');
-        }
-        return view('message',$data);
-    }
+    //帳號激活，用於啟用帳號激活功能情況下。停用中，改用Laravel內建功能
+    // protected function registerActivate(Request $request)
+    // {
+    //     $inputs = $request->only(['id','activate']);
+    //     $user = User::find($inputs['id']);
+    //     $data = array();
+    //     if($user != null && $user->activate == $inputs['activate']){
+    //         if($user->enabled == true){
+    //             $data['icon'] = 'icon-exclamation-triangle';
+    //             $data['title'] = __('messages.Whoops!');
+    //             $data['content'] = __('messages.activate_done');
+    //         }else{
+    //             $user->enabled = true;
+    //             $user->save();
+    //             $data['icon'] = 'icon-checkmark';
+    //             $data['title'] = __('messages.congretulation');
+    //             $data['content'] = __('messages.activate_success');
+    //         }
+    //     }else{
+    //         $data['icon'] = 'icon-exclamation-triangle';
+    //         $data['title'] = __('messages.Whoops!');
+    //         $data['content'] = __('messages.activate_fail');
+    //     }
+    //     return view('message',$data);
+    // }
 }

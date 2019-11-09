@@ -2,7 +2,7 @@
 
 @section('seo')
     @parent
-    <meta name="keywords" content="程式設計, 青少年程式設計, goblinLab, 哥布林程式, 程式設計學苑, PHP, Laravel">
+    <meta name="keywords" content="">
     <meta name="description" content="{{ setting('site.description') }}">
 @stop
 

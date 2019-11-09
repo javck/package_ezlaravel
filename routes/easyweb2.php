@@ -82,7 +82,7 @@ Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],funct
 
 //後台====================================
 //Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled']],function () {
-Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled','web']],function () {
+Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => ['web','javck.roleCheck','javck.verifyEnabled']],function () {
     Voyager::routes();
     Route::prefix('elements')->group(function () {
         Route::get('del/{id}', 'MyVoyagerElementController@destroy');

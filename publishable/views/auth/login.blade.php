@@ -12,13 +12,13 @@
     {{ menu('frontend',setting('canvas.pri_menu_file')) }}
 @stop
 @section('body')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">登入</div>
+<div class="container clearfix topmargin">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">登入</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     <form class="form-horizontal" method="POST" action="{{ route('voyager.login') }}">
                         {{ csrf_field() }}
 

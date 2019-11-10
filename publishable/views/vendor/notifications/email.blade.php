@@ -1,23 +1,13 @@
 @component('mail::message')
 {{-- Greeting --}}
-@if (! empty($greeting))
-# {{ $greeting }}
-@else
-@if ($level == 'error')
-# Whoops!
-@else
-# 您好!
-@endif
-@endif
+尊敬的用戶您好！
 
 {{-- Intro Lines --}}
 @foreach ($introLines as $line)
 {{ $line }}
-
 @endforeach
 
 {{-- Action Button --}}
-@isset($actionText)
 <?php
     switch ($level) {
         case 'success':
@@ -33,7 +23,8 @@
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
 {{ $actionText }}
 @endcomponent
-@endisset
+<br>
+
 
 {{-- Outro Lines --}}
 @foreach ($outroLines as $line)

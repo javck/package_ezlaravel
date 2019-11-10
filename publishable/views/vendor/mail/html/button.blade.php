@@ -1,19 +1,15 @@
-<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0">
+<table width="100%" cellspacing="0" cellpadding="0">
     <tr>
-        <td align="center">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <td>
+            <table cellspacing="0" cellpadding="0">
                 <tr>
-                    <td align="center">
-                        <table border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td>
-                                    <a href="{{ $url }}" class="button button-{{ $color or 'blue' }}" target="_blank">{{ $slot }}</a>
-                                </td>
-                            </tr>
-                        </table>
+                    <td style="border-radius: 2px;" bgcolor="#ED2939">
+                        <a href="{{ $url }}" target="_blank" style="padding: 8px 12px; border: 1px solid #ED2939;border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 14px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;">
+                            {{ $slot }}
+                        </a>
                     </td>
                 </tr>
             </table>
         </td>
     </tr>
-</table>
+  </table>

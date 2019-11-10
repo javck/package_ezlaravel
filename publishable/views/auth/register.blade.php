@@ -14,7 +14,7 @@
 
 @section('body')
 <div class="container clearfix notopmargin">
-    <div class="row justify-content-center my-5" style="">
+    <div class="row justify-content-center" style="">
         <div class="col-lg-7 col-md-10">
             <div class="card shadow-sm">
                 <div class="card-header"><h4 class="mb-0">{{trans('label.register')}}</h4></div>

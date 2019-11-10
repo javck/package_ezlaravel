@@ -27,7 +27,6 @@
         <tr>
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0">
-                    {{ $header or '' }}
 
                     <!-- Email Body -->
                     <tr>
@@ -45,9 +44,6 @@
                             </table>
                         </td>
                     </tr>
-                    @isset($footer)
-                        {{ $footer or '' }}
-                    @endisset
                 </table>
             </td>
         </tr>

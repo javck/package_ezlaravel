@@ -54,6 +54,10 @@ Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     Route::get('/thank', function () {
         return view('easyweb2::pages.thankyou');
     });
+    Route::get('/policy', function () {
+        return view('policy');
+    });
+
 });
 
 

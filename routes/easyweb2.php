@@ -101,6 +101,7 @@ Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controlle
     });
     Route::get('reset/{model}','MyVoyagerBaseController@reset');
 });
+Route::get('admin/voyager-assets','TCG\Voyager\Http\Controllers\VoyagerController@assets')->name('voyager.voyager_assets')->middleware(['web']);
 
 //API======================================
 Route::group(['middleware' => 'api','prefix' => 'api'],function(){

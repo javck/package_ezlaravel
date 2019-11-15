@@ -33,7 +33,6 @@ Route::get('/myip',function(){
 Route::group(['middleware' => ['javck.checkForMaintenanceMode','web']
     ,'namespace' => '\Javck\Easyweb2\Http\Controllers'], function () {
     Route::post('/submitContact', 'MyVoyagerContactController@save');
-    Route::get('/search', 'SiteController@renderSearchPage');
 
     Route::prefix('articles')->group(function () {
         Route::post('{id}/comment', 'MyVoyagerArticleController@comment');
@@ -68,7 +67,11 @@ Route::get('/404-page', function () {
 
 
 Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
-    Auth::routes();
+    if(setting('admin.useRegisterActivate') == true){
+        Auth::routes(['verify' => true]);
+    }else{
+        Auth::routes();
+    }
     Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
     Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
     Route::get('login/{provider}', 'Auth\VoyagerAuthController@redirectToProvider');

@@ -1,4694 +1,4360 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class MyDataRowsTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table("data_rows")->truncate();
-        DB::table("data_rows")->insert( [
-			'id'=>1,
-			'data_type_id'=>1,
-			'field'=>'id',
-			'type'=>'number',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>2,
-			'data_type_id'=>1,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'名稱',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>3,
-			'data_type_id'=>1,
-			'field'=>'email',
-			'type'=>'text',
-			'display_name'=>'電子郵件',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>4,
-			'data_type_id'=>1,
-			'field'=>'password',
-			'type'=>'password',
-			'display_name'=>'密碼',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>5,
-			'data_type_id'=>1,
-			'field'=>'remember_token',
-			'type'=>'hidden',
-			'display_name'=>'Remember Token',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>6,
-			'data_type_id'=>1,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>7,
-			'data_type_id'=>1,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'變更於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>8,
-			'data_type_id'=>1,
-			'field'=>'avatar',
-			'type'=>'image',
-			'display_name'=>'頭像',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>9,
-			'data_type_id'=>1,
-			'field'=>'user_belongsto_role_relationship',
-			'type'=>'relationship',
-			'display_name'=>'角色',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>0,
-			'details'=>'{"model":"TCG\\\\Voyager\\\\Models\\\\Role","table":"roles","type":"belongsTo","column":"role_id","key":"id","label":"display_name","pivot_table":"roles","pivot":"0","taggable":"0"}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>10,
-			'data_type_id'=>1,
-			'field'=>'user_belongstomany_role_relationship',
-			'type'=>'relationship',
-			'display_name'=>'附屬角色',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>0,
-			'details'=>'{"model":"TCG\\\\Voyager\\\\Models\\\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"display_name","pivot_table":"user_roles","pivot":"1","taggable":"0"}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>12,
-			'data_type_id'=>1,
-			'field'=>'settings',
-			'type'=>'hidden',
-			'display_name'=>'Settings',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>13,
-			'data_type_id'=>2,
-			'field'=>'id',
-			'type'=>'number',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>14,
-			'data_type_id'=>2,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'名稱',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>NULL,
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>15,
-			'data_type_id'=>2,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>16,
-			'data_type_id'=>2,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>17,
-			'data_type_id'=>3,
-			'field'=>'id',
-			'type'=>'number',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>18,
-			'data_type_id'=>3,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'名稱',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>NULL,
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>19,
-			'data_type_id'=>3,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>20,
-			'data_type_id'=>3,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>NULL,
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>21,
-			'data_type_id'=>3,
-			'field'=>'display_name',
-			'type'=>'text',
-			'display_name'=>'顯示名稱',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>NULL,
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>22,
-			'data_type_id'=>1,
-			'field'=>'role_id',
-			'type'=>'text',
-			'display_name'=>'角色',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>23,
-			'data_type_id'=>4,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>26,
-			'data_type_id'=>4,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'標題',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"disabledEdit":true}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>27,
-			'data_type_id'=>4,
-			'field'=>'mediums',
-			'type'=>'text',
-			'display_name'=>'媒體資料',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>28,
-			'data_type_id'=>4,
-			'field'=>'mode',
-			'type'=>'constant dropdown',
-			'display_name'=>'模式',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"article_modes"}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>29,
-			'data_type_id'=>4,
-			'field'=>'author',
-			'type'=>'hidden',
-			'display_name'=>'作者',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>30,
-			'data_type_id'=>4,
-			'field'=>'content_small',
-			'type'=>'text_area',
-			'display_name'=>'短文',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"validation":{"rule":"required","messages":{"required":"請輸入短文"}}}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>31,
-			'data_type_id'=>4,
-			'field'=>'content',
-			'type'=>'rich_text_box',
-			'display_name'=>'全文',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>32,
-			'data_type_id'=>4,
-			'field'=>'attachment_names',
-			'type'=>'text',
-			'display_name'=>'附件名稱',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>33,
-			'data_type_id'=>4,
-			'field'=>'attachment_paths',
-			'type'=>'file',
-			'display_name'=>'附件路徑',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>34,
-			'data_type_id'=>4,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"由小至大排序"}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>36,
-			'data_type_id'=>4,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>37,
-			'data_type_id'=>4,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'變更於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>21
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>38,
-			'data_type_id'=>5,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>39,
-			'data_type_id'=>5,
-			'field'=>'parent_id',
-			'type'=>'text',
-			'display_name'=>'父分類ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>40,
-			'data_type_id'=>5,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'標題',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>41,
-			'data_type_id'=>5,
-			'field'=>'pic',
-			'type'=>'image',
-			'display_name'=>'圖片',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"inVisibleRoles":"admin"}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>42,
-			'data_type_id'=>5,
-			'field'=>'desc',
-			'type'=>'text_area',
-			'display_name'=>'描述',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>43,
-			'data_type_id'=>5,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"打開","off":"關閉","default":"on"}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>44,
-			'data_type_id'=>5,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"從小排到大","legend":"測試legend"}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>45,
-			'data_type_id'=>5,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>46,
-			'data_type_id'=>5,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>47,
-			'data_type_id'=>6,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>48,
-			'data_type_id'=>6,
-			'field'=>'article_id',
-			'type'=>'text',
-			'display_name'=>'文章ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>49,
-			'data_type_id'=>6,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'留言者姓名',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>50,
-			'data_type_id'=>6,
-			'field'=>'email',
-			'type'=>'text',
-			'display_name'=>'留言者Email',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>51,
-			'data_type_id'=>6,
-			'field'=>'website',
-			'type'=>'text',
-			'display_name'=>'留言者網站',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>52,
-			'data_type_id'=>6,
-			'field'=>'user_id',
-			'type'=>'text',
-			'display_name'=>'留言者ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>53,
-			'data_type_id'=>6,
-			'field'=>'content',
-			'type'=>'text_area',
-			'display_name'=>'內容',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>54,
-			'data_type_id'=>6,
-			'field'=>'reply_to',
-			'type'=>'text',
-			'display_name'=>'回應文章ID',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>55,
-			'data_type_id'=>6,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"description":"從小排到大"}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>56,
-			'data_type_id'=>6,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"打開","off":"關閉","default":"on"}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>57,
-			'data_type_id'=>6,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>58,
-			'data_type_id'=>6,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>59,
-			'data_type_id'=>7,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>60,
-			'data_type_id'=>7,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'姓名',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>61,
-			'data_type_id'=>7,
-			'field'=>'mobile',
-			'type'=>'text',
-			'display_name'=>'手機號碼',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>62,
-			'data_type_id'=>7,
-			'field'=>'subject',
-			'type'=>'text',
-			'display_name'=>'主旨',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>63,
-			'data_type_id'=>7,
-			'field'=>'mode',
-			'type'=>'hidden',
-			'display_name'=>'模式',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>64,
-			'data_type_id'=>7,
-			'field'=>'message',
-			'type'=>'text_area',
-			'display_name'=>'訊息',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>65,
-			'data_type_id'=>7,
-			'field'=>'service',
-			'type'=>'constant dropdown',
-			'display_name'=>'所需服務',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"services"}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>66,
-			'data_type_id'=>7,
-			'field'=>'email',
-			'type'=>'text',
-			'display_name'=>'電子郵箱',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>67,
-			'data_type_id'=>7,
-			'field'=>'std_name',
-			'type'=>'hidden',
-			'display_name'=>'學員姓名',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>68,
-			'data_type_id'=>7,
-			'field'=>'std_grade',
-			'type'=>'hidden',
-			'display_name'=>'Std Grade',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>69,
-			'data_type_id'=>7,
-			'field'=>'applyCourse',
-			'type'=>'hidden',
-			'display_name'=>'ApplyCourse',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>70,
-			'data_type_id'=>7,
-			'field'=>'codeExp',
-			'type'=>'hidden',
-			'display_name'=>'CodeExp',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>71,
-			'data_type_id'=>7,
-			'field'=>'isHandled',
-			'type'=>'hidden',
-			'display_name'=>'是否處理',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"on":"已處理","off":"未處理","checked":"false"}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>72,
-			'data_type_id'=>7,
-			'field'=>'preferPlace',
-			'type'=>'hidden',
-			'display_name'=>'PreferPlace',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>73,
-			'data_type_id'=>7,
-			'field'=>'preferTime',
-			'type'=>'hidden',
-			'display_name'=>'PreferTime',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>74,
-			'data_type_id'=>7,
-			'field'=>'source',
-			'type'=>'constant dropdown',
-			'display_name'=>'流量來源',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"sources"}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>75,
-			'data_type_id'=>7,
-			'field'=>'destination',
-			'type'=>'hidden',
-			'display_name'=>'Destination',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>76,
-			'data_type_id'=>7,
-			'field'=>'warehouse',
-			'type'=>'hidden',
-			'display_name'=>'Warehouse',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>77,
-			'data_type_id'=>7,
-			'field'=>'cargoType',
-			'type'=>'hidden',
-			'display_name'=>'CargoType',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>21
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>78,
-			'data_type_id'=>7,
-			'field'=>'deliver',
-			'type'=>'hidden',
-			'display_name'=>'Deliver',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>22
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>79,
-			'data_type_id'=>7,
-			'field'=>'weight',
-			'type'=>'hidden',
-			'display_name'=>'Weight',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>23
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>80,
-			'data_type_id'=>7,
-			'field'=>'width',
-			'type'=>'hidden',
-			'display_name'=>'Width',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>24
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>81,
-			'data_type_id'=>7,
-			'field'=>'length',
-			'type'=>'hidden',
-			'display_name'=>'Length',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>25
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>82,
-			'data_type_id'=>7,
-			'field'=>'height',
-			'type'=>'hidden',
-			'display_name'=>'Height',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>26
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>83,
-			'data_type_id'=>7,
-			'field'=>'enabled',
-			'type'=>'hidden',
-			'display_name'=>'Enabled',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>27
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>84,
-			'data_type_id'=>7,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>28
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>85,
-			'data_type_id'=>7,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'變更於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>30
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>86,
-			'data_type_id'=>7,
-			'field'=>'partner_id',
-			'type'=>'text',
-			'display_name'=>'合作廠商ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>87,
-			'data_type_id'=>8,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>88,
-			'data_type_id'=>8,
-			'field'=>'page',
-			'type'=>'constant dropdown',
-			'display_name'=>'頁面',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"pages"}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>89,
-			'data_type_id'=>8,
-			'field'=>'mode',
-			'type'=>'constant dropdown',
-			'display_name'=>'模式',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"element_modes"}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>90,
-			'data_type_id'=>8,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'標題',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>91,
-			'data_type_id'=>8,
-			'field'=>'position',
-			'type'=>'text',
-			'display_name'=>'位置',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>92,
-			'data_type_id'=>8,
-			'field'=>'lang',
-			'type'=>'constant dropdown',
-			'display_name'=>'語系',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"lang"}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>93,
-			'data_type_id'=>8,
-			'field'=>'icon',
-			'type'=>'text',
-			'display_name'=>'ICON',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>94,
-			'data_type_id'=>8,
-			'field'=>'subtitle',
-			'type'=>'text',
-			'display_name'=>'副標題',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>95,
-			'data_type_id'=>8,
-			'field'=>'content',
-			'type'=>'rich_text_box',
-			'display_name'=>'內容',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>96,
-			'data_type_id'=>8,
-			'field'=>'url',
-			'type'=>'text',
-			'display_name'=>'網址',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>97,
-			'data_type_id'=>8,
-			'field'=>'url_txt',
-			'type'=>'text',
-			'display_name'=>'網址文字',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>98,
-			'data_type_id'=>8,
-			'field'=>'pic',
-			'type'=>'image',
-			'display_name'=>'圖片',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>99,
-			'data_type_id'=>8,
-			'field'=>'video',
-			'type'=>'text',
-			'display_name'=>'影片',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>100,
-			'data_type_id'=>8,
-			'field'=>'alt',
-			'type'=>'text',
-			'display_name'=>'替代文字',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>101,
-			'data_type_id'=>8,
-			'field'=>'title_pos',
-			'type'=>'text',
-			'display_name'=>'Title Pos',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>102,
-			'data_type_id'=>8,
-			'field'=>'q_mode',
-			'type'=>'tag dropdown',
-			'display_name'=>'Q&A標籤',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"type":"qna"}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>103,
-			'data_type_id'=>8,
-			'field'=>'i_mode',
-			'type'=>'hidden',
-			'display_name'=>'I Mode',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>104,
-			'data_type_id'=>8,
-			'field'=>'updater_id',
-			'type'=>'text',
-			'display_name'=>'更新者ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>105,
-			'data_type_id'=>8,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"由小到大排序"}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>106,
-			'data_type_id'=>8,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"開啟","off":"關閉","default":"on"}',
-			'order'=>21
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>107,
-			'data_type_id'=>8,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>22
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>108,
-			'data_type_id'=>8,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>23
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>109,
-			'data_type_id'=>8,
-			'field'=>'price',
-			'type'=>'number',
-			'display_name'=>'價格',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>24
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>110,
-			'data_type_id'=>8,
-			'field'=>'isBestPrice',
-			'type'=>'checkbox',
-			'display_name'=>'最優價格',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"是","off":"否","default":"off"}',
-			'order'=>25
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>111,
-			'data_type_id'=>8,
-			'field'=>'priceUnit',
-			'type'=>'text',
-			'display_name'=>'價格單位',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>26
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>114,
-			'data_type_id'=>8,
-			'field'=>'currency',
-			'type'=>'text',
-			'display_name'=>'貨幣',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>29
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>115,
-			'data_type_id'=>8,
-			'field'=>'animation',
-			'type'=>'constant dropdown',
-			'display_name'=>'動畫',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"animStyles"}',
-			'order'=>30
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>116,
-			'data_type_id'=>8,
-			'field'=>'animationDelay',
-			'type'=>'number',
-			'display_name'=>'動畫延遲',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"單位是微秒"}',
-			'order'=>31
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>117,
-			'data_type_id'=>9,
-			'field'=>'id',
-			'type'=>'hidden',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>118,
-			'data_type_id'=>9,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'標題',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>120,
-			'data_type_id'=>9,
-			'field'=>'lang',
-			'type'=>'hidden',
-			'display_name'=>'語系',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"key":"lang"}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>121,
-			'data_type_id'=>9,
-			'field'=>'pics',
-			'type'=>'multiple_images',
-			'display_name'=>'圖片集',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"validation":{"rule":"required","messages":{"required":"請選擇圖片"}}}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>122,
-			'data_type_id'=>9,
-			'field'=>'title_link',
-			'type'=>'text',
-			'display_name'=>'標題連結',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>123,
-			'data_type_id'=>9,
-			'field'=>'l_link',
-			'type'=>'text',
-			'display_name'=>'左邊連結',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>124,
-			'data_type_id'=>9,
-			'field'=>'l_icon',
-			'type'=>'text',
-			'display_name'=>'左邊ICON',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>125,
-			'data_type_id'=>9,
-			'field'=>'l_type',
-			'type'=>'constant dropdown',
-			'display_name'=>'左邊類型',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"media_types"}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>126,
-			'data_type_id'=>9,
-			'field'=>'r_link',
-			'type'=>'text',
-			'display_name'=>'右邊連結',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>127,
-			'data_type_id'=>9,
-			'field'=>'r_icon',
-			'type'=>'text',
-			'display_name'=>'右邊ICON',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>128,
-			'data_type_id'=>9,
-			'field'=>'r_type',
-			'type'=>'constant dropdown',
-			'display_name'=>'右邊類型',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"media_types"}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>129,
-			'data_type_id'=>9,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"由小排到大"}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>130,
-			'data_type_id'=>9,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"開啟","off":"關閉","default":"on"}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>131,
-			'data_type_id'=>9,
-			'field'=>'subtitle',
-			'type'=>'text',
-			'display_name'=>'副標題',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>132,
-			'data_type_id'=>9,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>133,
-			'data_type_id'=>9,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>134,
-			'data_type_id'=>10,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>135,
-			'data_type_id'=>10,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'姓名',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>136,
-			'data_type_id'=>10,
-			'field'=>'tel',
-			'type'=>'text',
-			'display_name'=>'電話',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>137,
-			'data_type_id'=>10,
-			'field'=>'secret',
-			'type'=>'text',
-			'display_name'=>'口令',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>138,
-			'data_type_id'=>10,
-			'field'=>'email',
-			'type'=>'text',
-			'display_name'=>'Email',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>139,
-			'data_type_id'=>10,
-			'field'=>'website',
-			'type'=>'text',
-			'display_name'=>'網址',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>140,
-			'data_type_id'=>10,
-			'field'=>'address',
-			'type'=>'text',
-			'display_name'=>'地址',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>141,
-			'data_type_id'=>10,
-			'field'=>'discount',
-			'type'=>'text',
-			'display_name'=>'折價',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>142,
-			'data_type_id'=>10,
-			'field'=>'sort',
-			'type'=>'text',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>143,
-			'data_type_id'=>10,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"啟用","off":"關閉","default":"on"}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>144,
-			'data_type_id'=>10,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>145,
-			'data_type_id'=>10,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>146,
-			'data_type_id'=>11,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>147,
-			'data_type_id'=>11,
-			'field'=>'user_id',
-			'type'=>'text',
-			'display_name'=>'使用者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>148,
-			'data_type_id'=>11,
-			'field'=>'serial',
-			'type'=>'text',
-			'display_name'=>'序號',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>149,
-			'data_type_id'=>11,
-			'field'=>'mode',
-			'type'=>'number',
-			'display_name'=>'優惠模式',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"大於100為折價，小於100為折數，如90為打九折"}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>150,
-			'data_type_id'=>11,
-			'field'=>'isSent',
-			'type'=>'checkbox',
-			'display_name'=>'寄出否',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"已寄出","off":"尚未","default":"off"}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>151,
-			'data_type_id'=>11,
-			'field'=>'isUsed',
-			'type'=>'checkbox',
-			'display_name'=>'使用否',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"已使用","off":"尚未","default":"off"}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>152,
-			'data_type_id'=>11,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>153,
-			'data_type_id'=>11,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>154,
-			'data_type_id'=>12,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>155,
-			'data_type_id'=>12,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'標題',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>156,
-			'data_type_id'=>12,
-			'field'=>'type',
-			'type'=>'text',
-			'display_name'=>'類型',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>157,
-			'data_type_id'=>12,
-			'field'=>'mode',
-			'type'=>'hidden',
-			'display_name'=>'Mode',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>158,
-			'data_type_id'=>12,
-			'field'=>'link',
-			'type'=>'text',
-			'display_name'=>'連結',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>159,
-			'data_type_id'=>12,
-			'field'=>'sort',
-			'type'=>'number',
-			'display_name'=>'排序',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"從小排到大"}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>160,
-			'data_type_id'=>12,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"打開","off":"關閉","default":"on"}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>161,
-			'data_type_id'=>12,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>162,
-			'data_type_id'=>12,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'Updated At',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>163,
-			'data_type_id'=>1,
-			'field'=>'username',
-			'type'=>'text',
-			'display_name'=>'帳號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>164,
-			'data_type_id'=>1,
-			'field'=>'nickname',
-			'type'=>'text',
-			'display_name'=>'暱稱',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>165,
-			'data_type_id'=>1,
-			'field'=>'title',
-			'type'=>'text',
-			'display_name'=>'頭銜',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>24
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>166,
-			'data_type_id'=>1,
-			'field'=>'birthday',
-			'type'=>'date',
-			'display_name'=>'生日',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>167,
-			'data_type_id'=>1,
-			'field'=>'organization',
-			'type'=>'text',
-			'display_name'=>'組織',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>23
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>168,
-			'data_type_id'=>1,
-			'field'=>'groups',
-			'type'=>'hidden',
-			'display_name'=>'Groups',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>169,
-			'data_type_id'=>1,
-			'field'=>'tel',
-			'type'=>'text',
-			'display_name'=>'電話',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>21
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>170,
-			'data_type_id'=>1,
-			'field'=>'mobile',
-			'type'=>'text',
-			'display_name'=>'手機號碼',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>22
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>171,
-			'data_type_id'=>1,
-			'field'=>'fb_id',
-			'type'=>'text',
-			'display_name'=>'臉書ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>25
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>172,
-			'data_type_id'=>1,
-			'field'=>'first_name',
-			'type'=>'hidden',
-			'display_name'=>'First Name',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>26
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>173,
-			'data_type_id'=>1,
-			'field'=>'last_name',
-			'type'=>'hidden',
-			'display_name'=>'Last Name',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>27
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>174,
-			'data_type_id'=>1,
-			'field'=>'pic',
-			'type'=>'hidden',
-			'display_name'=>'Pic',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>28
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>175,
-			'data_type_id'=>1,
-			'field'=>'post_id',
-			'type'=>'text',
-			'display_name'=>'郵遞區號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>29
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>176,
-			'data_type_id'=>1,
-			'field'=>'address',
-			'type'=>'text',
-			'display_name'=>'地址',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>30
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>177,
-			'data_type_id'=>1,
-			'field'=>'desc',
-			'type'=>'text_area',
-			'display_name'=>'說明',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>31
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>178,
-			'data_type_id'=>1,
-			'field'=>'enabled',
-			'type'=>'checkbox',
-			'display_name'=>'啟用',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"開啟","off":"關閉","checked":"on"}',
-			'order'=>32
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>179,
-			'data_type_id'=>1,
-			'field'=>'socialLinks',
-			'type'=>'hidden',
-			'display_name'=>'社群連結',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>33
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>180,
-			'data_type_id'=>1,
-			'field'=>'points',
-			'type'=>'hidden',
-			'display_name'=>'Points',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>34
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>181,
-			'data_type_id'=>1,
-			'field'=>'parent_id',
-			'type'=>'text',
-			'display_name'=>'親屬ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>182,
-			'data_type_id'=>1,
-			'field'=>'provider',
-			'type'=>'hidden',
-			'display_name'=>'登入平台',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>35
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>183,
-			'data_type_id'=>1,
-			'field'=>'provider_id',
-			'type'=>'hidden',
-			'display_name'=>'登入平台ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>36
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>184,
-			'data_type_id'=>1,
-			'field'=>'partner_id',
-			'type'=>'text',
-			'display_name'=>'合作夥伴ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>185,
-			'data_type_id'=>1,
-			'field'=>'user_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'親屬',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"parent_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>186,
-			'data_type_id'=>1,
-			'field'=>'user_belongsto_partner_relationship',
-			'type'=>'relationship',
-			'display_name'=>'合作夥伴',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Partner","table":"partners","type":"belongsTo","column":"partner_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>187,
-			'data_type_id'=>4,
-			'field'=>'cgy_id',
-			'type'=>'text',
-			'display_name'=>'分類',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>188,
-			'data_type_id'=>4,
-			'field'=>'locale',
-			'type'=>'hidden',
-			'display_name'=>'語系',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"default":"zh_TW","options":{"zh_TW":"繁體中文","zh_CN":"簡體中文"}}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>189,
-			'data_type_id'=>4,
-			'field'=>'author_id',
-			'type'=>'text',
-			'display_name'=>'作者',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>190,
-			'data_type_id'=>7,
-			'field'=>'contact_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'合作廠商',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Partner","table":"partners","type":"belongsTo","column":"partner_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>191,
-			'data_type_id'=>8,
-			'field'=>'element_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'更新者ID',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"updater_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>192,
-			'data_type_id'=>9,
-			'field'=>'media_belongsto_cgy_relationship',
-			'type'=>'relationship',
-			'display_name'=>'分類ID',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"cgy_id","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>193,
-			'data_type_id'=>9,
-			'field'=>'cgy_id',
-			'type'=>'text',
-			'display_name'=>'分類ID',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>194,
-			'data_type_id'=>5,
-			'field'=>'cgy_belongsto_cgy_relationship',
-			'type'=>'relationship',
-			'display_name'=>'父分類ID',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"parent_id","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>195,
-			'data_type_id'=>6,
-			'field'=>'comment_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'留言者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>196,
-			'data_type_id'=>6,
-			'field'=>'comment_belongsto_article_relationship',
-			'type'=>'relationship',
-			'display_name'=>'文章ID',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\Article","table":"articles","type":"belongsTo","column":"article_id","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>197,
-			'data_type_id'=>6,
-			'field'=>'comment_belongsto_article_relationship_1',
-			'type'=>'relationship',
-			'display_name'=>'回應文章ID',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\Article","table":"articles","type":"belongsTo","column":"reply_to","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>198,
-			'data_type_id'=>13,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>1
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>199,
-			'data_type_id'=>13,
-			'field'=>'owner_id',
-			'type'=>'text',
-			'display_name'=>'擁有者',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>200,
-			'data_type_id'=>13,
-			'field'=>'receiver',
-			'type'=>'text',
-			'display_name'=>'收件人',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>201,
-			'data_type_id'=>13,
-			'field'=>'receiverTitle',
-			'type'=>'text',
-			'display_name'=>'收件人抬頭',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>202,
-			'data_type_id'=>13,
-			'field'=>'receiverMobile',
-			'type'=>'text',
-			'display_name'=>'收件人手機',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>203,
-			'data_type_id'=>13,
-			'field'=>'receiverEmail',
-			'type'=>'text',
-			'display_name'=>'收件人Email',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>204,
-			'data_type_id'=>13,
-			'field'=>'receiverAddress',
-			'type'=>'text',
-			'display_name'=>'收件地址',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>205,
-			'data_type_id'=>13,
-			'field'=>'message',
-			'type'=>'text_area',
-			'display_name'=>'訊息',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>206,
-			'data_type_id'=>13,
-			'field'=>'couponCode',
-			'type'=>'text',
-			'display_name'=>'優惠序號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>207,
-			'data_type_id'=>13,
-			'field'=>'subtotal',
-			'type'=>'number',
-			'display_name'=>'小計',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>208,
-			'data_type_id'=>13,
-			'field'=>'shipCost',
-			'type'=>'number',
-			'display_name'=>'運費',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>209,
-			'data_type_id'=>13,
-			'field'=>'status',
-			'type'=>'constant dropdown',
-			'display_name'=>'狀態',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"order_statuses"}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>210,
-			'data_type_id'=>13,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'創建於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>211,
-			'data_type_id'=>13,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更新於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>212,
-			'data_type_id'=>11,
-			'field'=>'serial_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'使用者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>213,
-			'data_type_id'=>11,
-			'field'=>'type',
-			'type'=>'constant dropdown',
-			'display_name'=>'類型',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"serials_type"}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>214,
-			'data_type_id'=>13,
-			'field'=>'order_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'users',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"owner_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>215,
-			'data_type_id'=>14,
-			'field'=>'id',
-			'type'=>'text',
-			'display_name'=>'ID',
-			'required'=>1,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>0
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>216,
-			'data_type_id'=>14,
-			'field'=>'user_id',
-			'type'=>'select_dropdown',
-			'display_name'=>'所屬使用者',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>217,
-			'data_type_id'=>14,
-			'field'=>'order_id',
-			'type'=>'select_dropdown',
-			'display_name'=>'所屬訂單',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>218,
-			'data_type_id'=>14,
-			'field'=>'website',
-			'type'=>'text',
-			'display_name'=>'商品網址',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>6
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>219,
-			'data_type_id'=>14,
-			'field'=>'name',
-			'type'=>'text',
-			'display_name'=>'商品名稱',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>220,
-			'data_type_id'=>14,
-			'field'=>'pic',
-			'type'=>'image',
-			'display_name'=>'商品圖片',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>8
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>221,
-			'data_type_id'=>14,
-			'field'=>'code',
-			'type'=>'text',
-			'display_name'=>'商品型號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>9
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>222,
-			'data_type_id'=>14,
-			'field'=>'boxSize',
-			'type'=>'text',
-			'display_name'=>'外箱尺寸',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>223,
-			'data_type_id'=>14,
-			'field'=>'boxWeight',
-			'type'=>'number',
-			'display_name'=>'外箱重量',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>11
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>224,
-			'data_type_id'=>14,
-			'field'=>'storage',
-			'type'=>'select_dropdown',
-			'display_name'=>'倉庫',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"default":"tigerDoor","options":{"tigerDoor":"虎門倉","shangHai":"上海倉","hongKong":"香港倉","taiwan":"台灣倉"}}',
-			'order'=>12
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>225,
-			'data_type_id'=>14,
-			'field'=>'air_serial',
-			'type'=>'text',
-			'display_name'=>'航空主號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>26
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>226,
-			'data_type_id'=>14,
-			'field'=>'created_at',
-			'type'=>'timestamp',
-			'display_name'=>'建單時間',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>28
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>227,
-			'data_type_id'=>14,
-			'field'=>'updated_at',
-			'type'=>'timestamp',
-			'display_name'=>'更單時間',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>29
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>228,
-			'data_type_id'=>14,
-			'field'=>'pack_at',
-			'type'=>'date',
-			'display_name'=>'打包於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"format":"%Y-%m-%d"}',
-			'order'=>30
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>229,
-			'data_type_id'=>14,
-			'field'=>'send_at',
-			'type'=>'date',
-			'display_name'=>'出倉於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"format":"%Y-%m-%d"}',
-			'order'=>31
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>230,
-			'data_type_id'=>14,
-			'field'=>'customs_serial',
-			'type'=>'text',
-			'display_name'=>'清關序號',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>27
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>231,
-			'data_type_id'=>14,
-			'field'=>'weighing',
-			'type'=>'number',
-			'display_name'=>'秤重',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0,"description":"單位是公斤"}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>232,
-			'data_type_id'=>14,
-			'field'=>'weighing_cal',
-			'type'=>'number',
-			'display_name'=>'計重',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0,"description":"單位是公斤"}',
-			'order'=>14
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>233,
-			'data_type_id'=>14,
-			'field'=>'size',
-			'type'=>'text',
-			'display_name'=>'尺寸',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"description":"填寫格式為長(cm)x寬(cm)x高(cm)"}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>234,
-			'data_type_id'=>14,
-			'field'=>'comment',
-			'type'=>'text_area',
-			'display_name'=>'注意事項',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>235,
-			'data_type_id'=>14,
-			'field'=>'require',
-			'type'=>'text_area',
-			'display_name'=>'驗貨要求',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>236,
-			'data_type_id'=>14,
-			'field'=>'qty',
-			'type'=>'number',
-			'display_name'=>'採購數量',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>237,
-			'data_type_id'=>14,
-			'field'=>'price',
-			'type'=>'number',
-			'display_name'=>'單價',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"validation":{"rules":["min:0"]}}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>238,
-			'data_type_id'=>14,
-			'field'=>'subtotal',
-			'type'=>'number',
-			'display_name'=>'採購金額',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"min":0}',
-			'order'=>20
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>239,
-			'data_type_id'=>14,
-			'field'=>'cost_package',
-			'type'=>'number',
-			'display_name'=>'包裝包材費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>21
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>240,
-			'data_type_id'=>14,
-			'field'=>'cost_validate',
-			'type'=>'number',
-			'display_name'=>'驗貨費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>22
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>241,
-			'data_type_id'=>14,
-			'field'=>'cost_service',
-			'type'=>'number',
-			'display_name'=>'服務費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>23
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>242,
-			'data_type_id'=>14,
-			'field'=>'cost_trans',
-			'type'=>'number',
-			'display_name'=>'車資費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>24
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>243,
-			'data_type_id'=>14,
-			'field'=>'cost_others',
-			'type'=>'number',
-			'display_name'=>'其他費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"min":0}',
-			'order'=>25
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>244,
-			'data_type_id'=>14,
-			'field'=>'deleted_at',
-			'type'=>'timestamp',
-			'display_name'=>'刪除於',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>0,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>32
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>245,
-			'data_type_id'=>14,
-			'field'=>'consolidation_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'所屬使用者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"consolidations","pivot":"0","taggable":"0"}',
-			'order'=>3
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>246,
-			'data_type_id'=>14,
-			'field'=>'consolidation_belongsto_order_relationship',
-			'type'=>'relationship',
-			'display_name'=>'所屬訂單',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\Order","table":"orders","type":"belongsTo","column":"order_id","key":"id","label":"id","pivot_table":"consolidations","pivot":"0","taggable":"0"}',
-			'order'=>5
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>247,
-			'data_type_id'=>13,
-			'field'=>'pay_at',
-			'type'=>'timestamp',
-			'display_name'=>'付款於',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>15
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>248,
-			'data_type_id'=>13,
-			'field'=>'pay_from',
-			'type'=>'constant dropdown',
-			'display_name'=>'付款源頭',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"key":"pay_sources"}',
-			'order'=>16
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>249,
-			'data_type_id'=>13,
-			'field'=>'pay_pre',
-			'type'=>'number',
-			'display_name'=>'預付金額',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>17
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>250,
-			'data_type_id'=>13,
-			'field'=>'pay_after',
-			'type'=>'number',
-			'display_name'=>'需補費用',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>251,
-			'data_type_id'=>13,
-			'field'=>'reply_desc',
-			'type'=>'text_area',
-			'display_name'=>'說明回覆',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>19
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>252,
-			'data_type_id'=>4,
-			'field'=>'featured',
-			'type'=>'checkbox',
-			'display_name'=>'設為精華',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"on":"是","off":"否","default":"off"}',
-			'order'=>2
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>253,
-			'data_type_id'=>4,
-			'field'=>'meta_description',
-			'type'=>'text_area',
-			'display_name'=>'Meta 描述',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>23
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>254,
-			'data_type_id'=>4,
-			'field'=>'meta_keywords',
-			'type'=>'text',
-			'display_name'=>'Meta 關鍵字',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>24
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>255,
-			'data_type_id'=>4,
-			'field'=>'seo_title',
-			'type'=>'text',
-			'display_name'=>'SEO 標題',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>22
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>257,
-			'data_type_id'=>4,
-			'field'=>'status',
-			'type'=>'constant dropdown',
-			'display_name'=>'上架狀態',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"article_statuses"}',
-			'order'=>18
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>258,
-			'data_type_id'=>4,
-			'field'=>'slug',
-			'type'=>'text',
-			'display_name'=>'URL別名',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"validation":{"rule":"required","messages":{"required":"請輸入slug"}}}',
-			'order'=>10
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>259,
-			'data_type_id'=>7,
-			'field'=>'handler_id',
-			'type'=>'text',
-			'display_name'=>'處理者',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>29
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>260,
-			'data_type_id'=>7,
-			'field'=>'creator_id',
-			'type'=>'text',
-			'display_name'=>'建立者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{}',
-			'order'=>31
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>261,
-			'data_type_id'=>7,
-			'field'=>'handleRecord',
-			'type'=>'text_area',
-			'display_name'=>'處理紀錄',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>0,
-			'delete'=>1,
-			'details'=>'{}',
-			'order'=>34
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>262,
-			'data_type_id'=>7,
-			'field'=>'status',
-			'type'=>'constant dropdown',
-			'display_name'=>'聯絡單狀態',
-			'required'=>1,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"key":"contact_statuses","default":"unHandled"}',
-			'order'=>35
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>264,
-			'data_type_id'=>7,
-			'field'=>'contact_belongsto_user_relationship_1',
-			'type'=>'relationship',
-			'display_name'=>'創建者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"creator_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>32
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>265,
-			'data_type_id'=>7,
-			'field'=>'contact_belongsto_user_relationship_2',
-			'type'=>'relationship',
-			'display_name'=>'處理者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"handler_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>33
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>266,
-			'data_type_id'=>4,
-			'field'=>'article_belongsto_user_relationship',
-			'type'=>'relationship',
-			'display_name'=>'作者',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>0,
-			'add'=>0,
-			'delete'=>0,
-			'details'=>'{"model":"App\\\\User","table":"users","type":"belongsTo","column":"author_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>4
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>267,
-			'data_type_id'=>4,
-			'field'=>'article_belongsto_cgy_relationship',
-			'type'=>'relationship',
-			'display_name'=>'文章分類',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"cgy_id","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
-			'order'=>7
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>268,
-			'data_type_id'=>4,
-			'field'=>'images',
-			'type'=>'multiple_images',
-			'display_name'=>'文章圖片',
-			'required'=>0,
-			'browse'=>1,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"resize":{"width":"1000","height":null},"quality":"70%","upsize":true,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
-			'order'=>13
-			] );
-
-
-						
-			DB::table("data_rows")->insert( [
-			'id'=>269,
-			'data_type_id'=>4,
-			'field'=>'article_belongstomany_tag_relationship',
-			'type'=>'relationship',
-			'display_name'=>'標籤',
-			'required'=>0,
-			'browse'=>0,
-			'read'=>1,
-			'edit'=>1,
-			'add'=>1,
-			'delete'=>1,
-			'details'=>'{"model":"App\\\\Tag","table":"tags","type":"belongsToMany","column":"id","key":"id","label":"title","pivot_table":"article_tag","pivot":"1","taggable":"on"}',
-			'order'=>25
-			] );
+        
+
+        \DB::table('data_rows')->delete();
+        
+        \DB::table('data_rows')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'data_type_id' => 1,
+                'field' => 'id',
+                'type' => 'number',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'data_type_id' => 1,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '名稱',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:45","messages":{"required":"\\u540d\\u7a31\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u540d\\u7a31\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 2,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'data_type_id' => 1,
+                'field' => 'email',
+                'type' => 'text',
+                'display_name' => '電子郵件',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:15","messages":{"max":"\\u5bc6\\u78bc\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'data_type_id' => 1,
+                'field' => 'password',
+                'type' => 'password',
+                'display_name' => '密碼',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:15","messages":{"max":"\\u5bc6\\u78bc\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 4,
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'data_type_id' => 1,
+                'field' => 'remember_token',
+                'type' => 'hidden',
+                'display_name' => 'Remember Token',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 11,
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'data_type_id' => 1,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 12,
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'data_type_id' => 1,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '變更於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 13,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'data_type_id' => 1,
+                'field' => 'avatar',
+                'type' => 'image',
+                'display_name' => '頭像',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 15,
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'data_type_id' => 1,
+                'field' => 'user_belongsto_role_relationship',
+                'type' => 'relationship',
+                'display_name' => '角色',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"model":"TCG\\\\Voyager\\\\Models\\\\Role","table":"roles","type":"belongsTo","column":"role_id","key":"id","label":"display_name","pivot_table":"roles","pivot":"0","taggable":"0"}',
+                'order' => 19,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'data_type_id' => 1,
+                'field' => 'user_belongstomany_role_relationship',
+                'type' => 'relationship',
+                'display_name' => '附屬角色',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"model":"TCG\\\\Voyager\\\\Models\\\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"display_name","pivot_table":"user_roles","pivot":"1","taggable":"0"}',
+                'order' => 20,
+            ),
+            10 => 
+            array (
+                'id' => 12,
+                'data_type_id' => 1,
+                'field' => 'settings',
+                'type' => 'hidden',
+                'display_name' => '設定',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 21,
+            ),
+            11 => 
+            array (
+                'id' => 13,
+                'data_type_id' => 2,
+                'field' => 'id',
+                'type' => 'number',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 1,
+            ),
+            12 => 
+            array (
+                'id' => 14,
+                'data_type_id' => 2,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '名稱',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => NULL,
+                'order' => 2,
+            ),
+            13 => 
+            array (
+                'id' => 15,
+                'data_type_id' => 2,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 3,
+            ),
+            14 => 
+            array (
+                'id' => 16,
+                'data_type_id' => 2,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 4,
+            ),
+            15 => 
+            array (
+                'id' => 17,
+                'data_type_id' => 3,
+                'field' => 'id',
+                'type' => 'number',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 1,
+            ),
+            16 => 
+            array (
+                'id' => 18,
+                'data_type_id' => 3,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '名稱',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => NULL,
+                'order' => 2,
+            ),
+            17 => 
+            array (
+                'id' => 19,
+                'data_type_id' => 3,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 3,
+            ),
+            18 => 
+            array (
+                'id' => 20,
+                'data_type_id' => 3,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => NULL,
+                'order' => 4,
+            ),
+            19 => 
+            array (
+                'id' => 21,
+                'data_type_id' => 3,
+                'field' => 'display_name',
+                'type' => 'text',
+                'display_name' => '顯示名稱',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => NULL,
+                'order' => 5,
+            ),
+            20 => 
+            array (
+                'id' => 22,
+                'data_type_id' => 1,
+                'field' => 'role_id',
+                'type' => 'text',
+                'display_name' => '角色',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 18,
+            ),
+            21 => 
+            array (
+                'id' => 23,
+                'data_type_id' => 4,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            22 => 
+            array (
+                'id' => 26,
+                'data_type_id' => 4,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:40","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 9,
+            ),
+            23 => 
+            array (
+                'id' => 27,
+                'data_type_id' => 4,
+                'field' => 'mediums',
+                'type' => 'text',
+                'display_name' => '媒體資料',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:400","messages":{"max":"\\u5a92\\u9ad4\\u8cc7\\u6599\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 11,
+            ),
+            24 => 
+            array (
+                'id' => 28,
+                'data_type_id' => 4,
+                'field' => 'mode',
+                'type' => 'constant dropdown',
+                'display_name' => '模式',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"article_modes","default":"singleImg"}',
+                'order' => 12,
+            ),
+            25 => 
+            array (
+                'id' => 30,
+                'data_type_id' => 4,
+                'field' => 'content_small',
+                'type' => 'text_area',
+                'display_name' => '短文',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:80","messages":{"required":"\\u8acb\\u8f38\\u5165\\u77ed\\u6587","max":"\\u77ed\\u6587\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 15,
+            ),
+            26 => 
+            array (
+                'id' => 31,
+                'data_type_id' => 4,
+                'field' => 'content',
+                'type' => 'rich_text_box',
+                'display_name' => '全文',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 14,
+            ),
+            27 => 
+            array (
+                'id' => 32,
+                'data_type_id' => 4,
+                'field' => 'attachment_names',
+                'type' => 'hidden',
+                'display_name' => '附件名稱',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"required|max:80","messages":{"required":"\\u8acb\\u8f38\\u5165\\u77ed\\u6587","max":"\\u77ed\\u6587\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 16,
+            ),
+            28 => 
+            array (
+                'id' => 33,
+                'data_type_id' => 4,
+                'field' => 'attachment_paths',
+                'type' => 'file',
+                'display_name' => '附件路徑',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:80","messages":{"required":"\\u8acb\\u8f38\\u5165\\u77ed\\u6587","max":"\\u77ed\\u6587\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 17,
+            ),
+            29 => 
+            array (
+                'id' => 34,
+                'data_type_id' => 4,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u7531\\u5c0f\\u5230\\u5927\\u6392\\u5e8f","validation":{"rule":"required"},"default":0}',
+                'order' => 19,
+            ),
+            30 => 
+            array (
+                'id' => 36,
+                'data_type_id' => 4,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 20,
+            ),
+            31 => 
+            array (
+                'id' => 37,
+                'data_type_id' => 4,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '變更於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 21,
+            ),
+            32 => 
+            array (
+                'id' => 38,
+                'data_type_id' => 5,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            33 => 
+            array (
+                'id' => 39,
+                'data_type_id' => 5,
+                'field' => 'parent_id',
+                'type' => 'text',
+                'display_name' => '父分類ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            34 => 
+            array (
+                'id' => 40,
+                'data_type_id' => 5,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:100","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 4,
+            ),
+            35 => 
+            array (
+                'id' => 41,
+                'data_type_id' => 5,
+                'field' => 'pic',
+                'type' => 'media_picker',
+                'display_name' => '圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"inVisibleRoles":"admin","max":1,"min":0,"show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[],"base_path":"cgys"}',
+                'order' => 5,
+            ),
+            36 => 
+            array (
+                'id' => 42,
+                'data_type_id' => 5,
+                'field' => 'desc',
+                'type' => 'text_area',
+                'display_name' => '描述',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:500","messages":{"max":"\\u63cf\\u8ff0\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            37 => 
+            array (
+                'id' => 43,
+                'data_type_id' => 5,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u6253\\u958b","off":"\\u95dc\\u9589","default":"on"}',
+                'order' => 7,
+            ),
+            38 => 
+            array (
+                'id' => 44,
+                'data_type_id' => 5,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u5f9e\\u5c0f\\u6392\\u5230\\u5927","legend":"\\u6e2c\\u8a66legend"}',
+                'order' => 8,
+            ),
+            39 => 
+            array (
+                'id' => 45,
+                'data_type_id' => 5,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            40 => 
+            array (
+                'id' => 46,
+                'data_type_id' => 5,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 10,
+            ),
+            41 => 
+            array (
+                'id' => 47,
+                'data_type_id' => 6,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            42 => 
+            array (
+                'id' => 48,
+                'data_type_id' => 6,
+                'field' => 'article_id',
+                'type' => 'text',
+                'display_name' => '文章ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 4,
+            ),
+            43 => 
+            array (
+                'id' => 49,
+                'data_type_id' => 6,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '留言者姓名',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 6,
+            ),
+            44 => 
+            array (
+                'id' => 50,
+                'data_type_id' => 6,
+                'field' => 'email',
+                'type' => 'text',
+                'display_name' => '留言者Email',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 7,
+            ),
+            45 => 
+            array (
+                'id' => 51,
+                'data_type_id' => 6,
+                'field' => 'website',
+                'type' => 'text',
+                'display_name' => '留言者網站',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 8,
+            ),
+            46 => 
+            array (
+                'id' => 52,
+                'data_type_id' => 6,
+                'field' => 'user_id',
+                'type' => 'text',
+                'display_name' => '留言者ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            47 => 
+            array (
+                'id' => 53,
+                'data_type_id' => 6,
+                'field' => 'content',
+                'type' => 'text_area',
+                'display_name' => '內容',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            48 => 
+            array (
+                'id' => 54,
+                'data_type_id' => 6,
+                'field' => 'reply_to',
+                'type' => 'text',
+                'display_name' => '回應文章ID',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 5,
+            ),
+            49 => 
+            array (
+                'id' => 55,
+                'data_type_id' => 6,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"description":"從小排到大"}',
+                'order' => 10,
+            ),
+            50 => 
+            array (
+                'id' => 56,
+                'data_type_id' => 6,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"打開","off":"關閉","default":"on"}',
+                'order' => 11,
+            ),
+            51 => 
+            array (
+                'id' => 57,
+                'data_type_id' => 6,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 12,
+            ),
+            52 => 
+            array (
+                'id' => 58,
+                'data_type_id' => 6,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 13,
+            ),
+            53 => 
+            array (
+                'id' => 59,
+                'data_type_id' => 7,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            54 => 
+            array (
+                'id' => 60,
+                'data_type_id' => 7,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '姓名',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:20","messages":{"required":"\\u59d3\\u540d\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u59d3\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 4,
+            ),
+            55 => 
+            array (
+                'id' => 61,
+                'data_type_id' => 7,
+                'field' => 'mobile',
+                'type' => 'text',
+                'display_name' => '手機號碼',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:20","messages":{"required":"\\u59d3\\u540d\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u59d3\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 5,
+            ),
+            56 => 
+            array (
+                'id' => 62,
+                'data_type_id' => 7,
+                'field' => 'subject',
+                'type' => 'text',
+                'display_name' => '主旨',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"required|max:100","messages":{"required":"\\u4e3b\\u65e8\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u4e3b\\u65e8\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 7,
+            ),
+            57 => 
+            array (
+                'id' => 63,
+                'data_type_id' => 7,
+                'field' => 'mode',
+                'type' => 'hidden',
+                'display_name' => '模式',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 8,
+            ),
+            58 => 
+            array (
+                'id' => 64,
+                'data_type_id' => 7,
+                'field' => 'message',
+                'type' => 'text_area',
+                'display_name' => '訊息',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:500","messages":{"max":"\\u8a0a\\u606f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 9,
+            ),
+            59 => 
+            array (
+                'id' => 65,
+                'data_type_id' => 7,
+                'field' => 'service',
+                'type' => 'constant dropdown',
+                'display_name' => '所需服務',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"services"}',
+                'order' => 10,
+            ),
+            60 => 
+            array (
+                'id' => 66,
+                'data_type_id' => 7,
+                'field' => 'email',
+                'type' => 'text',
+                'display_name' => '電子郵箱',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:20","messages":{"required":"\\u59d3\\u540d\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u59d3\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            61 => 
+            array (
+                'id' => 74,
+                'data_type_id' => 7,
+                'field' => 'source',
+                'type' => 'constant dropdown',
+                'display_name' => '流量來源',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"sources"}',
+                'order' => 14,
+            ),
+            62 => 
+            array (
+                'id' => 84,
+                'data_type_id' => 7,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 28,
+            ),
+            63 => 
+            array (
+                'id' => 85,
+                'data_type_id' => 7,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '變更於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 30,
+            ),
+            64 => 
+            array (
+                'id' => 86,
+                'data_type_id' => 7,
+                'field' => 'partner_id',
+                'type' => 'text',
+                'display_name' => '合作廠商ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            65 => 
+            array (
+                'id' => 87,
+                'data_type_id' => 8,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            66 => 
+            array (
+                'id' => 88,
+                'data_type_id' => 8,
+                'field' => 'page',
+                'type' => 'constant dropdown',
+                'display_name' => '頁面',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"pages","display":{"id":"div_page","width":4}}',
+                'order' => 9,
+            ),
+            67 => 
+            array (
+                'id' => 89,
+                'data_type_id' => 8,
+                'field' => 'mode',
+                'type' => 'constant dropdown',
+                'display_name' => '模式',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"element_modes","display":{"width":4,"id":"div_mode"}}',
+                'order' => 8,
+            ),
+            68 => 
+            array (
+                'id' => 90,
+                'data_type_id' => 8,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:80","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}},"display":{"width":6,"id":"div_title"}}',
+                'order' => 4,
+            ),
+            69 => 
+            array (
+                'id' => 91,
+                'data_type_id' => 8,
+                'field' => 'position',
+                'type' => 'text',
+                'display_name' => '位置',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":4,"id":"div_position"},"validation":{"rule":"required|max:20","messages":{"required":"\\u4f4d\\u7f6e\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u4f4d\\u7f6e\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 10,
+            ),
+            70 => 
+            array (
+                'id' => 92,
+                'data_type_id' => 8,
+                'field' => 'lang',
+                'type' => 'constant dropdown',
+                'display_name' => '語系',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"lang","default":"zh_TW","display":{"width":6,"id":"div_lang"}}',
+                'order' => 11,
+            ),
+            71 => 
+            array (
+                'id' => 93,
+                'data_type_id' => 8,
+                'field' => 'icon',
+                'type' => 'text',
+                'display_name' => '圖示',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_icon"},"validation":{"rule":"max:40","messages":{"max":"ICON\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 12,
+            ),
+            72 => 
+            array (
+                'id' => 94,
+                'data_type_id' => 8,
+                'field' => 'subtitle',
+                'type' => 'text',
+                'display_name' => '副標題',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:80","messages":{"max":"\\u526f\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}},"display":{"width":6,"id":"div_subtitle"}}',
+                'order' => 7,
+            ),
+            73 => 
+            array (
+                'id' => 95,
+                'data_type_id' => 8,
+                'field' => 'content',
+                'type' => 'text_area',
+                'display_name' => '內容',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"id":"div_content"},"validation":{"rule":"max:2000","messages":{"max":"\\u5167\\u5bb9\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 21,
+            ),
+            74 => 
+            array (
+                'id' => 96,
+                'data_type_id' => 8,
+                'field' => 'url',
+                'type' => 'text',
+                'display_name' => '網址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"id":"div_url"},"validation":{"rule":"max:255","messages":{"max":"\\u7db2\\u5740\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}},"default":"\\u7db2\\u5740\\u8acb\\u52a0\\u4e0ahttp:\\/\\/\\u6216https:\\/\\/"}',
+                'order' => 13,
+            ),
+            75 => 
+            array (
+                'id' => 97,
+                'data_type_id' => 8,
+                'field' => 'url_txt',
+                'type' => 'text',
+                'display_name' => '網址文字',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"id":"div_url"},"validation":{"rule":"max:255","messages":{"max":"\\u7db2\\u5740\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}},"default":"\\u7db2\\u5740\\u8acb\\u52a0\\u4e0ahttp:\\/\\/\\u6216https:\\/\\/"}',
+                'order' => 14,
+            ),
+            76 => 
+            array (
+                'id' => 98,
+                'data_type_id' => 8,
+                'field' => 'pic',
+                'type' => 'media_picker',
+                'display_name' => '圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":1,"min":0,"show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[],"base_path":"elements","display":{"id":"div_pic"}}',
+                'order' => 15,
+            ),
+            77 => 
+            array (
+                'id' => 99,
+                'data_type_id' => 8,
+                'field' => 'video',
+                'type' => 'text',
+                'display_name' => '影片網址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"id":"div_video"},"validation":{"rule":"max:255","messages":{"max":"\\u5f71\\u7247\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 16,
+            ),
+            78 => 
+            array (
+                'id' => 100,
+                'data_type_id' => 8,
+                'field' => 'alt',
+                'type' => 'text',
+                'display_name' => '替代文字',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"id":"div_video"},"validation":{"rule":"max:255","messages":{"max":"\\u5f71\\u7247\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 17,
+            ),
+            79 => 
+            array (
+                'id' => 101,
+                'data_type_id' => 8,
+                'field' => 'title_pos',
+                'type' => 'constant dropdown',
+                'display_name' => '標題位置',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"titlePoses","display":{"width":6,"id":"div_title_pos"}}',
+                'order' => 18,
+            ),
+            80 => 
+            array (
+                'id' => 102,
+                'data_type_id' => 8,
+                'field' => 'q_mode',
+                'type' => 'tag dropdown',
+                'display_name' => 'Q&A標籤',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"type":"qna","display":{"width":6,"id":"div_q_mode"}}',
+                'order' => 19,
+            ),
+            81 => 
+            array (
+                'id' => 103,
+                'data_type_id' => 8,
+                'field' => 'i_mode',
+                'type' => 'hidden',
+                'display_name' => '資訊標籤',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"type":"i_mode","display":{"width":6,"id":"div_i_mode"}}',
+                'order' => 20,
+            ),
+            82 => 
+            array (
+                'id' => 104,
+                'data_type_id' => 8,
+                'field' => 'updater_id',
+                'type' => 'text',
+                'display_name' => '更新者ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            83 => 
+            array (
+                'id' => 105,
+                'data_type_id' => 8,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u7531\\u5c0f\\u5230\\u5927\\u6392\\u5e8f","display":{"width":6,"id":"div_sort"},"validation":{"rule":"required"},"default":0}',
+                'order' => 22,
+            ),
+            84 => 
+            array (
+                'id' => 106,
+                'data_type_id' => 8,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u958b\\u555f","off":"\\u95dc\\u9589","default":"on","display":{"width":6,"id":"enabled"}}',
+                'order' => 23,
+            ),
+            85 => 
+            array (
+                'id' => 107,
+                'data_type_id' => 8,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 24,
+            ),
+            86 => 
+            array (
+                'id' => 108,
+                'data_type_id' => 8,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 25,
+            ),
+            87 => 
+            array (
+                'id' => 109,
+                'data_type_id' => 8,
+                'field' => 'price',
+                'type' => 'number',
+                'display_name' => '價格',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_price"}}',
+                'order' => 26,
+            ),
+            88 => 
+            array (
+                'id' => 110,
+                'data_type_id' => 8,
+                'field' => 'isBestPrice',
+                'type' => 'checkbox',
+                'display_name' => '最優價格',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u662f","off":"\\u5426","default":"off","display":{"width":6,"id":"isBestPrice"}}',
+                'order' => 28,
+            ),
+            89 => 
+            array (
+                'id' => 111,
+                'data_type_id' => 8,
+                'field' => 'priceUnit',
+                'type' => 'text',
+                'display_name' => '價格單位',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_price"}}',
+                'order' => 27,
+            ),
+            90 => 
+            array (
+                'id' => 114,
+                'data_type_id' => 8,
+                'field' => 'currency',
+                'type' => 'text',
+                'display_name' => '貨幣',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":4,"id":"div_currency"},"validation":{"rule":"max:5","messages":{"max":"\\u8ca8\\u5e63\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 29,
+            ),
+            91 => 
+            array (
+                'id' => 115,
+                'data_type_id' => 8,
+                'field' => 'animation',
+                'type' => 'constant dropdown',
+                'display_name' => '動畫',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"animStyles","display":{"width":6,"id":"div_animation"}}',
+                'order' => 33,
+            ),
+            92 => 
+            array (
+                'id' => 116,
+                'data_type_id' => 8,
+                'field' => 'animationDelay',
+                'type' => 'number',
+                'display_name' => '動畫延遲',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u55ae\\u4f4d\\u662f\\u5fae\\u79d2","display":{"width":6,"id":"div_animationDelay"}}',
+                'order' => 34,
+            ),
+            93 => 
+            array (
+                'id' => 117,
+                'data_type_id' => 9,
+                'field' => 'id',
+                'type' => 'hidden',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            94 => 
+            array (
+                'id' => 118,
+                'data_type_id' => 9,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:40","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            95 => 
+            array (
+                'id' => 120,
+                'data_type_id' => 9,
+                'field' => 'lang',
+                'type' => 'hidden',
+                'display_name' => '語系',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"key":"lang"}',
+                'order' => 4,
+            ),
+            96 => 
+            array (
+                'id' => 121,
+                'data_type_id' => 9,
+                'field' => 'pics',
+                'type' => 'media_picker',
+                'display_name' => '圖片',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":5,"min":1,"base_path":"medias","show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[]}',
+                'order' => 5,
+            ),
+            97 => 
+            array (
+                'id' => 122,
+                'data_type_id' => 9,
+                'field' => 'title_link',
+                'type' => 'text',
+                'display_name' => '標題連結',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"show_as_link":true,"description":"\\u5982\\u70ba\\u5916\\u90e8\\u7db2\\u5740\\u8acb\\u52a0\\u4e0ahttp:\\/\\/\\u6216https:\\/\\/","validation":{"rule":"max:255","messages":{"max":"\\u6a19\\u984c\\u9023\\u7d50\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 7,
+            ),
+            98 => 
+            array (
+                'id' => 123,
+                'data_type_id' => 9,
+                'field' => 'l_link',
+                'type' => 'text',
+                'display_name' => '左邊連結',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:160","messages":{"max":"\\u526f\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 9,
+            ),
+            99 => 
+            array (
+                'id' => 124,
+                'data_type_id' => 9,
+                'field' => 'l_icon',
+                'type' => 'text',
+                'display_name' => '左邊ICON',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:20","messages":{"max":"\\u5de6\\u908aICON\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 10,
+            ),
+            100 => 
+            array (
+                'id' => 125,
+                'data_type_id' => 9,
+                'field' => 'l_type',
+                'type' => 'constant dropdown',
+                'display_name' => '左邊類型',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"media_types"}',
+                'order' => 11,
+            ),
+            101 => 
+            array (
+                'id' => 126,
+                'data_type_id' => 9,
+                'field' => 'r_link',
+                'type' => 'text',
+                'display_name' => '右邊連結',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"show_as_link":true,"description":"\\u5982\\u70ba\\u5916\\u90e8\\u7db2\\u5740\\u8acb\\u52a0\\u4e0ahttp:\\/\\/\\u6216https:\\/\\/","validation":{"rule":"max:255","messages":{"max":"\\u53f3\\u908a\\u9023\\u7d50\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 12,
+            ),
+            102 => 
+            array (
+                'id' => 127,
+                'data_type_id' => 9,
+                'field' => 'r_icon',
+                'type' => 'text',
+                'display_name' => '右邊ICON',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"show_as_link":true,"description":"\\u5982\\u70ba\\u5916\\u90e8\\u7db2\\u5740\\u8acb\\u52a0\\u4e0ahttp:\\/\\/\\u6216https:\\/\\/","validation":{"rule":"max:255","messages":{"max":"\\u53f3\\u908a\\u9023\\u7d50\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 13,
+            ),
+            103 => 
+            array (
+                'id' => 128,
+                'data_type_id' => 9,
+                'field' => 'r_type',
+                'type' => 'constant dropdown',
+                'display_name' => '右邊類型',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"media_types"}',
+                'order' => 14,
+            ),
+            104 => 
+            array (
+                'id' => 129,
+                'data_type_id' => 9,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u7531\\u5c0f\\u6392\\u5230\\u5927"}',
+                'order' => 15,
+            ),
+            105 => 
+            array (
+                'id' => 130,
+                'data_type_id' => 9,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '是否啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u958b\\u555f","off":"\\u95dc\\u9589","default":"on"}',
+                'order' => 16,
+            ),
+            106 => 
+            array (
+                'id' => 131,
+                'data_type_id' => 9,
+                'field' => 'subtitle',
+                'type' => 'text',
+                'display_name' => '副標題',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:160","messages":{"max":"\\u526f\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 8,
+            ),
+            107 => 
+            array (
+                'id' => 132,
+                'data_type_id' => 9,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 17,
+            ),
+            108 => 
+            array (
+                'id' => 133,
+                'data_type_id' => 9,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 18,
+            ),
+            109 => 
+            array (
+                'id' => 134,
+                'data_type_id' => 10,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            110 => 
+            array (
+                'id' => 135,
+                'data_type_id' => 10,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '姓名',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"required|max:40","messages":{"required":"\\u59d3\\u540d\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u59d3\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 2,
+            ),
+            111 => 
+            array (
+                'id' => 136,
+                'data_type_id' => 10,
+                'field' => 'tel',
+                'type' => 'text',
+                'display_name' => '電話',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:40","messages":{"max":"\\u96fb\\u8a71\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 3,
+            ),
+            112 => 
+            array (
+                'id' => 137,
+                'data_type_id' => 10,
+                'field' => 'secret',
+                'type' => 'text',
+                'display_name' => '口令',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:40","messages":{"required":"\\u53e3\\u4ee4\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u53e3\\u4ee4\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 4,
+            ),
+            113 => 
+            array (
+                'id' => 138,
+                'data_type_id' => 10,
+                'field' => 'email',
+                'type' => 'text',
+                'display_name' => 'Email',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:100|email","messages":{"max":"Email\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max.","email":"\\u8acb\\u8f38\\u5165Email\\u683c\\u5f0f"}}}',
+                'order' => 5,
+            ),
+            114 => 
+            array (
+                'id' => 139,
+                'data_type_id' => 10,
+                'field' => 'website',
+                'type' => 'text',
+                'display_name' => '網址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:100","messages":{"max":"\\u7db2\\u5740\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            115 => 
+            array (
+                'id' => 140,
+                'data_type_id' => 10,
+                'field' => 'address',
+                'type' => 'text',
+                'display_name' => '地址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:100","messages":{"max":"\\u5730\\u5740\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 7,
+            ),
+            116 => 
+            array (
+                'id' => 141,
+                'data_type_id' => 10,
+                'field' => 'discount',
+                'type' => 'number',
+                'display_name' => '折價',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"min":0}',
+                'order' => 8,
+            ),
+            117 => 
+            array (
+                'id' => 142,
+                'data_type_id' => 10,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            118 => 
+            array (
+                'id' => 143,
+                'data_type_id' => 10,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u555f\\u7528","off":"\\u95dc\\u9589","default":"on"}',
+                'order' => 10,
+            ),
+            119 => 
+            array (
+                'id' => 144,
+                'data_type_id' => 10,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 11,
+            ),
+            120 => 
+            array (
+                'id' => 145,
+                'data_type_id' => 10,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 12,
+            ),
+            121 => 
+            array (
+                'id' => 146,
+                'data_type_id' => 11,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            122 => 
+            array (
+                'id' => 147,
+                'data_type_id' => 11,
+                'field' => 'user_id',
+                'type' => 'text',
+                'display_name' => '使用者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            123 => 
+            array (
+                'id' => 148,
+                'data_type_id' => 11,
+                'field' => 'serial',
+                'type' => 'text',
+                'display_name' => '序號',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:10","messages":{"required":"\\u5e8f\\u865f\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u5e8f\\u865f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 5,
+            ),
+            124 => 
+            array (
+                'id' => 149,
+                'data_type_id' => 11,
+                'field' => 'mode',
+                'type' => 'number',
+                'display_name' => '優惠模式',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u5927\\u65bc100\\u70ba\\u6298\\u50f9\\uff0c\\u5c0f\\u65bc100\\u70ba\\u6298\\u6578\\uff0c\\u598290\\u70ba\\u6253\\u4e5d\\u6298"}',
+                'order' => 6,
+            ),
+            125 => 
+            array (
+                'id' => 150,
+                'data_type_id' => 11,
+                'field' => 'isSent',
+                'type' => 'checkbox',
+                'display_name' => '寄出否',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u5df2\\u5bc4\\u51fa","off":"\\u5c1a\\u672a","default":"off"}',
+                'order' => 7,
+            ),
+            126 => 
+            array (
+                'id' => 151,
+                'data_type_id' => 11,
+                'field' => 'isUsed',
+                'type' => 'checkbox',
+                'display_name' => '使用否',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u5df2\\u4f7f\\u7528","off":"\\u5c1a\\u672a","default":"off"}',
+                'order' => 8,
+            ),
+            127 => 
+            array (
+                'id' => 152,
+                'data_type_id' => 11,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            128 => 
+            array (
+                'id' => 153,
+                'data_type_id' => 11,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 10,
+            ),
+            129 => 
+            array (
+                'id' => 154,
+                'data_type_id' => 12,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            130 => 
+            array (
+                'id' => 155,
+                'data_type_id' => 12,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:40","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 2,
+            ),
+            131 => 
+            array (
+                'id' => 156,
+                'data_type_id' => 12,
+                'field' => 'type',
+                'type' => 'text',
+                'display_name' => '類型',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"default":"def","validation":{"rule":"max:30","messages":{"max":"\\u985e\\u578b\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 3,
+            ),
+            132 => 
+            array (
+                'id' => 157,
+                'data_type_id' => 12,
+                'field' => 'mode',
+                'type' => 'hidden',
+                'display_name' => 'Mode',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 4,
+            ),
+            133 => 
+            array (
+                'id' => 158,
+                'data_type_id' => 12,
+                'field' => 'link',
+                'type' => 'text',
+                'display_name' => '連結',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"default":"#","validation":{"rule":"required|max:255","messages":{"required":"\\u9023\\u7d50\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u9023\\u7d50\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 5,
+            ),
+            134 => 
+            array (
+                'id' => 159,
+                'data_type_id' => 12,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u5f9e\\u5c0f\\u6392\\u5230\\u5927","default":0}',
+                'order' => 6,
+            ),
+            135 => 
+            array (
+                'id' => 160,
+                'data_type_id' => 12,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u6253\\u958b","off":"\\u95dc\\u9589","default":"on"}',
+                'order' => 7,
+            ),
+            136 => 
+            array (
+                'id' => 161,
+                'data_type_id' => 12,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 8,
+            ),
+            137 => 
+            array (
+                'id' => 162,
+                'data_type_id' => 12,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            138 => 
+            array (
+                'id' => 163,
+                'data_type_id' => 1,
+                'field' => 'username',
+                'type' => 'text',
+                'display_name' => '帳號',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:45","messages":{"required":"\\u540d\\u7a31\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u540d\\u7a31\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 3,
+            ),
+            139 => 
+            array (
+                'id' => 164,
+                'data_type_id' => 1,
+                'field' => 'nickname',
+                'type' => 'text',
+                'display_name' => '暱稱',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:45","messages":{"max":"\\u66b1\\u7a31\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 14,
+            ),
+            140 => 
+            array (
+                'id' => 165,
+                'data_type_id' => 1,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '頭銜',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:45","messages":{"max":"\\u982d\\u929c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 25,
+            ),
+            141 => 
+            array (
+                'id' => 166,
+                'data_type_id' => 1,
+                'field' => 'birthday',
+                'type' => 'date',
+                'display_name' => '生日',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 16,
+            ),
+            142 => 
+            array (
+                'id' => 167,
+                'data_type_id' => 1,
+                'field' => 'organization',
+                'type' => 'text',
+                'display_name' => '組織',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:40","messages":{"max":"\\u7d44\\u7e54\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 24,
+            ),
+            143 => 
+            array (
+                'id' => 169,
+                'data_type_id' => 1,
+                'field' => 'tel',
+                'type' => 'text',
+                'display_name' => '電話',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:20","messages":{"max":"\\u96fb\\u8a71\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 22,
+            ),
+            144 => 
+            array (
+                'id' => 170,
+                'data_type_id' => 1,
+                'field' => 'mobile',
+                'type' => 'text',
+                'display_name' => '手機號碼',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:20","messages":{"max":"\\u624b\\u6a5f\\u865f\\u78bc\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 23,
+            ),
+            145 => 
+            array (
+                'id' => 171,
+                'data_type_id' => 1,
+                'field' => 'fb_id',
+                'type' => 'text',
+                'display_name' => '臉書ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:60","messages":{"max":"\\u81c9\\u66f8ID\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 26,
+            ),
+            146 => 
+            array (
+                'id' => 172,
+                'data_type_id' => 1,
+                'field' => 'first_name',
+                'type' => 'hidden',
+                'display_name' => '姓',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:45","messages":{"max":"\\u59d3\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 27,
+            ),
+            147 => 
+            array (
+                'id' => 173,
+                'data_type_id' => 1,
+                'field' => 'last_name',
+                'type' => 'hidden',
+                'display_name' => '名',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:45","messages":{"max":"\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 28,
+            ),
+            148 => 
+            array (
+                'id' => 174,
+                'data_type_id' => 1,
+                'field' => 'pic',
+                'type' => 'hidden',
+                'display_name' => '圖片',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 29,
+            ),
+            149 => 
+            array (
+                'id' => 175,
+                'data_type_id' => 1,
+                'field' => 'post_id',
+                'type' => 'text',
+                'display_name' => '郵遞區號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:45","messages":{"max":"\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 30,
+            ),
+            150 => 
+            array (
+                'id' => 176,
+                'data_type_id' => 1,
+                'field' => 'address',
+                'type' => 'text',
+                'display_name' => '地址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:100","messages":{"max":"\\u5730\\u5740\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 31,
+            ),
+            151 => 
+            array (
+                'id' => 177,
+                'data_type_id' => 1,
+                'field' => 'desc',
+                'type' => 'text_area',
+                'display_name' => '說明',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:1000","messages":{"max":"\\u8aaa\\u660e\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 32,
+            ),
+            152 => 
+            array (
+                'id' => 178,
+                'data_type_id' => 1,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u958b\\u555f","off":"\\u95dc\\u9589","checked":"on"}',
+                'order' => 33,
+            ),
+            153 => 
+            array (
+                'id' => 179,
+                'data_type_id' => 1,
+                'field' => 'socialLinks',
+                'type' => 'hidden',
+                'display_name' => '社群連結',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 34,
+            ),
+            154 => 
+            array (
+                'id' => 182,
+                'data_type_id' => 1,
+                'field' => 'provider',
+                'type' => 'hidden',
+                'display_name' => '登入平台',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 35,
+            ),
+            155 => 
+            array (
+                'id' => 183,
+                'data_type_id' => 1,
+                'field' => 'provider_id',
+                'type' => 'hidden',
+                'display_name' => '登入平台ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 36,
+            ),
+            156 => 
+            array (
+                'id' => 184,
+                'data_type_id' => 1,
+                'field' => 'partner_id',
+                'type' => 'text',
+                'display_name' => '合作夥伴ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            157 => 
+            array (
+                'id' => 185,
+                'data_type_id' => 1,
+                'field' => 'user_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '親屬',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 5,
+            ),
+            158 => 
+            array (
+                'id' => 186,
+                'data_type_id' => 1,
+                'field' => 'user_belongsto_partner_relationship',
+                'type' => 'relationship',
+                'display_name' => '合作夥伴',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Partner","table":"partners","type":"belongsTo","column":"partner_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 10,
+            ),
+            159 => 
+            array (
+                'id' => 187,
+                'data_type_id' => 4,
+                'field' => 'cgy_id',
+                'type' => 'text',
+                'display_name' => '文章分類',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"required"}}',
+                'order' => 6,
+            ),
+            160 => 
+            array (
+                'id' => 188,
+                'data_type_id' => 4,
+                'field' => 'locale',
+                'type' => 'hidden',
+                'display_name' => '語系',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"default":"zh_TW","options":{"zh_TW":"\\u7e41\\u9ad4\\u4e2d\\u6587","zh_CN":"\\u7c21\\u9ad4\\u4e2d\\u6587"}}',
+                'order' => 8,
+            ),
+            161 => 
+            array (
+                'id' => 189,
+                'data_type_id' => 4,
+                'field' => 'author_id',
+                'type' => 'text',
+                'display_name' => '作者',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 3,
+            ),
+            162 => 
+            array (
+                'id' => 190,
+                'data_type_id' => 7,
+                'field' => 'contact_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '合作廠商',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Partner","table":"partners","type":"belongsTo","column":"partner_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            163 => 
+            array (
+                'id' => 191,
+                'data_type_id' => 8,
+                'field' => 'element_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '更新者ID',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"updater_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            164 => 
+            array (
+                'id' => 192,
+                'data_type_id' => 9,
+                'field' => 'media_belongsto_cgy_relationship',
+                'type' => 'relationship',
+                'display_name' => '分類ID',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"cgy_id","key":"id","label":"title","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            165 => 
+            array (
+                'id' => 193,
+                'data_type_id' => 9,
+                'field' => 'cgy_id',
+                'type' => 'text',
+                'display_name' => '分類ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            166 => 
+            array (
+                'id' => 194,
+                'data_type_id' => 5,
+                'field' => 'cgy_belongsto_cgy_relationship',
+                'type' => 'relationship',
+                'display_name' => '父分類',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"parent_id","key":"id","label":"title","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            167 => 
+            array (
+                'id' => 195,
+                'data_type_id' => 6,
+                'field' => 'comment_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '留言者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            168 => 
+            array (
+                'id' => 196,
+                'data_type_id' => 6,
+                'field' => 'comment_belongsto_article_relationship',
+                'type' => 'relationship',
+                'display_name' => '文章ID',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\Article","table":"articles","type":"belongsTo","column":"article_id","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
+                'order' => 14,
+            ),
+            169 => 
+            array (
+                'id' => 197,
+                'data_type_id' => 6,
+                'field' => 'comment_belongsto_article_relationship_1',
+                'type' => 'relationship',
+                'display_name' => '回應文章ID',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\Article","table":"articles","type":"belongsTo","column":"reply_to","key":"id","label":"title","pivot_table":"apply_course","pivot":"0","taggable":"0"}',
+                'order' => 15,
+            ),
+            170 => 
+            array (
+                'id' => 198,
+                'data_type_id' => 13,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            171 => 
+            array (
+                'id' => 199,
+                'data_type_id' => 13,
+                'field' => 'owner_id',
+                'type' => 'text',
+                'display_name' => '擁有者',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            172 => 
+            array (
+                'id' => 200,
+                'data_type_id' => 13,
+                'field' => 'receiver',
+                'type' => 'text',
+                'display_name' => '收件人',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:10","messages":{"max":"\\u6536\\u4ef6\\u4eba\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 4,
+            ),
+            173 => 
+            array (
+                'id' => 201,
+                'data_type_id' => 13,
+                'field' => 'receiverTitle',
+                'type' => 'text',
+                'display_name' => '收件人抬頭',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:10","messages":{"max":"\\u6536\\u4ef6\\u4eba\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 5,
+            ),
+            174 => 
+            array (
+                'id' => 202,
+                'data_type_id' => 13,
+                'field' => 'receiverMobile',
+                'type' => 'text',
+                'display_name' => '收件人手機',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:10","messages":{"max":"\\u6536\\u4ef6\\u4eba\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 6,
+            ),
+            175 => 
+            array (
+                'id' => 203,
+                'data_type_id' => 13,
+                'field' => 'receiverEmail',
+                'type' => 'text',
+                'display_name' => '收件人Email',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:10","messages":{"max":"\\u6536\\u4ef6\\u4eba\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 7,
+            ),
+            176 => 
+            array (
+                'id' => 204,
+                'data_type_id' => 13,
+                'field' => 'receiverAddress',
+                'type' => 'text',
+                'display_name' => '收件地址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:10","messages":{"max":"\\u6536\\u4ef6\\u4eba\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 8,
+            ),
+            177 => 
+            array (
+                'id' => 205,
+                'data_type_id' => 13,
+                'field' => 'message',
+                'type' => 'text_area',
+                'display_name' => '訊息',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:500","messages":{"max":"\\u8a0a\\u606f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 9,
+            ),
+            178 => 
+            array (
+                'id' => 206,
+                'data_type_id' => 13,
+                'field' => 'couponCode',
+                'type' => 'text',
+                'display_name' => '優惠序號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:500","messages":{"max":"\\u8a0a\\u606f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 10,
+            ),
+            179 => 
+            array (
+                'id' => 207,
+                'data_type_id' => 13,
+                'field' => 'subtotal',
+                'type' => 'number',
+                'display_name' => '小計',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 11,
+            ),
+            180 => 
+            array (
+                'id' => 208,
+                'data_type_id' => 13,
+                'field' => 'shipCost',
+                'type' => 'number',
+                'display_name' => '運費',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 12,
+            ),
+            181 => 
+            array (
+                'id' => 209,
+                'data_type_id' => 13,
+                'field' => 'status',
+                'type' => 'constant dropdown',
+                'display_name' => '狀態',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"order_statuses"}',
+                'order' => 13,
+            ),
+            182 => 
+            array (
+                'id' => 210,
+                'data_type_id' => 13,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 14,
+            ),
+            183 => 
+            array (
+                'id' => 211,
+                'data_type_id' => 13,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 20,
+            ),
+            184 => 
+            array (
+                'id' => 212,
+                'data_type_id' => 11,
+                'field' => 'serial_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '使用者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            185 => 
+            array (
+                'id' => 213,
+                'data_type_id' => 11,
+                'field' => 'type',
+                'type' => 'constant dropdown',
+                'display_name' => '類型',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"serials_type"}',
+                'order' => 4,
+            ),
+            186 => 
+            array (
+                'id' => 214,
+                'data_type_id' => 13,
+                'field' => 'order_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '擁有者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"owner_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 3,
+            ),
+            187 => 
+            array (
+                'id' => 215,
+                'data_type_id' => 14,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 0,
+            ),
+            188 => 
+            array (
+                'id' => 216,
+                'data_type_id' => 14,
+                'field' => 'user_id',
+                'type' => 'select_dropdown',
+                'display_name' => '所屬使用者',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            189 => 
+            array (
+                'id' => 217,
+                'data_type_id' => 14,
+                'field' => 'order_id',
+                'type' => 'select_dropdown',
+                'display_name' => '所屬訂單',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 4,
+            ),
+            190 => 
+            array (
+                'id' => 218,
+                'data_type_id' => 14,
+                'field' => 'website',
+                'type' => 'text',
+                'display_name' => '商品網址',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 6,
+            ),
+            191 => 
+            array (
+                'id' => 219,
+                'data_type_id' => 14,
+                'field' => 'name',
+                'type' => 'text',
+                'display_name' => '商品名稱',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 7,
+            ),
+            192 => 
+            array (
+                'id' => 220,
+                'data_type_id' => 14,
+                'field' => 'pic',
+                'type' => 'image',
+                'display_name' => '商品圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 8,
+            ),
+            193 => 
+            array (
+                'id' => 221,
+                'data_type_id' => 14,
+                'field' => 'code',
+                'type' => 'text',
+                'display_name' => '商品型號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 9,
+            ),
+            194 => 
+            array (
+                'id' => 222,
+                'data_type_id' => 14,
+                'field' => 'boxSize',
+                'type' => 'text',
+                'display_name' => '外箱尺寸',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 10,
+            ),
+            195 => 
+            array (
+                'id' => 223,
+                'data_type_id' => 14,
+                'field' => 'boxWeight',
+                'type' => 'number',
+                'display_name' => '外箱重量',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 11,
+            ),
+            196 => 
+            array (
+                'id' => 224,
+                'data_type_id' => 14,
+                'field' => 'storage',
+                'type' => 'select_dropdown',
+                'display_name' => '倉庫',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"default":"tigerDoor","options":{"tigerDoor":"\\u864e\\u9580\\u5009","shangHai":"\\u4e0a\\u6d77\\u5009","hongKong":"\\u9999\\u6e2f\\u5009","taiwan":"\\u53f0\\u7063\\u5009"}}',
+                'order' => 12,
+            ),
+            197 => 
+            array (
+                'id' => 225,
+                'data_type_id' => 14,
+                'field' => 'air_serial',
+                'type' => 'text',
+                'display_name' => '航空主號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 26,
+            ),
+            198 => 
+            array (
+                'id' => 226,
+                'data_type_id' => 14,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '建單時間',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 28,
+            ),
+            199 => 
+            array (
+                'id' => 227,
+                'data_type_id' => 14,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更單時間',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 29,
+            ),
+            200 => 
+            array (
+                'id' => 228,
+                'data_type_id' => 14,
+                'field' => 'pack_at',
+                'type' => 'date',
+                'display_name' => '打包於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"format":"%Y-%m-%d"}',
+                'order' => 30,
+            ),
+            201 => 
+            array (
+                'id' => 229,
+                'data_type_id' => 14,
+                'field' => 'send_at',
+                'type' => 'date',
+                'display_name' => '出倉於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"format":"%Y-%m-%d"}',
+                'order' => 31,
+            ),
+            202 => 
+            array (
+                'id' => 230,
+                'data_type_id' => 14,
+                'field' => 'customs_serial',
+                'type' => 'text',
+                'display_name' => '清關序號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 27,
+            ),
+            203 => 
+            array (
+                'id' => 231,
+                'data_type_id' => 14,
+                'field' => 'weighing',
+                'type' => 'number',
+                'display_name' => '秤重',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0,"description":"\\u55ae\\u4f4d\\u662f\\u516c\\u65a4"}',
+                'order' => 13,
+            ),
+            204 => 
+            array (
+                'id' => 232,
+                'data_type_id' => 14,
+                'field' => 'weighing_cal',
+                'type' => 'number',
+                'display_name' => '計重',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0,"description":"\\u55ae\\u4f4d\\u662f\\u516c\\u65a4"}',
+                'order' => 14,
+            ),
+            205 => 
+            array (
+                'id' => 233,
+                'data_type_id' => 14,
+                'field' => 'size',
+                'type' => 'text',
+                'display_name' => '尺寸',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+            'details' => '{"description":"\\u586b\\u5beb\\u683c\\u5f0f\\u70ba\\u9577(cm)x\\u5bec(cm)x\\u9ad8(cm)"}',
+                'order' => 15,
+            ),
+            206 => 
+            array (
+                'id' => 234,
+                'data_type_id' => 14,
+                'field' => 'comment',
+                'type' => 'text_area',
+                'display_name' => '注意事項',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 16,
+            ),
+            207 => 
+            array (
+                'id' => 235,
+                'data_type_id' => 14,
+                'field' => 'require',
+                'type' => 'text_area',
+                'display_name' => '驗貨要求',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 17,
+            ),
+            208 => 
+            array (
+                'id' => 236,
+                'data_type_id' => 14,
+                'field' => 'qty',
+                'type' => 'number',
+                'display_name' => '採購數量',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 18,
+            ),
+            209 => 
+            array (
+                'id' => 237,
+                'data_type_id' => 14,
+                'field' => 'price',
+                'type' => 'number',
+                'display_name' => '單價',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rules":["min:0"]}}',
+                'order' => 19,
+            ),
+            210 => 
+            array (
+                'id' => 238,
+                'data_type_id' => 14,
+                'field' => 'subtotal',
+                'type' => 'number',
+                'display_name' => '採購金額',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"min":0}',
+                'order' => 20,
+            ),
+            211 => 
+            array (
+                'id' => 239,
+                'data_type_id' => 14,
+                'field' => 'cost_package',
+                'type' => 'number',
+                'display_name' => '包裝包材費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 21,
+            ),
+            212 => 
+            array (
+                'id' => 240,
+                'data_type_id' => 14,
+                'field' => 'cost_validate',
+                'type' => 'number',
+                'display_name' => '驗貨費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 22,
+            ),
+            213 => 
+            array (
+                'id' => 241,
+                'data_type_id' => 14,
+                'field' => 'cost_service',
+                'type' => 'number',
+                'display_name' => '服務費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 23,
+            ),
+            214 => 
+            array (
+                'id' => 242,
+                'data_type_id' => 14,
+                'field' => 'cost_trans',
+                'type' => 'number',
+                'display_name' => '車資費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 24,
+            ),
+            215 => 
+            array (
+                'id' => 243,
+                'data_type_id' => 14,
+                'field' => 'cost_others',
+                'type' => 'number',
+                'display_name' => '其他費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 25,
+            ),
+            216 => 
+            array (
+                'id' => 244,
+                'data_type_id' => 14,
+                'field' => 'deleted_at',
+                'type' => 'timestamp',
+                'display_name' => '刪除於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 32,
+            ),
+            217 => 
+            array (
+                'id' => 245,
+                'data_type_id' => 14,
+                'field' => 'consolidation_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '所屬使用者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"user_id","key":"id","label":"name","pivot_table":"consolidations","pivot":"0","taggable":"0","inVisibleRoles":"user"}',
+                'order' => 3,
+            ),
+            218 => 
+            array (
+                'id' => 246,
+                'data_type_id' => 14,
+                'field' => 'consolidation_belongsto_order_relationship',
+                'type' => 'relationship',
+                'display_name' => '所屬訂單',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\Order","table":"orders","type":"belongsTo","column":"order_id","key":"id","label":"status","pivot_table":"consolidations","pivot":"0","taggable":"0"}',
+                'order' => 5,
+            ),
+            219 => 
+            array (
+                'id' => 247,
+                'data_type_id' => 13,
+                'field' => 'pay_at',
+                'type' => 'timestamp',
+                'display_name' => '付款於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 15,
+            ),
+            220 => 
+            array (
+                'id' => 248,
+                'data_type_id' => 13,
+                'field' => 'pay_from',
+                'type' => 'constant dropdown',
+                'display_name' => '付款源頭',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"key":"pay_sources"}',
+                'order' => 16,
+            ),
+            221 => 
+            array (
+                'id' => 249,
+                'data_type_id' => 13,
+                'field' => 'pay_pre',
+                'type' => 'number',
+                'display_name' => '預付金額',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 17,
+            ),
+            222 => 
+            array (
+                'id' => 250,
+                'data_type_id' => 13,
+                'field' => 'pay_after',
+                'type' => 'number',
+                'display_name' => '需補費用',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 18,
+            ),
+            223 => 
+            array (
+                'id' => 251,
+                'data_type_id' => 13,
+                'field' => 'reply_desc',
+                'type' => 'text_area',
+                'display_name' => '說明回覆',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:255","messages":{"max":"\\u8aaa\\u660e\\u56de\\u8986\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 19,
+            ),
+            224 => 
+            array (
+                'id' => 252,
+                'data_type_id' => 4,
+                'field' => 'featured',
+                'type' => 'checkbox',
+                'display_name' => '設為精華',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u662f","off":"\\u5426","default":"off"}',
+                'order' => 2,
+            ),
+            225 => 
+            array (
+                'id' => 253,
+                'data_type_id' => 4,
+                'field' => 'meta_description',
+                'type' => 'text_area',
+                'display_name' => 'Meta 描述',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:255","messages":{"max":"SEO\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 23,
+            ),
+            226 => 
+            array (
+                'id' => 254,
+                'data_type_id' => 4,
+                'field' => 'meta_keywords',
+                'type' => 'text',
+                'display_name' => 'Meta 關鍵字',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:255","messages":{"max":"SEO\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 24,
+            ),
+            227 => 
+            array (
+                'id' => 255,
+                'data_type_id' => 4,
+                'field' => 'seo_title',
+                'type' => 'text',
+                'display_name' => 'SEO 標題',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:255","messages":{"max":"SEO\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 22,
+            ),
+            228 => 
+            array (
+                'id' => 257,
+                'data_type_id' => 4,
+                'field' => 'status',
+                'type' => 'constant dropdown',
+                'display_name' => '上架狀態',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"article_statuses","default":"draft"}',
+                'order' => 18,
+            ),
+            229 => 
+            array (
+                'id' => 258,
+                'data_type_id' => 4,
+                'field' => 'slug',
+                'type' => 'hidden',
+                'display_name' => 'URL別名',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"validation":{"rule":"max:255","messages":{"max":"URL\\u5225\\u540d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 10,
+            ),
+            230 => 
+            array (
+                'id' => 259,
+                'data_type_id' => 7,
+                'field' => 'handler_id',
+                'type' => 'text',
+                'display_name' => '處理者',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 29,
+            ),
+            231 => 
+            array (
+                'id' => 260,
+                'data_type_id' => 7,
+                'field' => 'creator_id',
+                'type' => 'text',
+                'display_name' => '建立者ID',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 31,
+            ),
+            232 => 
+            array (
+                'id' => 262,
+                'data_type_id' => 7,
+                'field' => 'status',
+                'type' => 'constant dropdown',
+                'display_name' => '聯絡單狀態',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"key":"contact_statuses","default":"unHandled"}',
+                'order' => 35,
+            ),
+            233 => 
+            array (
+                'id' => 264,
+                'data_type_id' => 7,
+                'field' => 'contact_belongsto_user_relationship_1',
+                'type' => 'relationship',
+                'display_name' => '建立者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"creator_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 32,
+            ),
+            234 => 
+            array (
+                'id' => 265,
+                'data_type_id' => 7,
+                'field' => 'contact_belongsto_user_relationship_2',
+                'type' => 'relationship',
+                'display_name' => '處理者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"handler_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 33,
+            ),
+            235 => 
+            array (
+                'id' => 266,
+                'data_type_id' => 4,
+                'field' => 'article_belongsto_user_relationship',
+                'type' => 'relationship',
+                'display_name' => '作者',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{"model":"App\\\\User","table":"users","type":"belongsTo","column":"author_id","key":"id","label":"name","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 4,
+            ),
+            236 => 
+            array (
+                'id' => 267,
+                'data_type_id' => 4,
+                'field' => 'article_belongsto_cgy_relationship',
+                'type' => 'relationship',
+                'display_name' => '文章分類',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Cgy","table":"cgys","type":"belongsTo","column":"cgy_id","key":"id","label":"title","pivot_table":"article_tag","pivot":"0","taggable":"0"}',
+                'order' => 7,
+            ),
+            237 => 
+            array (
+                'id' => 268,
+                'data_type_id' => 4,
+                'field' => 'images',
+                'type' => 'media_picker',
+                'display_name' => '文章圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":1,"min":1,"base_path":"articles","show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[]}',
+                'order' => 13,
+            ),
+            238 => 
+            array (
+                'id' => 269,
+                'data_type_id' => 4,
+                'field' => 'article_belongstomany_tag_relationship',
+                'type' => 'relationship',
+                'display_name' => '標籤',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Tag","table":"tags","type":"belongsToMany","column":"id","key":"id","label":"title","pivot_table":"article_tag","pivot":"1","taggable":"0"}',
+                'order' => 25,
+            ),
+            239 => 
+            array (
+                'id' => 270,
+                'data_type_id' => 8,
+                'field' => 'price2',
+                'type' => 'text',
+                'display_name' => '價格2',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_price2"}}',
+                'order' => 30,
+            ),
+            240 => 
+            array (
+                'id' => 271,
+                'data_type_id' => 8,
+                'field' => 'price2Unit',
+                'type' => 'text',
+                'display_name' => '價格2單位',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_price2Unit"},"validation":{"rule":"max:5","messages":{"max":"\\u50f9\\u683c2\\u55ae\\u4f4d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 31,
+            ),
+            241 => 
+            array (
+                'id' => 272,
+                'data_type_id' => 13,
+                'field' => 'type',
+                'type' => 'select_dropdown',
+                'display_name' => '訂單類型',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"options":{"consolidation":"\\u7269\\u6d41\\u8a02\\u55ae","item":"\\u92b7\\u552e\\u8a02\\u55ae"}}',
+                'order' => 20,
+            ),
+            242 => 
+            array (
+                'id' => 273,
+                'data_type_id' => 13,
+                'field' => 'pay_type',
+                'type' => 'constant dropdown',
+                'display_name' => '付款方式',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 1,
+                'details' => '{"key":"pay_types"}',
+                'order' => 21,
+            ),
+            243 => 
+            array (
+                'id' => 274,
+                'data_type_id' => 13,
+                'field' => 'trade_no',
+                'type' => 'text',
+                'display_name' => '交易序號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:100","messages":{"max":"\\u4ea4\\u6613\\u5e8f\\u865f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 22,
+            ),
+            244 => 
+            array (
+                'id' => 276,
+                'data_type_id' => 1,
+                'field' => 'email_verified_at',
+                'type' => 'timestamp',
+                'display_name' => 'Email驗證時間',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 7,
+            ),
+            245 => 
+            array (
+                'id' => 277,
+                'data_type_id' => 1,
+                'field' => 'gender',
+                'type' => 'select_dropdown',
+                'display_name' => '性別',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"options":{"male":"\\u7537\\u6027","female":"\\u5973\\u6027","neutral":"\\u4e2d\\u6027"},"default":"male"}',
+                'order' => 17,
+            ),
+            246 => 
+            array (
+                'id' => 278,
+                'data_type_id' => 1,
+                'field' => 'identify',
+                'type' => 'text',
+                'display_name' => '身分證字號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"unique|max:15","messages":{"unique":"\\u6b64\\u8eab\\u5206\\u8b49\\u5b57\\u865f\\u5df2\\u5b58\\u5728","max":"\\u8eab\\u5206\\u8b49\\u5b57\\u865f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 8,
+            ),
+            247 => 
+            array (
+                'id' => 279,
+                'data_type_id' => 7,
+                'field' => 'tag',
+                'type' => 'text',
+                'display_name' => '標籤',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 13,
+            ),
+            248 => 
+            array (
+                'id' => 280,
+                'data_type_id' => 5,
+                'field' => 'type',
+                'type' => 'text',
+                'display_name' => '類型',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u6587\\u7ae0\\u70baarticles,\\u5546\\u57ce\\u70bashop"}',
+                'order' => 3,
+            ),
+            249 => 
+            array (
+                'id' => 281,
+                'data_type_id' => 4,
+                'field' => 'cover',
+                'type' => 'media_picker',
+                'display_name' => '封面圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":1,"min":0,"base_path":"articles","show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[]}',
+                'order' => 20,
+            ),
+            250 => 
+            array (
+                'id' => 282,
+                'data_type_id' => 8,
+                'field' => 'title_color',
+                'type' => 'select_dropdown',
+                'display_name' => '標題顏色',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"options":{"black":"\\u9ed1\\u8272","white":"\\u767d\\u8272","red":"\\u7d05\\u8272","gray":"\\u7070\\u8272"},"default":"white","display":{"width":6,"id":"div_title_color"}}',
+                'order' => 5,
+            ),
+            251 => 
+            array (
+                'id' => 283,
+                'data_type_id' => 8,
+                'field' => 'isShowTitle',
+                'type' => 'checkbox',
+                'display_name' => '是否顯示標題',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u662f","off":"\\u5426","default":"off","display":{"width":6,"id":"div_isShowTitle"}}',
+                'order' => 6,
+            ),
+            252 => 
+            array (
+                'id' => 284,
+                'data_type_id' => 8,
+                'field' => 'cols',
+                'type' => 'text',
+                'display_name' => 'Cols',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"display":{"width":6,"id":"div_price2Unit"},"validation":{"rule":"max:5","messages":{"max":"\\u50f9\\u683c2\\u55ae\\u4f4d\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 32,
+            ),
+            253 => 
+            array (
+                'id' => 285,
+                'data_type_id' => 16,
+                'field' => 'id',
+                'type' => 'text',
+                'display_name' => 'ID',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 1,
+            ),
+            254 => 
+            array (
+                'id' => 286,
+                'data_type_id' => 16,
+                'field' => 'cgy_id',
+                'type' => 'text',
+                'display_name' => '分類ID',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{}',
+                'order' => 2,
+            ),
+            255 => 
+            array (
+                'id' => 287,
+                'data_type_id' => 16,
+                'field' => 'title',
+                'type' => 'text',
+                'display_name' => '標題',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"required|max:50","messages":{"required":"\\u6a19\\u984c\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b","max":"\\u6a19\\u984c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 3,
+            ),
+            256 => 
+            array (
+                'id' => 288,
+                'data_type_id' => 16,
+                'field' => 'pics',
+                'type' => 'text',
+                'display_name' => '圖片',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":3,"min":1,"expanded":false,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[],"hide_thumbnails":false,"quality":90,"watermark":{"source":"...","position":"top-left","x":0,"y":0},"base_path":"items"}',
+                'order' => 4,
+            ),
+            257 => 
+            array (
+                'id' => 289,
+                'data_type_id' => 16,
+                'field' => 'price_og',
+                'type' => 'number',
+                'display_name' => '原價',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0,"validation":{"rule":"required","messages":{"required":"\\u539f\\u50f9\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b"}}}',
+                'order' => 5,
+            ),
+            258 => 
+            array (
+                'id' => 290,
+                'data_type_id' => 16,
+                'field' => 'price_new',
+                'type' => 'number',
+                'display_name' => '現價',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 6,
+            ),
+            259 => 
+            array (
+                'id' => 291,
+                'data_type_id' => 16,
+                'field' => 'badge',
+                'type' => 'text',
+                'display_name' => '標牌文字',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0}',
+                'order' => 7,
+            ),
+            260 => 
+            array (
+                'id' => 292,
+                'data_type_id' => 16,
+                'field' => 'star',
+                'type' => 'number',
+                'display_name' => '評價星等',
+                'required' => 1,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0,"max":10,"description":"\\u5546\\u54c1\\u8a55\\u50f9\\u661f\\u7b49","validation":{"rule":"required","messages":{"required":"\\u8a55\\u50f9\\u661f\\u7b49\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b"}}}',
+                'order' => 8,
+            ),
+            261 => 
+            array (
+                'id' => 293,
+                'data_type_id' => 16,
+                'field' => 'stock',
+                'type' => 'number',
+                'display_name' => '存貨數量',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"min":0,"validation":{"rule":"required","messages":{"required":"\\u5b58\\u8ca8\\u6578\\u91cf\\u6b04\\u4f4d\\u70ba\\u5fc5\\u586b"}}}',
+                'order' => 9,
+            ),
+            262 => 
+            array (
+                'id' => 294,
+                'data_type_id' => 16,
+                'field' => 'desc',
+                'type' => 'text_area',
+                'display_name' => '描述',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:400","messages":{"max":"\\u63cf\\u8ff0\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 10,
+            ),
+            263 => 
+            array (
+                'id' => 295,
+                'data_type_id' => 16,
+                'field' => 'chars',
+                'type' => 'text',
+                'display_name' => '規格',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:300","messages":{"max":"\\u898f\\u683c\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 11,
+            ),
+            264 => 
+            array (
+                'id' => 296,
+                'data_type_id' => 16,
+                'field' => 'sku',
+                'type' => 'text',
+                'display_name' => 'SKU序號',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:100","messages":{"max":"SKU\\u5e8f\\u865f\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 12,
+            ),
+            265 => 
+            array (
+                'id' => 297,
+                'data_type_id' => 16,
+                'field' => 'options',
+                'type' => 'text',
+                'display_name' => '可選項',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"validation":{"rule":"max:500","messages":{"max":"\\u53ef\\u9078\\u9805\\u6b04\\u4f4d\\u6700\\u5927\\u70ba :max."}}}',
+                'order' => 13,
+            ),
+            266 => 
+            array (
+                'id' => 298,
+                'data_type_id' => 16,
+                'field' => 'sort',
+                'type' => 'number',
+                'display_name' => '排序',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"description":"\\u7531\\u5c0f\\u5230\\u5927\\u6392\\u5e8f","validation":{"rule":"required"},"default":0}',
+                'order' => 14,
+            ),
+            267 => 
+            array (
+                'id' => 299,
+                'data_type_id' => 16,
+                'field' => 'enabled',
+                'type' => 'checkbox',
+                'display_name' => '是否啟用',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"\\u958b\\u555f","off":"\\u95dc\\u9589","default":"on"}',
+                'order' => 15,
+            ),
+            268 => 
+            array (
+                'id' => 300,
+                'data_type_id' => 16,
+                'field' => 'created_at',
+                'type' => 'timestamp',
+                'display_name' => '創建於',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 16,
+            ),
+            269 => 
+            array (
+                'id' => 301,
+                'data_type_id' => 16,
+                'field' => 'updated_at',
+                'type' => 'timestamp',
+                'display_name' => '更新於',
+                'required' => 0,
+                'browse' => 0,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '{}',
+                'order' => 17,
+            ),
+            270 => 
+            array (
+                'id' => 302,
+                'data_type_id' => 12,
+                'field' => 'pic',
+                'type' => 'text',
+                'display_name' => 'Pic',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"max":1,"min":0,"show_as_images":true,"show_folders":true,"show_toolbar":true,"allow_upload":true,"allow_move":true,"allow_delete":true,"allow_create_folder":true,"allow_rename":true,"allow_crop":true,"allowed":[],"base_path":"images","display":{"id":"div_pic"}}',
+                'order' => 6,
+            ),
+        ));
+        
+        
     }
 }

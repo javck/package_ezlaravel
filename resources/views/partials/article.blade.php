@@ -58,7 +58,7 @@
 										$image = setting('site.article_default_pic');
 									}
 								@endphp
-								<div class="entry-image bottommargin">
+								<div class="entry-image bottommargin" style="width:75%;margin:auto;">
 									<img src="{{Voyager::image($image)}}" alt="{{$article->title}}">
 								</div><!-- .entry-image end -->
 							@elseif($article->mode == 'multiImgs')
@@ -87,15 +87,15 @@
 
 								<!--  文章附件 -->
 								@php
-									$paths = json_decode($article->attachment_paths,true);
+									$paths = $article->getAttachPathAry();
 								@endphp
-								@if (is_array($paths) && count($paths) > 0 && $paths[0] != null )
+								@if (count($paths) > 0 && $paths[0] != null )
 									<div class="si-share noborder clearfix">
 										<div>
 											@for ($i = 0; $i < count($paths); $i++)
 												{{-- <a href="{{url('article/'.$article->id.'/download/'.$i)}}" ><i class="icon-paperclip"></i>{{$article->getAttachNameAry()[$i]}}</a>&nbsp;&nbsp;
 												@if ($i < count($paths) - 1) ,&nbsp;&nbsp; @endif --}}
-												<a href="{{url('storage/'.$paths[$i]['download_link'])}}" ><i class="icon-paperclip"></i>{{$paths[$i]['original_name']}}</a>&nbsp;&nbsp;
+												<a href="{{Util::buildStorageUrl($paths[$i]['download_link'])}}" ><i class="icon-paperclip"></i>{{$paths[$i]['original_name']}}</a>&nbsp;&nbsp;
 												@if ($i < count($paths) - 1) ,&nbsp;&nbsp; @endif
 											@endfor
 										</div>
@@ -123,7 +123,7 @@
 								<div class="si-share noborder clearfix">
 									<span>{{ trans('page.shareArticle') }}</span>
 									<div>
-										<a href="http://www.facebook.com/share.php?u={{Request::fullUrl()}}" class="social-icon si-borderless si-facebook">
+										<a href="http://www.facebook.com/share.php?u={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-facebook">
 											<i class="icon-facebook"></i>
 											<i class="icon-facebook"></i>
 										</a>
@@ -135,7 +135,7 @@
 											<i class="icon-pinterest"></i>
 											<i class="icon-pinterest"></i> --}}
 										</a>
-										<a href="https://plus.google.com/share?url={{Request::fullUrl()}}" class="social-icon si-borderless si-gplus">
+										<a href="https://plus.google.com/share?url={{ url('articles/' . $article->id) }}" class="social-icon si-borderless si-gplus">
 											<i class="icon-gplus"></i>
 											<i class="icon-gplus"></i>
 										</a>
@@ -191,7 +191,7 @@
 								</div>
 							</div>
 						@endif
-						<!-- Post Single - Author End -->
+						<!-- Post Single - Author End
 
 						@if (isset($relatedArticles))
 						<div class="line"></div>
@@ -222,7 +222,7 @@
 							@if ($i % 2 == 1 or $i == count($relatedArticles)-1 )
 							</div>
 							@endif
-						@endfor
+						@endfor-->
 						</div>
 						@endif
 
@@ -345,7 +345,12 @@
 											<textarea name="comment" cols="58" rows="7" tabindex="4" class="sm-form-control"></textarea>
 										</div>
 
-										{!! NoCaptcha::display() !!}
+										{!! NoCaptcha::display() !!}<br/>
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block" style="color:red">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
 										<br/>
 
 										<div class="col_full nobottommargin">

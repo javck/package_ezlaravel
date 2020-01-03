@@ -67,11 +67,16 @@ Route::get('/404-page', function () {
 
 
 Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],function () {
-    if(setting('admin.useRegisterActivate') == true){
-        Auth::routes(['verify' => true]);
+    if(Schema::hasTable('settings')){
+        if(setting('admin.useRegisterActivate') == true){
+            Auth::routes(['verify' => true]);
+        }else{
+            Auth::routes();
+        }
     }else{
         Auth::routes();
     }
+
     Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
     Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
     Route::get('login/{provider}', 'Auth\VoyagerAuthController@redirectToProvider');
@@ -83,11 +88,13 @@ Route::group(['namespace' => 'App\Http\Controllers','middleware'=>['web']],funct
 
 //後台====================================
 //Route::group(['prefix' => 'admin','namespace' => 'Javck\Easyweb2\Controllers','middleware' => ['javck.roleCheck','javck.verifyEnabled']],function () {
-if(setting('admin.useRegisterActivate') == true){
-    $middleware = ['web','javck.roleCheck','javck.verifyEnabled','verified'];
-}else{
-    $middleware = ['web','javck.roleCheck','javck.verifyEnabled'];
+$middleware = ['web','javck.roleCheck','javck.verifyEnabled'];
+if( Schema::hasTable('settings') ){
+    if(setting('admin.useRegisterActivate') == true){
+        $middleware = ['web','javck.roleCheck','javck.verifyEnabled','verified'];
+    }
 }
+
 Route::group(['prefix' => 'admin','namespace' => '\Javck\Easyweb2\Http\Controllers','middleware' => $middleware],function () {
     Voyager::routes();
     Route::prefix('elements')->group(function () {

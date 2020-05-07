@@ -31,7 +31,7 @@ class VoyagerAuthController extends Controller
 
     public function login()
     {
-        if (app('VoyagerAuth')->user()) {
+        if (Auth::user()) {
             return redirect()->route('voyager.dashboard');
         }
 

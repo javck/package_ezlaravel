@@ -105,7 +105,7 @@ class MyVoyagerContactController extends MyVoyagerBaseController
 
         $validatedData = $request->validate($rules);
 
-        $inputs = $request->except(['g-recaptcha-response']);
+        $inputs = $request->except(['g-recaptcha-response','submit']);
         $contact = Contact::create($inputs);
         if (isset($contact)) {
 

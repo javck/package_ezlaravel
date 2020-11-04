@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Comment;
+use App\Models\Comment;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
@@ -35,22 +35,22 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag')->withTimestamps();
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     public function cgy()
     {
-        return $this->belongsTo('App\Cgy');
+        return $this->belongsTo('App\Models\Cgy');
     }
 
     public function user(){
         //return $this->belongsTo('App\User');
-        return $this->belongsTo('App\User', 'author_id', 'id');
+        return $this->belongsTo('App\Models\User', 'author_id', 'id');
     }
 
     public function getTagsListAttribute(){
@@ -96,7 +96,7 @@ class Article extends Model
             return $paths[$index];
         } else {
             return "";
-        }   
+        }
     }
 
     public function getAttachNameAry()
@@ -106,8 +106,8 @@ class Article extends Model
         } else {
             return [];
         }
-        
-        
+
+
     }
 
     public function getAttachPathAry()
@@ -117,8 +117,8 @@ class Article extends Model
         } else {
             return [];
         }
-        
-        
+
+
     }
 
     public function getMediasAry()
@@ -129,7 +129,7 @@ class Article extends Model
     public function getModeName()
     {
         if ($this->mode != null) {
-            return json_decode(setting('constant.article_modes'),true)[$this->mode];  
+            return json_decode(setting('constant.article_modes'),true)[$this->mode];
         }else{
             return "";
         }
@@ -147,7 +147,7 @@ class Article extends Model
      * 限制查詢只包括某種文件分類的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param cgy 文件分類 
+     * @param cgy 文件分類
      */
     public function scopeCgy( $query , $cgy )
     {
@@ -174,7 +174,7 @@ class Article extends Model
      * 限制查詢只包括某種文件標籤的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param cgy 文件分類 
+     * @param cgy 文件分類
      */
     public function scopeTag( $query , $tagName )
     {

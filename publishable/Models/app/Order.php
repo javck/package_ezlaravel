@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Order_Item;
-use App\Item;
+use App\Models\Order_Item;
+use App\Models\Item;
 
 class Order extends Model
 {
@@ -13,12 +13,12 @@ class Order extends Model
     public $additional_attributes = ['orderDetail'];
 
     public function owner(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function items(){
         //return Order_Item::where('order_id',$this->id)->get();
-        return $this->belongsToMany('App\Item', 'order_item')->withPivot('qty','option');
+        return $this->belongsToMany('App\Models\Item', 'order_item')->withPivot('qty','option');
     }
 
     public function getTotalAttribute(){

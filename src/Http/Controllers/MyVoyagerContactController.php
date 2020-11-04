@@ -1,15 +1,15 @@
 <?php
-namespace Javck\Easyweb2\Http\Controllers;
+namespace Javck\Ezlaravel\Http\Controllers;
 
 
-use App\Contact;
-use App\Tag;
+use App\Models\Contact;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Session;
 use Auth;
 
 use TCG\Voyager\Facades\Voyager;
-use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
+use Javck\Ezlaravel\Http\Controllers\MyVoyagerBaseController;
 
 class MyVoyagerContactController extends MyVoyagerBaseController
 {
@@ -109,11 +109,11 @@ class MyVoyagerContactController extends MyVoyagerBaseController
         $contact = Contact::create($inputs);
         if (isset($contact)) {
 
-            if (setting('easyweb2::admin.isSendNotify') == true) {
+            if (setting('Ezlaravel::admin.isSendNotify') == true) {
                 if (App::environment() == 'production') {
                     $url = url('/admin/contacts/' . $contact->id);
                     //發送Email通知給管理員
-                    Mail::send('easyweb2::emails.notifyContact', ['title' => '您有新的聯絡單', 'contact' => $contact, 'action' => ['title' => '前往', 'url' => $url]], function ($message) {
+                    Mail::send('Ezlaravel::emails.notifyContact', ['title' => '您有新的聯絡單', 'contact' => $contact, 'action' => ['title' => '前往', 'url' => $url]], function ($message) {
                         $message->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
                     });
 

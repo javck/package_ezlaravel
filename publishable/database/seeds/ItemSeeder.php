@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Item;
-use App\Tag;
+use App\Models\Item;
+use App\Models\Tag;
 
 class ItemSeeder extends Seeder
 {
@@ -13,8 +13,8 @@ class ItemSeeder extends Seeder
      */
     public function run()
     {
-        App\Item::truncate();
-//        factory(App\Item::class, 10)->create();
+        Item::truncate();
+//        factory(Item::class, 10)->create();
         $item1 = Item::create(['title' => '灰色洋裝','price_og' => 750 , 'price_new' => 360 , 'star' => 9 , 'enabled' => true , 'sort' => 0 , 'desc' => '超時尚的一件灰色洋裝' , 'stock' => 3 , 'sku' => 'A3287475' , 'cgy_id' =>2 , 'chars' =>'多樣顏色可供挑選;尺寸齊全;30天退款保證', 'badge' => '5折起' , 'pics' => 'dress/1.jpg,dress/1-1.jpg']);
         $item1->tags()->sync(1);
         $item2 = Item::create(['title' => '卡其褲','price_og' => 1200 , 'star' => 7 , 'enabled' => true , 'sort' => 1 , 'desc' => '超Men卡其褲' , 'stock' => 6 , 'sku' => 'AF4487375' , 'cgy_id' =>3 , 'chars' =>'多樣顏色可供挑選;尺寸齊全;30天退款保證', 'pics' => 'pants/1.jpg,pants/1-1.jpg']);

@@ -6,7 +6,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['name','mobile','email','subject','message'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['name','mobile','email','subject','message'] ])
 @stop
 
 @section('panel_r_1_title')
@@ -14,7 +14,7 @@
 @stop
 
 @section('panel_r_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['creator_id','source','isHandled','service','contact_belongsto_user_relationship_1','status'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['creator_id','source','isHandled','service','contact_belongsto_user_relationship_1','status'] ])
 @stop
 
 @section('panel_r_2_title')
@@ -22,7 +22,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name', 'mobile', 'email', 'subject', 'message', 'service', 'source', 'isHandled','contact_belongsto_user_relationship_1','status','contact_belongsto_user_relationship_2','handleRecord'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name', 'mobile', 'email', 'subject', 'message', 'service', 'source', 'isHandled','contact_belongsto_user_relationship_1','status','contact_belongsto_user_relationship_2','handleRecord'] ])
 @stop
 
 
@@ -35,7 +35,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['handleRecord','contact_belongsto_user_relationship_2'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['handleRecord','contact_belongsto_user_relationship_2'] ])
 @stop
 
 @section('panel_l_3_all')

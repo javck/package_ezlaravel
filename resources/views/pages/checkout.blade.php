@@ -18,7 +18,7 @@
 @stop
 
 @section('body')
-    @include('easyweb2::includes._checkout')
+    @include('Ezlaravel::includes._checkout')
 @stop
 
 @section('js')

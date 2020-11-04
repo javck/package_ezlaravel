@@ -14,8 +14,8 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('cgy_id')->unsigned()->index();//商品分類    
+            $table->id();
+            $table->bigInteger('cgy_id')->unsigned()->index();//商品分類
             $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
             $table->string('title',50); //標題
             $table->string('pics')->nullable(); //圖片
@@ -42,7 +42,7 @@ class CreateItemsTable extends Migration
     public function down()
     {
         Schema::table('items', function(Blueprint $table)
-        { 
+        {
             $table->dropForeign(['cgy_id']);
         });
         Schema::dropIfExists('items');

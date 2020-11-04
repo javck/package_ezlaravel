@@ -60,7 +60,7 @@
                                 @endphp
                             @endif
                         @endif
-                        
+
                         <div class="panel-heading" style="border-bottom:0;">
                             <h3 class="panel-title">{{ $row->display_name }}</h3>
                         </div>
@@ -140,10 +140,10 @@
                                 @endif
                             <!-- 自定義內容開始
                             @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
-                                {!! app('easyweb2')->getConstDropDownVal($row->details->key,$dataTypeContent->{$row->field}) !!}
+                                {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$dataTypeContent->{$row->field}) !!}
                             @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
                                 @if(is_array($dataTypeContent->{$row->field}))
-                                    {!! app('easyweb2')->getTagDropDownVal($dataTypeContent->{$row->field}) !!}
+                                    {!! app('Ezlaravel')->getTagDropDownVal($dataTypeContent->{$row->field}) !!}
                                 @else
                                     {!! $dataTypeContent->{$row->field} !!}
                                  @endif

@@ -6,7 +6,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['username','password','name','email','enabled'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['username','password','name','email','enabled'] ])
 
     <!--  語系Locale -->
     @php
@@ -32,7 +32,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['nickname','title','birthday','organization','mobile','tel','post_id','address','desc','socialLinks'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['nickname','title','birthday','organization','mobile','tel','post_id','address','desc','socialLinks'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -40,7 +40,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name','email','password','default_role','additional_roles','username','nickname','avatar','birthday','user_belongsto_role_relationship','user_belongstomany_role_relationship','post_id','address','desc','title','organization','enabled','tel','mobile'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['name','email','password','default_role','additional_roles','username','nickname','avatar','birthday','user_belongsto_role_relationship','user_belongstomany_role_relationship','post_id','address','desc','title','organization','enabled','tel','mobile'] ])
 @stop
 
 @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'super')
@@ -57,7 +57,7 @@
             $row = $dataTypeRows->where('field', 'user_belongsto_role_relationship')->first();
             $options = $row->details;
             @endphp
-            @include('easyweb2::formFields.user_relationship')
+            @include('Ezlaravel::formFields.user_relationship')
         </div>
         <div class="form-group">
             <label for="additional_roles">{{ __('voyager::profile.roles_additional') }}</label>
@@ -65,7 +65,7 @@
             $row = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
             $options = $row->details;
             @endphp
-            @include('easyweb2::formFields.user_relationship')
+            @include('Ezlaravel::formFields.user_relationship')
         </div>
     @stop
 @else
@@ -79,7 +79,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['avatar'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['avatar'] ])
 @stop
 
 @section('panel_r_3_all')

@@ -52,7 +52,7 @@
                             <form method="get" class="form-search">
                                 {{-- 自定義Filter區域 開始 --}}
                                 <div id="search-input" class="ca-search-input">
-                                    <div  class="row ca-row-m-0">                                    
+                                    <div  class="row ca-row-m-0">
                                         <div class="col-md-7 col-sm-12 ca-col ca-col-p-0">
                                             <div class="input-group">
                                                 @yield('search_filter')
@@ -63,7 +63,7 @@
                                             <div class="input-group ca-d-flex ca-items-center" style="height:90px">
                                                 <select id="search_key" name="key" class="ca-col-item">
                                                     @foreach($searchable as $key)
-                                                        <?php 
+                                                        <?php
                                                             $row = DB::table('data_rows')->where('data_type_id',$dataType->id)->where('field',$key)->first();
                                                         ?>
                                                         @if($row->type != 'hidden')
@@ -76,14 +76,14 @@
                                                     <option value="equals" @if($search->filter == "equals"){{ 'selected' }}@endif>完全相同</option>
                                                     <option value="true" @if($search->filter == "true"){{ 'selected' }}@endif>為真</option>
                                                     <option value="false" @if($search->filter == "false"){{ 'selected' }}@endif>為假</option>
-                                                </select>                                                
+                                                </select>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 col-sm-12 ca-col ca-col-p-0">                                    
-                                            <div class="input-group ca-items-center ca-d-flex" style="height:90px;">                                                                                            
-                                                <input type="text" class="form-control" placeholder="{{ __('voyager::generic.search') }}" name="s" value="{{ $search->value }}">                                            
-                                                    
+                                        <div class="col-md-3 col-sm-12 ca-col ca-col-p-0">
+                                            <div class="input-group ca-items-center ca-d-flex" style="height:90px;">
+                                                <input type="text" class="form-control" placeholder="{{ __('voyager::generic.search') }}" name="s" value="{{ $search->value }}">
+
                                                 <span class="input-group-btn ca-d-flex ca-content-right ca-width-unset">
                                                     <button class="btn btn-info btn-lg" type="submit">
                                                         <i class="voyager-search" style="transform: rotate(0deg); font-size: 15px;">查詢</i>
@@ -283,9 +283,9 @@
                                                     @endif
                                                 {{-- 自定義輸入項 開始 --}}
                                                 @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
-                                                    {!! app('easyweb2')->getConstDropDownVal($row->details->key,$data->getOriginal($row->field)) !!}
+                                                    {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$data->getOriginal($row->field)) !!}
                                                 @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
-                                                    {!! app('easyweb2')->getTagDropDownVal($data->getOriginal($row->field)) !!}
+                                                    {!! app('Ezlaravel')->getTagDropDownVal($data->getOriginal($row->field)) !!}
                                                 {{-- 自定義輸入項 結束 --}}
                                                 @elseif($row->type == 'media_picker')
                                                     @php
@@ -323,7 +323,7 @@
                                                     @endif
                                                 @else
                                                     @include('voyager::multilingual.input-hidden-bread-browse')
-                                                    <span>{{ $data->{$row->field} }}</span>                                               
+                                                    <span>{{ $data->{$row->field} }}</span>
                                                 @endif
                                             </td>
                                         @endforeach
@@ -410,7 +410,7 @@
     .ca-items-center{
         align-items: center;
     }
-    .ca-content-right{        
+    .ca-content-right{
         justify-content: right;
     }
     .ca-content-space-around{

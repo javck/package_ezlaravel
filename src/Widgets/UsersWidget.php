@@ -1,8 +1,8 @@
 <?php
 
-namespace Javck\Easyweb2\Widgets;
+namespace Javck\Ezlaravel\Widgets;
 
-use App\User;
+use App\Models\User;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
 use Auth;

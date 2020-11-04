@@ -14,9 +14,9 @@ class CreateMedias extends Migration
     {
         Schema::create('medias', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->id();
             $table->string('title',40); //標題
-            $table->integer('cgy_id')->unsigned()->index(); //分類ID
+            $table->BigInteger('cgy_id')->unsigned()->index(); //分類ID
             $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
             $table->string('lang',20)->default('zh_TW'); //語系
             $table->string('pics',500); //圖片
@@ -42,7 +42,7 @@ class CreateMedias extends Migration
     public function down()
     {
         Schema::table('medias', function(Blueprint $table)
-        { 
+        {
             $table->dropForeign(['cgy_id']);
         });
         Schema::drop('medias');

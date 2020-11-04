@@ -13,8 +13,8 @@ class CreateArticles extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('cgy_id')->unsigned()->index(); //文章分類
+            $table->id();
+            $table->bigInteger('cgy_id')->unsigned()->index(); //文章分類
             $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
             $table->string('locale', 10)->default('zh_TW'); //語系
             $table->string('title', 40); //標題

@@ -17,7 +17,7 @@
 @stop
 
 @section('body')
-	@include('easyweb2::partials.article')
+	@include('Ezlaravel::partials.article')
 @stop
 
 @section('js')

@@ -1,9 +1,9 @@
 <?php
 
-namespace Javck\Easyweb2\Actions;
+namespace Javck\Ezlaravel\Actions;
 
 use TCG\Voyager\Actions\AbstractAction;
-use App\Order;
+use App\Models\Order;
 use Auth;
 
 class PayAction extends AbstractAction
@@ -45,6 +45,6 @@ class PayAction extends AbstractAction
                 }
             }
         }
-        return false;   
+        return false;
     }
 }

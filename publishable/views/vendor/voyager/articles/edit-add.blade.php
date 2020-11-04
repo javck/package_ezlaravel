@@ -16,7 +16,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','content_small'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','content_small'] ])
 @stop
 
 @section('panel_l_2_title')
@@ -28,7 +28,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['content','cover','images','mediums','article_belongstomany_tag_relationship'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['content','cover','images','mediums','article_belongstomany_tag_relationship'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -36,7 +36,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title', 'content', 'content_small', 'slug', 'status', 'cgy_id', 'author_id', 'featured', 'mediums', 'images' , 'meta_description', 'meta_keywords', 'seo_title','sort','mode','article_belongstomany_tag_relationship','article_belongsto_cgy_relationship','cover'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['title', 'content', 'content_small', 'slug', 'status', 'cgy_id', 'author_id', 'featured', 'mediums', 'images' , 'meta_description', 'meta_keywords', 'seo_title','sort','mode','article_belongstomany_tag_relationship','article_belongsto_cgy_relationship','cover'] ])
 @stop
 
 @section('panel_r_1_title')
@@ -44,7 +44,7 @@
 @stop
 
 @section('panel_r_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['mode','sort','slug','status','article_belongsto_cgy_relationship','featured'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['mode','sort','slug','status','article_belongsto_cgy_relationship','featured'] ])
 @stop
 
 @section('panel_r_2_title')
@@ -52,7 +52,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['meta_description','meta_keywords','seo_title'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['meta_description','meta_keywords','seo_title'] ])
 @stop
 
 @section('panel_r_3_all')

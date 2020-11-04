@@ -12,12 +12,12 @@ class MyDataTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('data_types')->delete();
-        
+
         \DB::table('data_types')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'users',
@@ -27,7 +27,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-person',
                 'model_name' => 'TCG\\Voyager\\Models\\User',
                 'policy_name' => 'App\\Policies\\UserPolicy',
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\MyVoyagerUserController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\MyVoyagerUserController',
                 'description' => '使用者表格',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -35,7 +35,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:24:41',
                 'updated_at' => '2019-11-10 19:20:28',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'menus',
@@ -53,7 +53,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:24:41',
                 'updated_at' => '2019-02-11 14:24:41',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'name' => 'roles',
@@ -71,7 +71,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:24:41',
                 'updated_at' => '2019-02-11 14:24:41',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'name' => 'articles',
@@ -81,7 +81,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-file-text',
                 'model_name' => 'App\\Article',
                 'policy_name' => NULL,
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\MyVoyagerArticleController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\MyVoyagerArticleController',
                 'description' => '文章表格',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -89,7 +89,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:49:57',
                 'updated_at' => '2019-11-10 17:32:25',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'name' => 'cgys',
@@ -107,7 +107,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:50:46',
                 'updated_at' => '2019-11-10 17:26:16',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'name' => 'comments',
@@ -125,7 +125,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:52:14',
                 'updated_at' => '2019-03-11 09:53:30',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'name' => 'contacts',
@@ -143,7 +143,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:53:06',
                 'updated_at' => '2019-11-10 17:33:46',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'name' => 'elements',
@@ -153,7 +153,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-puzzle',
                 'model_name' => 'App\\Element',
                 'policy_name' => NULL,
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\MyVoyagerElementController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\MyVoyagerElementController',
                 'description' => '網頁元素表格',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -161,7 +161,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:57:08',
                 'updated_at' => '2019-11-10 17:42:22',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'name' => 'medias',
@@ -171,7 +171,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-photos',
                 'model_name' => 'App\\Media',
                 'policy_name' => NULL,
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\MyVoyagerMediaController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\MyVoyagerMediaController',
                 'description' => '多媒體表格',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -179,7 +179,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 14:57:58',
                 'updated_at' => '2019-11-10 19:00:51',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'name' => 'partners',
@@ -197,7 +197,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 15:01:08',
                 'updated_at' => '2019-11-10 19:07:07',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'name' => 'serials',
@@ -215,7 +215,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 15:03:26',
                 'updated_at' => '2019-11-10 19:08:54',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'name' => 'tags',
@@ -233,7 +233,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-11 15:04:01',
                 'updated_at' => '2019-11-10 19:10:39',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'name' => 'orders',
@@ -251,7 +251,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-16 13:38:07',
                 'updated_at' => '2019-11-10 19:04:51',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 14,
                 'name' => 'consolidations',
@@ -261,7 +261,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-truck',
                 'model_name' => 'App\\Consolidation',
                 'policy_name' => NULL,
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\ConsolidationController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\ConsolidationController',
                 'description' => '集運表單',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -269,7 +269,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'created_at' => '2019-02-08 19:32:20',
                 'updated_at' => '2019-03-21 21:38:04',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 16,
                 'name' => 'items',
@@ -279,7 +279,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-gift',
                 'model_name' => 'App\\Item',
                 'policy_name' => NULL,
-                'controller' => '\\Javck\\Easyweb2\\Http\\Controllers\\MyVoyagerItemController',
+                'controller' => '\\Javck\\Ezlaravel\\Http\\Controllers\\MyVoyagerItemController',
                 'description' => '商品',
                 'generate_permissions' => 1,
                 'server_side' => 1,
@@ -288,7 +288,7 @@ class MyDataTypesTableSeeder extends Seeder
                 'updated_at' => '2019-11-10 19:01:36',
             ),
         ));
-        
-        
+
+
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Order;
-use App\Order_Item;
-use App\Item;
-use App\User;
+use App\Models\Order;
+use App\Models\Order_Item;
+use App\Models\Item;
+use App\Models\User;
 use Faker\Factory as Faker;
 
 class OrderSeeder extends Seeder

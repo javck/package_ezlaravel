@@ -14,7 +14,7 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->unsignedBigInteger('owner_id')->index(); //下單人
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('receiver', 10)->nullable(); //收件人姓名

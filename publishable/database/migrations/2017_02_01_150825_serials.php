@@ -13,7 +13,7 @@ class Serials extends Migration
     public function up()
     {
         Schema::create('serials', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->unsignedBigInteger('user_id')->index()->nullable(); //使用人
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('serial', 10); //序號

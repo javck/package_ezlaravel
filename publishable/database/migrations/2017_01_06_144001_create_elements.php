@@ -13,7 +13,7 @@ class CreateElements extends Migration
     public function up()
     {
         Schema::create('elements', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->unsignedBigInteger('updater_id')->index()->nullable(); //更新者
             $table->foreign('updater_id')->references('id')->on('users');
             $table->string('page', 20); //頁面

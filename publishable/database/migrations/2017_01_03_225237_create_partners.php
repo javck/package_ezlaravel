@@ -14,7 +14,7 @@ class CreatePartners extends Migration
     {
         Schema::create('partners', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->id();
             $table->string('name',40); //姓名
             $table->string('tel',40)->nullable(); //電話
             $table->string('secret',40); //口令

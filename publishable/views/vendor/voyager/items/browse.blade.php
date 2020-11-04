@@ -5,12 +5,12 @@
 @endphp
 
 @section('search_filter')
-    @include('easyweb2::includes._filterField', ['fields' => null])
+    @include('Ezlaravel::includes._filterField', ['fields' => null])
 @stop
 
 @section('javascript')
     @parent
     <script>
-        
+
     </script>
 @stop

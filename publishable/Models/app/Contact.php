@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Partner;
+use App\Models\Partner;
 
 //儲存提交的聯絡資訊以及課程報名資訊
 
@@ -41,7 +41,7 @@ class Contact extends Model
         }else{
             return "";
         }
-        
+
     }
 
     public function getPartnerName()
@@ -92,7 +92,7 @@ class Contact extends Model
      * 限制查詢只包括某種處理狀態的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param isHandled 處理狀態 
+     * @param isHandled 處理狀態
      */
     public function scopeIsHandled( $query , $isHandled )
     {

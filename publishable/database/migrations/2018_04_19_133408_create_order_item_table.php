@@ -14,10 +14,10 @@ class CreateOrderItemTable extends Migration
     public function up()
     {
         Schema::create('order_item', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('order_id')->unsigned()->index();
+            $table->id();
+            $table->bigInteger('order_id')->unsigned()->index();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->integer('item_id')->unsigned()->index();
+            $table->bigInteger('item_id')->unsigned()->index();
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('qty')->default(1);   //商品數量
             $table->string('option',100)->nullable();   //商品選項

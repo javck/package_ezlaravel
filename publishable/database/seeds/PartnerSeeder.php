@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\Partner;
+use App\Models\Partner;
 
 class PartnerSeeder extends Seeder
 {

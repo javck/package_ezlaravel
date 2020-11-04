@@ -14,7 +14,7 @@ class CreateTags extends Migration
     {
         Schema::create('tags', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->id();
             $table->string('title',40); //標題
             $table->string('type',30)->nullable(); //類型
             $table->string('mode',30)->nullable(); //模式

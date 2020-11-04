@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -105,7 +105,7 @@ class Item extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag')->withTimestamps();
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
 
     // public function getBuyableIdentifier($options = null)

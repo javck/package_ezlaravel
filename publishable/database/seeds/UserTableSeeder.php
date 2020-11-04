@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Models\User;
 use Faker\Factory as Faker;
 
 
@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        App\User::truncate();
+        User::truncate();
         $faker = Faker::create();
         //加入超級管理者
         User::create(['id' => 1,

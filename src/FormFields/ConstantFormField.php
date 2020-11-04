@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\FormFields;
+namespace Javck\Ezlaravel\FormFields;
 
 use TCG\Voyager\FormFields\AbstractHandler;
 
@@ -21,7 +21,7 @@ class ConstantFormField extends AbstractHandler
         if (isset($options->default)) {
             $default = $options->default;
         }
-        return view('easyweb2::formFields.constantFormField', [
+        return view('Ezlaravel::formFields.constantFormField', [
             'row' => $row,
             'default' => $default,
             'options' => $_options,

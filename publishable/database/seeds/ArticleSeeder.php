@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\Article;
+use App\Models\Article;
 
 class ArticleSeeder extends Seeder
 {

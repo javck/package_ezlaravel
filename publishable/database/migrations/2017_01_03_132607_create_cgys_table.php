@@ -14,8 +14,9 @@ class CreateCgysTable extends Migration
     public function up()
     {
         Schema::create('cgys', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('parent_id')->nullable()->unsigned()->index(); //父分類
+            $table->id();
+
+            $table->bigInteger('parent_id')->nullable()->unsigned()->index(); //父分類
             $table->foreign('parent_id')->references('id')->on('cgys')->onDelete('cascade');
             $table->string('title',100); //分類名稱
             $table->string('pic',255)->nullable(); //分類圖片
@@ -35,7 +36,7 @@ class CreateCgysTable extends Migration
     public function down()
     {
         Schema::table('cgys', function(Blueprint $table)
-        { 
+        {
             $table->dropForeign(['parent_id']);
         });
         Schema::dropIfExists('cgys');

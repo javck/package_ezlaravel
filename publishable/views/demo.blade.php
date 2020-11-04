@@ -16,12 +16,12 @@
 @endsection
 
 @section('page_top')
-	@include('easyweb2::includes._slider3')
+	@include('Ezlaravel::includes._slider3')
 @endsection
 
 @section('body')
 	<!-- Modal -->
-			@include('easyweb2::partials.modal_login')
+			@include('Ezlaravel::partials.modal_login')
 
 				<div class="container clearfix">
 
@@ -191,7 +191,7 @@
 						<div class="row topmargin-sm clearfix">
 
 							@foreach ($items_qna as $item)
-								<div class="col-lg-5 col-md-6 bottommargin-sm 
+								<div class="col-lg-5 col-md-6 bottommargin-sm
 									@if ($loop->iteration % 2 == 0)
 										offset-lg-1
 									@endif">

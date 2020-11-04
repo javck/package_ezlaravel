@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,12 +20,12 @@ class Tag extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('App\Article')->withTimestamps();
+        return $this->belongsToMany('App\Models\Article')->withTimestamps();
     }
 
     public function items()
     {
-        return $this->belongsToMany('App\Item')->withTimestamps();
+        return $this->belongsToMany('App\Models\Item')->withTimestamps();
     }
 
     public function enabledItems()

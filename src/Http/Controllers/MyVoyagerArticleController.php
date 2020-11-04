@@ -1,17 +1,16 @@
 <?php
 
-namespace Javck\Easyweb2\Http\Controllers;
+namespace Javck\Ezlaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
+use Javck\Ezlaravel\Http\Controllers\MyVoyagerBaseController;
 use App\Http\Requests;
-use App\Article;
-use App\Tag;
-use App\Comment;
+use App\Models\Article;
+use App\Models\Tag;
+use App\Models\Comment;
 use Session;
 use Auth;
-use Input;
 use Str;
 use Mail;
 use App;
@@ -40,7 +39,6 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
     public function store(Request $request)
     {
         $slug = $this->getSlug($request);
-        
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
@@ -52,34 +50,43 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
 
         //自定義資料處理================================
         $inputs = $request->all();
-        Input::merge(['author_id' => Auth::user()->id]);
+        $inputs['author_id'] = Auth::user()->id;
+
         //附件處理
         if (isset($inputs['attachment_paths']) and $inputs['attachment_paths'][0] != null) {
-            $files = Input::file('attachment_paths');
-            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names'])==0 ) {
+            $files = $request->file('attachment_paths');
+            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names']) == 0) {
                 $fileNames = array();
                 foreach ($files as $file) {
                     $fileNames[] = $file->getClientOriginalName();
                 }
-                Input::merge(['attachment_names' => implode(',',$fileNames)]);
+                $inputs['attachment_names'] = implode(',', $fileNames);
             }
         }
 
         if (!isset($inputs['content_small'])) {
-            Input::merge(['content_small' => mb_substr($inputs['content'],0,60,"utf-8") . '...']);
+            $inputs['content_small'] = mb_substr($inputs['content'], 0, 60, "utf-8") . '...';
         }
-
         //=============================================
+
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
         event(new BreadDataAdded($dataType, $data));
 
-        return redirect()
-        ->route("voyager.{$dataType->slug}.index")
-        ->with([
-                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
+        if (!$request->has('_tagging')) {
+            if (auth()->user()->can('browse', $data)) {
+                $redirect = redirect()->route("voyager.{$dataType->slug}.index");
+            } else {
+                $redirect = redirect()->back();
+            }
+
+            return $redirect->with([
+                'message'    => __('voyager::generic.successfully_added_new') . " {$dataType->getTranslatedAttribute('display_name_singular')}",
                 'alert-type' => 'success',
             ]);
+        } else {
+            return response()->json(['success' => true, 'data' => $data]);
+        }
     }
 
     // POST BR(E)AD
@@ -93,7 +100,7 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
 
         $model = app($dataType->model_name);
-        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope' . ucfirst($dataType->scope))) {
             $model = $model->{$dataType->scope}();
         }
         if ($model && in_array(SoftDeletes::class, class_uses($model))) {
@@ -112,31 +119,31 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $inputs = $request->all();
         //附件處理
         if (isset($inputs['attachment_paths']) and $inputs['attachment_paths'][0] != null) {
-            $files = Input::file('attachment_paths');
-            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names'])==0 ) {
+            $files = $request->file('attachment_paths');
+            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names']) == 0) {
                 $fileNames = array();
                 foreach ($files as $file) {
                     $fileNames[] = $file->getClientOriginalName();
                 }
-                Input::merge(['attachment_names' => implode(',',$fileNames)]);
+                $inputs['attachment_names'] = implode(',', $fileNames);
             }
-        }else{
-            Input::merge(['attachment_paths' => $data->attachment_paths]);
+        } else {
+            $inputs['attachment_paths'] = $data->attachment_paths;
         }
 
         if (!isset($inputs['content_small'])) {
-            Input::merge(['content_small' => mb_substr($inputs['content'],0,60,"utf-8") . '...']);
+            $inputs['content_small'] = mb_substr($inputs['content'], 0, 60, "utf-8") . '...';
         }
         //=============================================
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
         event(new BreadDataUpdated($dataType, $data));
 
         return redirect()
-        ->route("voyager.{$dataType->slug}.index")
-        ->with([
-            'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
-            'alert-type' => 'success',
-        ]);
+            ->route("voyager.{$dataType->slug}.index")
+            ->with([
+                'message'    => __('voyager::generic.successfully_updated') . " {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
     }
 
     //儲存留言內容
@@ -158,7 +165,7 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
             }
             if (isset($inputs['url'])) {
                 $data['website'] = $inputs['url'];
-            }   
+            }
         }
         $article = Article::find($id);
         $data['article_id'] = $id;
@@ -195,10 +202,10 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $currentIndex = 0;
         $article = Article::find($id);
         $articles = Article::where('cgy_id',$article->cgy_id)->where('status','published')->orderBy('created_at','desc')->orderBy('sort','asc')->get();
-        for ($i=0; $i < count($articles); $i++) { 
+        for ($i=0; $i < count($articles); $i++) {
             if ($articles[$i]->id == $id) {
                 $currentIndex = $i;
-                break; 
+                break;
             }
         }
         //處理上一篇.下一篇文章
@@ -236,7 +243,7 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $data['comments'] = $comments;
 
         if (isset($data['article'])) {
-            return view('easyweb2::pages.article_show',$data);
+            return view('Ezlaravel::pages.article_show',$data);
         }else{
             return abort(404);
         }

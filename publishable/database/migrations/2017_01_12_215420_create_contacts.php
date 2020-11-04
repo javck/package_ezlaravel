@@ -13,8 +13,8 @@ class CreateContacts extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('partner_id')->unsigned()->index()->nullable(); //合作廠商
+            $table->id();
+            $table->BigInteger('partner_id')->unsigned()->index()->nullable(); //合作廠商
             $table->foreign('partner_id')->references('id')->on('partners');
             $table->string('name', 20); //姓名
             $table->string('mobile', 20)->nullable(); //手機號碼

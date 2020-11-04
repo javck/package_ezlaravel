@@ -15,7 +15,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress'] ])
 @stop
 
 @section('panel_l_2_title')
@@ -23,7 +23,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['message','reply_desc','couponCode'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['message','reply_desc','couponCode'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -31,7 +31,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['id','owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress','message','couponCode','subtotal','shipCost','status','pay_type','trade_no','pay_at','pay_from','created_at','updated_at','pay_pre','pay_after','type','reply_desc'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['id','owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress','message','couponCode','subtotal','shipCost','status','pay_type','trade_no','pay_at','pay_from','created_at','updated_at','pay_pre','pay_after','type','reply_desc'] ])
 @stop
 
 @section('panel_r_1_title')
@@ -39,7 +39,7 @@
 @stop
 
 @section('panel_r_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['shipCost','subtotal','status','type'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['shipCost','subtotal','status','type'] ])
 @stop
 
 @section('panel_r_2_title')
@@ -47,7 +47,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['pay_type','trade_no','pay_at','pay_from','pay_pre','pay_after'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['pay_type','trade_no','pay_at','pay_from','pay_pre','pay_after'] ])
 @stop
 
 @section('panel_r_3_all')

@@ -45,7 +45,7 @@
 					<h3>{{ trans('page.originalTutorial') }}</h3>
 				</div>
 
-				@include('easyweb2::partials.medias')
+				@include('Ezlaravel::partials.medias')
 
 
 			</div>
@@ -57,5 +57,5 @@
 
 </section><!-- #content end -->
 	<!-- Call To Action  -->
-	@include('easyweb2::partials.action')
+	@include('Ezlaravel::partials.action')
 @stop

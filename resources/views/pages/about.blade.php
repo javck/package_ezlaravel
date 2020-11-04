@@ -52,7 +52,7 @@
 
 			<ul class="clients-grid grid-6 nobottommargin clearfix">
 				@foreach($items_row3 as $item)
-					<li><a href="{{$item->url}}"><img src="images/{{$item->pic}}" alt="{{$item->alt}}"></a></li>
+					<li><a href="{{$item->url}}"><img src="{{ $item->getPicUrl() }}" alt="{{$item->alt}}"></a></li>
 				@endforeach
 			</ul>
 
@@ -68,7 +68,7 @@
 						@foreach($items_row5 as $item)
 							<div class="slide">
 								<div class="testi-image">
-									<a href="{{$item->url}}"><img src="images/{{$item->pic}}" alt="{{$item->alt}}"></a>
+									<a href="{{$item->url}}"><img src="{{ $item->getPicUrl() }}" alt="{{$item->alt}}"></a>
 								</div>
 								<div class="testi-content">
 									<p>{{$item->content}}</p>

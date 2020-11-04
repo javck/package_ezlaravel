@@ -1,12 +1,12 @@
 <?php
 
-namespace Javck\Easyweb2\Http\Controllers;
+namespace Javck\Ezlaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Item;
-use App\Element;
-use App\Tag;
-use App\User;
+use App\Models\Item;
+use App\Models\Element;
+use App\Models\Tag;
+use App\Models\User;
 use Response;
 use App\Http\Model\BI;
 use Illuminate\Support\Facades\Log;
@@ -14,13 +14,13 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    
+
 
     public function showSingleItem(Request $request){
 
         $item = Item::findOrFail($request->all()['item_id']);
         $path = $request->path();
-        return view('easyweb2::partials.singleItem',compact('item','path'));
+        return view('Ezlaravel::partials.singleItem',compact('item','path'));
     }
 
 
@@ -33,7 +33,7 @@ class ApiController extends Controller
     }
 
     public function loadTopCart(Request $request){
-        return view('easyweb2::includes._topCart');
+        return view('Ezlaravel::includes._topCart');
     }
 
     //查詢該城市所有的區域
@@ -56,14 +56,14 @@ class ApiController extends Controller
             $_positions = Element::where('page',$inputs['page'])->groupby('position')->distinct()->pluck('position','position')->all();
             $positions = array_merge(['none'=>'不限'] , $_positions);
         }
-        
+
         return Response::json(['positions' => $positions]);
     }
- 
+
     //查詢該頁面所擁有的網頁元素模式
     //Parameter 1 : page 網頁key
     public function queryElementModes(Request $request){
-        
+
         $inputs = $request->all();
         if ($inputs['page'] == 'none') {
             $result = array_merge(['none'=>'不限'] , json_decode(setting('constant.element_modes'),true));
@@ -74,7 +74,7 @@ class ApiController extends Controller
                 $result[$value] = json_decode(setting('constant.element_modes'),true)[$value];
             }
         }
-        
+
         return Response::json(['modes' => $result]);
     }
 

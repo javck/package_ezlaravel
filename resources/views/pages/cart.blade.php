@@ -18,7 +18,7 @@
 @stop
 
 @section('body')
-    @include('easyweb2::includes._cart')
+    @include('Ezlaravel::includes._cart')
 @stop
 
 @section('js')

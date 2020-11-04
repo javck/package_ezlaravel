@@ -1,8 +1,8 @@
 <?php
 
-namespace Javck\Easyweb2\FormFields;
+namespace Javck\Ezlaravel\FormFields;
 
-use App\Tag;
+use App\Models\Tag;
 use TCG\Voyager\FormFields\AbstractHandler;
 
 class TagFormField extends AbstractHandler
@@ -20,7 +20,7 @@ class TagFormField extends AbstractHandler
         if (isset($options->default)) {
             $default = $options->default;
         }
-        return view('easyweb2::formFields.tagFormField', [
+        return view('Ezlaravel::formFields.tagFormField', [
             'row' => $row,
             'default' => $default,
             'options' => $_options,

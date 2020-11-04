@@ -13,7 +13,7 @@ class AddPartnerIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('partner_id')->unsigned()->index()->nullable(); //引薦單位
+            $table->bigInteger('partner_id')->unsigned()->index()->nullable(); //引薦單位
             $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
         });
     }

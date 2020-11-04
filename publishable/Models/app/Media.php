@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,7 +32,7 @@ class Media extends Model
 
     public function tags()
      {
-         return $this->belongsToMany('App\Tag')->withTimestamps();
+         return $this->belongsToMany('App\Models\Tag')->withTimestamps();
      }
 
     public function getTagsListAttribute(){
@@ -102,7 +102,7 @@ class Media extends Model
      * 限制查詢只包括某種文件分類的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param cgy 文件分類 
+     * @param cgy 文件分類
      */
     public function scopeCgy( $query , $cgy )
     {

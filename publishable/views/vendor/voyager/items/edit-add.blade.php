@@ -15,7 +15,7 @@
 @stop
 
 @section('panel_l_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','pics','badge','star','sku'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['title','pics','badge','star','sku'] ])
 @stop
 
 @section('panel_l_2_title')
@@ -23,7 +23,7 @@
 @stop
 
 @section('panel_l_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['chars','options','desc'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['chars','options','desc'] ])
 @stop
 
 @section('panel_l_3_title')
@@ -31,7 +31,7 @@
 @stop
 
 @section('panel_l_3_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['id','cgy_id','item_belongsto_cgy_relationship','sort','enabled','title','pics','price_og','price_new','badge','star','stock','desc','chars','sku','options','created_at','updated_at','item_hasmany_tag_relationship'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => false , 'fields' => ['id','cgy_id','item_belongsto_cgy_relationship','sort','enabled','title','pics','price_og','price_new','badge','star','stock','desc','chars','sku','options','created_at','updated_at','item_hasmany_tag_relationship'] ])
 @stop
 
 @section('panel_r_1_title')
@@ -39,7 +39,7 @@
 @stop
 
 @section('panel_r_1_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['price_og','price_new','stock','sort','enabled'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['price_og','price_new','stock','sort','enabled'] ])
 @stop
 
 @section('panel_r_2_title')
@@ -47,7 +47,7 @@
 @stop
 
 @section('panel_r_2_body')
-    @include('easyweb2::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['item_belongsto_cgy_relationship','item_hasmany_tag_relationship'] ])
+    @include('Ezlaravel::partials.data_type_fields', [ 'dataType' => $dataType ,'dataTypeContent' => $dataTypeContent , 'isInclude' => true , 'fields' => ['item_belongsto_cgy_relationship','item_hasmany_tag_relationship'] ])
 @stop
 
 @section('panel_r_3_all')

@@ -1,14 +1,14 @@
 <?php
-namespace Javck\Easyweb2\Http\Controllers;
+namespace Javck\Ezlaravel\Http\Controllers;
 
 
-use App\Element;
-use App\Tag;
+use App\Models\Element;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Session;
 
 use TCG\Voyager\Facades\Voyager;
-use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
+use Javck\Ezlaravel\Http\Controllers\MyVoyagerBaseController;
 
 class MyVoyagerElementController extends MyVoyagerBaseController
 {

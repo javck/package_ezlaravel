@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +26,7 @@ class Comment extends Model
     	} else {
     		return 'avator.png';
     	}
-    	
+
     }
 
     public function getNameAttribute($value)
@@ -36,7 +36,7 @@ class Comment extends Model
     	} else {
     		return "匿名者";
     	}
-    	
+
     }
 
     public function getReplysAttribute()
@@ -47,7 +47,7 @@ class Comment extends Model
         } else {
             return array();
         }
-        
+
     }
 
     public function getReplied()
@@ -58,7 +58,7 @@ class Comment extends Model
         } else {
             return '完成';
         }
-        
+
     }
 
     public function getEnabled(){
@@ -73,7 +73,7 @@ class Comment extends Model
      * 限制查詢只包括某種啟動狀態的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param enabled 文件啟動狀態 
+     * @param enabled 文件啟動狀態
      */
     public function scopeEnabled( $query , $enabled )
     {
@@ -88,7 +88,7 @@ class Comment extends Model
      * 限制查詢只包括某種回覆狀態的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param isReply 文件回覆狀態 
+     * @param isReply 文件回覆狀態
      */
     public function scopeIsReply( $query , $isReply )
     {

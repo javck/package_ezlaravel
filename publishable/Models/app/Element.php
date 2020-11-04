@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -91,7 +91,7 @@ class Element extends Model
         $agent = new Agent();
         if($agent->isMobile()){
             $newPath = Voyager::image(str_replace('.','m.',$this->pic));
-            if(app('easyweb2')->chkResourceExist($newPath)){
+            if(app('Ezlaravel')->chkResourceExist($newPath)){
                 return $newPath;
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,7 +38,7 @@ class Serial extends Model
      * 限制查詢只包括某種模式的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param mode 模式 
+     * @param mode 模式
      */
     public function scopeMode( $query , $mode )
     {
@@ -53,7 +53,7 @@ class Serial extends Model
      * 限制查詢只包括某種使用狀態的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param used 使用狀態 
+     * @param used 使用狀態
      */
     public function scopeUsed( $query , $used )
     {
@@ -68,7 +68,7 @@ class Serial extends Model
      * 限制查詢只包括某種發送狀態的元素。
      *
      * @return \Illuminate\Database\Eloquent\Builder
-     * @param sent 發送狀態 
+     * @param sent 發送狀態
      */
     public function scopeSent( $query , $sent )
     {

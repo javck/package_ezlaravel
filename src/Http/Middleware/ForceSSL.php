@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Http\Middleware;
+namespace Javck\Ezlaravel\Http\Middleware;
 
 use Closure;
 use Request;

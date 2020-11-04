@@ -32,7 +32,7 @@
 
 						<div class="contact-form-result"></div>
 
-						{{ Form::open(['action'=>'\Javck\Easyweb2\Http\Controllers\MyVoyagerContactController@save','role'=>'form','class'=>'nobottommargin']) }}
+						{{ Form::open(['action'=>'\Javck\Ezlaravel\Http\Controllers\MyVoyagerContactController@save','role'=>'form','class'=>'nobottommargin']) }}
 							<div class="form-process"></div>
 
 							<div class="col_one_third">
@@ -41,7 +41,7 @@
 								@if (isset($errors) and $errors->has('name'))
 									{{ Form::label('name',$errors->first('name'),['class'=>'text-danger control-label','for'=>'inputError']) }}
 								@endif
-								
+
 							</div>
 
 							<div class="col_one_third">
@@ -81,7 +81,7 @@
 								{{ Form::label('source',trans('page.source') ) }}<small>*</small>
 								{{ Form::select('source', $sources ,'others' ,['class'=>'required sm-form-control']) }}
                             </div>
-                            
+
                             <div class="col_two_third col_last">
 								{!! NoCaptcha::display() !!}<br/>
                                 @if ($errors->has('g-recaptcha-response'))
@@ -98,7 +98,7 @@
 								<textarea class="sm-form-control" id="message" name="message" rows="6" cols="30"></textarea>
 							</div>
 
-							
+
 
 							<div class="col_full hidden">
 								<input type="text" id="botcheck" name="botcheck" value="goblinLab" class="sm-form-control" />
@@ -124,7 +124,7 @@
 							</div>
 
 							<p style="font-size: 15px; line-height: 1.5; color: #999;">{!! $item_row1_right->content !!}</p>
-							
+
 						</div>
 					</div>
 				</div>

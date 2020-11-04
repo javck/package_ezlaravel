@@ -1,6 +1,6 @@
 <?php
 
-namespace Javck\Easyweb2\Http\Middleware;
+namespace Javck\Ezlaravel\Http\Middleware;
 
 use Closure;
 use Request;
@@ -17,9 +17,9 @@ class CheckForMaintenanceMode
     {
         if (env('APP_DEBUG') == true && env('APP_ENV') == 'production' && !in_array($request->getClientIp(), explode(',',env('DEBUG_IP'))))
         {
-            
+
             //return redirect(url('maintenance-page'));
-            return response()->view('easyweb2::maintenance');
+            return response()->view('Ezlaravel::maintenance');
         }
 
         return $next($request);

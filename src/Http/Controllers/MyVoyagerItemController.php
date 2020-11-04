@@ -1,15 +1,15 @@
 <?php
-namespace Javck\Easyweb2\Http\Controllers;
+namespace Javck\Ezlaravel\Http\Controllers;
 
 
-use App\Item;
-use App\Tag;
-use App\Cgy;
+use App\Models\Item;
+use App\Models\Tag;
+use App\Models\Cgy;
 use Illuminate\Http\Request;
 use Session;
 
 use TCG\Voyager\Facades\Voyager;
-use Javck\Easyweb2\Http\Controllers\MyVoyagerBaseController;
+use Javck\Ezlaravel\Http\Controllers\MyVoyagerBaseController;
 
 class MyVoyagerItemController extends MyVoyagerBaseController
 {

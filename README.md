@@ -1,8 +1,8 @@
 <p align="center"><a href="http://goblinlab.org" target="_blank"><img width="400" src="http://demo.goblinlab.org/storage/settings/July2019/UqH0sJ6usPDlZpYy7E5f.png"></a></p>
 
-# **E**asyweb2 - The Next Laravel Admin with Voyager
-Made with ❤️ by [Goblin Lab Studio](http://goblinlab.org)
-架構於Laravel框架，針對Voyager套件加以優化的網頁後台套件
+# **EzLaravel - 教您如何快速入門Laravel + Voyager的極速開發術 ❤️ by [Goblin Lab Studio](http://goblinlab.org)
+架構於Laravel框架，針對Voyager套件加以擴展的快速開發術
+陪著你一起快速入門Laravel
 
 ![Voyager Screenshot](https://s3.amazonaws.com/thecontrolgroup/voyager-screenshot.png)
 
@@ -18,23 +18,24 @@ Canvas Template: https://themeforest.net/item/canvas-the-multipurpose-html5-temp
 
 <hr>
 
-支持 Laravel 5.5, 5.6, 5.7(因為shopping cart套件的限制，暫不支持5.8)！
+支持 Laravel 8
 
-需指定安裝Laravel5.7版本而非最新版本，可使用以下指令來建立
+PS:此套件使用到第三方的Bootstrap4 Template :Moderna
+版權仍屬原開發者所有，如需自行下載可參考以下網址
+https://bootstrapmade.com/demo/Moderna/
+
+可安裝Laravel最新版本，可使用以下指令來建立
 PS：如需輸入指令，均需要切換到Terminal，並跳到專案根目錄資料夾
 
-```bash
-composer create-project --prefer-dist laravel/laravel blog "5.7.*"
-```
 
 ## 安裝步驟
 ### 1.(可選)如為新專案，需要在AppServiceProvider.php的boot()裡加入 Schema::defaultStringLength(191);
 ### 2.(可選)設定config/app.php，主要是locale改為zh_TW
-### 3.載入套件javck/easyweb2
+### 3.載入套件javck/Ezlaravel
 
 ```bash
-正式環境 composer require javck/easyweb2
-測試環境 composer require javck/easyweb2 --dev
+正式環境 composer require javck/Ezlaravel
+測試環境 composer require javck/Ezlaravel --dev
 ```
 
 ### 4.(可選)可載入DebuggerBar
@@ -55,7 +56,7 @@ Route::post('admin/logout', ['uses' => 'Auth\VoyagerAuthController@logout', 'as'
 ```
 
 ### 7.移除storage/app/public/users資料夾
-### 8.輸入指令以下指令以複製easyweb2套件的publish檔案
+### 8.輸入指令以下指令以複製Ezlaravel套件的publish檔案
 ```bash
 php artisan vendor:publish
 ```
@@ -88,8 +89,8 @@ php artisan vendor:publish
 
 
         'widgets' => [
-            'Javck\\Easyweb2\\Widgets\\ContactsWidget',
-            'Javck\\Easyweb2\\Widgets\\UsersWidget',
+            'Javck\\Ezlaravel\\Widgets\\ContactsWidget',
+            'Javck\\Ezlaravel\\Widgets\\UsersWidget',
         ],
 
 

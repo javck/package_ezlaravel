@@ -64,7 +64,7 @@ class InstallCommand extends Command
     {
         $this->info('出版Ezlaravel素材資源,資料庫,設定,視圖以及程式檔案');
 
-        $this->call('vendor:publish', ['--provider' => EzlaravelServiceProvider::class]);
+        $this->call('vendor:publish', ['--force' => true, '--provider' => EzlaravelServiceProvider::class]);
 
         $this->info('為您的資料庫建立相關表單');
         $this->call('migrate', ['--force' => $this->option('force')]);

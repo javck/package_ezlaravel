@@ -10,16 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::group(['namespace' => '\App\Http\Controllers'], function () {
+Route::group(['prefix' => '/demo','namespace' => '\App\Http\Controllers'], function () {
     Route::get('/', 'SiteController@renderHomePage');
-    Route::get('/welcome', 'SiteController@renderWelcomePage');
-    Route::get('/demo', 'SiteController@renderDemoPage');
-    Route::get('/news', 'SiteController@renderNewsPage');
+    Route::get('/services', 'SiteController@renderServicesPage');
+    Route::get('/articles/{cgy}', 'SiteController@renderCgyArticlesPage');
+    Route::get('/article/{article}', 'SiteController@renderArticlePage');
     Route::get('/about', 'SiteController@renderAboutPage');
-    Route::get('/search', 'SiteController@renderSearchPage');
+    Route::get('/contact', 'SiteController@renderContactPage');
     Route::get('/thank', 'SiteController@renderThankPage');
     Route::get('/policy', 'SiteController@renderPolicyPage');
+    Route::get('/portfolio','SiteController@renderPortfolioPage');
+    Route::get('/portfolio/{media}', 'SiteController@renderPortfolioDetailPage');
+    Route::post('/save','SiteController@save');
 });
+
+Route::get('/','\App\Http\Controllers\SiteController@renderWelcomePage');
 
 
 //自定義後台路由規則

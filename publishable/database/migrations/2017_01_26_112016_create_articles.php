@@ -16,10 +16,7 @@ class CreateArticles extends Migration
             $table->id();
             $table->bigInteger('cgy_id')->unsigned()->index(); //文章分類
             $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
-            $table->string('locale', 10)->default('zh_TW'); //語系
             $table->string('title', 40); //標題
-            $table->string('mediums', 400)->nullable(); //媒體連結，現只給網址使用
-            $table->string('mode', 20); //模式
             $table->unsignedBigInteger('author_id')->index(); //作者
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('content_small', 80)->nullable(); //部分內容
@@ -33,8 +30,7 @@ class CreateArticles extends Migration
             $table->string('meta_keywords', 255)->nullable();
             $table->string('seo_title', 255)->nullable();
             $table->string('slug', 255)->nullable();
-            $table->string('cover', 255)->nullable(); //封面圖片
-            $table->string('images', 1000)->nullable(); //圖片
+            $table->string('pic', 255); //圖片
             $table->timestamps();
         });
     }

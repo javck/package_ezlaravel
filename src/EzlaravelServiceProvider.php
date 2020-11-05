@@ -46,17 +46,14 @@ class EzlaravelServiceProvider extends ServiceProvider
             $publishablePath . '/views' => resource_path('views'),
             $publishablePath . '/lang' => resource_path('lang'),
             $publishablePath . '/database' => database_path('/'),
-            $publishablePath . '/Models/app' => app_path('/Models'),
+            $publishablePath . '/Models' => app_path('/Models'),
             //$publishablePath . '/public' => public_path('/'),
-            $publishablePath . '/Http/Controllers/Voyager/VoyagerAuthController.php' => app_path('Http/Controllers/Voyager/VoyagerAuthController.php'),
+            $publishablePath . '/Http/Controllers/Voyager' => app_path('Http/Controllers/Voyager'),
             $publishablePath . '/Http/Kernel.php' => app_path('Http/Kernel.php'),
             $publishablePath . '/Http/Controllers/SiteController.php' => app_path('Http/Controllers/SiteController.php'),
-            $publishablePath . '/webpack.mix.js' => base_path('webpackCanvas.mix.js'),
             $publishablePath . '/.env.sample' => base_path('.env.sample'),
             $publishablePath . '/config' => config_path('/'),
-            $publishablePath . '/assets/js' => public_path('assets/js'),
-            $publishablePath . '/assets/css' => public_path('assets/css'),
-            $publishablePath . '/assets/vendor' => public_path('assets/vendor'),
+            $publishablePath . '/assets' => public_path('assets'),
             $publishablePath . '/routes' => base_path('routes'),
             $publishablePath . '/storage' => storage_path('app/public/')
         ]);
@@ -69,6 +66,9 @@ class EzlaravelServiceProvider extends ServiceProvider
         $this->app->singleton('Ezlaravel', function () {
             return new Ezlaravel;
         });
+        if ($this->app->runningInConsole()) {
+            $this->registerConsoleCommands();
+        }
     }
 
     public function provides()
@@ -88,5 +88,13 @@ class EzlaravelServiceProvider extends ServiceProvider
 
 
         return $router->middleware($name, $class);
+    }
+
+    /**
+     * Register the commands accessible from the Console.
+     */
+    private function registerConsoleCommands()
+    {
+        $this->commands(Commands\InstallCommand::class);
     }
 }

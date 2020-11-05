@@ -20,7 +20,6 @@ class CreateElements extends Migration
             $table->string('mode', 10); //模式
             $table->string('title', 40); //標題
             $table->string('position', 20); //位置
-            $table->string('lang', 20); //語系
             $table->string('icon', 40)->nullable(); //圖示
             $table->string('subtitle', 80)->nullable(); //副標題
             $table->string('content', 2000)->nullable(); //內容

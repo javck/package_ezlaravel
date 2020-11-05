@@ -18,18 +18,14 @@ class CreateMedias extends Migration
             $table->string('title',40); //標題
             $table->BigInteger('cgy_id')->unsigned()->index(); //分類ID
             $table->foreign('cgy_id')->references('id')->on('cgys')->onDelete('cascade');
-            $table->string('lang',20)->default('zh_TW'); //語系
             $table->string('pics',500); //圖片
-            $table->string('title_link',255)->nullable(); //標題連結
-            $table->string("l_link",255)->nullable(); //左邊連結
-            $table->string("l_icon",20)->nullable(); //左邊ICON
-            $table->string("l_type",20)->nullable(); //左邊類型
-            $table->string("r_link",255)->nullable(); //右邊連結
-            $table->string("r_icon",20)->nullable(); //右邊ICON
-            $table->string("r_type",20)->nullable(); //右邊類型
+            $table->string('url', 255)->nullable(); //案件網址
+            $table->string('detail_title',100); //細節標題
+            $table->string("client",50)->nullable(); //客戶姓名
+            $table->date("project_date",20)->nullable(); //案件日期
+            $table->text("content"); //細節內容
             $table->integer('sort')->default(0); //排序
             $table->boolean('enabled')->default(true); //是否啟用
-            $table->string('subtitle',80)->nullable(); //副標題
             $table->timestamps();
         });
     }

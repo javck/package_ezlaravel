@@ -1,6 +1,7 @@
-<p align="center"><a href="http://goblinlab.org" target="_blank"><img width="400" src="http://goblinlab.org/storage/images/logo_panda.png"></a></p>
+<p align="center"><a href="http://goblinlab.org" target="_blank"><img width="200" height="200" src="http://goblinlab.org/storage/images/logo_panda.png"></a></p>
 
-#EzLaravel - 教您如何快速入門Laravel + Voyager的極速開發術 ❤️ by [Goblin Lab Studio](http://goblinlab.org)
+# EzLaravel - 教您如何快速入門Laravel + Voyager的極速開發術 ❤️ by [Goblin Lab Studio](http://goblinlab.org)
+
 架構於Laravel框架，針對Voyager套件加以擴展的快速開發術
 陪著你一起快速入門Laravel，最終做出帶後台的形象網站
 ![Voyager Screenshot](https://s3.amazonaws.com/thecontrolgroup/voyager-screenshot.png)
@@ -25,7 +26,7 @@ View the Voyager Cheat Sheet: https://voyager-cheatsheet.ulties.com/
 Ezlaravel套件目的為方便學習Laravel，相關程式碼均會在專案內放置一份，方便學習與修改。程式撰寫也力求簡單，以求讓初學者更好理解
 > 支持 Laravel 8.x版本
 
-PS:此套件使用到第三方的Bootstrap4 Template :Moderna
+PS:此套件使用到第三方的Bootstrap4 Template :Moderna，相關
 版權仍屬原開發者所有，如需自行下載可參考以下網址
 https://bootstrapmade.com/demo/Moderna/
 
@@ -44,6 +45,7 @@ laravel new 專案名稱
 接著請建立專案的新資料庫，並在.env檔案裡面設定：
 
 ```
+//.env
 APP_URL=http://ezlaravel.test(設定你專案的首頁網址)
 DB_HOST=localhost
 DB_DATABASE=ezlravel
@@ -81,10 +83,10 @@ composer require barryvdh/laravel-debugbar --dev
 
 ## 後台登入
 
-後台登入路徑為/admin，假如專案首頁網址為http://ezlaravel.test，後台網址即為http://ezlaravel.test/admin
+後台登入路徑為/admin，假如專案首頁網址為`http://ezlaravel.test`，後台網址即為`http://ezlaravel.test/admin`
 
 ### 帳號密碼
 
-超級管理員(具備所有後台權限) super/passw0rd
-管理員(具備管理前台資料的後台權限) admin/passw0rd
-一般用戶(不具任何後台權限) user/passw0rd
+#### 超級管理員(具備所有後台權限) super/passw0rd
+#### 管理員(具備管理前台資料的後台權限) admin/passw0rd
+#### 一般用戶(不具任何後台權限) user/passw0rd

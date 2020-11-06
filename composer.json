@@ -2,15 +2,19 @@
     "name": "javck/ezlaravel",
     "description": "Easy learning guide to  Laravel + Voyager",
     "type": "liberary",
-    "keywords": ["ezlaravel"],
+    "keywords": ["ezlaravel","laravel","admin","panel","voyager"],
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/javck/package_ezlaravel/issues",
+        "source": "https://github.com/javck/package_ezlaravel"
+    },
     "authors": [
         {
             "name": "zack lin",
             "email": "javck.zack@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.3|^8.0",
         "laravel/framework": "^8.0",

@@ -1276,26 +1276,6 @@ class MyDataRowSeeder extends Seeder
             'order' => 8
         ]);
 
-
-
-        DataRow::create([
-            'id' => 92,
-            'data_type_id' => 8,
-            'field' => 'lang',
-            'type' => 'constant dropdown',
-            'display_name' => '語系',
-            'required' => 1,
-            'browse' => 0,
-            'read' => 1,
-            'edit' => 1,
-            'add' => 1,
-            'delete' => 1,
-            'details' => '{"key":"lang","default":"zh_TW","display":{"width":6,"id":"lang"}}',
-            'order' => 9
-        ]);
-
-
-
         DataRow::create([
             'id' => 93,
             'data_type_id' => 8,

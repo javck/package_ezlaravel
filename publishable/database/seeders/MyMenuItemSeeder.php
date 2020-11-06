@@ -686,7 +686,7 @@ class MyMenuItemSeeder extends Seeder
             'id' => 39,
             'menu_id' => 5,
             'title' => 'EzLaravel套件',
-            'url' => '#',
+            'url' => 'https://packagist.org/packages/javck/ezlaravel',
             'target' => '_blank',
             'icon_class' => NULL,
             'color' => '#000000',

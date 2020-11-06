@@ -174,17 +174,17 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, vel! Eius
             'subtitle' => '限量優惠',
             'content' => '
 
-\r\n
+
 Full Access
-\r\n
+
  Source Files
-\r\n
+
 100 User Accounts
-\r\n
+
 1 Year License
-\r\n
+
 Phone & Email Support
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => '立刻試用',
@@ -221,17 +221,17 @@ Phone & Email Support
             'subtitle' => '限時優惠',
             'content' => '
 
-\r\n
-Full Access
-\r\n
- Source Files
-\r\n
-1000 User Accounts
-\r\n
-2 Years License
-\r\n
 
-\r\n
+Full Access
+
+ Source Files
+
+1000 User Accounts
+
+2 Years License
+
+
+
 ',
             'url' => '#',
             'url_txt' => '開始免費試用',
@@ -268,17 +268,17 @@ Full Access
             'subtitle' => '超值服務',
             'content' => '
 
-\r\n
+
 Full Access
-\r\n
+
  Source Files
-\r\n
+
 500 User Accounts
-\r\n
+
 3 Years License
-\r\n
+
 Phone & Email Support
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => '開始免費試用',
@@ -1638,14 +1638,14 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n              示範如何製作可以從後台進行修改的前台選單，包含主選單以及Footer連結\r\n
+              示範如何製作可以從後台進行修改的前台選單，包含主選單以及Footer連結
 
-\r\n
-\r\n
+
+
 選單建構工具
-\r\n
+
 前台取用選單資料
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -1681,16 +1681,16 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n             示範如何使用Laravel的Blade機制來製作可重用且方便維護的前台網頁，並支持從資料庫取資料作呈現\r\n
+             示範如何使用Laravel的Blade機制來製作可重用且方便維護的前台網頁，並支持從資料庫取資料作呈現
 
-\r\n
-\r\n
+
+
  Blade引擎
-\r\n
+
  Route機制
-\r\n
+
  實作MVC
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -1726,16 +1726,16 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n              示範如何製作帶後台管理的Blog介面，包含留言管理功能，保證讓你掌握如何開發Blog\r\n
+              示範如何製作帶後台管理的Blog介面，包含留言管理功能，保證讓你掌握如何開發Blog
 
-\r\n
-\r\n
+
+
 文章列表
-\r\n
+
 文章編輯與管理
-\r\n
+
 留言機制設計
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -1771,16 +1771,16 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n              示範如何將系統設定加以視覺化，把後台架構視覺化，把資料庫結構視覺化。只要學會，維護開發案將無法輕鬆且快速\r\n
+              示範如何將系統設定加以視覺化，把後台架構視覺化，把資料庫結構視覺化。只要學會，維護開發案將無法輕鬆且快速
 
-\r\n
-\r\n
+
+
  系統設定管理員
-\r\n
+
  資料庫管理員
-\r\n
+
  BREAD
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -1816,16 +1816,16 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n              示範如何讓帳戶具有不同的權限。只要學會，建構帶多種權限的後台系統將輕鬆且快速\r\n
+              示範如何讓帳戶具有不同的權限。只要學會，建構帶多種權限的後台系統將輕鬆且快速
 
-\r\n
-\r\n
+
+
  系統權限設定
-\r\n
+
  用戶管理
-\r\n
+
  前台權限判斷
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -1861,22 +1861,22 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n              哥布林程式教育學苑專注於全民的程式教育，尤其是網頁應用程式與人工智慧相關課程，如果您對以上內容感到興趣，歡迎到我們的頻道來關注我們，以下是我們正在籌備的課程:\r\n
+              哥布林程式教育學苑專注於全民的程式教育，尤其是網頁應用程式與人工智慧相關課程，如果您對以上內容感到興趣，歡迎到我們的頻道來關注我們，以下是我們正在籌備的課程:
 
-\r\n
-\r\n
+
+
  Laravel8從入門到實戰
-\r\n
- PHP程式極速入門
-\r\n
- 資料結構極速入門
-\r\n
- 大師談AI
-\r\n
-\r\n
-\r\n  另外，如果您想更深入的學習Laravel各種機制，歡迎參考我們在Hahow的熱門課程:Laravel5.8從入門到實戰\r\n
 
-\r\n
+ PHP程式極速入門
+
+ 資料結構極速入門
+
+ 大師談AI
+
+
+  另外，如果您想更深入的學習Laravel各種機制，歡迎參考我們在Hahow的熱門課程:Laravel5.8從入門到實戰
+
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -2250,7 +2250,7 @@ Phone & Email Support
             'position' => 'row4',
             'icon' => NULL,
             'subtitle' => '大三學生',
-            'content' => '在第一次接觸程式時，個人認為那非常的困難，太多的東西需要去理解，不是用背的或者照著寫就能全部理解的東西。\r\n會對他產生興趣還是因為在專題的製作過程中有需要，才有去研讀程式，來到這裡先後學習了PHP.JavaScript.HTML and CSS，這在往後學習Laravel會用到，其實在這裡所教會我的就是程式最重要的邏輯概念，還有程式沒有像別人所說的那麼困難，只要你肯花時間去理解與實作，就會發現程式並不困難，所欠缺的只是經驗以及熟練度。 在這裏每次課程結束都會有工作，而且量還滿大的，但這只是讓我們去熟練程式而已，並不是在為難你，既然你選擇了學習，那你就要有相對的付出。\r\n\r\n所以經過這次的課程指導，其實想學程式並不困難，困難的只是你是否願意付出，有付出一定有收穫，別在乎收穫的如何，給自己一個機會去跟程式做朋友吧。',
+            'content' => '在第一次接觸程式時，個人認為那非常的困難，太多的東西需要去理解，不是用背的或者照著寫就能全部理解的東西。會對他產生興趣還是因為在專題的製作過程中有需要，才有去研讀程式，來到這裡先後學習了PHP.JavaScript.HTML and CSS，這在往後學習Laravel會用到，其實在這裡所教會我的就是程式最重要的邏輯概念，還有程式沒有像別人所說的那麼困難，只要你肯花時間去理解與實作，就會發現程式並不困難，所欠缺的只是經驗以及熟練度。 在這裏每次課程結束都會有工作，而且量還滿大的，但這只是讓我們去熟練程式而已，並不是在為難你，既然你選擇了學習，那你就要有相對的付出。所以經過這次的課程指導，其實想學程式並不困難，困難的只是你是否願意付出，有付出一定有收穫，別在乎收穫的如何，給自己一個機會去跟程式做朋友吧。',
             'url' => '#',
             'url_txt' => NULL,
             'pic' => 'images/testimonials/testimonials-1.jpg',
@@ -2284,7 +2284,7 @@ Phone & Email Support
             'position' => 'row4',
             'icon' => NULL,
             'subtitle' => '大三學生',
-            'content' => '從我會寫程式到現在,我一直都以為server是另一種level的東西,可遠觀而不可褻完焉,都覺得超難的不想去接觸到這一塊,但在因緣際會下我進入了這個課程,從一開始基本網頁php學習到現在架設一個完整的網頁server後台,甚至可以在ubuntu環境下架設出一個server,這些是我以前想都沒想過的。\r\n哥布林老師教導我們的方式是利用做中學的方式,直接給我們方向,然後我們就要自己去找資料,自己把所要求的結果給呈現出來,一來我們更可以了解到原理,二來也可以增加我們搜尋資料的速度及準確度,再來就是搜尋到的資料多半都是英文,也可以藉由這樣的方式來增加自己的英語能力,這種學習方式是在學校學不到的。\r\n\r\n所以經過這次的課程指導，其實想學程式並不困難，困難的只是你是否願意付出，有付出一定有收穫，別在乎收穫的如何，給自己一個機會去跟程式做朋友吧。',
+            'content' => '從我會寫程式到現在,我一直都以為server是另一種level的東西,可遠觀而不可褻完焉,都覺得超難的不想去接觸到這一塊,但在因緣際會下我進入了這個課程,從一開始基本網頁php學習到現在架設一個完整的網頁server後台,甚至可以在ubuntu環境下架設出一個server,這些是我以前想都沒想過的。哥布林老師教導我們的方式是利用做中學的方式,直接給我們方向,然後我們就要自己去找資料,自己把所要求的結果給呈現出來,一來我們更可以了解到原理,二來也可以增加我們搜尋資料的速度及準確度,再來就是搜尋到的資料多半都是英文,也可以藉由這樣的方式來增加自己的英語能力,這種學習方式是在學校學不到的。所以經過這次的課程指導，其實想學程式並不困難，困難的只是你是否願意付出，有付出一定有收穫，別在乎收穫的如何，給自己一個機會去跟程式做朋友吧。',
             'url' => '#',
             'url_txt' => NULL,
             'pic' => 'images/testimonials/testimonials-4.jpg',
@@ -2318,7 +2318,7 @@ Phone & Email Support
             'position' => 'row4',
             'icon' => NULL,
             'subtitle' => '大四學生',
-            'content' => '在參與Sever程式班課之前，所學會的東西都是從學校圖書館內的書自己去閱讀，按照書上的範例去實作，做出跟書本上一樣的東西，但是如果太過於深入的部分沒有基礎底子的我，完全看不懂內文的程式碼的意思是在解釋些什麼。而開始參與到了Server程式班後，Zack不管以前的基礎好不好，從頭開始的一步一步先開始建立我們的觀念，告訴我們他的寫程式時發生的親身經歷會遇到什麼狀況，如何去解決，並且讓我們著手去實際操作，也很嚴格的要求我們必須要完成每次上完課所交代的功課是否完成，並且有沒有遇到什麼觀念不懂的地方需要再次講解，才會繼續接下去後面的課程。\r\n覺得這樣的學習方式跟在學校內是不一樣的，在這裏可以感覺到Zack的想要教給我們的知識，並且希望我們也能夠自己去衍伸出更多所沒有教到的內容，不單只是給你魚，還教你如何釣魚的方法，而在上課的過程中也可以學習到不單只是程式上的部分，在做報告的內容規劃，文書撰寫，等等技巧都能感受到是實務上會發生的事情，並且依照這樣方式可以處理妥事情，覺得在這可以學習到的東西非常的廣。',
+            'content' => '在參與Sever程式班課之前，所學會的東西都是從學校圖書館內的書自己去閱讀，按照書上的範例去實作，做出跟書本上一樣的東西，但是如果太過於深入的部分沒有基礎底子的我，完全看不懂內文的程式碼的意思是在解釋些什麼。而開始參與到了Server程式班後，Zack不管以前的基礎好不好，從頭開始的一步一步先開始建立我們的觀念，告訴我們他的寫程式時發生的親身經歷會遇到什麼狀況，如何去解決，並且讓我們著手去實際操作，也很嚴格的要求我們必須要完成每次上完課所交代的功課是否完成，並且有沒有遇到什麼觀念不懂的地方需要再次講解，才會繼續接下去後面的課程。覺得這樣的學習方式跟在學校內是不一樣的，在這裏可以感覺到Zack的想要教給我們的知識，並且希望我們也能夠自己去衍伸出更多所沒有教到的內容，不單只是給你魚，還教你如何釣魚的方法，而在上課的過程中也可以學習到不單只是程式上的部分，在做報告的內容規劃，文書撰寫，等等技巧都能感受到是實務上會發生的事情，並且依照這樣方式可以處理妥事情，覺得在這可以學習到的東西非常的廣。',
             'url' => '#',
             'url_txt' => NULL,
             'pic' => 'images/testimonials/testimonials-5.jpg',
@@ -2762,17 +2762,17 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n
+
  Quam adipiscing vitae proin
-\r\n
+
  Nec feugiat nisl pretium
-\r\n
+
  Nulla at volutpat diam uteera
-\r\n
+
  Pharetra massa massa ultricies
-\r\n
+
  Massa ultricies mi quis hendrerit
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -2808,17 +2808,17 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n
+
  Quam adipiscing vitae proin
-\r\n
+
  Nec feugiat nisl pretium
-\r\n
+
  Nulla at volutpat diam uteera
-\r\n
+
  Pharetra massa massa ultricies
-\r\n
+
  Massa ultricies mi quis hendrerit
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,
@@ -2854,17 +2854,17 @@ Phone & Email Support
             'subtitle' => NULL,
             'content' => '
 
-\r\n
+
  Quam adipiscing vitae proin
-\r\n
+
  Nec feugiat nisl pretium
-\r\n
+
  Nulla at volutpat diam uteera
-\r\n
+
  Pharetra massa massa ultricies
-\r\n
+
  Massa ultricies mi quis hendrerit
-\r\n
+
 ',
             'url' => '#',
             'url_txt' => NULL,

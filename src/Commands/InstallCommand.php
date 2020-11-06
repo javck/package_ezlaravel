@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
-use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
 use Javck\Ezlaravel\EzlaravelServiceProvider;
 
 class InstallCommand extends Command

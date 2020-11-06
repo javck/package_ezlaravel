@@ -29,16 +29,16 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @yield('css')
 
     <meta property="og:title" content="{{ setting('site.title') }}" />
@@ -57,34 +57,18 @@
     {!! setting('site.gtm_body') !!}
     @endif
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top header-transparent">
+    <header id="header" class="fixed-top @yield('header_class')">
         <div class="container">
 
             <div class="logo float-left">
-                <h1 class="text-light"><a href="index.html"><span>Moderna</span></a></h1>
+                <h1 class="text-light"><a href="{{ url('/') }}"><span>{{ setting('site.title') }}</span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo'),'storage/images/logo.png')
- }}" alt="{{ setting('site.title') }}" class="img-fluid"></a>
+                <!-- <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo'),'storage/images/logo.png')
+ }}" alt="{{ setting('site.title') }}" class="img-fluid"></a>-->
             </div>
 
             <nav class="nav-menu float-right d-none d-lg-block">
-                <ul>
-                    @foreach($items as $menu_item)
-                    <li><a href="{{$item->link()}}">{{$item->title}} </a>
-                        @php
-                        $sub2menu = $item->children;
-                        @endphp
-
-                        @if(isset($sub2menu) && count($sub2menu) > 0)
-                        <ul>
-                            @foreach($sub2menu as $sub2_item)
-                                <li><a href="{{$sub2_item->link()}}">{{$sub2_item->title}} </a></li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </li>
-                    @endforeach
-                </ul>
+                {{ menu('frontend','partials.priNav_classic') }}
             </nav><!-- .nav-menu -->
 
         </div>
@@ -97,14 +81,15 @@
 
     <main id="main">
 
-    @yield('body')
+        @yield('body')
 
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
-        <-- <div class="footer-newsletter">
+        <!-- 訂閱電子報區塊開始
+            <div class="footer-newsletter">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -118,47 +103,39 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+            </div>
+            訂閱電子報區塊結束-->
 
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    @foreach($items as $menu_item)
-                        <div class="col-lg-{{ 6/$loop->count }} col-md-{{ 12/$loop->count }} footer-links">
-                        @php
-                        $sub2menu = $menu_item->children;
-                        @endphp
-
-                        @if(isset($sub2menu) && count($sub2menu) > 0)
-                            @foreach($sub2menu as $sub2_item)
-                                <a href="{{$sub2_item->link()}}">{{$sub2_item->title}} </a>
-                            @endforeach
-                        @else
-                            <h4>{!! $menu_item->title !!}</h4>
-                        @endif
-                        </div>
-                    @endforeach
+                    {{ menu('frontend_footer','partials.menu_footer') }}
 
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>聯絡資訊</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            {!! setting('site.address') !!}<br>
+                            <strong>電話:</strong> {{ setting('site.phone') }}<br>
+                            <strong>Email:</strong> <a
+                                href="mailto:{{ setting('site.service_mail') }}">{{ setting('site.service_mail') }}</a><br>
                         </p>
 
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-info">
                         <h3>關於我們</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <p>{!! setting('site.description') !!}</p>
                         <div class="social-links mt-3">
                             <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            @if (setting('site.fb_id') != null)
+                            <a href="https://www.facebook.com/{{ setting('site.fb_id') }}" class="facebook"><i
+                                    class="bx bxl-facebook"></i></a>
+                            @endif
+                            @if (setting('site.ig_id') != null)
+                            <a href="https://www.instagram.com/{{ setting('site.ig_id') }}/" class="instagram"><i
+                                    class="bx bxl-instagram"></i></a>
+                            @endif
+
                             <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>-->
                         </div>
                     </div>
@@ -170,7 +147,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
+                {!! setting('site.copyright') !!}
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
@@ -185,19 +162,19 @@
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/venobox/venobox.min.js"></script>
-    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="assets/vendor/counterup/counterup.min.js"></script>
-    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/counterup/counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     @yield('js')
     {!! setting('site.javascript_embedded') !!}
 </body>

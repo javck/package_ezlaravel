@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 //儲存標籤資訊
 
 class Tag extends Model
 {
+    use HasFactory;
+
     protected $table = 'tags';
 
     protected $guarded = [];
@@ -37,6 +40,11 @@ class Tag extends Model
 
     public function getTypesListAttribute(){
         return explode(',',$this->type);
+    }
+
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', 1);
     }
 
 }

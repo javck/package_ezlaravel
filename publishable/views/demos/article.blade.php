@@ -58,14 +58,14 @@
                                 </li>
                             </ul>
 
-                            <i class="icofont-tags"></i>
-                            <ul class="tags">
-                                @foreach ($article->tagsList as $key => $value)
-                                    <li><a href="#">{{ $value }}</a></li>
-                                @endforeach
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
-                            </ul>
+                            @if(count($article->tags) > 0)
+                                <i class="icofont-tags"></i>
+                                <ul class="tags">
+                                    @foreach ($article->tags as $tag)
+                                        <li><a href="#">{{ $tag->title }}</a></li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
 
                         <div class="float-right share">

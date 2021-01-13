@@ -8,6 +8,7 @@ use Javck\Ezlaravel\Http\Controllers\MyVoyagerBaseController;
 use App\Http\Requests;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\Cgy;
 use App\Models\Comment;
 use Session;
 use Auth;
@@ -210,6 +211,9 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         }
         //處理上一篇.下一篇文章
         $data = ['article'=>$article];
+        $data['tags'] = Tag::where('enabled', 1)->where('type', 'like', '%def%')->orderBy('sort', 'asc')->get();
+        $data['cgys'] = Cgy::where('enabled', 1)->get();
+        $data['articles_feature'] = Article::where('featured', true)->where('status', 'published')->orderBy('sort', 'asc')->orderBy('created_at', 'desc')->get();
         if ($currentIndex != 0) {
             $lastArticle = $articles[$currentIndex-1];
             $data['lastArticle'] = $lastArticle;
@@ -243,7 +247,7 @@ class MyVoyagerArticleController extends MyVoyagerBaseController
         $data['comments'] = $comments;
 
         if (isset($data['article'])) {
-            return view('Ezlaravel::pages.article_show',$data);
+            return view('demos.article', $data);
         }else{
             return abort(404);
         }

@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Voyager;
 
 //儲存多媒體內容，包含單圖.多圖.影片等
 
 class Media extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
 
     protected $casts = [

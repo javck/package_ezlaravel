@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Order_Item;
 use App\Models\Item;
 
 class Order extends Model
 {
+    use HasFactory;
+
     protected $fillable= ['owner_id','receiver','receiverTitle','receiverMobile','receiverEmail','receiverAddress','message','couponCode','subtotal','shipCost','status'];
 
     public $additional_attributes = ['orderDetail'];

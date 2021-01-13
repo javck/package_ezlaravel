@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Voyager;
 
 //用來儲存文章的回應
 
 class Comment extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
 
     public function user()

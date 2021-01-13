@@ -7,6 +7,7 @@ use App\Models\Comment;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
 
@@ -15,7 +16,8 @@ use TCG\Voyager\Facades\Voyager;
 class Article extends Model
 {
     use Translatable,
-        Resizable;
+        Resizable,
+        HasFactory;
 
     const PUBLISHED = 'PUBLISHED';
 
@@ -35,7 +37,7 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps()->orderBy('sort');
     }
 
     public function getPicUrl(){

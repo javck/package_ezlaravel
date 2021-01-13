@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Voyager;
 use App;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Tag;
+use App\Models\Cgy;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Voyager\VoyagerBaseController;
@@ -17,6 +19,29 @@ class VoyagerArticleController extends VoyagerBaseController
 
     public function __construct()
     {
+    }
+
+    private function inputHandle(Request $request)
+    {
+        $inputs = $request->all();
+        $request->merge(['author_id' => Auth::user()->id]);
+
+        //附件處理
+        if (isset($inputs['attachment_paths']) and $inputs['attachment_paths'][0] != null) {
+            $files = $request->file('attachment_paths');
+            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names']) == 0) {
+                $fileNames = array();
+                foreach ($files as $file) {
+                    $fileNames[] = $file->getClientOriginalName();
+                }
+                $request->merge(['attachment_names' => implode(',', $fileNames)]);
+            }
+        }
+
+        if (!isset($inputs['content_small'])) {
+            $request->merge(['content_small' => mb_substr($inputs['content'], 0, 60, "utf-8") . '...']);
+        }
+        return $request;
     }
 
     /**
@@ -39,25 +64,7 @@ class VoyagerArticleController extends VoyagerBaseController
         $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
 
         //自定義資料處理================================
-        $inputs = $request->all();
-        $inputs['author_id'] = Auth::user()->id;
-
-        //附件處理
-        if (isset($inputs['attachment_paths']) and $inputs['attachment_paths'][0] != null) {
-            $files = $request->file('attachment_paths');
-            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names']) == 0) {
-                $fileNames = array();
-                foreach ($files as $file) {
-                    $fileNames[] = $file->getClientOriginalName();
-                }
-                $inputs['attachment_names'] = implode(',', $fileNames);
-            }
-        }
-
-        if (!isset($inputs['content_small'])) {
-            $inputs['content_small'] = mb_substr($inputs['content'], 0, 60, "utf-8") . '...';
-        }
-        //=============================================
+        $request =  $this->inputHandle($request);
 
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
@@ -106,24 +113,7 @@ class VoyagerArticleController extends VoyagerBaseController
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
 
         //自定義資料處理================================
-        $inputs = $request->all();
-        //附件處理
-        if (isset($inputs['attachment_paths']) and $inputs['attachment_paths'][0] != null) {
-            $files = $request->file('attachment_paths');
-            if (!isset($inputs['attachment_names']) or strlen($inputs['attachment_names']) == 0) {
-                $fileNames = array();
-                foreach ($files as $file) {
-                    $fileNames[] = $file->getClientOriginalName();
-                }
-                $inputs['attachment_names'] = implode(',', $fileNames);
-            }
-        } else {
-            $inputs['attachment_paths'] = $data->attachment_paths;
-        }
-
-        if (!isset($inputs['content_small'])) {
-            $inputs['content_small'] = mb_substr($inputs['content'], 0, 60, "utf-8") . '...';
-        }
+        $request = $this->inputHandle($request);
         //=============================================
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
         event(new BreadDataUpdated($dataType, $data));
@@ -140,12 +130,12 @@ class VoyagerArticleController extends VoyagerBaseController
     public function comment($id, Request $request)
     {
         $inputs = $request->all();
-        $user   = Auth::user();
-        $data   = array();
+        $user = Auth::user();
+        $data = array();
         if (isset($user)) {
             $data['user_id'] = $user->id;
-            $data['name']    = $user->name;
-            $data['email']   = $user->email;
+            $data['name'] = $user->name;
+            $data['email'] = $user->email;
         } else {
             if (isset($inputs['author'])) {
                 $data['name'] = $inputs['author'];
@@ -157,13 +147,13 @@ class VoyagerArticleController extends VoyagerBaseController
                 $data['website'] = $inputs['url'];
             }
         }
-        $article            = Article::find($id);
+        $article = Article::find($id);
         $data['article_id'] = $id;
-        $data['content']    = $inputs['comment'];
-        $comment            = Comment::create($data);
+        $data['content'] = $inputs['comment'];
+        $comment = Comment::create($data);
 
         //發送Email通知
-        if (App::environment() == 'production') {
+        if (App::environment() == 'production' && setting('admin.isSendNotify') == 'true') {
             $beautyMail = app()->make(\Snowfire\Beautymail\Beautymail::class);
             $beautyMail->send('emails.reminder', ['title' => '文章:' . $article->title . ' 有新留言', 'comment' => $comment, 'mode' => 'comment'], function ($m) {
                 $m->from(setting('site.service_mail'), setting('site.name'));
@@ -172,15 +162,14 @@ class VoyagerArticleController extends VoyagerBaseController
         }
 
         return redirect($inputs['currentUrl']);
-        //return array('alert' => "success" , 'message' => trans('messages.commentSuccess') );
     }
 
     //下載檔案附件
     public function download($id, $index)
     {
-        $article  = Article::find($id);
+        $article = Article::find($id);
         $filePath = json_decode($article->attachment_paths, true)[$index]['download_link'];
-        $path     = public_path() . $filePath;
+        $path = public_path() . $filePath;
         $fileName = $article->getAttachNameAry()[$index];
         return response()->download($path, $fileName);
     }
@@ -190,8 +179,8 @@ class VoyagerArticleController extends VoyagerBaseController
     {
         //Carbon::setLocale('zh-tw'); //設定Carbon的本地化
         $currentIndex = 0;
-        $article      = Article::find($id);
-        $articles     = Article::where('cgy_id', $article->cgy_id)->where('status', 'published')->orderBy('created_at', 'desc')->orderBy('sort', 'asc')->get();
+        $article = Article::find($id);
+        $articles = Article::where('cgy_id', $article->cgy_id)->where('status', 'published')->orderBy('created_at', 'desc')->orderBy('sort', 'asc')->get();
         for ($i = 0; $i < count($articles); $i++) {
             if ($articles[$i]->id == $id) {
                 $currentIndex = $i;
@@ -200,12 +189,15 @@ class VoyagerArticleController extends VoyagerBaseController
         }
         //處理上一篇.下一篇文章
         $data = ['article' => $article];
+        $data['tags'] = Tag::where('enabled', 1)->where('type', 'like', '%def%')->orderBy('sort', 'asc')->get();
+        $data['cgys'] = Cgy::where('enabled', 1)->get();
+        $data['articles_feature'] = Article::where('featured', true)->where('status', 'published')->orderBy('sort', 'asc')->orderBy('created_at', 'desc')->get();
         if ($currentIndex != 0) {
-            $lastArticle         = $articles[$currentIndex - 1];
+            $lastArticle = $articles[$currentIndex - 1];
             $data['lastArticle'] = $lastArticle;
         }
         if ($currentIndex != count($articles) - 1) {
-            $nextArticle         = $articles[$currentIndex + 1];
+            $nextArticle = $articles[$currentIndex + 1];
             $data['nextArticle'] = $nextArticle;
         }
 
@@ -229,11 +221,11 @@ class VoyagerArticleController extends VoyagerBaseController
             $data['relatedArticles'] = $related_articles;
         }
 
-        $comments         = Comment::where('article_id', $id)->where('enabled', 1)->orderBy('created_at', 'desc')->get();
+        $comments = Comment::where('article_id', $id)->where('enabled', 1)->orderBy('created_at', 'desc')->get();
         $data['comments'] = $comments;
 
         if (isset($data['article'])) {
-            return view('Ezlaravel::pages.article_show', $data);
+            return view('demos.article', $data);
         } else {
             return abort(404);
         }
@@ -244,17 +236,17 @@ class VoyagerArticleController extends VoyagerBaseController
     {
         $article = Article::find($id);
         if (isset($article)) {
-            $newArticle         = $article->replicate();
-            $newArticle->title  = $newArticle->title . '(複製)';
+            $newArticle = $article->replicate();
+            $newArticle->title = $newArticle->title . '(複製)';
             $newArticle->status = 'draft';
             $newArticle->save();
             return redirect('admin/articles/' . $newArticle->id . '/edit')->with([
-                'message'    => '文章複製成功',
+                'message' => '文章複製成功',
                 'alert-type' => 'success',
             ]);
         } else {
             return redirect('admin/articles')->with([
-                'message'    => '文章複製失敗，找不到該筆資料',
+                'message' => '文章複製失敗，找不到該筆資料',
                 'alert-type' => 'error',
             ]);
         }

@@ -42,6 +42,16 @@
 @stop
 
 @section('content')
+    @php
+        use TCG\Voyager\Database\Schema\SchemaManager;
+        use TCG\Voyager\Facades\Voyager;
+
+        if($isServerSide){
+            $searchable =
+            SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
+            $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+        }
+    @endphp
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
         <div class="row">

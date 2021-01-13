@@ -96,5 +96,6 @@ class EzlaravelServiceProvider extends ServiceProvider
     private function registerConsoleCommands()
     {
         $this->commands(Commands\InstallCommand::class);
+        $this->commands(Commands\RepublishCommand::class);
     }
 }

@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Partner;
 
 //儲存提交的聯絡資訊以及課程報名資訊
 
 class Contact extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
 
     public function getServiceName()

@@ -90,3 +90,11 @@ composer require barryvdh/laravel-debugbar --dev
 #### 超級管理員(具備所有後台權限) super/passw0rd
 #### 管理員(具備管理前台資料的後台權限) admin/passw0rd
 #### 一般用戶(不具任何後台權限) user/passw0rd
+
+## 其他命令
+
+單純將檔案發布到專案內，但不更新資料庫
+
+```bash
+php artisan ezlaravel:republish
+```

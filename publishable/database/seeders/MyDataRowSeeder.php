@@ -641,7 +641,7 @@ class MyDataRowSeeder extends Seeder
  "allowed":[],
  "base_path":"cgys"
 }',
-'order' => 5
+            'order' => 5
         ]);
 
 
@@ -666,7 +666,7 @@ class MyDataRowSeeder extends Seeder
      }
  }
 }',
-'order' => 6
+            'order' => 6
         ]);
 
 
@@ -691,7 +691,7 @@ class MyDataRowSeeder extends Seeder
      "width":4
  }
 }',
-'order' => 7
+            'order' => 7
         ]);
 
 
@@ -715,7 +715,7 @@ class MyDataRowSeeder extends Seeder
      "width":4
  }
 }',
-'order' => 8
+            'order' => 8
         ]);
 
 
@@ -2755,7 +2755,7 @@ class MyDataRowSeeder extends Seeder
         DataRow::create([
             'id' => 192,
             'data_type_id' => 9,
-            'field' => 'media_belongsto_cgy_relationship',
+            'field' => 'portfolio_belongsto_cgy_relationship',
             'type' => 'relationship',
             'display_name' => '分類ID',
             'required' => 0,
@@ -2814,7 +2814,7 @@ class MyDataRowSeeder extends Seeder
  "pivot":"0",
  "taggable":"0"
 }',
-'order' => 3
+            'order' => 3
         ]);
 
 
@@ -4158,7 +4158,7 @@ class MyDataRowSeeder extends Seeder
         DataRow::create([
             'id' => 308,
             'data_type_id' => 9,
-            'field' => 'media_belongstomany_tag_relationship',
+            'field' => 'portfolio_belongstomany_tag_relationship',
             'type' => 'relationship',
             'display_name' => '標籤',
             'required' => 0,
@@ -4167,7 +4167,7 @@ class MyDataRowSeeder extends Seeder
             'edit' => 1,
             'add' => 1,
             'delete' => 1,
-            'details' => '{"validation":{"rule":"required","messages":{"required":"標籤欄位為必填"}},"model":"App\\\\Models\\\\Tag","table":"tags","type":"belongsToMany","column":"id","key":"id","label":"title","pivot_table":"media_tag","pivot":"1","taggable":"on"}',
+            'details' => '{"model":"App\\\\Models\\\\Tag","table":"tags","type":"belongsToMany","column":"id","key":"id","label":"title","pivot_table":"portfolio_tag","pivot":"1","taggable":"on"}',
             'order' => 4
         ]);
 

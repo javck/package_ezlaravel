@@ -159,10 +159,7 @@ class VoyagerAuthController extends BaseVoyagerAuthController
    Auth::logout();
    return view('/404-page')->with('message', '帳號停用中，請洽詢管理員!');
   } else {
-   $roles = DB::table('user_roles')->where('user_id', $user->id)->get();
-   if ($roles == null || count($roles) == 0) {
-    return redirect($this->redirectToFront);
-   }
+
   }
  }
 }

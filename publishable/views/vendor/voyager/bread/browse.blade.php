@@ -46,11 +46,6 @@
         use TCG\Voyager\Database\Schema\SchemaManager;
         use TCG\Voyager\Facades\Voyager;
 
-        if($isServerSide){
-            $searchable =
-            SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
-            $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
-        }
     @endphp
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
@@ -59,6 +54,10 @@
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         @if ($isServerSide)
+                                @php
+                                    $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
+                                    $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+                                @endphp
                             <form method="get" class="form-search">
                                 {{-- 自定義Filter區域 開始 --}}
                                 <div id="search-input" class="ca-search-input">

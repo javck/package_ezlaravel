@@ -9,11 +9,7 @@
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
-        @can('add', app($dataType->model_name))
-            <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
-                <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
-            </a>
-        @endcan
+
         @php $showCheckboxColumn = false @endphp
         @can('delete', app($dataType->model_name))
             @php $showCheckboxColumn = true @endphp
@@ -49,6 +45,10 @@
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         @if ($isServerSide)
+                            @php
+                                $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
+                                $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+                            @endphp
                             <form method="get" class="form-search">
                                 {{-- 自定義Filter區域 開始 --}}
                                 <div id="search-input" class="ca-search-input">

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 
 use TCG\Voyager\Facades\Voyager;
-use App\Http\Controllers\VoyagerBaseController;
+use App\Http\Controllers\Voyager\VoyagerBaseController;
 
 class VoyagerCommentController extends VoyagerBaseController
 {

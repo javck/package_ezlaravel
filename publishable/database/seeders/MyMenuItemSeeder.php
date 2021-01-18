@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -307,7 +308,7 @@ class MyMenuItemSeeder extends Seeder
         MenuItem::create([
             'id' => 17,
             'menu_id' => 1,
-            'title' => '多媒體集',
+            'title' => '作品集',
             'url' => '',
             'target' => '_self',
             'icon_class' => 'voyager-photos',
@@ -316,7 +317,7 @@ class MyMenuItemSeeder extends Seeder
             'order' => 2,
             'created_at' => '2019-02-11 06:57:58',
             'updated_at' => '2020-10-31 20:55:53',
-            'route' => 'voyager.medias.index',
+            'route' => 'voyager.portfolios.index',
             'parameters' => 'null'
         ]);
 

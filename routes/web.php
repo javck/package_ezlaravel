@@ -38,9 +38,7 @@ Route::group([
     });
 });
 
-Route::get('/404-page', function () {
-    return view('404-page');
-});
+Route::view('/404-page', '404-page');
 
 //後台====================================
 $middleware = ['web', 'javck.roleCheck', 'javck.verifyEnabled'];
@@ -53,7 +51,7 @@ if (Schema::hasTable('settings')) {
 Route::group(['prefix' => 'admin', 'namespace' => '\Javck\Ezlaravel\Http\Controllers', 'middleware' => $middleware], function () {
     Voyager::routes();
     Route::prefix('elements')->group(function () {
-        Route::match(['delete', 'get'], 'del/{id}', 'MyVoyagerElementController@destroy')->name('voyager.elements.destroy');
+        Route::match(['delete', 'get'], 'del/{id}', 'MyVoyagerElementController@destroy')->name('voyager.elements.del');
         Route::get('copy/{id}', 'MyVoyagerElementController@copy');
     });
     Route::prefix('articles')->group(function () {

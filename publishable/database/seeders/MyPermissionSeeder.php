@@ -429,40 +429,40 @@ class MyPermissionSeeder extends Seeder
 
         Permission::create([
             'id' => 52,
-            'key' => 'browse_medias',
-            'table_name' => 'medias'
+            'key' => 'browse_portfolios',
+            'table_name' => 'portfolios'
         ]);
 
 
 
         Permission::create([
             'id' => 53,
-            'key' => 'read_medias',
-            'table_name' => 'medias'
+            'key' => 'read_portfolios',
+            'table_name' => 'portfolios'
         ]);
 
 
 
         Permission::create([
             'id' => 54,
-            'key' => 'edit_medias',
-            'table_name' => 'medias'
+            'key' => 'edit_portfolios',
+            'table_name' => 'portfolios'
         ]);
 
 
 
         Permission::create([
             'id' => 55,
-            'key' => 'add_medias',
-            'table_name' => 'medias'
+            'key' => 'add_portfolios',
+            'table_name' => 'portfolios'
         ]);
 
 
 
         Permission::create([
             'id' => 56,
-            'key' => 'delete_medias',
-            'table_name' => 'medias'
+            'key' => 'delete_portfolios',
+            'table_name' => 'portfolios'
         ]);
 
 

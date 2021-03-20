@@ -6,14 +6,11 @@
     <meta name="description" content="{{ setting('site.description') }}">
 @stop
 
-@section('page_title'){{ 登入 }}@stop
+@section('page_title') 登入 @stop
 
-@section('pri_nav')
-    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
-@stop
 @section('body')
-<div class="container clearfix topmargin">
-    <div class="row justify-content-center">
+<div class="container clearfix">
+    <div class="row justify-content-center" style="margin-top:150px; margin-bottom:80px;">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">登入</div>
@@ -74,6 +71,9 @@
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     忘記密碼?
+                                </a>
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    我要註冊
                                 </a>
                             </div>
                         </div>

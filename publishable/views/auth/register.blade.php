@@ -8,19 +8,15 @@
 
 @section('page_title'){{ trans('label.register') }}@stop
 
-@section('pri_nav')
-    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
-@stop
-
 @section('body')
 <div class="container clearfix notopmargin">
-    <div class="row justify-content-center" style="">
+    <div class="row justify-content-center" style="margin-top:150px; margin-bottom:80px;">
         <div class="col-lg-7 col-md-10">
             <div class="card shadow-sm">
                 <div class="card-header"><h4 class="mb-0">{{trans('label.register')}}</h4></div>
 
                 <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="{{ url($url) }}">
+                    <form class="form-horizontal" method="POST" action="{{ url('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -122,7 +118,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <div class="col-md-12">
                                 {!! NoCaptcha::display() !!}<br/>
                                 @if ($errors->has('g-recaptcha-response'))
@@ -132,11 +128,7 @@
                                 @endif
                             </div>
 
-                        </div>
-
-                        @isset($provider_id)
-                            <input id="provider_id" type="hidden" value="{{ $provider_id }}" name="provider_id">
-                        @endisset
+                        </div>  --}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

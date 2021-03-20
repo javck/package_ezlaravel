@@ -8,10 +8,6 @@
 
 @section('page_title') 密碼重設 @stop
 
-@section('pri_nav')
-    {{ menu('frontend',setting('canvas.pri_menu_file')) }}
-@stop
-
 @section('body')
 <div class="container clearfix topmargin">
     <div class="row justify-content-center">

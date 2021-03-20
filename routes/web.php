@@ -26,18 +26,6 @@ Route::get('sendmail', function () {
 });
 
 //前台====================================
-Route::group([
-    'middleware' => ['javck.checkForMaintenanceMode', 'web'], 'namespace' => '\Javck\Ezlaravel\Http\Controllers'
-], function () {
-    Route::post('/submitContact', 'MyVoyagerContactController@save');
-
-    Route::prefix('articles')->group(function () {
-        Route::post('{id}/comment', 'MyVoyagerArticleController@comment');
-        Route::get('{id}', 'MyVoyagerArticleController@show');
-        Route::get('{id}/download/{index}', 'MyVoyagerArticleController@download');
-    });
-});
-
 Route::view('/404-page', '404-page');
 
 //後台====================================

@@ -26,7 +26,7 @@ class MyDataTypeSeeder extends Seeder
             'display_name_plural'   => '使用者集',
             'icon'                  => 'voyager-person',
             'model_name'            => 'App\\Models\\User',
-            'policy_name'           => 'App\\Policies\\UserPolicy',
+            'policy_name'           => 'TCG\\Voyager\\Policies\\UserPolicy',
             'controller'            => '\\App\\Http\\Controllers\\Voyager\\VoyagerUserController',
             'description'           => '使用者表格',
             'generate_permissions'  => 1,

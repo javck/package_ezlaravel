@@ -2314,7 +2314,7 @@ class MyDataRowSeeder extends Seeder
             'edit' => 1,
             'add' => 1,
             'delete' => 1,
-            'details' => '{"validation":{"rule":"unique|required|max:45","messages":{"unique":"帳號欄位的內容已經用過了","required":"帳號欄位為必填","max":"帳號欄位最大為 :max."}},"display":{"width":6}}',
+            'details' => '{"validation":{"rule":"unique:users|required|max:45","messages":{"unique":"帳號欄位的內容已經用過了","required":"帳號欄位為必填","max":"帳號欄位最大為 :max."}},"display":{"width":6}}',
             'order' => 3
         ]);
 
@@ -3983,7 +3983,7 @@ class MyDataRowSeeder extends Seeder
             'edit' => 1,
             'add' => 1,
             'delete' => 1,
-            'details' => '{"validation":{"rule":"unique|max:15|nullable","messages":{"unique":"此身分證字號已存在","max":"身分證字號欄位最大為 :max."}},"null":"","display":{"width":4}}',
+            'details' => '{"validation":{"rule":"unique:users|max:15|nullable","messages":{"unique":"此身分證字號已存在","max":"身分證字號欄位最大為 :max."}},"null":"","display":{"width":4}}',
             'order' => 8
         ]);
 

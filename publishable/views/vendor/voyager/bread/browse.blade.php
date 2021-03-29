@@ -37,6 +37,7 @@
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
+        @yield('page_header_inner')
         @include('voyager::multilingual.language-selector')
     </div>
 @stop

@@ -4,6 +4,7 @@ namespace Javck\Ezlaravel\Http\Middleware;
 
 use Closure;
 use Request;
+use URL;
 
 class ForceSSL
 {
@@ -17,8 +18,8 @@ class ForceSSL
     public function handle($request, Closure $next)
     {
         // Getting production To avoid local uri.
-        if (Request::server('HTTP_X_FORWARDED_PROTO') == 'http' && env('APP_ENV') == 'production' && env('FORCE_HTTPS') == true) {
-            return redirect()->secure($request->getRequestUri());
+        if (config('app.env') == 'production' && config('ezlaravel.force_https') == true) {
+            URL::forceScheme('https');
         }
         return $next($request);
     }

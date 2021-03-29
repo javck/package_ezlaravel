@@ -179,7 +179,7 @@ class VoyagerArticleController extends VoyagerBaseController
     {
         //Carbon::setLocale('zh-tw'); //設定Carbon的本地化
         $currentIndex = 0;
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         $articles = Article::where('cgy_id', $article->cgy_id)->where('status', 'published')->orderBy('created_at', 'desc')->orderBy('sort', 'asc')->get();
         for ($i = 0; $i < count($articles); $i++) {
             if ($articles[$i]->id == $id) {

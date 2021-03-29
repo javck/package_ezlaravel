@@ -241,31 +241,31 @@ class Ezlaravel
 	}
 
 	//序號生成器，需傳入序號前置碼與數量
-	public function createSerials($pre = '' , $qty) {
-		$key_sum = $qty * 1.5;    //CD-Key最大数量,防止重复值
- 		$key_total = $qty;    //最终需要的CD-Key数量
- 		$length = 7;  //生成序號長度
+	// public function createSerials($pre = '' , $qty) {
+	// 	$key_sum = $qty * 1.5;    //CD-Key最大数量,防止重复值
+ // 		$key_total = $qty;    //最终需要的CD-Key数量
+ // 		$length = 7;  //生成序號長度
 
- 		/* 生成随机数字串 */
-		 $serials = array();
-		 for ($i=0; $i<$key_sum; $i++)
-		 {
-		 	 $serial = '';
-		     for ($j=0; $j<$length; $j++){
-		     	$serial = $serial . $this->rdmLetter();
-		     }
-		     $serials[] = $pre . $serial;
-		 }
+ // 		/* 生成随机数字串 */
+	// 	 $serials = array();
+	// 	 for ($i=0; $i<$key_sum; $i++)
+	// 	 {
+	// 	 	 $serial = '';
+	// 	     for ($j=0; $j<$length; $j++){
+	// 	     	$serial = $serial . $this->rdmLetter();
+	// 	     }
+	// 	     $serials[] = $pre . $serial;
+	// 	 }
 
-		  /* 过滤重复串并且提取最终需要的CD-Key数量 */
-		 $serials = array_values(array_unique($serials));
-		 $serial_result = array();
-		 for ($i=0; $i<$key_total; $i++)
-		 {
-		     $serial_result[] = $serials[$i];
-		 }
-		 return $serial_result;
-	}
+	// 	  /* 过滤重复串并且提取最终需要的CD-Key数量 */
+	// 	 $serials = array_values(array_unique($serials));
+	// 	 $serial_result = array();
+	// 	 for ($i=0; $i<$key_total; $i++)
+	// 	 {
+	// 	     $serial_result[] = $serials[$i];
+	// 	 }
+	// 	 return $serial_result;
+	// }
 
 	//生成隨機字母
 	public function rdmLetter(){

@@ -54,7 +54,7 @@ class EzlaravelServiceProvider extends ServiceProvider
             $publishablePath . '/.env.sample' => base_path('.env.sample'),
             $publishablePath . '/config' => config_path('/'),
             $publishablePath . '/assets' => public_path('assets'),
-            //$publishablePath . '/routes' => base_path('routes'),
+            $publishablePath . '/routes' => base_path('routes'),
             $publishablePath . '/storage' => storage_path('app/public/')
         ]);
 

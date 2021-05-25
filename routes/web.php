@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,22 @@ Route::get('sendmail', function () {
 });
 
 //前台====================================
+
+Route::group(['prefix' => '/demo', 'namespace' => '\App\Http\Controllers'], function () {
+    Route::get('/', 'SiteController@renderHomePage');
+    Route::get('/services', 'SiteController@renderServicesPage');
+    Route::get('/articles/{cgy}', 'SiteController@renderCgyArticlesPage');
+    Route::get('/article/{article}', 'SiteController@renderArticlePage');
+    Route::get('/about', 'SiteController@renderAboutPage');
+    Route::get('/contact', 'SiteController@renderContactPage');
+    Route::get('/thank', 'SiteController@renderThankPage');
+    Route::get('/policy', 'SiteController@renderPolicyPage');
+    Route::get('/portfolio', 'SiteController@renderPortfolioPage');
+    Route::get('/portfolio/{media}', 'SiteController@renderPortfolioDetailPage');
+    Route::post('/save', 'SiteController@save');
+});
+
+Route::get('/', '\App\Http\Controllers\SiteController@renderWelcomePage');
 Route::view('/404-page', '404-page');
 
 //後台====================================
@@ -54,14 +72,8 @@ Route::group(['prefix' => 'admin', 'namespace' => '\Javck\Ezlaravel\Http\Control
 });
 Route::get('admin/voyager-assets', 'TCG\Voyager\Http\Controllers\VoyagerController@assets')->name('voyager.voyager_assets')->middleware(['web']);
 
-//API======================================
-Route::group(['middleware' => 'api', 'prefix' => 'api'], function () {
-    Route::group(['namespace' => '\Javck\Ezlaravel\Http\Controllers'], function () {
-        Route::get('items/show', 'ApiController@showSingleItem');
-        Route::get('items/{item}', 'ApiController@queryItem');
-        //Official
-        Route::post('areas/queryByCounty', 'ApiController@queryAreas');
-        Route::post('elements/queryPositions', 'ApiController@queryPositions');
-        Route::post('elements/queryElementModes', 'ApiController@queryElementModes');
-    });
+//自定義後台路由規則
+Route::group(['prefix' => 'admin', 'namespace' => '\App\Http\Controllers', 'middleware' => ['web', 'javck.roleCheck', 'javck.verifyEnabled']], function () {
+
 });
+

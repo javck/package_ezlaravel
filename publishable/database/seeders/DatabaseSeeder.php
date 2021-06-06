@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             ElementSeeder::class,
             PortfolioSeeder::class,
-            ContactSeeder::class,
+            //ContactSeeder::class,
             ItemSeeder::class,
             OrderSeeder::class,
             MyDataTypeSeeder::class,

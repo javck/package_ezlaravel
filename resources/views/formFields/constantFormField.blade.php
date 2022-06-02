@@ -19,8 +19,11 @@
     @if(isset($options))
         @foreach($options as $key => $option)
             @if(isset($row->details->isMultiple) && $row->details->isMultiple == true)
-                @if($dataTypeContent->{$row->field} != null && is_array($dataTypeContent->{$row->field}))
-                    <option value="{{ $key }}" @if(in_array($key,$dataTypeContent->{$row->field}))selected="selected" @endif>{{ $option }}</option>
+            @php
+                $values = json_decode($dataTypeContent->{$row->field},true)
+            @endphp
+                @if($dataTypeContent->{$row->field} != null && is_array($values))
+                    <option value="{{ $key }}" @if(in_array($key,$values))selected="selected" @endif>{{ $option }}</option>
                 @else
                     <option value="{{ $key }}">{{ $option }}</option>
                 @endif

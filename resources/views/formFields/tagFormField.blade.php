@@ -4,7 +4,7 @@
     <p class="label label-warning"><i class="voyager-warning"></i>標籤選項不存在</p>
 @endif
 <select class="form-control select2" 
-    @if(isset($row->details->isMultiple) && $row->details->isMultiple == "true")
+    @if(isset($row->details->isMultiple) && $row->details->isMultiple == true)
         name="{{ $row->field }}[]" multiple>
     @else
         name="{{ $row->field }}">
@@ -12,7 +12,7 @@
 
     @if(isset($options))
         @foreach($options as $key => $option)
-            @if(isset($row->details->isMultiple) && $row->details->isMultiple == "true")
+            @if(isset($row->details->isMultiple) && $row->details->isMultiple == true)
                 @if($dataTypeContent->{$row->field} != null && is_array($dataTypeContent->{$row->field}))
                     <option value="{{ $key }}" @if(in_array($key,$dataTypeContent->{$row->field}))selected="selected" @endif>{{ $option }}</option>
                 @else

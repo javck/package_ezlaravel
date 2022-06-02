@@ -138,7 +138,7 @@
                                         {{ __('voyager::generic.download') }}
                                     </a>
                                 @endif
-                            <!-- 自定義內容開始
+                            <!-- 自定義內容開始 -->
                             @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
                                 {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$dataTypeContent->{$row->field}) !!}
                             @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
@@ -159,7 +159,7 @@
                                          src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                                     @endif
                                 @endisset
-                            自定義內容結束 -->
+                            <!-- 自定義內容結束 -->
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
                                 <p>{{ $dataTypeContent->{$row->field} }}</p>

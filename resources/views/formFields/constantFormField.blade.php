@@ -10,7 +10,7 @@
 @endif
 <select class="form-control select2"
     <?php $default = (isset($options->default) && !isset($dataTypeContent->{$row->field})) ? $options->default : null; ?>
-    @if(isset($row->details->isMultiple) && $row->details->isMultiple == "true")
+    @if(isset($row->details->isMultiple) && $row->details->isMultiple == true)
         name="{{ $row->field }}[]" multiple>
     @else
         name="{{ $row->field }}">
@@ -18,7 +18,7 @@
 
     @if(isset($options))
         @foreach($options as $key => $option)
-            @if(isset($row->details->isMultiple) && $row->details->isMultiple == "true")
+            @if(isset($row->details->isMultiple) && $row->details->isMultiple == true)
                 @if($dataTypeContent->{$row->field} != null && is_array($dataTypeContent->{$row->field}))
                     <option value="{{ $key }}" @if(in_array($key,$dataTypeContent->{$row->field}))selected="selected" @endif>{{ $option }}</option>
                 @else

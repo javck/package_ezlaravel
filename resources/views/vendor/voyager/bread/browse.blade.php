@@ -37,24 +37,30 @@
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
+        @yield('page_header_inner')
         @include('voyager::multilingual.language-selector')
     </div>
 @stop
 
 @section('content')
-@php
-    if ($isServerSide) {
-        $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
-        $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
-    }
-@endphp
+    @php
+        use TCG\Voyager\Database\Schema\SchemaManager;
+        use TCG\Voyager\Facades\Voyager;
+
+    @endphp
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
+        <!-- Flash Message -->
+        @include('flash::message')
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         @if ($isServerSide)
+                                @php
+                                    $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
+                                    $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
+                                @endphp
                             <form method="get" class="form-search">
                                 {{-- 自定義Filter區域 開始 --}}
                                 <div id="search-input" class="ca-search-input">
@@ -290,7 +296,12 @@
                                                     @endif
                                                 {{-- 自定義輸入項 開始 --}}
                                                 @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
+                                                    @if (property_exists($row->details, 'isMultiple') && $row->details->isMultiple == true)
+                                                    {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,json_decode( $data->getOriginal($row->field)) ) !!}
+                                                    @else
                                                     {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$data->getOriginal($row->field)) !!}
+                                                    @endif
+                                                    
                                                 @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
                                                     {!! app('Ezlaravel')->getTagDropDownVal($data->getOriginal($row->field)) !!}
                                                 {{-- 自定義輸入項 結束 --}}
@@ -371,6 +382,8 @@
             </div>
         </div>
     </div>
+
+    @yield('bottom_content')
 
     {{-- Single delete modal --}}
     <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
@@ -505,5 +518,11 @@
             });
             $('.selected_ids').val(ids);
         });
+        <!-- Flash Message Overlay會用到，需保留 -->
+        $('#flash-overlay-modal').modal();
+
+        <!-- Flash Message 3秒之後消失，非必須 -->
+        $('div.alert').delay(3000).fadeOut(350);
     </script>
+
 @stop

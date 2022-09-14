@@ -23,9 +23,19 @@
                 $values = json_decode($dataTypeContent->{$row->field},true)
             @endphp
                 @if($dataTypeContent->{$row->field} != null && is_array($values))
-                    <option value="{{ $key }}" @if(in_array($key,$values))selected="selected" @endif>{{ $option }}</option>
+                    @if( is_number($key) )
+                        <option value="{{ $option }}" @if(in_array($option,$values))selected="selected" @endif>{{ $option }}</option>
+                    @else
+                        <option value="{{ $key }}" @if(in_array($key,$values))selected="selected" @endif>{{ $option }}</option>
+                    @endif
+                    
                 @else
-                    <option value="{{ $key }}">{{ $option }}</option>
+                    @if(is_number($key))
+                        <option value="{{ $option }}">{{ $option }}</option>
+                    @else
+                        <option value="{{ $key }}">{{ $option }}</option>
+                    @endif
+                    
                 @endif
             @else
                 <?php $default = (isset($options->default) && !isset($dataTypeContent->{$row->field})) ? $options->default : null; ?>

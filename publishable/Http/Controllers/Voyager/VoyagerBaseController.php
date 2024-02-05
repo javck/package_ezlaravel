@@ -8,10 +8,15 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use Session;
 use Auth;
+
 class VoyagerBaseController extends BaseVoyagerBaseController
 {
     public function insertUpdateData($request, $slug, $rows, $data)
     {
+        $slug = $this->getSlug($request);
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
         $multi_select = [];
         // Pass $rows so that we avoid checking unused fields
         $request->attributes->add(['breadRows' => $rows->pluck('field')->toArray()]);
@@ -95,6 +100,12 @@ class VoyagerBaseController extends BaseVoyagerBaseController
                 ];
             } else {
                 $data->{$row->field} = $content;
+            }
+
+            if ($row->type == 'constant dropdown') {
+                if (isset($dataType->details->isMultiple) && $dataType->details->isMultiple == true) {
+                    $data->{$row->field} = json_encode($content);
+                }
             }
         }
 
@@ -183,7 +194,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
                 }
                 $searchNames[$value] = $displayName;
             }
-        }else{
+        } else {
             $searchable = null;
         }
 
@@ -256,7 +267,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
                     } else {
                         $queryKey = $key;
                     }
-                    $query->where($queryKey, $value);
+                    $query->where($queryKey, 'like', '%' . $value . '%');
                     Session::put($key, $value);
                 }
             }
@@ -401,5 +412,4 @@ class VoyagerBaseController extends BaseVoyagerBaseController
         Session::forget('querys');
         return redirect('admin/' . $model);
     }
-
 }

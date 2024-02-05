@@ -138,9 +138,12 @@
                                         {{ __('voyager::generic.download') }}
                                     </a>
                                 @endif
-                            <!-- 自定義內容開始
+                            <!-- 自定義內容開始 -->
                             @elseif($row->type == 'constant dropdown' && property_exists($row->details, 'key'))
-                                {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$dataTypeContent->{$row->field}) !!}
+                                @php
+                                    $value = json_decode($dataTypeContent->{$row->field});
+                                @endphp
+                                {!! app('Ezlaravel')->getConstDropDownVal($row->details->key,$value) !!}
                             @elseif($row->type == 'tag dropdown' && property_exists($row->details, 'type'))
                                 @if(is_array($dataTypeContent->{$row->field}))
                                     {!! app('Ezlaravel')->getTagDropDownVal($dataTypeContent->{$row->field}) !!}
@@ -159,10 +162,14 @@
                                          src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                                     @endif
                                 @endisset
-                            自定義內容結束 -->
+                            <!-- 自定義內容結束 -->
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
+                                @if (!is_array($dataTypeContent->{$row->field}))
                                 <p>{{ $dataTypeContent->{$row->field} }}</p>
+                                @else
+                                <p>{{ implode(',',$dataTypeContent->{$row->field}) }}</p>
+                                @endif
                             @endif
                         </div><!-- panel-body -->
                         @if(!$loop->last)

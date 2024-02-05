@@ -13,10 +13,6 @@ class VoyagerBaseController extends BaseVoyagerBaseController
 {
     public function insertUpdateData($request, $slug, $rows, $data)
     {
-        $slug = $this->getSlug($request);
-
-        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-
         $multi_select = [];
         // Pass $rows so that we avoid checking unused fields
         $request->attributes->add(['breadRows' => $rows->pluck('field')->toArray()]);
@@ -103,7 +99,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
             }
 
             if ($row->type == 'constant dropdown') {
-                if (isset($dataType->details->isMultiple) && $dataType->details->isMultiple == true) {
+                if (isset($row->details->isMultiple) && $row->details->isMultiple == true) {
                     $data->{$row->field} = json_encode($content);
                 }
             }

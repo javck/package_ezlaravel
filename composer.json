@@ -2,7 +2,13 @@
     "name": "javck/ezlaravel",
     "description": "Easy learning guide to  Laravel + Voyager",
     "type": "liberary",
-    "keywords": ["ezlaravel","laravel","admin","panel","voyager"],
+    "keywords": [
+        "ezlaravel",
+        "laravel",
+        "admin",
+        "panel",
+        "voyager"
+    ],
     "license": "MIT",
     "support": {
         "issues": "https://github.com/javck/package_ezlaravel/issues",
@@ -16,14 +22,14 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.1",
-        "laravel/framework": "^8.0",
+        "php": "^8.0.2",
+        "laravel/framework": "^9.0",
         "laravelcollective/html": "^6.2",
         "tcg/voyager": "1.6.*",
-        "laravel/socialite": "^5.3.0"
+        "laravel/socialite": "^5.18",
+        "guzzlehttp/guzzle": "^7.0"
     },
-    "require-dev":{
-    },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "Javck\\Ezlaravel\\": "src/"
@@ -37,10 +43,10 @@
             ],
             "aliases": {
                 "Ezlaravel": "Javck\\Ezlaravel\\Facades\\Ezlaravel",
-                "Form" : "Collective\\Html\\FormFacade",
-                "Html" : "Collective\\Html\\HtmlFacade",
-                "Input" : "Illuminate\\Support\\Facades\\Input",
-                "Collection" : "Illuminate\\Database\\Eloquent\\Collection"
+                "Form": "Collective\\Html\\FormFacade",
+                "Html": "Collective\\Html\\HtmlFacade",
+                "Input": "Illuminate\\Support\\Facades\\Input",
+                "Collection": "Illuminate\\Database\\Eloquent\\Collection"
             }
         }
     }
